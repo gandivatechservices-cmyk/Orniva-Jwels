@@ -1,0 +1,9 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="80" fill="#f2f9f4"/>
+  <!-- Basket Outline -->
+  <path d="M60 90 L140 90 L130 145 C128 152 122 158 114 158 L86 158 C78 158 72 152 70 145 Z" fill="#ffffff" stroke="#12432a" stroke-width="4"/>
+  <!-- Handles -->
+  <path d="M80 90 C80 65 120 65 120 90" stroke="#10b981" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="100" cy="120" r="8" fill="#eaf5ee"/>
+  <path d="M96 120 L104 120" stroke="#12432a" stroke-width="2" stroke-linecap="round"/>
+</svg>

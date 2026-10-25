@@ -1,0 +1,72 @@
+<svg width="600" height="420" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="basketGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="tomatoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="breadGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Glow -->
+  <circle cx="300" cy="220" r="180" fill="#eaf5ee" opacity="0.6"/>
+
+  <!-- Bread Loaf in Background -->
+  <path d="M340 100 C340 60, 420 50, 440 90 L460 220 C460 250, 320 250, 320 220 Z" fill="url(#breadGrad)"/>
+  <ellipse cx="390" cy="85" rx="35" ry="15" fill="#fbbf24" opacity="0.6"/>
+  <line x1="360" y1="120" x2="410" y2="105" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
+  <line x1="370" y1="150" x2="425" y2="135" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Milk Bottle -->
+  <rect x="420" y="110" width="65" height="150" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="3"/>
+  <rect x="435" y="85" width="35" height="30" rx="6" fill="#3b82f6"/>
+  <rect x="430" y="150" width="45" height="40" rx="4" fill="#eff6ff"/>
+  <path d="M440 170 C445 160, 460 160, 465 170" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Broccoli / Fresh Greens Backing -->
+  <circle cx="230" cy="120" r="45" fill="#15803d"/>
+  <circle cx="270" cy="100" r="40" fill="#16a34a"/>
+  <circle cx="310" cy="125" r="38" fill="#15803d"/>
+  <circle cx="210" cy="150" r="35" fill="#166534"/>
+  <circle cx="260" cy="140" r="45" fill="url(#leafGrad)"/>
+
+  <!-- Carrots -->
+  <path d="M290 120 L275 230 C273 240, 260 240, 258 230 L245 120 Z" fill="#ea580c" transform="rotate(-15 270 170)"/>
+  <path d="M245 110 C240 90, 230 80, 220 70 M248 110 C250 85, 255 75, 260 65" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Red Bell Pepper / Tomatoes -->
+  <ellipse cx="320" cy="180" rx="35" ry="38" fill="url(#tomatoGrad)"/>
+  <path d="M315 145 C320 140, 325 140, 325 148 L323 155" stroke="#15803d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Yellow Bell Pepper -->
+  <ellipse cx="370" cy="190" rx="32" ry="35" fill="#eab308"/>
+  <path d="M368 158 C370 152, 375 152, 375 160" stroke="#15803d" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Bananas Front Left -->
+  <path d="M160 240 C170 170, 240 180, 260 230 C240 200, 180 190, 160 240 Z" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+  <path d="M175 250 C185 185, 250 195, 270 240 C250 215, 195 205, 175 250 Z" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+
+  <!-- Rustic Woven Grocery Basket / Crate Base -->
+  <path d="M140 220 L480 220 L450 360 C445 375, 430 385, 410 385 L210 385 C190 385, 175 375, 170 360 Z" fill="url(#basketGrad)"/>
+  <path d="M130 220 L490 220 C495 220, 500 225, 498 230 L490 245 C488 250, 483 253, 478 253 L142 253 C137 253, 132 250, 130 245 L122 230 C120 225, 125 220, 130 220 Z" fill="#b45309"/>
+
+  <!-- Weave Texture Lines -->
+  <line x1="160" y1="260" x2="460" y2="260" stroke="#78350f" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="170" y1="290" x2="450" y2="290" stroke="#78350f" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="180" y1="320" x2="440" y2="320" stroke="#78350f" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="190" y1="350" x2="430" y2="350" stroke="#78350f" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- Hanging Fresh Herbs / Leaves -->
+  <path d="M190 240 C170 260, 175 290, 185 300 C195 285, 195 260, 190 240 Z" fill="#22c55e"/>
+  <path d="M430 240 C445 255, 445 280, 435 290 C425 275, 425 255, 430 240 Z" fill="#16a34a"/>
+</svg>

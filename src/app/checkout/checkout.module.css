@@ -1,0 +1,1373 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px 0 64px;
+}
+
+/* TOP NAVIGATION & HEADER */
+.topNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -10px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.backLink:hover {
+  color: #024830;
+}
+
+.secureHeaderBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #024830;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.headingRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.9375rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* 2-COLUMN MAIN LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.formSections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* STEP CARDS */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: #024830;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(2, 72, 48, 0.25);
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cardSubtitle {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+/* FORM GRID & INPUTS */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.input {
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #024830;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+}
+
+.inputError {
+  border-color: #ef4444;
+  background-color: #fff5f5;
+}
+
+.inputError:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.errorText {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.readOnlyInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.countryFlag {
+  position: absolute;
+  left: 14px;
+  font-size: 1.125rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inputReadOnly {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+  cursor: not-allowed;
+  padding-left: 42px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.inputReadOnly:focus {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+  box-shadow: none;
+}
+
+.readOnlyBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 1px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: 4px;
+}
+
+/* SAVED ADDRESS SELECTOR CHIPS */
+.savedAddressesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.savedAddressHeader {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.savedAddressChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.addressChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.addressChip:hover {
+  border-color: #024830;
+  background: #f0fdf4;
+}
+
+.addressChip.selected {
+  border-color: #024830;
+  background: #f0fdf4;
+  color: #024830;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px #024830;
+}
+
+/* UK ADDRESS AUTOCOMPLETE SECTION */
+.autocompleteSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.autocompleteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.autocompleteHint {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.autofillNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  color: #065f46;
+  font-weight: 500;
+}
+
+.addressFormDivider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.addressFormDivider span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.addressFormDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* SELECTED DELIVERY ADDRESS CARD */
+.selectedAddressCard {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.selectedAddressHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dcfce7;
+  padding-bottom: 10px;
+}
+
+.selectedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #047857;
+}
+
+.changeAddressBtn {
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #024830;
+  cursor: pointer;
+  background-color: #dcfce7;
+  transition: all 0.15s ease;
+}
+
+.changeAddressBtn:hover {
+  background-color: #bbf7d0;
+  color: #013220;
+}
+
+.cancelChangeBtn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cancelChangeBtn:hover {
+  color: #024830;
+}
+
+.selectedAddressBody {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.selectedAddressIcon {
+  color: #024830;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.selectedAddressText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selectedLine1 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.selectedLine2 {
+  font-size: 0.875rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.selectedCountry {
+  font-size: 0.8125rem;
+  color: #475569;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+/* DYNAMIC DELIVERY SPEED SECTION */
+.deliveryBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.deliveryInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.deliveryIconWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #024830;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.deliveryText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.deliveryTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.deliveryDescription {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.deliveryBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.deliveryBadge.free {
+  background: #dcfce7;
+  color: #024830;
+  border: 1px solid #bbf7d0;
+}
+
+.deliveryBadge.standard {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.instructionsField {
+  margin-top: 8px;
+}
+
+/* PAYMENT OPTIONS */
+.onlinePaymentBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+
+.onlinePaymentBox:hover {
+  border-color: #cbd5e1;
+}
+
+.onlinePaymentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.onlinePaymentTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.onlinePaymentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.onlinePaymentSubtitle {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.onlinePaymentDesc {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.paymentCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.paymentOption:hover {
+  border-color: #cbd5e1;
+}
+
+.paymentOption.active {
+  border-color: #024830;
+  background-color: #f0fdf4;
+  box-shadow: 0 4px 12px rgba(2, 72, 48, 0.08);
+}
+
+.radioCircle {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.paymentOption.active .radioCircle {
+  border-color: #024830;
+}
+
+.radioDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #024830;
+}
+
+.paymentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.paymentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paymentName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.paymentIcon {
+  color: #024830;
+}
+
+.paymentDesc {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.paymentBadges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.paymentPill {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* RIGHT SIDE ORDER SUMMARY */
+.summaryCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.summaryTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.summaryItemCount {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #64748b;
+  background-color: #f8fafc;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+/* SCROLLABLE ITEMS LIST WITH THUMBNAILS */
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.itemsList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.itemsList::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.summaryItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.itemImageWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemImageFallback {
+  color: #94a3b8;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1e293b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.itemPriceCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.itemPrice {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.itemMrp {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+  white-space: nowrap;
+}
+
+/* OFFERS & COUPONS ELIGIBILITY SECTION */
+.offersEligibility {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.offersEligibilityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.offersTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.offersHeaderIcon {
+  color: #024830;
+  flex-shrink: 0;
+}
+
+.offersEligibilityTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.offersCountBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #024830;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #bbf7d0;
+}
+
+/* OFFER CARDS */
+.offerCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+/* OFFER CARDS */
+.offerCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.offerCardApplied {
+  background: #f0fdf4;
+  border-color: #86efac;
+  box-shadow: 0 2px 8px rgba(2, 72, 48, 0.06);
+}
+
+.offerCardEligible {
+  border-color: #e2e8f0;
+}
+
+.offerCardEligible:hover {
+  border-color: #024830;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.offerCardIneligible {
+  background: #fcfcfc;
+  border-color: #f1f5f9;
+  opacity: 0.88;
+}
+
+.offerCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.offerBadgeTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #024830;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.offerDescriptionText {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.savingsPill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.offerCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.appliedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #024830;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lockedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.applyOfferBtn {
+  background-color: #024830;
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(2, 72, 48, 0.2);
+}
+
+.applyOfferBtn:hover:not(:disabled) {
+  background-color: #013220;
+  transform: translateY(-1px);
+}
+
+.applyOfferBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.applyOfferBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* COUPON CODE PILL & COPY */
+.couponCodeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 2px;
+}
+
+.couponCodePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.couponCodePill:hover {
+  background: #f1f5f9;
+  border-color: #024830;
+}
+
+.couponCodeLabel {
+  font-size: 0.6875rem;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.couponCodeValue {
+  font-size: 0.8125rem;
+  color: #0f172a;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+}
+
+.copyPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 2px;
+  padding-left: 8px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.copyState {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #024830;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.copiedState {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #059669;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.codePillWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activeCodePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #024830;
+  background: #ffffff;
+  border: 1px dashed #86efac;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.removeOfferBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #ef4444;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.removeOfferBtn:hover {
+  color: #dc2626;
+}
+
+.savingsNote {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
+}
+
+.noOfferPrompt {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.4;
+  padding: 4px 0;
+}
+
+.howToQualifyHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  color: #d97706;
+  font-weight: 500;
+  line-height: 1.35;
+  background: #fffbeb;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #fef3c7;
+}
+
+.howToQualifyHint .infoIcon {
+  flex-shrink: 0;
+}
+
+/* OTHER OFFERS LIST & TOGGLE */
+.otherOffersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.offersToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.offersToggle:hover {
+  border-color: #024830;
+  background: #f0fdf4;
+}
+
+.offersToggleText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #024830;
+}
+
+.toggleChevron {
+  color: #024830;
+  transition: transform 0.2s ease;
+}
+
+.toggleChevron.rotated {
+  transform: rotate(180deg);
+}
+
+.offersList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* TOTALS BREAKDOWN */
+.summaryTotals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9375rem;
+  color: #64748b;
+}
+
+.summaryRow.discount {
+  color: #024830;
+  font-weight: 600;
+}
+
+.discountLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.savingsBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  margin-top: 4px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #024830 0%, #05734b 100%);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.savingsBanner strong {
+  font-weight: 800;
+}
+
+.offerNameRow {
+  margin-top: -6px;
+  font-size: 0.75rem;
+  color: #024830;
+  opacity: 0.8;
+}
+
+.summaryRow.totalSavings {
+  padding-top: 8px;
+  margin-top: 4px;
+  border-top: 1px dashed #cce8d7;
+  color: #024830;
+  font-weight: 700;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 14px;
+  margin-top: 4px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.totalLabelGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.totalLabel {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.vatNote {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+.totalPrice {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #024830;
+  letter-spacing: -0.02em;
+}
+
+.secureCheckoutNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.errorBanner {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .summaryCard {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px 0 40px;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .headingRow {
+    padding-bottom: 12px;
+  }
+
+  .card {
+    border-radius: 16px;
+    padding: 18px 16px;
+  }
+
+  .summaryCard {
+    border-radius: 16px;
+    padding: 18px 16px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentCards {
+    grid-template-columns: 1fr;
+  }
+
+  .deliveryBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .autocompleteSection {
+    padding: 14px 12px;
+  }
+}
+
+.freeDeliveryHint {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1px dashed #86efac;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.8125rem;
+  color: #166534;
+  font-weight: 500;
+}
+
+.freeDeliveryHint strong {
+  font-weight: 700;
+  color: #024830;
+}

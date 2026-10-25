@@ -1,0 +1,164 @@
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.etaTitle {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--fw-semibold);
+}
+
+.etaValue {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary);
+}
+
+.stepsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  gap: var(--space-2);
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.connector {
+  position: absolute;
+  top: 16px;
+  left: calc(-50% + 16px);
+  right: calc(50% + 16px);
+  height: 3px;
+  background-color: var(--color-border);
+  z-index: 0;
+  transition: background-color var(--transition-normal);
+}
+
+.stepItem:first-child .connector {
+  display: none;
+}
+
+.stepItem.completed .connector,
+.stepItem.active .connector {
+  background-color: var(--color-primary);
+}
+
+.node {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-2);
+  transition: all var(--transition-normal);
+}
+
+.stepItem.completed .node {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.stepItem.active .node {
+  background-color: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-subtle);
+  line-height: var(--lh-tight);
+}
+
+.stepItem.active .label,
+.stepItem.completed .label {
+  color: var(--color-ink);
+  font-weight: var(--fw-bold);
+}
+
+.description {
+  font-size: var(--fs-2xs);
+  color: var(--color-muted);
+  margin-top: 2px;
+}
+
+.cancelledBanner {
+  background-color: var(--color-error-soft);
+  color: var(--color-error);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+@media (max-width: 640px) {
+  .stepsContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .stepItem {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-3);
+    width: 100%;
+  }
+
+  .connector {
+    top: 34px;
+    bottom: -20px;
+    left: 16px;
+    right: auto;
+    width: 3px;
+    height: auto;
+  }
+
+  .stepItem:first-child .connector {
+    display: block;
+  }
+
+  .stepItem:last-child .connector {
+    display: none;
+  }
+}

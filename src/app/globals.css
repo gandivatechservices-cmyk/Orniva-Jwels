@@ -1,0 +1,383 @@
+:root {
+  /* =========================================================
+     ATLAS DESIGN TOKENS - COLOR PALETTE
+     ========================================================= */
+  --color-primary: #12432a;
+  /* Deep forest green (header / primary buttons / footer) */
+  --color-primary-hover: #0d321f;
+  /* Darker forest green */
+  --color-primary-dark: #092315;
+  /* Deepest green */
+  --color-primary-soft: #eaf5ee;
+  /* Light mint green (hero background, soft surfaces) */
+  --color-primary-subtle: #f2f9f4;
+  /* Subtle mint background */
+
+  --color-accent: #10b981;
+  /* Bright green (success, "in stock", progress fill) */
+  --color-accent-soft: #d1fae5;
+  /* Soft emerald tint */
+
+  --color-danger: #dc2626;
+  /* Red (discount badges, "Low Stock") */
+  --color-danger-hover: #b91c1c;
+  /* Darker red */
+  --color-danger-soft: #ffe4e6;
+  /* Light pink (Weekly Offers promo card bg) */
+
+  --color-warning-soft: #fef3c7;
+  /* Warm cream/yellow (Buy Again promo card bg) */
+  --color-warning: #d97706;
+  /* Warm amber */
+
+  --color-peach-soft: #ffedd5;
+  /* Peach (Indian & Asian Grocery banner bg) */
+  --color-blue-soft: #e0f2fe;
+  /* Soft sky blue */
+
+  --color-ink: #111827;
+  /* Near-black text */
+  --color-ink-light: #374151;
+  /* Secondary dark text */
+  --color-muted: #6b7280;
+  /* Grey secondary text */
+  --color-subtle: #9ca3af;
+  /* Grey tertiary text */
+  --color-line: #e5e7eb;
+  /* Hairline border grey */
+  --color-line-dark: #d1d5db;
+  /* Medium border grey */
+
+  --color-surface: #ffffff;
+  /* Surface white */
+  --color-bg: #f8faf8;
+  /* Page background (light grey/green) */
+  --color-bg-subtle: #f3f4f6;
+  /* Neutral grey subtle background */
+
+  /* Legacy variable mappings for backward compatibility */
+  --background: var(--color-bg);
+  --foreground: var(--color-ink);
+  --primary: var(--color-primary);
+  --primary-dark: var(--color-primary-hover);
+  --muted: var(--color-muted);
+  --border: var(--color-line);
+  --danger: var(--color-danger);
+  --success: var(--color-accent);
+  --surface: var(--color-surface);
+
+  /* =========================================================
+     BORDER RADIUS SCALE
+     ========================================================= */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* =========================================================
+     SHADOW & ELEVATION SCALE
+     ========================================================= */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 2px 6px 0 rgba(17, 24, 39, 0.04), 0 1px 2px 0 rgba(17, 24, 39, 0.02);
+  --shadow-card-hover: 0 10px 25px -4px rgba(18, 67, 42, 0.12), 0 4px 8px -2px rgba(17, 24, 39, 0.04);
+  --shadow-raised: 0 12px 30px -4px rgba(17, 24, 39, 0.12);
+  --shadow-overlay: 0 20px 40px -6px rgba(17, 24, 39, 0.22);
+  --shadow-drawer: -4px 0 24px rgba(0, 0, 0, 0.14);
+
+  /* =========================================================
+     SPACING & FLUID SECTION / CONTAINER
+     ========================================================= */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-11: 56px;
+  --space-12: 64px;
+  --space-14: 80px;
+  --space-16: 96px;
+
+  --space-section: clamp(2rem, 1.2rem + 3vw, 4rem);
+  --space-card: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --container-max: 1280px;
+  --container: 100%;
+  --container-narrow: 960px;
+
+  /* =========================================================
+     FLUID TYPOGRAPHY SCALE (clamp-based)
+     ========================================================= */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --fs-2xs: 0.6875rem;
+  /* 11px */
+  --fs-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  /* 12-13px */
+  --fs-sm: clamp(0.875rem, 0.84rem + 0.2vw, 0.9375rem);
+  /* 14-15px */
+  --fs-base: clamp(1rem, 0.96rem + 0.25vw, 1.0625rem);
+  /* 16-17px */
+  --fs-md: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  /* 18-20px */
+  --fs-lg: clamp(1.25rem, 1.15rem + 0.55vw, 1.5rem);
+  /* 20-24px */
+  --fs-xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.875rem);
+  /* 24-30px */
+  --fs-2xl: clamp(1.75rem, 1.5rem + 1.3vw, 2.25rem);
+  /* 28-36px */
+  --fs-3xl: clamp(2rem, 1.65rem + 1.8vw, 2.75rem);
+  /* 32-44px */
+  --fs-hero: clamp(2.25rem, 1.6rem + 3.2vw, 3.5rem);
+  /* 36-56px */
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.65;
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* =========================================================
+     Z-INDEX SCALE
+     ========================================================= */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-fixed: 100;
+  --z-dropdown: 200;
+  --z-overlay: 300;
+  --z-drawer: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+
+  /* =========================================================
+     FOCUS RING & TRANSITIONS
+     ========================================================= */
+  --focus-ring: 0 0 0 3px rgba(18, 67, 42, 0.25);
+  --focus-ring-danger: 0 0 0 3px rgba(220, 38, 38, 0.25);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* =========================================================
+     SAFE AREA INSET HELPERS (Mobile)
+     ========================================================= */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* =========================================================
+   MODERN CSS RESET
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100%;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Accessibility Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-dark, #d1d5db) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-dark, #d1d5db);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-subtle, #9ca3af);
+}
+
+/* Utility layout container */
+.atlas-container {
+  width: 100%;
+  max-width: var(--container-max, 1280px);
+  margin-inline: auto;
+  padding-inline: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .atlas-container {
+    padding-inline: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .atlas-container {
+    padding-inline: 24px;
+  }
+}
+
+/* Base keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes drawerSlideInRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerSlideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pageLoading {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: var(--color-bg, #f8faf8);
+  padding: var(--space-6, 24px);
+  box-sizing: border-box;
+}

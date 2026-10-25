@@ -1,0 +1,376 @@
+.footer {
+  background: linear-gradient(180deg, #092017 0%, #06160f 100%);
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* TOP TRUST/VALUE PROPOSITION BANNER */
+.trustBanner {
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+}
+
+.trustItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(52, 211, 153, 0.3);
+  transform: translateY(-2px);
+}
+
+.trustIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(52, 211, 153, 0.12);
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trustText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trustTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.trustDesc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+/* MAIN FOOTER COLUMNS */
+.mainSection {
+  padding: 48px 0 36px;
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 40px;
+}
+
+/* BRAND COLUMN */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tagline {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialBtn:hover {
+  background: #34d399;
+  border-color: #34d399;
+  color: #06160f;
+  transform: translateY(-2px);
+}
+
+/* LINKS COLUMNS */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link:hover {
+  color: #34d399;
+  transform: translateX(3px);
+}
+
+.linkBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  margin-left: 4px;
+}
+
+/* STORE REGIONS & NEWSLETTER COLUMN */
+.storeInfoText {
+  font-size: 0.8125rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.domainsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.domainItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+}
+
+.domainName {
+  font-weight: 600;
+}
+
+.domainCurrency {
+  font-size: 0.75rem;
+  color: #34d399;
+  font-weight: 700;
+  background: rgba(52, 211, 153, 0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* NEWSLETTER FORM */
+.newsletterBox {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.newsletterTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletterInput {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.newsletterInput::placeholder {
+  color: #64748b;
+}
+
+.newsletterInput:focus {
+  border-color: #34d399;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
+}
+
+.newsletterBtn {
+  height: 38px;
+  padding: 0 14px;
+  background: #34d399;
+  color: #06160f;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.newsletterBtn:hover {
+  background: #10b981;
+}
+
+.newsletterSuccess {
+  font-size: 0.75rem;
+  color: #34d399;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* BOTTOM SECTION */
+.bottomSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0 32px;
+}
+
+.bottomContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.copyright {
+  margin: 0;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legalLink {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.legalLink:hover {
+  color: #cbd5e1;
+}
+
+.legalDivider {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.activeStoreBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.statusIndicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #34d399;
+  box-shadow: 0 0 6px #34d399;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+  .trustGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columnsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .trustGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .trustBanner {
+    padding: 24px 0;
+  }
+
+  .columnsGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mainSection {
+    padding: 32px 0 24px;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

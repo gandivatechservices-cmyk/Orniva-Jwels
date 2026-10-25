@@ -1,0 +1,120 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.iconButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.iconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* SHAPES */
+.round {
+  border-radius: var(--radius-pill);
+}
+
+.square {
+  border-radius: var(--radius-sm);
+}
+
+/* SIZES */
+.sm {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.md {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* VARIANTS */
+.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.secondary {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #d8eee0;
+}
+
+.outline {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+
+.outline:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--color-ink);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: var(--color-bg-subtle);
+}
+
+.white {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.white:hover:not(:disabled) {
+  color: var(--color-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.danger {
+  background-color: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--color-danger);
+  color: #ffffff;
+}
+
+.iconSlot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

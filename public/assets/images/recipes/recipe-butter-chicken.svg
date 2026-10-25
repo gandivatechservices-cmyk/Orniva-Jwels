@@ -1,0 +1,11 @@
+<svg width="280" height="180" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="280" height="180" rx="12" fill="#fff7ed"/>
+  <!-- Bowl of Butter Chicken -->
+  <ellipse cx="140" cy="95" rx="75" ry="45" fill="#ea580c"/>
+  <ellipse cx="140" cy="90" rx="68" ry="38" fill="#f97316"/>
+  <!-- Cream swirl -->
+  <path d="M120 85 Q140 100 160 85 Q150 95 130 92" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Cilantro garnish -->
+  <circle cx="140" cy="78" r="4" fill="#16a34a"/>
+  <circle cx="145" cy="82" r="3" fill="#15803d"/>
+</svg>

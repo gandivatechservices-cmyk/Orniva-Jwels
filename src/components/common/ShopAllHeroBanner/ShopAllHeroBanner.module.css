@@ -1,0 +1,227 @@
+.bannerCard {
+  position: relative;
+  width: 100%;
+  min-height: 290px;
+  background: linear-gradient(135deg, #fef8f0 0%, #fdf5ea 48%, #f8ede0 100%);
+  border: 1px solid rgba(225, 205, 185, 0.45);
+  border-radius: 20px;
+  padding: clamp(24px, 3.2vw, 36px) clamp(24px, 3.5vw, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(180, 140, 90, 0.06);
+  margin-bottom: 20px;
+}
+
+/* LEFT CONTENT COLUMN */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  max-width: 580px;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: #087443;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.eyebrowIcon {
+  color: #16a34a;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 10px 0;
+}
+
+.headingHighlight {
+  color: #024830;
+}
+
+.description {
+  font-size: clamp(0.875rem, 1.1vw, 0.9688rem);
+  color: #526071;
+  line-height: 1.45;
+  margin: 0 0 18px 0;
+  max-width: 480px;
+}
+
+.shopNowBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 24px;
+  background: #024830;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 12px rgba(2, 72, 48, 0.22);
+  margin-bottom: 22px;
+}
+
+.shopNowBtn svg {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shopNowBtn:hover {
+  background: #035a3d;
+  box-shadow: 0 6px 18px rgba(2, 72, 48, 0.32);
+  transform: translateY(-1px);
+}
+
+.shopNowBtn:hover svg {
+  transform: translateX(3px);
+}
+
+.shopNowBtn:active {
+  transform: scale(0.98);
+}
+
+/* 3 TRUST VALUE BADGES STRIP */
+.trustStrip {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 28px);
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trustIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef7f0;
+  color: #024830;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trustTextGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.trustTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.trustSubtitle {
+  font-size: 0.6875rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+/* RIGHT VISUAL COLUMN */
+.imageCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  flex: 1;
+  max-width: 490px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bannerImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.09));
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bannerCard:hover .bannerImage {
+  transform: scale(1.02) rotate(-0.5deg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .bannerCard {
+    min-height: auto;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contentCol {
+    max-width: 100%;
+  }
+
+  .imageCol {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerCard {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .heading {
+    font-size: 1.45rem;
+  }
+
+  .description {
+    font-size: 0.8125rem;
+  }
+
+  .trustStrip {
+    gap: 12px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+}

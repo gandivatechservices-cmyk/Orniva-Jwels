@@ -1,0 +1,281 @@
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 36px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logoLink {
+  display: inline-flex;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.85;
+}
+
+.heading {
+  margin-bottom: 24px;
+}
+
+.heading h2 {
+  margin: 0 0 6px;
+  font-size: 1.625rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #111827;
+}
+
+.heading p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.label {
+  font-size: 0.8438rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  color: #111827;
+  background-color: #ffffff;
+  font: inherit;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.input:hover:not(:disabled) {
+  border-color: #cbd5e1;
+}
+
+.input:focus {
+  border-color: #024830;
+  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.12);
+}
+
+.input:disabled {
+  background-color: #f9fafb;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.passwordWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.passwordWrap .input {
+  padding-right: 48px;
+}
+
+.passwordToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 17px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.passwordToggle:hover {
+  color: #111827;
+}
+
+.submit {
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #024830;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(2, 72, 48, 0.2);
+}
+
+.submit:hover:not(:disabled) {
+  background-color: #013523;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 72, 48, 0.28);
+}
+
+.submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitLink {
+  width: 100%;
+  height: 48px;
+  margin-top: 12px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #024830;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 12px rgba(2, 72, 48, 0.2);
+  box-sizing: border-box;
+}
+
+.submitLink:hover {
+  background-color: #013523;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 72, 48, 0.28);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.8438rem;
+  line-height: 1.4;
+  border: 1px solid #fee2e2;
+  color: #b91c1c;
+  background-color: #fef2f2;
+}
+
+.errorIcon {
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a,
+.backLink,
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 600;
+  color: #024830;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer a:hover,
+.backLink:hover,
+.inlineLink:hover {
+  text-decoration: underline;
+  color: #013523;
+}
+
+.linkArrow,
+.backArrow {
+  display: inline-block;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.inlineLink:hover .linkArrow,
+.footer a:hover .linkArrow {
+  transform: translateX(3px);
+}
+
+.backLink:hover .backArrow {
+  transform: translateX(-3px);
+}
+
+/* Success Card styling */
+.successIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 20px;
+}
+
+.successIconInner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #024830;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #a7f3d0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 30px 20px;
+  }
+}

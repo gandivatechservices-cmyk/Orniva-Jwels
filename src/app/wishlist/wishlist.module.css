@@ -1,0 +1,96 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4) 0 0;
+}
+
+.breadcrumbRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: var(--space-4) var(--space-5);
+}
+
+.title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  margin: 4px 0 0;
+}
+
+.countBadge {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-soft);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.8vw, 22px);
+  width: 100%;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 20px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.primaryBtn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 581px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Mobile Screen: 1 Card per row for clear, un-cut presentation matching /products */
+@media (max-width: 580px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+}

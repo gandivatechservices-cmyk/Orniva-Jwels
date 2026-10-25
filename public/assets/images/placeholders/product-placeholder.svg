@@ -1,0 +1,8 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" fill="#f3f4f6"/>
+  <!-- Grocery bag / placeholder icon -->
+  <path d="M70 90 L170 90 L160 180 C158 188 152 194 144 194 L96 194 C88 194 82 188 80 180 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+  <path d="M95 90 C95 65 145 65 145 90" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="120" cy="140" r="16" fill="#e2e8f0"/>
+  <path d="M120 130 C120 130 115 130 110 135 C105 140 106 148 106 148 C106 148 112 150 118 145 C124 140 120 130 120 130 Z" fill="#10b981"/>
+</svg>

@@ -1,0 +1,123 @@
+.container {
+  padding: 24px 0 60px;
+}
+
+.breadcrumbRow {
+  margin-bottom: 24px;
+}
+
+.header {
+  margin-bottom: 32px;
+  background: #ffffff;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary, #024830);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.countBadge {
+  background: var(--color-primary-soft, #e6f4ea);
+  color: var(--color-primary, #024830);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.desc {
+  font-size: 15px;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.searchWrap {
+  max-width: 420px;
+  position: relative;
+  margin-top: 8px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+  color: var(--color-text, #111827);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary, #024830);
+  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted, #9ca3af);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 20px 16px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

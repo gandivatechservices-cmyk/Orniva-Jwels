@@ -1,0 +1,124 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-line-dark);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.card:hover:not(.disabled) {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+.card:focus-within {
+  box-shadow: var(--focus-ring);
+}
+
+.checked {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary-soft) !important;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nativeInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radioCircle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-line-dark);
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.checked .radioCircle {
+  border-color: var(--color-primary);
+}
+
+.radioDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all var(--transition-fast);
+}
+
+.checked .radioDot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.iconSlot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-ink);
+}
+
+.description {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+.badge {
+  font-size: var(--fs-2xs);
+  padding: 1px 6px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  font-weight: var(--fw-semibold);
+}
+
+.rightSlot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}

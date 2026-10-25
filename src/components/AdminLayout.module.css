@@ -1,0 +1,48 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--color-bg);
+  width: 100%;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.content {
+  flex: 1 1 auto;
+  padding: var(--space-4) var(--space-5);
+}
+
+.contentInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: var(--space-4);
+  }
+}
+
+.layout :global(.ant-card) {
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.10), 0 2px 4px rgba(17, 24, 39, 0.06);
+}
+
+/* Toggle buttons: bold labels above the sliding highlight. Colours come from the theme (src/theme.ts). */
+.layout :global(.ant-segmented-item-label) {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+}
+
+.layout :global(.ant-segmented-thumb) {
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.12);
+}

@@ -1,0 +1,90 @@
+<svg width="260" height="180" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Soft shadow -->
+    <filter id="groceryShadow" x="10" y="20" width="240" height="160" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#14532d" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.06" />
+    </filter>
+
+    <!-- Repeat Badge Gradient -->
+    <linearGradient id="repeatBadgeGrad" x1="20" y1="50" x2="80" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#15803d" />
+    </linearGradient>
+
+    <!-- Milk bottle gradient -->
+    <linearGradient id="milkGrad" x1="120" y1="50" x2="155" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+
+    <!-- Bread gradient -->
+    <linearGradient id="breadGrad" x1="180" y1="70" x2="230" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="60%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <!-- Paper bag gradient -->
+    <linearGradient id="bagGrad" x1="170" y1="110" x2="240" y2="155" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#92400e" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#groceryShadow)">
+    <!-- REPEAT / REORDER CIRCULAR BADGE (LEFT) -->
+    <g transform="translate(14, 55)">
+      <circle cx="36" cy="36" r="34" fill="url(#repeatBadgeGrad)" />
+      <!-- Inner circular arrow cutout / white icon -->
+      <path d="M 36 14 C 47.5 14 57 23 57 34.5 C 57 41.5 53.5 47.5 48 51 M 36 58 C 24.5 58 15 49 15 37.5 C 15 30.5 18.5 24.5 24 21" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none" />
+      <!-- Arrow heads -->
+      <polygon points="46,45 54,54 44,57" fill="#ffffff" />
+      <polygon points="26,27 18,18 28,15" fill="#ffffff" />
+    </g>
+
+    <!-- BLUE SPRAY / BOTTLE (BACK) -->
+    <g transform="translate(92, 38)">
+      <rect x="12" y="30" width="26" height="85" rx="6" fill="#0284c7" />
+      <path d="M 18 30 L 18 16 L 32 16 L 32 30 Z" fill="#0369a1" />
+      <rect x="16" y="8" width="16" height="8" rx="2" fill="#38bdf8" />
+      <!-- Spray nozzle detail -->
+      <path d="M 16 10 L 4 15 L 4 22 L 16 18 Z" fill="#38bdf8" />
+    </g>
+
+    <!-- WHITE MILK BOTTLE (MIDDLE) -->
+    <g transform="translate(118, 48)">
+      <!-- Blue bottle cap -->
+      <rect x="11" y="0" width="16" height="12" rx="3" fill="#2563eb" />
+      <!-- Neck -->
+      <path d="M 13 12 L 13 22 C 13 28 4 38 4 48 L 4 102 C 4 106 7 109 11 109 L 27 109 C 31 109 34 106 34 102 L 34 48 C 34 38 25 28 25 22 L 25 12 Z" fill="url(#milkGrad)" stroke="#cbd5e1" stroke-width="1" />
+      <!-- Label -->
+      <rect x="5" y="58" width="28" height="32" rx="3" fill="#3b82f6" opacity="0.15" />
+      <rect x="9" y="65" width="20" height="4" rx="2" fill="#3b82f6" />
+      <rect x="11" y="73" width="16" height="3" rx="1.5" fill="#64748b" />
+    </g>
+
+    <!-- YELLOW SNACK / CEREAL POUCH (MIDDLE RIGHT) -->
+    <g transform="translate(155, 34)">
+      <path d="M 6 18 L 38 10 L 44 110 L 2 115 Z" fill="#eab308" />
+      <!-- Top crimp -->
+      <path d="M 6 18 L 38 10 L 39 20 L 5 28 Z" fill="#ca8a04" />
+      <!-- Red brand oval -->
+      <ellipse cx="22" cy="52" rx="12" ry="8" fill="#dc2626" />
+      <rect x="12" y="68" width="20" height="4" rx="2" fill="#713f12" opacity="0.6" />
+      <rect x="14" y="76" width="16" height="3" rx="1.5" fill="#713f12" opacity="0.4" />
+    </g>
+
+    <!-- ARTISAN BREAD LOAF IN KRAFT PAPER BAG (FRONT RIGHT) -->
+    <g transform="translate(182, 50)">
+      <!-- Bread crust -->
+      <ellipse cx="28" cy="38" rx="24" ry="32" transform="rotate(12 28 38)" fill="url(#breadGrad)" />
+      <!-- Flour dust & cuts on loaf -->
+      <path d="M 16 22 C 24 24 32 30 38 40" stroke="#fef3c7" stroke-width="3" stroke-linecap="round" opacity="0.85" />
+      <path d="M 22 14 C 30 18 36 26 42 34" stroke="#fef3c7" stroke-width="2.5" stroke-linecap="round" opacity="0.85" />
+      <!-- Kraft paper grocery bag wrapper -->
+      <path d="M 2 52 L 54 48 L 52 105 L 0 108 Z" fill="url(#bagGrad)" />
+      <path d="M 0 52 L 14 58 L 28 50 L 42 56 L 54 48" stroke="#78350f" stroke-width="1.5" fill="none" opacity="0.5" />
+    </g>
+  </g>
+</svg>

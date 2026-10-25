@@ -1,0 +1,132 @@
+.container {
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--fs-sm);
+}
+
+.th {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-ink);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  padding: var(--space-3-5) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.th.sortable {
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.th.sortable:hover {
+  background-color: var(--color-border-subtle);
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+}
+
+.sortArrow {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+.sortArrowInactive {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  opacity: 0.4;
+}
+
+.td {
+  padding: var(--space-3-5) var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-ink);
+  vertical-align: middle;
+}
+
+.tr {
+  transition: background-color var(--transition-fast);
+}
+
+.tr:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.tr.clickable {
+  cursor: pointer;
+}
+
+.emptyState {
+  padding: var(--space-10) var(--space-4);
+  text-align: center;
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+}
+
+/* Mobile Stacked View */
+.mobileCards {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.mobileCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mobileCard.clickable {
+  cursor: pointer;
+}
+
+.mobileRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  gap: var(--space-2);
+}
+
+.mobileLabel {
+  color: var(--color-muted);
+  font-weight: var(--fw-medium);
+}
+
+.mobileValue {
+  color: var(--color-ink);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    display: none;
+  }
+
+  .mobileCards {
+    display: flex;
+  }
+}

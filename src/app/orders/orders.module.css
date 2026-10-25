@@ -1,0 +1,388 @@
+/* ================================================================
+   MY ORDERS PAGE — Premium redesign
+   ================================================================ */
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4) 0 0;
+}
+
+.breadcrumbRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+/* ── Page Header ────────────────────────────────────────── */
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1a5c39 100%);
+  border-radius: 16px;
+  padding: var(--space-6) var(--space-6);
+}
+
+.title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,0.7);
+  margin: 4px 0 0;
+}
+
+.countBadge {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── Loading Skeletons ──────────────────────────────────── */
+.loadingGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skeletonOrderCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ── Orders List ────────────────────────────────────────── */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Order Card ─────────────────────────────────────────── */
+.orderCard {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-line);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.04);
+}
+
+.orderCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(18, 67, 42, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ── Order Header ───────────────────────────────────────── */
+.orderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-primary-subtle);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.orderMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.orderId {
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.orderDate {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.orderTotal {
+  font-size: var(--fs-base);
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+/* ── Status Badges ──────────────────────────────────────── */
+.statusBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.statusDelivered {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.statusShipped {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.statusConfirmed {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.statusPending {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.statusCancelled {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* ── Card Body ──────────────────────────────────────────── */
+.cardBody {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ── Items Summary ──────────────────────────────────────── */
+.itemsSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemsCount {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.itemNames {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Tracking / Refund info ─────────────────────────────── */
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg-subtle);
+  border-radius: 8px;
+}
+
+/* ── Order Footer ───────────────────────────────────────── */
+.orderFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-line);
+  background: #fafbfa;
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.deliveryNote {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+/* ── Track Link ─────────────────────────────────────────── */
+.trackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), #1a5c39);
+  padding: 7px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(18, 67, 42, 0.2);
+  white-space: nowrap;
+}
+
+.trackLink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(18, 67, 42, 0.3);
+}
+
+/* ── Primary / Cancel buttons ───────────────────────────── */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 18px;
+  background: linear-gradient(135deg, var(--color-primary), #1a5c39);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(18, 67, 42, 0.2);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(18, 67, 42, 0.3);
+}
+
+/* ── Invoice Download ─────────────────────────────────── */
+.invoiceWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.invoiceBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.invoiceBtn:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.invoiceBtn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.invoiceBtn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.invoiceSpinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: invoiceSpin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes invoiceSpin {
+  to { transform: rotate(360deg); }
+}
+
+.invoiceError {
+  font-size: 11px;
+  color: #dc2626;
+  margin: 0;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .headingRow {
+    padding: var(--space-4) var(--space-5);
+    border-radius: 12px;
+  }
+
+  .orderHeader,
+  .cardBody,
+  .orderFooter {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .headerRight {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .orderFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerActions {
+    width: 100%;
+  }
+
+  .trackLink {
+    flex: 1;
+    justify-content: center;
+  }
+}
+

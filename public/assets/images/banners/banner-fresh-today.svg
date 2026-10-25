@@ -1,0 +1,17 @@
+<svg width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="16" fill="#ecfdf5"/>
+  <!-- Fresh produce illustration -->
+  <g transform="translate(180, 40)">
+    <!-- Lettuce/Greens -->
+    <circle cx="90" cy="80" r="40" fill="#15803d"/>
+    <circle cx="120" cy="70" r="35" fill="#22c55e"/>
+    <circle cx="70" cy="65" r="30" fill="#16a34a"/>
+    <!-- Tomato -->
+    <circle cx="60" cy="110" r="26" fill="#ef4444"/>
+    <path d="M60 84 C62 80 66 80 68 84" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+    <!-- Yellow Pepper -->
+    <ellipse cx="140" cy="105" rx="28" ry="30" fill="#eab308"/>
+    <!-- Carrot -->
+    <path d="M120 70 L95 140 C93 145 88 145 86 140 L95 70 Z" fill="#ea580c"/>
+  </g>
+</svg>

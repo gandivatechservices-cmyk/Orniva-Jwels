@@ -1,0 +1,246 @@
+.container {
+  padding: 24px 0 60px;
+}
+
+.breadcrumbRow {
+  margin-bottom: 24px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 340px 1fr;
+    align-items: start;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profileCard {
+  background: #ffffff;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-primary-soft, #e6f4ea);
+  color: var(--color-primary, #024830);
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userName {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+  margin: 0;
+}
+
+.userEmail {
+  font-size: 14px;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0;
+}
+
+.roleBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--color-primary-soft, #e6f4ea);
+  color: var(--color-primary, #024830);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.navMenu {
+  background: #ffffff;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text, #111827);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  transition: background-color 0.15s;
+}
+
+.navItem:last-child {
+  border-bottom: none;
+}
+
+.navItem:hover {
+  background-color: var(--color-bg-subtle, #f9fafb);
+}
+
+.navItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navBadge {
+  background: var(--color-primary-soft, #e6f4ea);
+  color: var(--color-primary, #024830);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #fee2e2;
+  border-radius: var(--radius-md, 8px);
+  background: #fff5f5;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.logoutBtn:hover {
+  background: #fecaca;
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-lg, 12px);
+  padding: 24px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary, #024830);
+  margin: 0;
+}
+
+.cardLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary, #024830);
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: var(--color-bg-subtle, #f9fafb);
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: var(--radius-md, 8px);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.orderMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.orderId {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text, #111827);
+}
+
+.orderDate {
+  font-size: 13px;
+  color: var(--color-text-secondary, #6b7280);
+}
+
+.orderRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.orderPrice {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+}
+
+.statusBadge {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.trackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--color-primary-soft, #e6f4ea);
+  color: var(--color-primary, #024830);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}

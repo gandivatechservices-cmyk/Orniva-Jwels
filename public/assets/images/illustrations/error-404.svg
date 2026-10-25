@@ -1,0 +1,5 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="80" fill="#fef2f2"/>
+  <text x="100" y="95" text-anchor="middle" font-family="-apple-system, sans-serif" font-weight="900" font-size="48" fill="#dc2626">404</text>
+  <text x="100" y="130" text-anchor="middle" font-family="-apple-system, sans-serif" font-weight="600" font-size="14" fill="#991b1b">Page Not Found</text>
+</svg>

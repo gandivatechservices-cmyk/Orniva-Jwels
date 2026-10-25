@@ -1,0 +1,351 @@
+/* PROMOTIONAL EDITORIAL BANNER (Clean Transparent Cutout Layout) */
+
+.banner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 22px;
+  padding: clamp(24px, 2.5vw, 32px) clamp(24px, 2.5vw, 36px);
+  min-height: clamp(230px, 19vw, 270px);
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  overflow: visible;
+}
+
+.banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* VARIANTS (Clean, subtle tinted backgrounds without heavy block frames) */
+.variant_fresh_today,
+.variant_green,
+.variant_primary {
+  background: linear-gradient(135deg, #ffffff 40%, #f0fdf4 100%);
+  border-color: #dcfce7;
+}
+
+.variant_fresh_today:hover {
+  border-color: #86efac;
+}
+
+.variant_indian_grocery,
+.variant_terracotta {
+  background: linear-gradient(135deg, #ffffff 40%, #fff7ed 100%);
+  border-color: #ffedd5;
+}
+
+.variant_indian_grocery:hover {
+  border-color: #fdba74;
+}
+
+.variant_offers,
+.variant_pink,
+.variant_peach {
+  background: linear-gradient(135deg, #ffffff 40%, #fff1f2 100%);
+  border-color: #ffe4e6;
+}
+
+.variant_cream {
+  background: linear-gradient(135deg, #ffffff 40%, #fefce8 100%);
+  border-color: #fef08a;
+}
+
+/* CONTENT LEFT */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: flex-start;
+  z-index: 2;
+  gap: 6px;
+  max-width: 100%;
+}
+
+.labelBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 4px;
+  width: fit-content;
+}
+
+.labelIconGreen {
+  color: #024830;
+}
+
+.labelIconSpice {
+  color: #b45309;
+}
+
+.labelIconRed {
+  color: #dc2626;
+}
+
+.labelText {
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.variant_fresh_today .labelText,
+.variant_green .labelText,
+.variant_primary .labelText {
+  color: #024830;
+}
+
+.variant_indian_grocery .labelText,
+.variant_terracotta .labelText {
+  color: #b45309;
+}
+
+.variant_offers .labelText,
+.variant_pink .labelText,
+.variant_peach .labelText {
+  color: #dc2626;
+}
+
+.title {
+  font-size: clamp(1.75rem, 2.3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: #0f172a;
+}
+
+.variant_fresh_today .title {
+  color: #024830;
+}
+
+.variant_indian_grocery .title {
+  color: #8c2d12;
+}
+
+.description {
+  font-size: clamp(0.875rem, 1vw, 0.95rem);
+  color: #64748b;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 4px 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CTA BUTTON */
+.ctaBtnWrap {
+  display: inline-flex;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.ctaBtn {
+  border: none;
+  border-radius: 9999px;
+  height: 44px;
+  padding: 0 24px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.ctaBtnArrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaBtn:hover .ctaBtnArrow {
+  transform: translateX(3px);
+}
+
+.variant_fresh_today .ctaBtn,
+.variant_green .ctaBtn,
+.variant_primary .ctaBtn {
+  background-color: #024830;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 72, 48, 0.2);
+}
+
+.variant_fresh_today .ctaBtn:hover,
+.variant_green .ctaBtn:hover,
+.variant_primary .ctaBtn:hover {
+  background-color: #013121;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(2, 72, 48, 0.3);
+}
+
+.variant_indian_grocery .ctaBtn,
+.variant_terracotta .ctaBtn {
+  background-color: #c2410c;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(194, 65, 12, 0.2);
+}
+
+.variant_indian_grocery .ctaBtn:hover,
+.variant_terracotta .ctaBtn:hover {
+  background-color: #9a3412;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(194, 65, 12, 0.3);
+}
+
+.variant_offers .ctaBtn,
+.variant_pink .ctaBtn,
+.variant_peach .ctaBtn {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.2);
+}
+
+.variant_offers .ctaBtn:hover,
+.variant_pink .ctaBtn:hover,
+.variant_peach .ctaBtn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+}
+
+.ctaBtnDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ART / CUTOUT IMAGE RIGHT (Pure Transparent Cutout) */
+.artSlot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.artImage {
+  width: 100%;
+  max-width: 100%;
+  max-height: clamp(200px, 19vw, 255px);
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  user-select: none;
+  display: block;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.09));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artImageCover {
+  width: min(100%, 240px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-left: auto;
+  filter: none;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.banner:hover .artImage {
+  transform: scale(1.05);
+}
+
+/* SKELETON */
+.skeletonBanner {
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 22px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 230px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .banner {
+    grid-template-columns: 45% 55%;
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .artImage {
+    max-height: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .content {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  .artSlot {
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  .artImage {
+    max-height: 195px;
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+    margin-bottom: 14px;
+  }
+
+  .ctaBtn {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 0.825rem;
+  }
+
+  .artImage {
+    max-height: 175px;
+    max-width: 95%;
+  }
+}

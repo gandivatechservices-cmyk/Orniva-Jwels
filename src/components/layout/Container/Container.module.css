@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.default {
+  max-width: var(--container-max, 1280px);
+}
+
+.narrow {
+  max-width: 960px;
+}
+
+.wide {
+  max-width: 1440px;
+}
+
+.full {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}

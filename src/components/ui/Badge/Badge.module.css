@@ -1,0 +1,74 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* SIZES */
+.sm {
+  font-size: 0.6875rem;
+  padding: 3px 8px;
+}
+
+.md {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+}
+
+/* SHAPES */
+.pill {
+  border-radius: var(--radius-pill, 9999px);
+}
+
+.rounded {
+  border-radius: 6px;
+}
+
+/* VARIANTS */
+.discount {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #dcfce7;
+}
+
+.warning {
+  background-color: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fef3c7;
+}
+
+.primary {
+  background-color: #eef7f0;
+  color: #024830;
+  border: 1px solid #d6eddcd;
+}
+
+.info {
+  background-color: #f0f9ff;
+  color: #0284c7;
+  border: 1px solid #e0f2fe;
+}
+
+.neutral {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+

@@ -1,0 +1,87 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  background-color: transparent;
+  color: var(--color-primary, #024830);
+  border: 1.5px solid var(--color-primary, #024830);
+  border-radius: 999px;
+  font-size: var(--fs-sm, 14px);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+  letter-spacing: 0.01em;
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--color-primary, #024830);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(18, 67, 42, 0.2);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* Secondary (solid / filled) variant */
+.buttonFilled {
+  background-color: var(--color-primary, #024830);
+  color: #ffffff;
+  border-color: var(--color-primary, #024830);
+}
+
+.buttonFilled:hover:not(:disabled) {
+  background-color: var(--color-primary-dark, #013422);
+  border-color: var(--color-primary-dark, #013422);
+}
+
+/* Compact variant for tables or tight headers */
+.buttonCompact {
+  height: 28px;
+  padding: 0 8px;
+  font-size: 11px;
+  gap: 4px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: invoiceSpin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes invoiceSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  font-size: 11px;
+  color: #dc2626;
+  margin: 0;
+  max-width: 220px;
+  line-height: 1.3;
+}

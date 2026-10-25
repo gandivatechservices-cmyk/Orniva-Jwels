@@ -1,0 +1,43 @@
+.ratingWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  user-select: none;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.starFilled {
+  color: #f59e0b; /* Golden Yellow */
+  display: inline-flex;
+}
+
+.starEmpty {
+  color: #d1d5db; /* Light grey outline */
+  display: inline-flex;
+}
+
+.scoreText {
+  font-weight: var(--fw-bold);
+  color: var(--color-ink);
+  font-size: var(--fs-xs);
+}
+
+.countText {
+  color: var(--color-muted);
+  font-size: var(--fs-xs);
+}
+
+.sm .scoreText,
+.sm .countText {
+  font-size: var(--fs-2xs);
+}
+
+.lg .scoreText,
+.lg .countText {
+  font-size: var(--fs-sm);
+}

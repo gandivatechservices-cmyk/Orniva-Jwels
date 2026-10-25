@@ -1,0 +1,19 @@
+<svg width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="16" fill="#fff7ed"/>
+  <!-- Bowls of spices -->
+  <g transform="translate(180, 50)">
+    <!-- Turmeric Bowl -->
+    <ellipse cx="60" cy="110" rx="30" ry="16" fill="#ca8a04"/>
+    <path d="M30 110 C30 130 90 130 90 110 Z" fill="#a16207"/>
+    <ellipse cx="60" cy="106" rx="26" ry="12" fill="#eab308"/>
+    <!-- Chili Powder Bowl -->
+    <ellipse cx="120" cy="95" rx="32" ry="17" fill="#991b1b"/>
+    <path d="M88 95 C88 118 152 118 152 95 Z" fill="#7f1d1d"/>
+    <ellipse cx="120" cy="91" rx="28" ry="13" fill="#dc2626"/>
+    <!-- Whole Spices Star Anise -->
+    <circle cx="165" cy="120" r="14" fill="#78350f"/>
+    <!-- Cardamom Pods -->
+    <ellipse cx="50" cy="140" rx="8" ry="4" fill="#65a30d" transform="rotate(-30 50 140)"/>
+    <ellipse cx="65" cy="142" rx="8" ry="4" fill="#65a30d" transform="rotate(20 65 142)"/>
+  </g>
+</svg>

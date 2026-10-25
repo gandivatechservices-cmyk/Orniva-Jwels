@@ -1,0 +1,33 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.stickyHeaderArea {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-xs);
+  width: 100%;
+}
+
+.main {
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding-bottom: 0;
+  }
+}

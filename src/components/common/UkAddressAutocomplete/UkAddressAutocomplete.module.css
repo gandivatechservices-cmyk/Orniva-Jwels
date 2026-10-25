@@ -1,0 +1,306 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: #64748b;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 42px 0 44px;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #024830;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(2, 72, 48, 0.12);
+}
+
+.input:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.trailingActions {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  color: #94a3b8;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.clearButton:hover {
+  color: #475569;
+  background-color: #e2e8f0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #024830;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  max-height: 380px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInDown 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultsList {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+  max-height: 310px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.resultItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.resultItem:last-child {
+  border-bottom: none;
+}
+
+.resultItem:hover,
+.resultItemActive {
+  background-color: #f0fdf4;
+}
+
+.pinIcon {
+  color: #024830;
+  background-color: #f0fdf4;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.primaryRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.primaryText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.35;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.secondaryText {
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.35;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postcodeBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #ecfdf5;
+  color: #047857;
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  border: 1px solid #a7f3d0;
+  white-space: nowrap;
+}
+
+/* STATUS MESSAGES IN DROPDOWN */
+.statusMessage {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.statusTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.statusDesc {
+  font-size: 0.8125rem;
+  color: #64748b;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+.errorTitle {
+  color: #dc2626;
+}
+
+/* ATTRIBUTION FOOTER */
+.attributionFooter {
+  padding: 8px 12px;
+  background-color: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.attributionLink {
+  color: #64748b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.attributionLink:hover {
+  color: #024830;
+}
+
+.ukBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* RESPONSIVE TUNING */
+@media (max-width: 480px) {
+  .resultItem {
+    padding: 9px 8px;
+    gap: 8px;
+  }
+
+  .pinIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .primaryText {
+    font-size: 0.84rem;
+  }
+
+  .secondaryText {
+    font-size: 0.77rem;
+  }
+
+  .postcodeBadge {
+    font-size: 0.6875rem;
+    padding: 1px 5px;
+  }
+
+  .attributionFooter {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+}

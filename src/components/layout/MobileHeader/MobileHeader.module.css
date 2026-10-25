@@ -1,0 +1,325 @@
+.mobileHeader {
+  display: none;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 16px 12px;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky, 100);
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 900px) {
+  .mobileHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menuIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.menuIconBtn:active {
+  background-color: #f1f5f9;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.cartIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background-color: #024830;
+  border: 1px solid #024830;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cartIconBtn:active {
+  background-color: #013220;
+}
+
+.cartWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.cartIcon {
+  color: #ffffff;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  background-color: #eab308;
+  color: #024830;
+  font-size: 0.65rem;
+  font-weight: 800;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* SEARCH FORM */
+.searchForm {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #024830;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 40px;
+  padding-left: 38px;
+  padding-right: 40px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.searchInput::-webkit-search-decoration,
+.searchInput::-webkit-search-cancel-button,
+.searchInput::-webkit-search-results-button,
+.searchInput::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.searchInput:focus {
+  background-color: #ffffff;
+  border-color: #024830;
+  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+  font-size: 0.8125rem;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  background-color: #e2e8f0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.clearBtn:active {
+  background-color: #cbd5e1;
+}
+
+/* DRAWER CONTENT */
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 4px 0;
+}
+
+.drawerUserSection {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #f0fdf4;
+  color: #024830;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dcfce7;
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #0f172a;
+}
+
+.userEmail {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.authButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.authLink {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.authLinkRegister {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #024830;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.navItem:active {
+  background-color: #f0fdf4;
+  color: #024830;
+}
+
+.offersNavItem {
+  color: #dc2626;
+}
+
+.offersTag {
+  background-color: #fef2f2;
+  color: #dc2626;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #fee2e2;
+  text-transform: uppercase;
+}
+
+.adminNav {
+  color: #024830;
+  font-weight: 700;
+}
+
+.navBadge {
+  background-color: #f0fdf4;
+  color: #024830;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid #dcfce7;
+}
+
+.drawerFooter {
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 10px;
+  color: #dc2626;
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: transparent;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.logoutBtn:active {
+  background-color: #fef2f2;
+}
+

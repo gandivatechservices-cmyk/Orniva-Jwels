@@ -1,0 +1,332 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 6vw, 76px);
+  padding: clamp(24px, 3vw, 36px) 0 0;
+  width: 100%;
+}
+
+/* SECTION HEADINGS */
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(16px, 2.2vw, 24px);
+  gap: var(--space-4);
+  padding: 0 2px;
+}
+
+.sectionTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.viewAllLink {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.viewAllLink svg {
+  transition: transform 0.18s ease;
+}
+
+.viewAllLink:hover {
+  color: var(--color-primary-hover);
+}
+
+.viewAllLink:hover svg {
+  transform: translateX(3px);
+}
+
+/* PROMO DUAL GRID */
+.promoGrid {
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+}
+
+/* PRODUCT GRID (4 COLUMNS ON DESKTOP) */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+}
+
+/* POPULAR BRANDS CONTINUOUS MARQUEE */
+.brandsMarqueeWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0 10px;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+.brandsMarqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  animation: marqueeLoop 28s linear infinite;
+  will-change: transform;
+}
+
+.brandsMarqueeWrapper:hover .brandsMarqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brandsMarqueeTrack {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+  }
+}
+
+/* RECIPES GRID (5 COLUMNS) */
+.recipesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(14px, 1.6vw, 20px);
+  width: 100%;
+}
+
+.recipeHeadingAccent {
+  color: #087443;
+}
+
+
+/* HOW IT WORKS SECTION */
+.howItWorksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+}
+
+.howItWorksCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.howItWorksCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(2, 72, 48, 0.08);
+  border-color: rgba(2, 72, 48, 0.2);
+}
+
+.howItWorksStepNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef7f0;
+  color: #024830;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.howItWorksIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.howItWorksTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.howItWorksDesc {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* TESTIMONIALS / REVIEWS STRIP */
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+}
+
+.testimonialCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  padding: clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.starsRow {
+  display: flex;
+  gap: 3px;
+  color: #f59e0b;
+}
+
+.testimonialQuote {
+  font-size: 0.9375rem;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.authorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #eef7f0;
+  color: #024830;
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.authorLocation {
+  font-size: 0.75rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1200px) {
+  .brandsTrack {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .recipesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .promoGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .howItWorksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 581px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .promoGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Mobile Screen: 1 Card per row for clear, un-cut presentation matching /products */
+@media (max-width: 580px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .promoGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+/* Compact page layout for the catalog pages (no large empty gaps) */
+.pageStack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0 48px;
+}
