@@ -8,31 +8,49 @@ export const IMAGES = {
   hero: {
     background: "/assets/images/hero/hero-background.jpg",
     produceBasket: "/assets/images/hero/hero-produce-fresh.png",
-    produceHarvest: "/assets/images/hero/hero-packaged-food.png",
-    packagedFood: "/assets/images/hero/hero-packaged-food.png",
+    produceHarvest: "/assets/images/jewelry/hero-model.jpg",
+    packagedFood: "/assets/images/jewelry/hero-model.jpg",
+    model: "/assets/images/jewelry/hero-model.jpg",
+  },
+
+  // Luxury Jewelry Assets
+  jewelry: {
+    heroModel: "/assets/images/jewelry/hero-model.jpg",
+    manufacturingCraftsman: "/assets/images/jewelry/manufacturing-craftsman.jpg",
+    designerPromo: "/assets/images/jewelry/designer-promo.jpg",
+    customPromo: "/assets/images/jewelry/custom-promo.jpg",
+    luxuryTrust: "/assets/images/jewelry/luxury-trust.jpg",
+    categories: {
+      rings: "/assets/images/jewelry/category-rings.jpg",
+      necklaces: "/assets/images/jewelry/category-necklaces.jpg",
+      earrings: "/assets/images/jewelry/category-earrings.jpg",
+      bracelets: "/assets/images/jewelry/category-bracelets.jpg",
+      bangles: "/assets/images/jewelry/category-bangles.jpg",
+      mens: "/assets/images/jewelry/category-mens.jpg",
+    },
   },
 
   // Promo Cards
   promo: {
-    weeklyOffers: "/assets/images/promo/promo-weekly-offers-fresh.png",
-    buyAgain: "/assets/images/promo/promo-buy-again-staples.png",
+    weeklyOffers: "/assets/images/jewelry/designer-promo.jpg",
+    buyAgain: "/assets/images/jewelry/custom-promo.jpg",
   },
 
   // Banners
   banners: {
-    freshToday: "/assets/images/banners/fresh-today.png",
-    indianAsian: "/assets/images/banners/indian-asian-grocery.png",
-    shopAll: "/assets/images/banners/shop-all-packaged-food.png",
-    packagedFood: "/assets/images/banners/shop-all-packaged-food.png",
+    freshToday: "/assets/images/jewelry/luxury-trust.jpg",
+    indianAsian: "/assets/images/jewelry/designer-promo.jpg",
+    shopAll: "/assets/images/jewelry/hero-model.jpg",
+    packagedFood: "/assets/images/jewelry/hero-model.jpg",
   },
 
-  // Recipe Cards
+  // Recipe & Guide Cards
   recipes: {
-    butterChicken: "/assets/images/recipes/recipe-butter-chicken.jpg",
-    biryani: "/assets/images/recipes/recipe-biryani.jpg",
-    pasta: "/assets/images/recipes/recipe-pasta.jpg",
-    healthyLunch: "/assets/images/recipes/recipe-healthy-lunch.jpg",
-    mexicanNight: "/assets/images/recipes/recipe-mexican-night.jpg",
+    butterChicken: "/assets/images/jewelry/category-rings.jpg",
+    biryani: "/assets/images/jewelry/category-necklaces.jpg",
+    pasta: "/assets/images/jewelry/category-earrings.jpg",
+    healthyLunch: "/assets/images/jewelry/category-bracelets.jpg",
+    mexicanNight: "/assets/images/jewelry/category-bangles.jpg",
   },
 
   // Illustrations & State Graphics
@@ -47,7 +65,7 @@ export const IMAGES = {
 
   // Fallbacks & Placeholders
   placeholders: {
-    product: "/assets/images/placeholders/product-placeholder.svg",
+    product: "/assets/images/placeholders/jewelry-placeholder.jpg",
     avatar: "/assets/images/placeholders/avatar-placeholder.svg",
   },
 } as const;
@@ -56,7 +74,7 @@ export type ImageRegistry = typeof IMAGES;
 
 /**
  * The picture shown for a product: its own image from the database, then its first variant's image.
- * The generic placeholder is used only when the product has no picture at all.
+ * The fine jewelry placeholder is used when the product has no picture at all.
  */
 export function getGroceryProductImage(
   p?: { images?: string[]; variants?: Array<{ images?: string[] }> } | null

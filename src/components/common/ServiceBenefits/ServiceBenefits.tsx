@@ -1,28 +1,28 @@
 "use client";
 
-import { TruckIcon, BoxIcon, ShieldCheckIcon, RefreshCwIcon } from "../../icons";
+import { TruckIcon, ShieldCheckIcon, RefreshCwIcon, DiamondIcon } from "../../icons";
 import styles from "./ServiceBenefits.module.css";
 
 const DEFAULT_BENEFITS = [
   {
-    icon: <TruckIcon size={22} />,
-    title: "Free Delivery",
-    subtitle: "On orders over £40",
+    icon: <TruckIcon size={20} />,
+    title: "Free Shipping",
+    subtitle: "On orders above £2,999",
   },
   {
-    icon: <BoxIcon size={22} />,
-    title: "Wide Range",
-    subtitle: "10,000+ products",
+    icon: <RefreshCwIcon size={20} />,
+    title: "30 Days Easy Return",
+    subtitle: "Hassle Free",
   },
   {
-    icon: <ShieldCheckIcon size={22} />,
+    icon: <DiamondIcon size={20} />,
+    title: "Certified Jewellery",
+    subtitle: "100% Authentic",
+  },
+  {
+    icon: <ShieldCheckIcon size={20} />,
     title: "Secure Payments",
-    subtitle: "100% secure checkout",
-  },
-  {
-    icon: <RefreshCwIcon size={22} />,
-    title: "Easy Returns",
-    subtitle: "Hassle-free returns",
+    subtitle: "Multiple Options",
   },
 ];
 
@@ -45,4 +45,3 @@ export function ServiceBenefits({ className = "" }: { className?: string }) {
     </section>
   );
 }
-

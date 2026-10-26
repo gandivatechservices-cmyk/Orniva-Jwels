@@ -84,9 +84,9 @@ function OrdersView() {
 
           <div className={styles.headingRow}>
             <div>
-              <h1 className={styles.title}>My Grocery Orders</h1>
+              <h1 className={styles.title}>My Jewelry Orders</h1>
               <p className={styles.subtitle}>
-                Track recent deliveries and review your order history.
+                Track your insured fine jewelry shipments and order history.
               </p>
             </div>
             {!loading && orders.length > 0 && (
@@ -116,11 +116,11 @@ function OrdersView() {
             />
           ) : orders.length === 0 ? (
             <EmptyState
-              title="No orders found"
-              description="You haven't placed any grocery orders yet. Start shopping our fresh catalog today."
+              title="No jewelry orders found"
+              description="You haven't placed any fine jewelry orders yet. Explore our handcrafted collections today."
               action={
                 <Link href="/products" className={styles.primaryBtn}>
-                  Start Shopping
+                  Explore Collections
                 </Link>
               }
             />

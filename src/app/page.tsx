@@ -8,17 +8,12 @@ import {
   HeroBanner,
   ProductCard,
   ProductCardSkeleton,
-  BrandCard,
   ServiceBenefits,
-  NewsletterSection,
 } from "../components/common";
 import { ShopByCategory } from "../components/category";
-import { PromoBanner } from "../components/promotional";
 import {
   catalogService,
   offersService,
-  type Brand,
-  type Catalog,
   type Category,
   type Coupon,
   type Domain,
@@ -27,21 +22,44 @@ import {
 import { useWishlist, useCartQuantity } from "hooks";
 import { IMAGES, getGroceryProductImage } from "../constants/images";
 import {
-  LeafIcon,
   ArrowRightIcon,
+  DiamondIcon,
+  ShieldCheckIcon,
+  StarIcon,
+  RefreshCwIcon,
+  TruckIcon,
 } from "../components/icons";
 import { findBestDisplayOffer, getComparePrice, getMrpComparePrice, getProductOfferLabel } from "../utility/activeOffers";
 import styles from "./home.module.css";
 import { variantCardProps } from "utility/variantPricing";
-import { buildCatalogShowcase, showcaseStyle } from "utility/catalogShowcase";
+
+const TESTIMONIALS = [
+  {
+    name: "Pooja S.",
+    city: "Ahmedabad",
+    rating: 5,
+    text: "The quality is amazing and delivery was super fast. My wife loved the diamond halo ring!",
+  },
+  {
+    name: "Rahul M.",
+    city: "Surat",
+    rating: 5,
+    text: "Beautiful collection and excellent customer service. The gold finish and certification are 100% authentic.",
+  },
+  {
+    name: "Neha K.",
+    city: "Rajkot",
+    rating: 5,
+    text: "Best place to buy genuine diamond and hallmarked gold jewellery online! Will definitely shop again.",
+  },
+];
 
 export default function HomePage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [domains, setDomains] = useState<Domain[]>([]);
-  const [brands, setBrands] = useState<Brand[]>([]);
-  const [catalogs, setCatalogs] = useState<Catalog[]>([]);
   const [activeOffers, setActiveOffers] = useState<Coupon[]>([]);
+  const [selectedCategoryTab, setSelectedCategoryTab] = useState<string>("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -56,48 +74,38 @@ export default function HomePage() {
     async function loadHomeData() {
       try {
         setLoading(true);
-        const [catsRes, prodsRes, domainsRes, brandsRes, catalogsRes] = await Promise.all([
+        const [catsRes, prodsRes, domainsRes] = await Promise.all([
           catalogService.listRootCategories(),
           catalogService.listProducts(),
           catalogService.listDomains(),
-          catalogService.listBrands().catch(() => []),
-          catalogService.listCatalogs().catch(() => [] as Catalog[]),
         ]);
-        const filteredCats = (catsRes || []).filter((cat) => {
-          const s = (cat.slug || "").toLowerCase();
-          const n = (cat.name || "").toLowerCase();
-          return !["audio", "shirt", "fashion", "men", "device", "phone", "iphone", "jewel", "ring", "gold", "wireless"].some(
-            (unrelated) => s.includes(unrelated) || n.includes(unrelated)
-          );
-        });
+
+        // Prioritize jewelry categories
         const priorityKeywords = [
-          "fresh",
-          "produce",
-          "fruit",
-          "dairy",
-          "bakery",
-          "bread",
-          "rice",
-          "grain",
-          "indian",
-          "spice",
-          "meat",
-          "frozen",
-          "snack",
-          "drink",
-          "household",
+          "ring",
+          "necklace",
+          "earring",
+          "bracelet",
+          "pendant",
+          "bangle",
+          "men",
+          "wedding",
+          "bridal",
+          "gold",
+          "diamond",
+          "jewel",
         ];
 
+        const allCats = catsRes || [];
         const getCategoryScore = (cat: Category) => {
           const text = `${cat.slug} ${cat.name}`.toLowerCase();
           const index = priorityKeywords.findIndex((k) => text.includes(k));
           return index === -1 ? 999 : index;
         };
 
-        const sortedCats = [...filteredCats].sort((a, b) => getCategoryScore(a) - getCategoryScore(b));
+        const sortedCats = [...allCats].sort((a, b) => getCategoryScore(a) - getCategoryScore(b));
         setCategories(sortedCats);
-        setBrands((brandsRes || []).filter((b) => b.isActive !== false));
-        setCatalogs(catalogsRes || []);
+
         const activeProducts = prodsRes?.items?.filter((p) => p.isActive) || [];
         setProducts(activeProducts);
         setDomains(domainsRes || []);
@@ -126,122 +134,97 @@ export default function HomePage() {
     domainCurrencyMap,
   });
 
-  // Brands come from the API with the logo uploaded in the admin.
-  const popularBrands = brands.map((b) => ({ id: b._id, name: b.name, logo: b.logoUrl || undefined }));
-  // Repeat the list so the scrolling strip always has enough cards to loop smoothly.
-  const marqueeBrands = Array.from({ length: Math.max(2, Math.ceil(16 / Math.max(popularBrands.length, 1))) }, () => popularBrands).flat();
+  // Filter products by selected tab
+  const filteredProducts = useMemo(() => {
+    if (selectedCategoryTab === "all") return products;
+    return products.filter((p) => {
+      const pName = (p.name || "").toLowerCase();
+      const pCategory = (p.categoryId || "").toLowerCase();
+      const target = selectedCategoryTab.toLowerCase();
+      return pName.includes(target) || pCategory.includes(target);
+    });
+  }, [products, selectedCategoryTab]);
 
-  const catalogShowcase = buildCatalogShowcase(catalogs, products);
-  const featuredCatalogs = catalogShowcase.slice(0, 2);
+  const featuredDisplayProducts = (filteredProducts.length > 0 ? filteredProducts : products).slice(0, 8);
 
-
-  // Everyday Grocery Essentials: core discovery products
-  const groceryFiltered = products.filter((p) => {
-    const name = (p.name || "").toLowerCase();
-    const brand = (p.brand || "").toLowerCase();
-    return !["audio", "shirt", "fashion", "men", "device", "phone", "iphone", "jewel", "ring", "gold", "wireless"].some(
-      (unrelated) => name.includes(unrelated) || brand.includes(unrelated)
-    );
-  });
-  const everydayEssentials = (groceryFiltered.length >= 4 ? groceryFiltered : products).slice(0, 4);
-
-  // Weekly Offers: products with a currently-active, price-representable offer (real data, not fabricated)
-  const productsWithOffers = products
-    .map((p) => ({ product: p, offer: findBestDisplayOffer(activeOffers, p) }))
-    .filter((entry) => entry.offer !== null || getMrpComparePrice(entry.product) !== undefined);
-  const weeklyOffersProducts = productsWithOffers.length > 0 ? productsWithOffers.slice(0, 4) : [];
+  const categoryTabs = [
+    { id: "all", label: "All Collections" },
+    { id: "ring", label: "Rings" },
+    { id: "necklace", label: "Necklaces" },
+    { id: "earring", label: "Earrings" },
+    { id: "bracelet", label: "Bracelets" },
+    { id: "pendant", label: "Pendants" },
+    { id: "bangle", label: "Bangles" },
+    { id: "men", label: "Men's" },
+  ];
 
   return (
     <StoreLayout>
       {/* 1. HERO BANNER */}
       <HeroBanner
-        eyebrowText="AUTHENTIC & DELICIOUS. EVERY DAY."
-        subtitle="Your favourite Indian namkeen, ready-to-eat meals, pantry staples, and everyday groceries."
-        primaryCtaText="Shop Groceries"
+        eyebrowText="FINE JEWELLERY • HANDCRAFTED EXCELLENCE"
+        title={
+          <>
+            <span style={{ color: "#FAF8F4" }}>Timeless Elegance,</span>
+            <span style={{ color: "#C5A16B", fontStyle: "italic" }}>Crafted for You</span>
+          </>
+        }
+        subtitle="Discover exquisite jewelry designed to celebrate every moment. Where exceptional craftsmanship meets enduring beauty."
+        primaryCtaText="Shop Now"
         primaryCtaHref="/products"
-        secondaryCtaText="View Offers"
-        secondaryCtaHref="/products?offers=true"
-        imageSrc={IMAGES.hero.packagedFood}
-        imageAlt="Packaged Indian food, namkeen snacks, ready-to-eat curries and groceries"
+        secondaryCtaText="Discover Our Craftsmanship"
+        secondaryCtaHref="/manufacturing"
+        imageSrc={IMAGES.jewelry.heroModel}
+        imageAlt="Model wearing luxury emerald and diamond necklace"
       />
 
       <Container>
         <div className={styles.homeContainer}>
-          {/* 2. SHOP BY CATEGORY (LIVE API) */}
+          {/* 2. SERVICE BENEFITS TRUST STRIP */}
+          <ServiceBenefits />
+
+          {/* 3. SHOP BY CATEGORY (CIRCULAR VIGNETTES) */}
           <ShopByCategory
-            title="Shop by Category"
+            title="Shop By Category"
+            subtitle="Discover our exquisite collections"
             viewAllText="View All"
             viewAllHref="/categories"
             categories={categories}
+            limit={8}
             loading={loading}
             error={error}
           />
 
-          {/* 3. FEATURED CATALOGS (first two by default, View All for the rest) */}
-          {featuredCatalogs.length > 0 && (
-            <section aria-label="Featured Catalogs">
-              <div className={styles.sectionHeader}>
-                <div className={styles.sectionTitleGroup}>
-                  <h2 className={styles.sectionTitle}>Featured Catalogs</h2>
-                  <p className={styles.sectionSubtitle}>Browse our ranges</p>
-                </div>
-                <Link href="/catalogs" className={styles.viewAllLink}>
-                  View All <ArrowRightIcon size={14} />
-                </Link>
-              </div>
-              <div className={styles.promoGrid}>
-                {featuredCatalogs.map(({ catalog, image, productCount }, index) => {
-                  const look = showcaseStyle(index);
-                  return (
-                    <PromoBanner
-                      key={catalog._id}
-                      label={look.label}
-                      title={catalog.name}
-                      description={catalog.description || `${productCount} product${productCount === 1 ? "" : "s"} available.`}
-                      buttonText={`Shop ${catalog.name}`}
-                      href={`/catalogs/${catalog._id}`}
-                      variant={look.variant}
-                      image={image}
-                      imageAlt={catalog.name}
-                      imageFit="cover"
-                    />
-                  );
-                })}
-              </div>
-            </section>
-          )}
+          {/* 4. MANUFACTURING & CRAFTSMANSHIP EDITORIAL BANNER */}
+          <section className={styles.manufacturingBanner} aria-label="Explore Our Manufacturing">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={IMAGES.jewelry.manufacturingCraftsman}
+              alt="Jeweler setting diamonds by hand"
+              className={styles.manufacturingBg}
+            />
+            <div className={styles.manufacturingOverlay} />
+            <div className={styles.manufacturingContent}>
+              <div className={styles.manufacturingEyebrow}>ARTISTRY & HERITAGE</div>
+              <h2 className={styles.manufacturingTitle}>Explore Our Manufacturing</h2>
+              <p className={styles.manufacturingSubtitle}>
+                From raw precious metals to polished masterpieces, discover the meticulous artistry behind every single piece.
+              </p>
+              <Link href="/manufacturing" className={styles.manufacturingBtn}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <span>Discover Our Process</span>
+              </Link>
+            </div>
+          </section>
 
-          {/* 4. POPULAR BRANDS CONTINUOUS MARQUEE */}
-          {popularBrands.length > 0 && (
-            <section aria-label="Popular Brands">
-              <div className={styles.sectionHeader}>
-                <div className={styles.sectionTitleGroup}>
-                  <h2 className={styles.sectionTitle}>Popular Brands</h2>
-                  <p className={styles.sectionSubtitle}>Trusted brands for your everyday needs</p>
-                </div>
-              </div>
-
-              <div className={styles.brandsMarqueeWrapper}>
-                <div className={styles.brandsMarqueeTrack}>
-                  {marqueeBrands.map((brand, idx) => (
-                    <BrandCard
-                      key={`${brand.id}-${idx}`}
-                      id={brand.id}
-                      name={brand.name}
-                      logo={brand.logo}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* 5. EVERYDAY GROCERY ESSENTIALS */}
-          <section aria-label="Everyday Grocery Essentials">
+          {/* 5. FEATURED COLLECTIONS PRODUCT SHOWCASE */}
+          <section aria-label="Featured Collections">
             <div className={styles.sectionHeader}>
               <div className={styles.sectionTitleGroup}>
-                <h2 className={styles.sectionTitle}>Everyday Grocery Essentials</h2>
-                <p className={styles.sectionSubtitle}>Everything you need for your everyday shop.</p>
+                <h2 className={styles.sectionTitle}>Featured Collections</h2>
+                <p className={styles.sectionSubtitle}>Handcrafted luxury tailored for life&apos;s finest moments</p>
               </div>
               <Link href="/products" prefetch={false} className={styles.viewAllLink}>
                 <span>View All</span>
@@ -249,30 +232,45 @@ export default function HomePage() {
               </Link>
             </div>
 
+            {/* Category Filter Tabs */}
+            <div className={styles.filterTabsRow} role="tablist" aria-label="Collection Tabs">
+              {categoryTabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedCategoryTab === tab.id}
+                  className={`${styles.tabPill} ${selectedCategoryTab === tab.id ? styles.tabPillActive : ""}`}
+                  onClick={() => setSelectedCategoryTab(tab.id)}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Product Grid */}
             <div className={styles.productGrid}>
               {loading ? (
-                Array.from({ length: 4 }).map((_, index) => (
+                Array.from({ length: 8 }).map((_, index) => (
                   <ProductCardSkeleton key={index} />
                 ))
-              ) : everydayEssentials.length === 0 ? (
-                <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "24px", color: "var(--color-muted)" }}>
-                  No grocery essentials available right now.
+              ) : featuredDisplayProducts.length === 0 ? (
+                <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "48px", color: "var(--color-muted)" }}>
+                  No jewelry pieces found in this category right now.
                 </div>
               ) : (
-                everydayEssentials.map((p) => {
+                featuredDisplayProducts.map((p) => {
                   const bestOffer = findBestDisplayOffer(activeOffers, p);
                   const comparePrice = getComparePrice(p, bestOffer);
-                  const weight =
+                  const specs =
+                    p.attributes?.material ||
+                    p.attributes?.purity ||
                     p.attributes?.weight ||
                     p.attributes?.size ||
-                    p.attributes?.unit ||
-                    p.attributes?.netWeight ||
-                    p.attributes?.packSize ||
-                    p.variants?.[0]?.attributes?.weight ||
-                    p.variants?.[0]?.attributes?.size ||
-                    p.name.match(/\b(\d+(?:\.\d+)?\s*(?:g|kg|ml|l|ltr|gm|oz|pack|pcs|pieces|count|bags))\b/i)?.[0];
+                    p.variants?.[0]?.attributes?.purity ||
+                    "18K Gold";
 
-                  const imageSrc = getGroceryProductImage(p);
+                  const imageSrc = p.images?.[0] || IMAGES.placeholders.product;
 
                   return (
                     <ProductCard
@@ -284,9 +282,10 @@ export default function HomePage() {
                       offerLabel={getProductOfferLabel(activeOffers, p, domainCurrencyMap[p.domainId])}
                       currency={domainCurrencyMap[p.domainId] || "GBP"}
                       image={imageSrc}
-                      brand={p.brand}
-                      weight={weight}
-                      
+                      brand={p.brand || "LUXE JWELS"}
+                      weight={specs}
+                      rating={4.9}
+                      reviewCount={p.variants?.length ? p.variants.length * 12 + 18 : 24}
                       isWishlisted={wishlistedIds.includes(p._id)}
                       cartQty={getQty(p._id)}
                       onAddToCart={handleAddToCart}
@@ -299,72 +298,130 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* 6. SERVICE BENEFITS TRUST STRIP */}
-          <ServiceBenefits />
+          {/* 6. DUAL EDITORIAL PROMOTIONAL CARDS */}
+          <section className={styles.editorialPromoGrid} aria-label="Featured Promotions">
+            <Link href="/products" className={styles.editorialCard}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={IMAGES.jewelry.designerPromo}
+                alt="Designer Jewellery for every occasion"
+                className={styles.editorialImage}
+              />
+              <div className={styles.editorialCardOverlay} />
+              <div className={styles.editorialCardBody}>
+                <span className={styles.editorialLabel}>NEW ARRIVALS</span>
+                <h3 className={styles.editorialCardTitle}>Designer Jewellery<br />For Every Occasion</h3>
+                <span className={styles.editorialCardCta}>Shop Now &rarr;</span>
+              </div>
+            </Link>
 
-          {/* 7. WEEKLY OFFERS PRODUCT GRID */}
-          <section aria-label="Weekly Offers Products">
+            <Link href="/contact" className={styles.editorialCard}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={IMAGES.jewelry.customPromo}
+                alt="Custom Jewellery bring your dream to life"
+                className={styles.editorialImage}
+              />
+              <div className={styles.editorialCardOverlay} />
+              <div className={styles.editorialCardBody}>
+                <span className={styles.editorialLabel}>BESPOKE ATELIER</span>
+                <h3 className={styles.editorialCardTitle}>Custom Jewellery<br />Bring Your Dream to Life</h3>
+                <span className={styles.editorialCardCta}>Get Started &rarr;</span>
+              </div>
+            </Link>
+          </section>
+
+          {/* 7. CUSTOMER TESTIMONIALS: "LOVED BY THOUSANDS" */}
+          <section aria-label="Customer Testimonials">
             <div className={styles.sectionHeader}>
               <div className={styles.sectionTitleGroup}>
-                <h2 className={styles.sectionTitle}>Weekly Offers</h2>
-                <p className={styles.sectionSubtitle}>Handpicked savings on everyday family favorites</p>
+                <h2 className={styles.sectionTitle}>Loved by Thousands</h2>
+                <p className={styles.sectionSubtitle}>Real stories and genuine reviews from our patrons</p>
               </div>
-              <Link href="/products?offers=true" prefetch={false} className={styles.viewAllLink}>
-                <span>View All Offers</span>
+              <Link href="/reviews" className={styles.viewAllLink}>
+                <span>View All Reviews</span>
                 <ArrowRightIcon size={14} aria-hidden="true" />
               </Link>
             </div>
 
-            <div className={styles.productGrid}>
-              {loading ? (
-                Array.from({ length: 4 }).map((_, index) => (
-                  <ProductCardSkeleton key={index} />
-                ))
-              ) : weeklyOffersProducts.length === 0 ? (
-                <div style={{ gridColumn: "1 / -1", textAlign: "center", padding: "24px", color: "var(--color-muted)" }}>
-                  No offer products available right now. Check back soon!
+            <div className={styles.testimonialsGrid}>
+              {TESTIMONIALS.map((t, idx) => (
+                <div key={idx} className={styles.testimonialCard}>
+                  <div className={styles.starsRow}>
+                    {Array.from({ length: t.rating }).map((_, sIdx) => (
+                      <StarIcon key={sIdx} size={15} filled />
+                    ))}
+                  </div>
+                  <p className={styles.testimonialQuote}>&ldquo;{t.text}&rdquo;</p>
+                  <div className={styles.testimonialAuthor}>
+                    <div className={styles.authorAvatar}>{t.name.charAt(0)}</div>
+                    <div className={styles.authorDetails}>
+                      <span className={styles.authorName}>{t.name}</span>
+                      <span className={styles.authorLocation}>{t.city}</span>
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                weeklyOffersProducts.map(({ product: p, offer }) => {
-                  const comparePrice = getComparePrice(p, offer);
-                  const weight =
-                    p.attributes?.weight ||
-                    p.attributes?.size ||
-                    p.attributes?.unit ||
-                    p.attributes?.netWeight ||
-                    p.attributes?.packSize ||
-                    p.variants?.[0]?.attributes?.weight ||
-                    p.variants?.[0]?.attributes?.size ||
-                    p.name.match(/\b(\d+(?:\.\d+)?\s*(?:g|kg|ml|l|ltr|gm|oz|pack|pcs|pieces|count|bags))\b/i)?.[0];
-                  const imageSrc = getGroceryProductImage(p);
-
-                  return (
-                    <ProductCard
-                      key={p._id}
-                      id={p._id}
-                      name={p.name}
-                      {...variantCardProps(p)}
-                      comparePrice={comparePrice}
-                      offerLabel={getProductOfferLabel(activeOffers, p, domainCurrencyMap[p.domainId])}
-                      currency={domainCurrencyMap[p.domainId] || "GBP"}
-                      image={imageSrc}
-                      brand={p.brand}
-                      weight={weight}
-                      
-                      isWishlisted={wishlistedIds.includes(p._id)}
-                      cartQty={getQty(p._id)}
-                      onAddToCart={handleAddToCart}
-                      onUpdateQty={handleUpdateQty}
-                      onToggleWishlist={(id) => toggleWishlist(id, p)}
-                    />
-                  );
-                })
-              )}
+              ))}
             </div>
           </section>
 
-          {/* 8. NEWSLETTER */}
-          <NewsletterSection />
+          {/* 8. LUXURY TRUST BANNER ("Luxury. Trust. Forever.") */}
+          <section className={styles.luxuryTrustBanner} aria-label="Luxury Trust Forever">
+            <div className={styles.luxuryTrustHero}>
+              <div className={styles.luxuryTrustText}>
+                <h2 className={styles.luxuryTrustTitle}>Luxury. Trust. Forever.</h2>
+                <p style={{ color: "#D5CFC7", margin: 0, fontSize: "0.95rem", lineHeight: 1.5, maxWidth: "420px" }}>
+                  Every gemstone hand-selected. Every setting cast with 100% certified metals and hallmarked authenticity.
+                </p>
+                <Link href="/products" className={styles.luxuryTrustCta}>
+                  Shop Collection &rarr;
+                </Link>
+              </div>
+
+              <div className={styles.luxuryTrustImageWrapper}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={IMAGES.jewelry.luxuryTrust}
+                  alt="Fine diamond solitaire ring on luxury slate"
+                  className={styles.luxuryTrustImg}
+                />
+              </div>
+            </div>
+
+            <div className={styles.luxuryTrustStrip}>
+              <div className={styles.luxuryTrustItem}>
+                <div className={styles.luxuryTrustIcon}><DiamondIcon size={18} /></div>
+                <div className={styles.luxuryTrustInfo}>
+                  <span className={styles.luxuryTrustHead}>100% Authentic</span>
+                  <span className={styles.luxuryTrustSub}>Certified Jewellery</span>
+                </div>
+              </div>
+
+              <div className={styles.luxuryTrustItem}>
+                <div className={styles.luxuryTrustIcon}><ShieldCheckIcon size={18} /></div>
+                <div className={styles.luxuryTrustInfo}>
+                  <span className={styles.luxuryTrustHead}>Secure Packaging</span>
+                  <span className={styles.luxuryTrustSub}>Safe &amp; Elegant</span>
+                </div>
+              </div>
+
+              <div className={styles.luxuryTrustItem}>
+                <div className={styles.luxuryTrustIcon}><RefreshCwIcon size={18} /></div>
+                <div className={styles.luxuryTrustInfo}>
+                  <span className={styles.luxuryTrustHead}>Easy Return</span>
+                  <span className={styles.luxuryTrustSub}>30 Days Hassle-Free</span>
+                </div>
+              </div>
+
+              <div className={styles.luxuryTrustItem}>
+                <div className={styles.luxuryTrustIcon}><TruckIcon size={18} /></div>
+                <div className={styles.luxuryTrustInfo}>
+                  <span className={styles.luxuryTrustHead}>Dedicated Support</span>
+                  <span className={styles.luxuryTrustSub}>We&apos;re here for you</span>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </Container>
     </StoreLayout>

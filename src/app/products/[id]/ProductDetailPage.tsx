@@ -18,13 +18,14 @@ import {
   CheckIcon,
   ExpandIcon,
   HeartIcon,
-  LeafIcon,
+  DiamondIcon,
   MinusIcon,
   PlusIcon,
+  RefreshCwIcon,
   ShieldCheckIcon,
   TruckIcon,
+  ShoppingBagIcon,
 } from "../../../components/icons";
-import { ShoppingBasketIcon } from "../../../components/icons/category";
 import {
   catalogService,
   offersService,
@@ -327,54 +328,55 @@ export default function ProductDetailPage({
       ),
     },
     {
-      key: "ingredients",
-      label: "Ingredients & Sourcing",
+      key: "specs",
+      label: "Specifications",
       content: (
         <div className={styles.tabContent}>
           <div className={styles.structuredInfoBox}>
-            <h4 className={styles.structuredTitle}>Ingredients & Origin</h4>
-            {sourcing.ingredients && (
-              <p style={{ margin: "0 0 16px 0", color: "#374151" }}>
-                <strong>Ingredients:</strong> {sourcing.ingredients}
-              </p>
-            )}
-            {sourcing.allergenAdvice && (
-              <p style={{ margin: "0 0 16px 0", color: "#374151" }}>
-                <strong>Allergen Advice:</strong> {sourcing.allergenAdvice}
-              </p>
-            )}
-            {sourcing.origin && (
-              <p style={{ margin: 0, color: "#024830", fontWeight: 600 }}>🌿 {sourcing.origin}</p>
-            )}
+            <h4 className={styles.structuredTitle}>Metal &amp; Craft Details</h4>
+            <div className={styles.attributesGrid}>
+              <div className={styles.attributeItem}>
+                <span className={styles.attributeKey}>Material</span>
+                <span className={styles.attributeVal}>{product?.attributes?.material || "18K Solid Gold"}</span>
+              </div>
+              <div className={styles.attributeItem}>
+                <span className={styles.attributeKey}>Purity</span>
+                <span className={styles.attributeVal}>{product?.attributes?.purity || "750 (18KT)"}</span>
+              </div>
+              <div className={styles.attributeItem}>
+                <span className={styles.attributeKey}>Gemstone</span>
+                <span className={styles.attributeVal}>{product?.attributes?.gemstone || "Natural Certified Diamond"}</span>
+              </div>
+              <div className={styles.attributeItem}>
+                <span className={styles.attributeKey}>Certification</span>
+                <span className={styles.attributeVal}>BIS Hallmarked &amp; IGI / SGL Certified</span>
+              </div>
+              {product?.attributes?.weight && (
+                <div className={styles.attributeItem}>
+                  <span className={styles.attributeKey}>Gross Weight</span>
+                  <span className={styles.attributeVal}>{product.attributes.weight}</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       ),
     },
     {
-      key: "nutrition",
-      label: "Nutrition Facts",
+      key: "shipping",
+      label: "Shipping & Returns",
       content: (
         <div className={styles.tabContent}>
           <div className={styles.structuredInfoBox}>
-            <h4 className={styles.structuredTitle}>
-              Nutritional Information{nutrition?.basis ? ` (Typical values ${nutrition.basis})` : ""}
-            </h4>
-            <table className={styles.nutritionTable}>
-              <thead>
-                <tr>
-                  <th>Nutrient</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(nutrition?.rows || []).map((row, index) => (
-                  <tr key={`${row.name}-${index}`}>
-                    <td>{row.indented ? <>&nbsp;&nbsp;{row.name}</> : row.name}</td>
-                    <td>{row.amount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <h4 className={styles.structuredTitle}>Complimentary Insured Delivery</h4>
+            <p style={{ margin: "0 0 12px 0", color: "#55504A", lineHeight: 1.6 }}>
+              Every LUXE JWELS piece is packaged in a tamper-evident luxury gift box and dispatched via fully insured courier service.
+            </p>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#55504A", lineHeight: 1.6 }}>
+              <li>Dispatched within 24-48 hours with door-to-door GPS tracking.</li>
+              <li>30-Day 100% money back return policy for unworn items.</li>
+              <li>Complimentary lifetime cleaning and annual prong inspection.</li>
+            </ul>
           </div>
         </div>
       ),
@@ -535,7 +537,7 @@ export default function ProductDetailPage({
             {/* RIGHT: Product information and purchase controls */}
             <div className={styles.infoSection}>
               <div className={styles.brandLabel}>
-                {product.brand || "FRESHMART"}
+                {product.brand || "LUXE JWELS"}
               </div>
 
               <h1 className={styles.productTitle}>{productTitle}</h1>
@@ -671,7 +673,7 @@ export default function ProductDetailPage({
                 <p className={styles.lowStockHint}>Only {stock} left in stock — order soon</p>
               )}
 
-              {/* QUANTITY & ADD TO BASKET */}
+              {/* QUANTITY & ADD TO CART & BUY NOW */}
               <div className={styles.purchaseActionRow}>
                 <div className={styles.stepperContainer} role="group" aria-label="Product quantity">
                   <button
@@ -679,8 +681,8 @@ export default function ProductDetailPage({
                     className={styles.stepperBtn}
                     onClick={handleDecrement}
                     disabled={(cartQty === 0 && localQty <= 1) || isOutOfStock}
-                    aria-label={cartQty === 1 ? "Remove from basket" : "Decrease quantity"}
-                    title={cartQty === 1 ? "Remove from basket" : "Decrease quantity"}
+                    aria-label={cartQty === 1 ? "Remove from cart" : "Decrease quantity"}
+                    title={cartQty === 1 ? "Remove from cart" : "Decrease quantity"}
                   >
                     <MinusIcon size={16} />
                   </button>
@@ -704,25 +706,38 @@ export default function ProductDetailPage({
                   className={`${styles.addToBasketBtn} ${cartQty > 0 ? styles.inBasketBtn : ""}`}
                   onClick={() => handleAddToCart()}
                   disabled={isOutOfStock}
-                  aria-label={cartQty > 0 ? `In basket (${cartQty}) - click to add one more` : "Add to basket"}
+                  aria-label={cartQty > 0 ? `In cart (${cartQty}) - click to add one more` : "Add to Cart"}
                 >
-                  <ShoppingBasketIcon size={20} />
+                  <ShoppingBagIcon size={18} />
                   <span>
                     {isOutOfStock
                       ? "Out of Stock"
                       : cartQty > 0
-                      ? `In Basket (${cartQty})`
-                      : "Add to Basket"}
+                      ? `In Cart (${cartQty})`
+                      : "Add to Cart"}
                   </span>
                 </button>
+
+                {!isOutOfStock && (
+                  <button
+                    type="button"
+                    className={styles.buyNowBtn}
+                    onClick={async () => {
+                      await handleAddToCart();
+                      router.push("/cart");
+                    }}
+                  >
+                    Buy Now
+                  </button>
+                )}
               </div>
 
               {cartQty > 0 && (
                 <div className={styles.inBasketNotice}>
                   <CheckIcon size={14} />
-                  <span>Item in your basket ({cartQty})</span>
+                  <span>Item in your cart ({cartQty})</span>
                   <Link href="/cart" className={styles.viewBasketLink}>
-                    View Basket &rarr;
+                    View Cart &rarr;
                   </Link>
                 </div>
               )}
@@ -731,11 +746,11 @@ export default function ProductDetailPage({
               <div className={styles.trustDeliveryCard}>
                 <div className={styles.trustItem}>
                   <div className={styles.trustIconWrap}>
-                    <CheckIcon size={15} />
+                    <DiamondIcon size={15} />
                   </div>
                   <div>
-                    <span className={styles.trustTitle}>In Stock:</span>
-                    <span>Ready for express local grocery packing</span>
+                    <span className={styles.trustTitle}>Certified Jewellery:</span>
+                    <span>100% Hallmarked gold &amp; certified diamonds</span>
                   </div>
                 </div>
                 <div className={styles.trustItem}>
@@ -743,8 +758,17 @@ export default function ProductDetailPage({
                     <TruckIcon size={15} />
                   </div>
                   <div>
-                    <span className={styles.trustTitle}>Next-Day Delivery:</span>
-                    <span>Free on grocery orders over £30</span>
+                    <span className={styles.trustTitle}>Insured Shipping:</span>
+                    <span>Complimentary express delivery with transit insurance</span>
+                  </div>
+                </div>
+                <div className={styles.trustItem}>
+                  <div className={styles.trustIconWrap}>
+                    <RefreshCwIcon size={15} />
+                  </div>
+                  <div>
+                    <span className={styles.trustTitle}>30-Day Easy Returns:</span>
+                    <span>Hassle-free money back guarantee &amp; exchange</span>
                   </div>
                 </div>
                 <div className={styles.trustItem}>
@@ -752,17 +776,8 @@ export default function ProductDetailPage({
                     <ShieldCheckIcon size={15} />
                   </div>
                   <div>
-                    <span className={styles.trustTitle}>Quality Checked:</span>
-                    <span>Direct farm-to-table freshness guaranteed</span>
-                  </div>
-                </div>
-                <div className={styles.trustItem}>
-                  <div className={styles.trustIconWrap}>
-                    <LeafIcon size={15} />
-                  </div>
-                  <div>
-                    <span className={styles.trustTitle}>100% Satisfaction:</span>
-                    <span>Handpicked daily by grocery specialists</span>
+                    <span className={styles.trustTitle}>Lifetime Care:</span>
+                    <span>Free annual polishing &amp; prong inspection</span>
                   </div>
                 </div>
               </div>

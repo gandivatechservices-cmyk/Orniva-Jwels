@@ -71,8 +71,8 @@ export function ShopByCategory({
           displayCategories.map((category) => {
             const visual = getCategoryVisual(category.slug, category.name);
             const isActive = activeCategoryId === category._id;
-            // Image comes from the category record in the database only.
-            const resolvedImage = category.imageUrl || undefined;
+            // Image comes from category record, falling back gracefully to jewelry visual asset if missing
+            const resolvedImage = category.imageUrl || visual.fallbackImage || undefined;
 
             return (
               <CategoryCard

@@ -57,31 +57,21 @@ export function Footer({ className = "" }: { className?: string }) {
           <div className={styles.trustGrid}>
             <div className={styles.trustItem}>
               <div className={styles.trustIconWrap}>
-                <TruckIcon size={22} />
-              </div>
-              <div className={styles.trustText}>
-                <span className={styles.trustTitle}>Free Express Delivery</span>
-                <span className={styles.trustDesc}>On qualifying orders with live tracking</span>
-              </div>
-            </div>
-
-            <div className={styles.trustItem}>
-              <div className={styles.trustIconWrap}>
-                <LeafIcon size={22} />
-              </div>
-              <div className={styles.trustText}>
-                <span className={styles.trustTitle}>100% Fresh Guarantee</span>
-                <span className={styles.trustDesc}>Locally sourced organic produce & groceries</span>
-              </div>
-            </div>
-
-            <div className={styles.trustItem}>
-              <div className={styles.trustIconWrap}>
                 <ShieldCheckIcon size={22} />
               </div>
               <div className={styles.trustText}>
-                <span className={styles.trustTitle}>Secure SSL Checkout</span>
-                <span className={styles.trustDesc}>256-bit encrypted card & contactless pay</span>
+                <span className={styles.trustTitle}>100% Authentic</span>
+                <span className={styles.trustDesc}>Certified Jewellery</span>
+              </div>
+            </div>
+
+            <div className={styles.trustItem}>
+              <div className={styles.trustIconWrap}>
+                <TruckIcon size={22} />
+              </div>
+              <div className={styles.trustText}>
+                <span className={styles.trustTitle}>Secure Packaging</span>
+                <span className={styles.trustDesc}>Safe & Elegant Presentation</span>
               </div>
             </div>
 
@@ -90,24 +80,69 @@ export function Footer({ className = "" }: { className?: string }) {
                 <TagIcon size={22} />
               </div>
               <div className={styles.trustText}>
-                <span className={styles.trustTitle}>Direct Store Offers</span>
-                <span className={styles.trustDesc}>Automatic discounts & verified weekly coupons</span>
+                <span className={styles.trustTitle}>30-Day Easy Return</span>
+                <span className={styles.trustDesc}>Hassle-Free Guarantee</span>
+              </div>
+            </div>
+
+            <div className={styles.trustItem}>
+              <div className={styles.trustIconWrap}>
+                <LeafIcon size={22} />
+              </div>
+              <div className={styles.trustText}>
+                <span className={styles.trustTitle}>Dedicated Support</span>
+                <span className={styles.trustDesc}>We are here for you 24/7</span>
               </div>
             </div>
           </div>
         </Container>
       </div>
 
-      {/* 2. MAIN FOOTER CONTENT */}
+      {/* 2. NEWSLETTER STRIP */}
+      <div className={styles.newsletterStrip}>
+        <Container>
+          <div className={styles.newsletterInner}>
+            <div className={styles.newsletterBrandBadge}>
+              <span className={styles.newsletterBadgeTag}>100% AUTHENTIC</span>
+              <span className={styles.newsletterBadgeSub}>Join our fine jewellery circle for private sales</span>
+            </div>
+
+            <div className={styles.newsletterFormWrap}>
+              {newsletterSubscribed ? (
+                <div className={styles.newsletterSuccess}>
+                  <CheckIcon size={16} /> Thank you for subscribing to LUXE JWELS updates.
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email address"
+                    className={styles.newsletterInput}
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    aria-label="Email address for jewelry updates"
+                  />
+                  <button type="submit" className={styles.newsletterBtn}>
+                    Subscribe
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      {/* 3. MAIN FOOTER CONTENT */}
       <div className={styles.mainSection}>
         <Container>
           <div className={styles.columnsGrid}>
             {/* BRAND COL */}
             <div className={styles.brandCol}>
-              <AtlasLogo height={30} light />
+              <AtlasLogo height={32} light />
               <p className={styles.tagline}>
-                Fresh groceries, pantry staples, and gourmet foods delivered direct to your doorstep.
-                Dedicated to quality, sustainability, and exceptional taste.
+                A legacy of trust, quality, and timeless designs. For over 25 years, we have been
+                crafting exquisite fine jewellery that celebrates life’s most precious milestones.
               </p>
 
               <div className={styles.socialRow}>
@@ -116,7 +151,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow Atlas on Facebook"
+                  aria-label="Follow LUXE JWELS on Facebook"
                 >
                   <FacebookIcon size={16} />
                 </a>
@@ -125,7 +160,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow Atlas on Instagram"
+                  aria-label="Follow LUXE JWELS on Instagram"
                 >
                   <InstagramIcon size={16} />
                 </a>
@@ -134,7 +169,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow Atlas on YouTube"
+                  aria-label="Follow LUXE JWELS on YouTube"
                 >
                   <YoutubeIcon size={16} />
                 </a>
@@ -143,83 +178,72 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow Atlas on X"
+                  aria-label="Follow LUXE JWELS on X"
                 >
                   <TwitterIcon size={16} />
                 </a>
               </div>
             </div>
 
-            {/* DYNAMIC CATEGORIES COL */}
+            {/* QUICK LINKS COL */}
             <div className={styles.column}>
-              <h3 className={styles.columnTitle}>Fresh Categories</h3>
+              <h3 className={styles.columnTitle}>Quick Links</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <Link href="/products" prefetch={false} className={styles.link}>
-                    All Groceries
+                  <Link href="/" prefetch={false} className={styles.link}>
+                    Home
                   </Link>
                 </li>
-                {categories.length > 0 ? (
-                  categories.map((cat) => (
-                    <li key={cat._id}>
-                      <Link
-                        href={cat.slug ? `/category/${cat.slug}` : `/products?category=${cat._id}`}
-                        prefetch={false}
-                        className={styles.link}
-                      >
-                        {cat.name}
-                      </Link>
-                    </li>
-                  ))
-                ) : (
-                  <>
-                    <li>
-                      <Link href="/products" prefetch={false} className={styles.link}>
-                        Fresh Produce
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/products" prefetch={false} className={styles.link}>
-                        Dairy & Eggs
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/products" prefetch={false} className={styles.link}>
-                        Bakery & Pantry
-                      </Link>
-                    </li>
-                  </>
-                )}
                 <li>
-                  <Link href="/products?offers=true" prefetch={false} className={styles.link}>
-                    Special Offers <span className={styles.linkBadge}>Deals</span>
+                  <Link href="/products" prefetch={false} className={styles.link}>
+                    Shop All
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/categories" prefetch={false} className={styles.link}>
+                    Collections
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" prefetch={false} className={styles.link}>
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/manufacturing" prefetch={false} className={styles.link}>
+                    Our Manufacturing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" prefetch={false} className={styles.link}>
+                    Contact Us
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* CUSTOMER CARE & ACCOUNT COL */}
+            {/* CUSTOMER CARE COL */}
             <div className={styles.column}>
               <h3 className={styles.columnTitle}>Customer Care</h3>
               <ul className={styles.linkList}>
                 <li>
-                  <Link href="/cart" prefetch={false} className={styles.link}>
-                    Shopping Basket
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/wishlist" prefetch={false} className={styles.link}>
-                    My Wishlist
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/orders" prefetch={false} className={styles.link}>
-                    Track Your Orders
+                  <Link href="/terms" prefetch={false} className={styles.link}>
+                    Shipping Policy
                   </Link>
                 </li>
                 <li>
                   <Link href="/refund-policy" prefetch={false} className={styles.link}>
-                    Refund & Return Policy
+                    Return & Refund
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/reviews" prefetch={false} className={styles.link}>
+                    Customer Reviews
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/orders" prefetch={false} className={styles.link}>
+                    Track Order
                   </Link>
                 </li>
                 <li>
@@ -242,68 +266,59 @@ export function Footer({ className = "" }: { className?: string }) {
               </ul>
             </div>
 
-            {/* STOREFRONT & NEWSLETTER COL */}
+            {/* CONTACT US COL */}
             <div className={styles.column}>
-              <h3 className={styles.columnTitle}>Storefronts & Updates</h3>
-              <p className={styles.storeInfoText}>
-                Active regional distribution centers serving fresh groceries.
-              </p>
-
-              {/* Interactive Newsletter Form */}
-              <div className={styles.newsletterBox}>
-                <span className={styles.newsletterTitle}>Get Weekly Deals & Recipes</span>
-                {newsletterSubscribed ? (
-                  <span className={styles.newsletterSuccess}>
-                    <CheckIcon size={14} /> You&apos;re subscribed to weekly fresh deals!
-                  </span>
-                ) : (
-                  <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
-                    <input
-                      type="email"
-                      required
-                      placeholder="Enter your email"
-                      className={styles.newsletterInput}
-                      value={newsletterEmail}
-                      onChange={(e) => setNewsletterEmail(e.target.value)}
-                      aria-label="Email address for newsletter"
-                    />
-                    <button type="submit" className={styles.newsletterBtn}>
-                      Join
-                    </button>
-                  </form>
-                )}
+              <h3 className={styles.columnTitle}>Contact Us</h3>
+              <div className={styles.contactDetails}>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Phone:</span>
+                  <a href="tel:+919876543210" className={styles.contactLink}>
+                    +91 98765 43210
+                  </a>
+                </div>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Email:</span>
+                  <a href="mailto:support@luxejewels.com" className={styles.contactLink}>
+                    Support@luxejewels.com
+                  </a>
+                </div>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Boutique:</span>
+                  <span className={styles.contactText}>Ahmedabad, Gujarat, India</span>
+                </div>
+                <div className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Hours:</span>
+                  <span className={styles.contactText}>Mon – Sat: 10:00 AM – 7:00 PM</span>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </div>
 
-      {/* 3. BOTTOM LEGAL & REGIONAL BAR */}
+      {/* 4. BOTTOM LEGAL & PAYMENT METHODS BAR */}
       <div className={styles.bottomSection}>
         <Container>
           <div className={styles.bottomContent}>
             <p className={styles.copyright}>
-              &copy; {currentYear} Atlas Groceries. All rights reserved. Source of truth backed by
-              Atlas Cloud API.
+              &copy; 2025 LUXE JWELS. All Rights Reserved.
             </p>
+
+            <div className={styles.paymentMethods}>
+              <span className={styles.payBadge}>VISA</span>
+              <span className={styles.payBadge}>MasterCard</span>
+              <span className={styles.payBadge}>UPI</span>
+              <span className={styles.payBadge}>PayPal</span>
+            </div>
 
             <div className={styles.legalLinks}>
               <Link href="/refund-policy" className={styles.legalLink}>
-                Refund & Return Policy
+                Refund Policy
               </Link>
               <span className={styles.legalDivider}>•</span>
               <Link href="/terms" className={styles.legalLink}>
                 Terms & Conditions
               </Link>
-              <span className={styles.legalDivider}>•</span>
-              <Link href="/products" className={styles.legalLink}>
-                Privacy Policy
-              </Link>
-            </div>
-
-            <div className={styles.activeStoreBadge}>
-              <span className={styles.statusIndicator} />
-              <span>Store Online • UK Wide</span>
             </div>
           </div>
         </Container>

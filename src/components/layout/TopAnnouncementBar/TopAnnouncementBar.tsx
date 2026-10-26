@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CloseIcon, TruckIcon } from "components/icons";
+import { CloseIcon, TruckIcon, RefreshCwIcon, ShieldCheckIcon, LockIcon } from "components/icons";
 import styles from "./TopAnnouncementBar.module.css";
 
 export type TopAnnouncementBarProps = {
@@ -11,7 +11,6 @@ export type TopAnnouncementBarProps = {
 };
 
 export function TopAnnouncementBar({
-  message = "Free Delivery on Orders Over £40 | UK Wide",
   dismissible = false,
 }: TopAnnouncementBarProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -19,21 +18,36 @@ export function TopAnnouncementBar({
   if (!isVisible) return null;
 
   return (
-    <div className={styles.bar} role="region" aria-label="Announcement">
+    <div className={styles.bar} role="region" aria-label="Store Trust Highlights">
       <div className={styles.inner}>
-        {/* CENTER DELIVERY MESSAGE */}
-        <div className={styles.content}>
-          <TruckIcon size={15} className={styles.icon} aria-hidden="true" />
-          <span className={styles.text}>{message}</span>
+        {/* CENTER LUXURY TRUST MESSAGES */}
+        <div className={styles.trustRow}>
+          <div className={styles.trustItem}>
+            <TruckIcon size={14} className={styles.goldIcon} aria-hidden="true" />
+            <span className={styles.text}>Free Shipping</span>
+          </div>
+          <span className={styles.dot}>•</span>
+          <div className={styles.trustItem}>
+            <RefreshCwIcon size={13} className={styles.goldIcon} aria-hidden="true" />
+            <span className={styles.text}>30 Days Easy Return</span>
+          </div>
+          <span className={styles.dot}>•</span>
+          <div className={styles.trustItem}>
+            <ShieldCheckIcon size={14} className={styles.goldIcon} aria-hidden="true" />
+            <span className={styles.text}>Certified Jewellery</span>
+          </div>
+          <span className={styles.dot}>•</span>
+          <div className={styles.trustItem}>
+            <LockIcon size={13} className={styles.goldIcon} aria-hidden="true" />
+            <span className={styles.text}>Secure Payments</span>
+          </div>
         </div>
 
         {/* RIGHT QUICK LINKS */}
         <div className={styles.quickLinks}>
-          <Link href="/products" prefetch={false} className={styles.quickLink}>Help</Link>
-          <span className={styles.divider}>|</span>
           <Link href="/orders" prefetch={false} className={styles.quickLink}>Track Order</Link>
           <span className={styles.divider}>|</span>
-          <Link href="/admin/dashboard" prefetch={false} className={styles.quickLink}>Sell with us</Link>
+          <Link href="/contact" prefetch={false} className={styles.quickLink}>Contact</Link>
         </div>
 
         {dismissible && (

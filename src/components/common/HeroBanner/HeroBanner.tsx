@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { LeafIcon, CartIcon, TruckIcon, PriceTagIcon, ShieldCheckIcon, ArrowRightIcon } from "components/icons";
+import { DiamondIcon, ArrowRightIcon } from "components/icons";
 import { IMAGES } from "constants/images";
 import styles from "./HeroBanner.module.css";
 
@@ -20,25 +20,25 @@ export type HeroBannerProps = {
 };
 
 export function HeroBanner({
-  eyebrowText = "AUTHENTIC & DELICIOUS. EVERY DAY.",
+  eyebrowText = "FINE JEWELLERY • HANDCRAFTED EXCELLENCE",
   title,
-  subtitle = "Your everyday groceries, authentic Indian namkeen, ready-to-eat meals, and household essentials — all in one place.",
-  primaryCtaText = "Shop Groceries",
+  subtitle = "Discover exquisite jewelry designed to celebrate every moment. Where exceptional craftsmanship meets enduring beauty.",
+  primaryCtaText = "Shop Now",
   primaryCtaHref = "/products",
-  secondaryCtaText = "View Offers",
-  secondaryCtaHref = "/products?offers=true",
-  imageSrc = IMAGES.hero.packagedFood,
-  imageAlt = "Bag filled with Indian namkeen, ready-to-eat meals and packaged foods",
+  secondaryCtaText = "Discover Our Craftsmanship",
+  secondaryCtaHref = "/manufacturing",
+  imageSrc = IMAGES.jewelry.heroModel,
+  imageAlt = "High fashion model wearing luxury emerald and diamond necklace and earrings",
   className = "",
 }: HeroBannerProps) {
   return (
-    <section className={`${styles.heroSection} ${className}`} aria-label="Grocery Hero Banner">
+    <section className={`${styles.heroSection} ${className}`} aria-label="Luxury Jewelry Hero">
       <div className={styles.container}>
-        {/* LEFT COLUMN: EYEBROW, HEADLINE, SUBTITLE, CTAS, TRUST BADGES */}
+        {/* LEFT COLUMN: BRAND ACCENT, HEADLINE, SUBTITLE, CTAS */}
         <div className={styles.heroContent}>
           {eyebrowText && (
             <div className={styles.eyebrow}>
-              <LeafIcon size={16} className={styles.eyebrowIcon} aria-hidden="true" />
+              <DiamondIcon size={14} className={styles.eyebrowIcon} aria-hidden="true" />
               <span className={styles.eyebrowText}>{eyebrowText}</span>
             </div>
           )}
@@ -46,9 +46,8 @@ export function HeroBanner({
           <h1 className={styles.heroTitle}>
             {title || (
               <>
-                <span className={styles.headlineDark}>Good Food.</span>
-                <span className={styles.headlineDark}>Good Prices.</span>
-                <span className={styles.headlineGreen}>Delivered.</span>
+                <span className={styles.headlineLight}>Timeless Elegance,</span>
+                <span className={styles.headlineGold}>Crafted for You</span>
               </>
             )}
           </h1>
@@ -59,9 +58,8 @@ export function HeroBanner({
             {primaryCtaText && primaryCtaHref && (
               <Link href={primaryCtaHref} prefetch={false} className={styles.ctaLink}>
                 <button type="button" className={styles.primaryBtn}>
-                  <CartIcon size={19} className={styles.btnCartIcon} aria-hidden="true" />
                   <span>{primaryCtaText}</span>
-                  <ArrowRightIcon size={16} className={styles.btnArrow} aria-hidden="true" />
+                  <ArrowRightIcon size={14} className={styles.btnArrow} aria-hidden="true" />
                 </button>
               </Link>
             )}
@@ -69,64 +67,19 @@ export function HeroBanner({
             {secondaryCtaText && secondaryCtaHref && (
               <Link href={secondaryCtaHref} prefetch={false} className={styles.ctaLink}>
                 <button type="button" className={styles.secondaryBtn}>
-                  {secondaryCtaText}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: 6 }}>
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  <span>{secondaryCtaText}</span>
                 </button>
               </Link>
             )}
           </div>
-
-          {/* 4 VALUE & TRUST BADGES ROW */}
-          <div className={styles.trustBadgesRow} role="list" aria-label="Store Benefits">
-            <div className={styles.trustBadge} role="listitem">
-              <div className={styles.trustIconCircle}>
-                <TruckIcon size={18} />
-              </div>
-              <div className={styles.trustBadgeText}>
-                <span className={styles.trustBadgeTitle}>Free delivery</span>
-                <span className={styles.trustBadgeSub}>over £40</span>
-              </div>
-            </div>
-
-            <div className={styles.trustDivider} aria-hidden="true" />
-
-            <div className={styles.trustBadge} role="listitem">
-              <div className={styles.trustIconCircle}>
-                <LeafIcon size={18} />
-              </div>
-              <div className={styles.trustBadgeText}>
-                <span className={styles.trustBadgeTitle}>Fresh &</span>
-                <span className={styles.trustBadgeSub}>quality products</span>
-              </div>
-            </div>
-
-            <div className={styles.trustDivider} aria-hidden="true" />
-
-            <div className={styles.trustBadge} role="listitem">
-              <div className={styles.trustIconCircle}>
-                <PriceTagIcon size={18} />
-              </div>
-              <div className={styles.trustBadgeText}>
-                <span className={styles.trustBadgeTitle}>Best</span>
-                <span className={styles.trustBadgeSub}>prices always</span>
-              </div>
-            </div>
-
-            <div className={styles.trustDivider} aria-hidden="true" />
-
-            <div className={styles.trustBadge} role="listitem">
-              <div className={styles.trustIconCircle}>
-                <ShieldCheckIcon size={18} />
-              </div>
-              <div className={styles.trustBadgeText}>
-                <span className={styles.trustBadgeTitle}>Safe & secure</span>
-                <span className={styles.trustBadgeSub}>shopping</span>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* RIGHT COLUMN: PRODUCE HARVEST IMAGE */}
-        <div className={styles.heroImageWrapper}>
+        {/* RIGHT COLUMN: HERO MODEL IMAGE */}
+        <div className={styles.heroVisual}>
+          <div className={styles.imageGlow} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imageSrc}

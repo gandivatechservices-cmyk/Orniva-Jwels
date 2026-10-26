@@ -1,0 +1,274 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 6vw, 72px);
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.heroBanner {
+  position: relative;
+  width: 100%;
+  min-height: clamp(300px, 28vw, 380px);
+  background: #18120C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(167, 123, 63, 0.25);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(26, 20, 14, 0.4) 0%, rgba(20, 15, 10, 0.88) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 32px 20px;
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #FAF8F4;
+  margin: 0 0 10px 0;
+}
+
+.heroSubtitle {
+  font-family: var(--font-sans, "Montserrat", sans-serif);
+  font-size: 1rem;
+  color: #D5CFC7;
+  margin: 0;
+}
+
+/* REVIEWS LAYOUT: LEFT SUMMARY, RIGHT CARDS */
+.reviewsLayout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.ratingSummaryCard {
+  background: #ffffff;
+  border: 1px solid #E9E2D8;
+  border-radius: 14px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 16px rgba(36, 35, 33, 0.03);
+  position: sticky;
+  top: 100px;
+}
+
+.scoreBig {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #242321;
+  line-height: 1;
+  margin: 0;
+}
+
+.scoreSub {
+  font-size: 0.85rem;
+  color: #77716A;
+  margin-top: 4px;
+}
+
+.starsRow {
+  display: flex;
+  gap: 4px;
+  color: #C5A16B;
+}
+
+.distributionRows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.distRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: #55504A;
+}
+
+.barTrack {
+  flex: 1;
+  height: 6px;
+  background: #FAF5EE;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: #A77B3F;
+  border-radius: 9999px;
+}
+
+.distPct {
+  width: 32px;
+  text-align: right;
+  font-weight: 600;
+  color: #77716A;
+}
+
+.writeReviewBtn {
+  width: 100%;
+  height: 44px;
+  background: #211A14;
+  color: #FAF8F4;
+  border: 1px solid #211A14;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.22s ease;
+}
+
+.writeReviewBtn:hover {
+  background: #A77B3F;
+  border-color: #A77B3F;
+  color: #ffffff;
+}
+
+/* CUSTOMER REVIEWS LIST */
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewCard {
+  background: #ffffff;
+  border: 1px solid #E9E2D8;
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(36, 35, 33, 0.02);
+}
+
+.reviewTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewerAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FAF5EE;
+  color: #A77B3F;
+  border: 1px solid #EAE0D0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewerName {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #242321;
+}
+
+.verifiedBadge {
+  font-size: 0.72rem;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.reviewText {
+  font-size: 0.88rem;
+  color: #383431;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* #LUXEJEWELS PHOTO GALLERY */
+.gallerySection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.galleryHeader {
+  text-align: center;
+}
+
+.galleryTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #242321;
+  margin: 0 0 6px 0;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.galleryCard {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #E9E2D8;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.galleryCard:hover .galleryImg {
+  transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+  .reviewsLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

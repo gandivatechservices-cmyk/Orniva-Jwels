@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LeafIcon, MailIcon, ArrowRightIcon, CheckIcon } from "../../icons";
+import { DiamondIcon, MailIcon, CheckIcon } from "../../icons";
 import styles from "./NewsletterSection.module.css";
 
 export function NewsletterSection({ className = "" }: { className?: string }) {
@@ -21,12 +21,12 @@ export function NewsletterSection({ className = "" }: { className?: string }) {
       {/* LEFT CONTENT */}
       <div className={styles.left}>
         <div className={styles.leafIconWrap} aria-hidden="true">
-          <LeafIcon size={22} className={styles.leafIcon} />
+          <DiamondIcon size={20} className={styles.leafIcon} />
         </div>
         <div className={styles.textGroup}>
-          <h3 className={styles.title}>Get the latest offers & recipes</h3>
+          <h3 className={styles.title}>Join The LUXE JWELS Circle</h3>
           <p className={styles.subtitle}>
-            Join our newsletter for exclusive deals, new products and more.
+            Receive privileged previews of fine jewelry launches, private salon events &amp; bespoke creations.
           </p>
         </div>
       </div>
@@ -41,7 +41,7 @@ export function NewsletterSection({ className = "" }: { className?: string }) {
             <div>
               <strong className={styles.successTitle}>You&apos;re subscribed!</strong>
               <p className={styles.successSubtitle}>
-                Check your inbox soon for exclusive deals & recipes.
+                Welcome to our private circle. Look out for our welcome message.
               </p>
             </div>
           </div>
@@ -60,8 +60,7 @@ export function NewsletterSection({ className = "" }: { className?: string }) {
               aria-label="Email address for newsletter"
             />
             <button type="submit" className={styles.submitBtn}>
-              <span>Subscribe</span>
-              <ArrowRightIcon size={15} className={styles.btnIcon} />
+              Subscribe
             </button>
           </form>
         )}

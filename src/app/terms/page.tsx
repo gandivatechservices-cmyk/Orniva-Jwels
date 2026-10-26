@@ -21,73 +21,71 @@ const FALLBACK_TERMS_POLICY: Policy = {
   title: "Terms & Conditions",
   subtitle: "Terms of service, delivery policies, ordering conditions, and customer agreements",
   summary:
-    "Welcome to Atlas Groceries. These Terms & Conditions govern your access to and use of our online grocery service, including all purchases made through our store.",
+    "Welcome to LUXE JWELS. These Terms & Conditions govern your access to and purchase of our fine jewelry collections, certified diamond pieces, and bespoke atelier items.",
   sections: [
     {
       id: "introduction",
       heading: "1. Introduction & About Us",
       content:
-        "These Terms and Conditions govern your use of the Atlas online grocery store (shop.atlassone.com) and the purchase of any products from us. By placing an order with Atlas, you agree to be bound by these terms. Atlas is dedicated to delivering fresh food, pantry staples, and specialty grocery products across the United Kingdom.",
+        "These Terms and Conditions govern your use of the LUXE JWELS online boutique and the purchase of any handcrafted jewellery pieces from us. By placing an order with LUXE JWELS, you agree to be bound by these terms. LUXE JWELS is dedicated to creating exquisite, hallmarked gold and certified diamond jewellery crafted to perfection.",
       items: [
-        "Applies to all visitors, registered shoppers, and customers of Atlas",
-        "Operated under the laws of England and Wales",
+        "Applies to all visitors, registered patrons, and customers of LUXE JWELS",
+        "Operated with highest standards of transparency and integrity",
       ],
     },
     {
       id: "account-eligibility",
       heading: "2. Eligibility & Customer Accounts",
       content:
-        "To place an order with Atlas, you must be at least 18 years old and possess a valid payment method acceptable to us. You are responsible for maintaining the confidentiality of your account credentials and ensuring that all details (including delivery address, postcode, and contact phone number) are accurate.",
+        "To place an order with LUXE JWELS, you must possess a valid payment method acceptable to us. You are responsible for maintaining the confidentiality of your account credentials and ensuring that all details (including delivery address, postcode, and contact phone number) are accurate for secure courier transit.",
       items: [
         "Customers must be 18 years of age or older",
-        "Accurate UK postal address and valid telephone number required",
+        "Accurate delivery address and contact telephone number required for high-value dispatch",
         "Account credentials must be kept confidential",
       ],
     },
     {
       id: "pricing-products",
-      heading: "3. Product Descriptions & Pricing",
+      heading: "3. Product Descriptions, Certification & Pricing",
       content:
-        "All prices displayed on our website are in Pounds Sterling (GBP) and are inclusive of applicable UK VAT. While we make every effort to display accurate product details, ingredients, and imagery, fresh produce and packaged groceries may have slight visual variations. All products are subject to stock availability.",
+        "All prices displayed on our website are inclusive of applicable taxes. Every precious metal piece is BIS hallmarked and all diamonds and gemstones are verified by certified gemological institutions. Due to the handcrafted nature of our jewelry, slight variations in natural stone inclusions and metal finishing are hallmarks of unique craftsmanship.",
       items: [
-        "All transactions are conducted in GBP (£)",
-        "Prices include UK VAT where applicable",
-        "Perishable produce weights and appearances may vary naturally",
+        "All items feature official hallmarking and certificate cards",
+        "Prices include all applicable taxes",
+        "Unique handcrafted variations celebrate individual stone character",
       ],
     },
     {
       id: "delivery-terms",
-      heading: "4. Delivery Policy & Charges",
+      heading: "4. Insured Delivery Policy",
       content:
-        "We provide dependable nationwide courier delivery across the United Kingdom. Our delivery rates are calculated automatically at checkout based on order value:\n• Free Delivery: Orders over £40 GBP qualify for FREE standard UK delivery.\n• Standard Delivery Fee: For orders under £40 GBP, a fixed delivery fee of £4 GBP is charged.\n• Delivery Timelines: Standard courier delivery is fulfilled within 2–3 business days with real-time tracking.\n• Access: Please ensure someone is available to receive perishable items. You may provide delivery instructions at checkout.",
+        "We provide complimentary, 100% insured courier delivery on fine jewelry orders. Every package is sealed in tamper-evident luxury presentation cases and dispatched with real-time GPS tracking.",
       items: [
-        "FREE Delivery on all orders over £40 GBP",
-        "Standard delivery fee of £4 GBP on orders below £40 GBP",
-        "Dispatched via tracked UK courier services within 2–3 business days",
-        "Delivery instructions can be specified during the checkout process",
+        "Complimentary insured delivery on orders over £2,999",
+        "Tamper-evident gift presentation packaging",
+        "Dispatched via signature-required courier services",
       ],
     },
     {
       id: "returns-cancellations",
-      heading: "5. Cancellations, Returns & Refunds",
+      heading: "5. 30-Day Easy Returns & Exchanges",
       content:
-        "All returns, cancellations, and refunds are governed strictly by our Refund & Return Policy. Eligible non-perishable, unopened products in resalable condition may be returned within 30 days. Perishable food, bakery items, drinks, and temperature-sensitive groceries cannot be returned due to hygiene and health regulations, unless faulty or misdescribed.",
+        "All returns and exchanges are governed by our Return Policy. Eligible unworn pieces in their original pristine condition with security tags and certificates intact may be returned within 30 days for a full refund or exchange.",
       items: [
-        "30-day return policy on unopened, non-perishable goods",
-        "Perishable food items are non-returnable for food-safety hygiene",
-        "Report any damaged or missing items to returns@atlasone.com with photo evidence",
-        "Cancellations must be requested prior to order dispatch",
+        "30-day return policy on unworn jewelry with certificates",
+        "Custom bespoke engravings or personalized items may be subject to inspection",
+        "Complimentary lifetime cleaning and prong inspection service",
       ],
     },
     {
       id: "ordering-payments",
       heading: "6. Ordering & Secure Payments",
       content:
-        "When you place an order, you will receive an order confirmation email once payment is confirmed. All online card transactions are processed securely through 256-bit encrypted checkout powered by Stripe. We accept Visa, Mastercard, American Express, Apple Pay, and Google Pay.",
+        "When you place an order, you will receive an order confirmation email once payment is confirmed. All transactions are processed through 256-bit encrypted checkout. We accept Visa, Mastercard, American Express, UPI, and PayPal.",
       items: [
-        "Orders are confirmed upon successful payment verification",
-        "Stripe 256-bit SSL encrypted checkout",
-        "Accepted: Visa, Mastercard, Amex, Apple Pay, Google Pay",
+        "Orders confirmed upon successful payment verification",
+        "256-bit SSL encrypted secure checkout",
+        "Accepted: Visa, Mastercard, Amex, UPI, PayPal",
       ],
     },
     {

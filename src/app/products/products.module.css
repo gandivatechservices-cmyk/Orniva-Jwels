@@ -82,7 +82,7 @@
 
 .clearAllBtn {
   font-size: 0.75rem;
-  color: var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
   background: none;
   border: none;
   padding: 0;
@@ -238,8 +238,8 @@
 .chipItemActive {
   background-color: #024830 !important;
   color: #ffffff !important;
-  border-color: #024830 !important;
-  box-shadow: 0 2px 8px rgba(2, 72, 48, 0.22);
+  border-color: #A77B3F !important;
+  box-shadow: 0 2px 8px rgba(167, 123, 63, 0.22);
 }
 
 /* SIDEBAR APPLY BUTTON */
@@ -247,14 +247,14 @@
   width: 100%;
   margin-top: 14px;
   padding: 10px 16px;
-  background-color: #024830;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
+  background-color: #211A14;
+  color: #FAF8F4;
+  border: 1px solid #211A14;
+  border-radius: 6px;
   font-size: 0.8438rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.22s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,9 +262,11 @@
 }
 
 .applyFiltersBtn:hover {
-  background-color: #013523;
+  background-color: #A77B3F;
+  border-color: #A77B3F;
+  color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(2, 72, 48, 0.2);
+  box-shadow: 0 4px 10px rgba(167, 123, 63, 0.25);
 }
 
 .applyFiltersBtn:active {
@@ -285,11 +287,11 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  background-color: var(--color-primary-soft, #e6f4ea);
-  border: 1px solid #bbf7d0;
+  background-color: #FAF5EE;
+  border: 1px solid #EAE0D0;
   border-radius: 9999px;
   font-size: 0.75rem;
-  color: var(--color-primary, #024830);
+  color: #A77B3F;
   font-weight: 600;
   transition: background-color 0.15s ease;
 }
@@ -302,7 +304,7 @@
   border: none;
   padding: 2px;
   margin-left: 2px;
-  color: #6b7280;
+  color: #77716A;
   cursor: pointer;
   border-radius: 50%;
   line-height: 1;
@@ -315,7 +317,7 @@
 
 .clearChipsBtn {
   font-size: 0.75rem;
-  color: var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
   background: none;
   border: none;
   padding: 4px 8px;
@@ -368,20 +370,20 @@
 
 .backToTopBtn {
   background: none;
-  border: 1px solid var(--color-border, #d1d5db);
+  border: 1px solid var(--color-border, #E9E2D8);
   border-radius: 9999px;
   padding: 6px 18px;
   font-size: 0.7813rem;
   font-weight: 600;
-  color: var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
   cursor: pointer;
   transition: all 0.18s ease;
   font-family: inherit;
 }
 
 .backToTopBtn:hover {
-  background-color: #f3f4f6;
-  border-color: var(--color-primary, #024830);
+  background-color: #FAF5EE;
+  border-color: var(--color-primary, #A77B3F);
   transform: translateY(-1px);
 }
 

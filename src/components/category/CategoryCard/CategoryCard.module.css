@@ -1,76 +1,84 @@
 .card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  background-color: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 12px;
+  background: transparent;
+  border: none;
+  padding: 6px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: #024830;
-  box-shadow: 0 14px 28px -4px rgba(2, 72, 48, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
 }
 
 .card:focus-visible {
-  outline: 2px solid #024830;
-  outline-offset: 2px;
+  outline: 2px solid #A77B3F;
+  outline-offset: 4px;
+  border-radius: 50%;
 }
 
-.card.active {
-  border-color: #024830;
-  box-shadow: 0 0 0 2px rgba(2, 72, 48, 0.2);
+.card.active .imageContainer {
+  border-color: #A77B3F;
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.25);
 }
 
 .popularBadge {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 4px;
+  right: 12px;
   z-index: 2;
-  background-color: #024830;
+  background-color: #A77B3F;
   color: #ffffff;
-  font-size: 0.65rem;
-  font-weight: 800;
+  font-size: 0.6rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
-  border-radius: 9999px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(167, 123, 63, 0.25);
 }
 
 .imageContainer {
-  width: 100%;
-  height: 140px;
+  width: 110px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  border-radius: 12px;
-  background-color: #f8fafc;
+  border-radius: 50%;
+  background: #FAF8F4;
+  border: 2px solid #EAE4DC;
   position: relative;
+  box-shadow: 0 4px 12px rgba(36, 35, 33, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 3px;
+}
+
+.card:hover .imageContainer {
+  border-color: #A77B3F;
+  box-shadow: 0 8px 22px rgba(167, 123, 63, 0.22);
+  transform: scale(1.05);
 }
 
 .image {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   object-fit: cover;
   display: block;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s ease;
 }
 
 .card:hover .image {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .iconSlot {
@@ -79,22 +87,25 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  color: #024830;
+  border-radius: 50%;
+  color: #A77B3F;
+  background: #FAF5EE;
 }
 
 .meta {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
-  padding: 0 4px 4px;
+  align-items: center;
+  margin-top: 10px;
+  text-align: center;
   width: 100%;
 }
 
 .name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0f172a;
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #242321;
   line-height: 1.25;
   margin: 0;
   display: -webkit-box;
@@ -102,58 +113,41 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.card:hover .name {
+  color: #A77B3F;
 }
 
 .ctaRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  display: none;
 }
 
 .ctaText {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
-  transition: color 0.15s ease;
-}
-
-.card:hover .ctaText {
-  color: #024830;
+  display: none;
 }
 
 .arrowPill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: #f1f5f9;
-  color: #475569;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
 }
 
-.card:hover .arrowPill {
-  background-color: #024830;
-  color: #ffffff;
-  transform: translateX(3px);
-}
-
-.arrowIcon {
-  color: inherit;
-}
-
-/* SKELETON */
 .skeletonCard {
   display: flex;
   flex-direction: column;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 18px;
-  padding: 12px;
-  background-color: #ffffff;
-  width: 100%;
-  box-sizing: border-box;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
 }
 
+@media (max-width: 640px) {
+  .imageContainer {
+    width: 82px;
+    height: 82px;
+  }
+
+  .name {
+    font-size: 0.82rem;
+  }
+}

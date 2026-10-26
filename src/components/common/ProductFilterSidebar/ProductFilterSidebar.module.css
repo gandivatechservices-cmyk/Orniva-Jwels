@@ -53,7 +53,7 @@
 
 .clearAllBtn {
   font-size: 0.75rem;
-  color: var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
   background: none;
   border: none;
   padding: 0;
@@ -234,7 +234,7 @@
   padding: 4px 0;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
   cursor: pointer;
   margin-top: 2px;
   font-family: inherit;
@@ -248,7 +248,7 @@
 .sidebarFooter {
   flex-shrink: 0;
   padding-top: 12px;
-  border-top: 1px solid var(--color-line, #e5e7eb);
+  border-top: 1px solid var(--color-border, #E9E2D8);
   background-color: #ffffff;
   margin-top: auto;
   display: flex;
@@ -259,10 +259,10 @@
   flex: 1;
   height: 40px;
   padding: 0 10px;
-  background-color: #f3f4f6;
-  color: #374151;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  background-color: #FAF8F4;
+  color: #55504A;
+  border: 1px solid #EAE4DC;
+  border-radius: 6px;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -274,22 +274,22 @@
 }
 
 .resetFiltersBtn:hover {
-  background-color: #e5e7eb;
-  color: #111827;
+  background-color: #F3ECE1;
+  color: #242321;
 }
 
 .applyFiltersBtn {
   flex: 2;
   height: 40px;
   padding: 0 14px;
-  background-color: var(--color-primary, #024830);
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
+  background-color: #211A14;
+  color: #FAF8F4;
+  border: 1px solid #211A14;
+  border-radius: 6px;
   font-size: 0.8438rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.22s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,9 +298,11 @@
 }
 
 .applyFiltersBtn:hover {
-  background-color: #013523;
+  background-color: #A77B3F;
+  border-color: #A77B3F;
+  color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(2, 72, 48, 0.2);
+  box-shadow: 0 4px 10px rgba(167, 123, 63, 0.25);
 }
 
 .applyFiltersBtn:active {

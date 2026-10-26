@@ -5,6 +5,38 @@ export type IconProps = SVGProps<SVGSVGElement> & {
   className?: string;
 };
 
+export function DiamondIcon({ size = 24, className = "", color = "currentColor", ...props }: IconProps & { color?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      {...props}
+    >
+      <polygon points="6 3 18 3 22 9 12 21 2 9" fill="url(#goldGradientIcon)" stroke="#A77B3F" />
+      <polyline points="2 9 12 21 22 9" stroke="#A77B3F" />
+      <line x1="12" y1="3" x2="12" y2="21" stroke="#A77B3F" strokeWidth="1" />
+      <line x1="6" y1="3" x2="9.5" y2="9" stroke="#A77B3F" strokeWidth="1" />
+      <line x1="18" y1="3" x2="14.5" y2="9" stroke="#A77B3F" strokeWidth="1" />
+      <line x1="9.5" y1="9" x2="12" y2="21" stroke="#A77B3F" strokeWidth="1" />
+      <line x1="14.5" y1="9" x2="12" y2="21" stroke="#A77B3F" strokeWidth="1" />
+      <defs>
+        <linearGradient id="goldGradientIcon" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F5EFE3" stopOpacity="0.4" />
+          <stop offset="0.5" stopColor="#C5A16B" stopOpacity="0.2" />
+          <stop offset="1" stopColor="#A77B3F" stopOpacity="0.5" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 export function AtlasLogo({
   className = "",
   height = 28,
@@ -14,42 +46,80 @@ export function AtlasLogo({
   height?: number | string;
   light?: boolean;
 }) {
+  const textColor = light ? "#ffffff" : "var(--color-ink, #242321)";
+  const subColor = light ? "#C5A16B" : "#A77B3F";
+
   return (
     <div
-      className={`atlas-brand-logo ${className}`}
+      className={`luxe-brand-logo ${className}`}
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: "8px",
-        fontWeight: 800,
-        fontSize: "1.4rem",
-        letterSpacing: "-0.03em",
+        gap: "10px",
+        textDecoration: "none",
       }}
     >
-      <svg width={height} height={height} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M28 4C28 4 18 4 10 12C2 20 4 28 4 28C4 28 12 30 20 22C28 14 28 4 28 4Z"
-          fill={light ? "#34d399" : "var(--color-primary)"}
-        />
-        <path d="M4 28C12 20 20 12 28 4" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M12 20C14 22 17 23 20 22" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+      <svg
+        width={height}
+        height={height}
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ flexShrink: 0 }}
+      >
+        <polygon points="8 4 24 4 29 12 16 28 3 12" fill="url(#goldLogoGrad)" stroke="#A77B3F" strokeWidth="1.75" />
+        <polyline points="3 12 16 28 29 12" stroke="#A77B3F" strokeWidth="1.5" />
+        <line x1="16" y1="4" x2="16" y2="28" stroke="#A77B3F" strokeWidth="1.25" />
+        <line x1="8" y1="4" x2="12.5" y2="12" stroke="#A77B3F" strokeWidth="1.25" />
+        <line x1="24" y1="4" x2="19.5" y2="12" stroke="#A77B3F" strokeWidth="1.25" />
+        <line x1="12.5" y1="12" x2="16" y2="28" stroke="#A77B3F" strokeWidth="1.25" />
+        <line x1="19.5" y1="12" x2="16" y2="28" stroke="#A77B3F" strokeWidth="1.25" />
+        <line x1="3" y1="12" x2="29" y2="12" stroke="#A77B3F" strokeWidth="1.25" />
+        <defs>
+          <linearGradient id="goldLogoGrad" x1="3" y1="4" x2="29" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#F9F5EE" stopOpacity="0.8" />
+            <stop offset="0.5" stopColor="#C5A16B" stopOpacity="0.3" />
+            <stop offset="1" stopColor="#A77B3F" stopOpacity="0.6" />
+          </linearGradient>
+        </defs>
       </svg>
-      <span style={{ color: light ? "#ffffff" : "var(--color-ink)", fontWeight: 800, letterSpacing: "-0.02em" }}>
-        ATLAS
-      </span>
+      <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.05 }}>
+        <span
+          style={{
+            color: textColor,
+            fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+            fontWeight: 700,
+            fontSize: "1.25rem",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+          }}
+        >
+          LUXE JWELS
+        </span>
+        <span
+          style={{
+            color: subColor,
+            fontFamily: "var(--font-sans, 'Montserrat', sans-serif)",
+            fontWeight: 500,
+            fontSize: "0.5625rem",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            marginTop: "2px",
+          }}
+        >
+          Timeless Elegance
+        </span>
+      </div>
     </div>
   );
 }
 
 export function AtlasAdminLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`atlas-admin-logo ${className}`} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: 800, fontSize: "1.2rem", color: "#ffffff" }}>
-      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M28 4C28 4 18 4 10 12C2 20 4 28 4 28C4 28 12 30 20 22C28 14 28 4 28 4Z" fill="var(--color-accent)" />
-        <path d="M4 28C12 20 20 12 28 4" stroke="var(--color-primary-dark)" strokeWidth="2.5" strokeLinecap="round" />
-      </svg>
-      <span style={{ color: "#ffffff", fontWeight: 800 }}>ATLAS</span>
-      <span style={{ color: "var(--color-subtle)", fontSize: "0.8rem", fontWeight: 600, marginLeft: "2px" }}>ADMIN</span>
+    <div className={`luxe-admin-logo ${className}`} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: 700, fontSize: "1.1rem", color: "#ffffff" }}>
+      <DiamondIcon size={20} color="#A77B3F" />
+      <span style={{ color: "#ffffff", fontWeight: 700, letterSpacing: "0.05em", fontFamily: "var(--font-serif, serif)" }}>LUXE JWELS</span>
+      <span style={{ color: "#C5A16B", fontSize: "0.75rem", fontWeight: 600, marginLeft: "2px", letterSpacing: "0.1em" }}>ADMIN</span>
     </div>
   );
 }
@@ -186,13 +256,13 @@ export function MenuIcon({ size = 22, ...props }: IconProps) {
   );
 }
 
-export function StarIcon({ size = 16, filled = true, ...props }: IconProps & { filled?: boolean }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-}
+// export function StarIcon({ size = 16, filled = true, ...props }: IconProps & { filled?: boolean }) {
+//   return (
+//     <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+//       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+//     </svg>
+//   );
+// }
 
 export function CheckIcon({ size = 18, ...props }: IconProps) {
   return (
@@ -409,6 +479,24 @@ export function ShieldCheckIcon({ size = 18, ...props }: IconProps) {
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function ShoppingBagIcon({ size = 18, ...props }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  );
+}
+
+export function StarIcon({ size = 14, filled = true, ...props }: IconProps & { filled?: boolean }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   );
 }

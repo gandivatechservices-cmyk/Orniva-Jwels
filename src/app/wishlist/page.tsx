@@ -51,15 +51,15 @@ export default function WishlistPage() {
           {/* Heading */}
           <div className={styles.headingRow}>
             <div>
-              <h1 className={styles.title}>My Wishlist</h1>
+              <h1 className={styles.title}>My Saved Jewelry</h1>
               <p className={styles.subtitle}>
-                Items you’ve saved to easily reorder and add to your grocery basket.
+                Handcrafted pieces you’ve saved to your private LUXE JWELS collection.
               </p>
             </div>
             {!loading && wishlistedProducts.length > 0 && (
               <span className={styles.countBadge}>
                 {wishlistedProducts.length}{" "}
-                {wishlistedProducts.length === 1 ? "saved item" : "saved items"}
+                {wishlistedProducts.length === 1 ? "saved piece" : "saved pieces"}
               </span>
             )}
           </div>
@@ -69,7 +69,7 @@ export default function WishlistPage() {
             <div style={{ padding: "60px 0" }}>
               <EmptyState
                 title="Sign in to view your wishlist"
-                description="Sign in to your account to view your saved grocery items across devices."
+                description="Sign in to your account to access your saved fine jewelry pieces across any device."
                 action={
                   <Button
                     onClick={() =>
@@ -100,11 +100,11 @@ export default function WishlistPage() {
             />
           ) : wishlistedProducts.length === 0 ? (
             <EmptyState
-              title="Your wishlist is empty"
-              description="Explore our fresh grocery catalog and tap the heart icon on any item to save it here."
+              title="Your jewelry wishlist is empty"
+              description="Explore our certified fine jewelry catalog and tap the heart icon on any piece to save it here."
               action={
                 <Link href="/products" className={styles.primaryBtn}>
-                  Explore Groceries
+                  Explore Collections
                 </Link>
               }
             />

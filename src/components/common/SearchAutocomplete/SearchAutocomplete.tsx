@@ -66,7 +66,7 @@ type NavigableItem =
 
 function SearchAutocompleteContent({
   variant = "desktop",
-  placeholder = "Search groceries, brands & more...",
+  placeholder = "Search fine jewelry, diamonds, rings & more...",
   onSearchSubmit,
   className = "",
 }: SearchAutocompleteProps) {
@@ -475,7 +475,7 @@ function SearchAutocompleteContent({
                   <div className={styles.sectionHeader}>
                     <div className={styles.sectionTitle}>
                       <SparklesIcon size={14} className={styles.sectionIcon} />
-                      <span>Popular Groceries</span>
+                      <span>Trending Designs</span>
                     </div>
                   </div>
 
@@ -609,10 +609,10 @@ function SearchAutocompleteContent({
               {!isLoading && suggestions && !hasSuggestions && (
                 <div className={styles.emptyState}>
                   <p className={styles.emptyTitle}>
-                    No groceries found for &quot;{trimmedQuery}&quot;
+                    No jewelry designs found for &quot;{trimmedQuery}&quot;
                   </p>
                   <p className={styles.emptySubtitle}>
-                    Try checking for typos or search for general essentials like &quot;bread&quot;, &quot;milk&quot;, or &quot;snacks&quot;.
+                    Try checking for typos or search for pieces like &quot;solitaire ring&quot;, &quot;diamond necklace&quot;, or &quot;gold earrings&quot;.
                   </p>
                   {popularTags.length > 0 && (
                     <div className={styles.fallbackTags}>

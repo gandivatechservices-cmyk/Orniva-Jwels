@@ -1,9 +1,9 @@
 .bannerCard {
   width: 100%;
   min-height: 260px;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 60%, #e6f9ed 100%);
-  border: 1.5px solid #dcfce7;
-  border-radius: 24px;
+  background: linear-gradient(135deg, #FAF8F4 0%, #F5EFE6 50%, #ECE3D4 100%);
+  border: 1px solid #E9E2D8;
+  border-radius: 16px;
   padding: clamp(24px, 3.5vw, 36px) clamp(24px, 4vw, 44px);
   display: flex;
   align-items: center;
@@ -11,8 +11,8 @@
   gap: clamp(24px, 4vw, 48px);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px -2px rgba(2, 72, 48, 0.05);
-  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(36, 35, 33, 0.04);
+  margin-bottom: 24px;
 }
 
 /* LEFT COLUMN */
@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   z-index: 2;
 }
 
@@ -29,35 +29,36 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #ffffff;
-  color: #024830;
-  border: 1px solid #bbf7d0;
+  background-color: #FAF5EE;
+  color: #A77B3F;
+  border: 1px solid #EAE0D0;
   border-radius: 9999px;
   padding: 4px 12px;
   font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  box-shadow: 0 1px 3px rgba(2, 72, 48, 0.08);
 }
 
 .eyebrowIcon {
-  color: #16a34a;
+  color: #A77B3F;
 }
 
 .categoryTitle {
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: #242321;
   line-height: 1.15;
   margin: 0;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
 
 .categoryDescription {
-  font-size: clamp(0.875rem, 1.2vw, 1rem);
-  font-weight: 500;
-  color: #475569;
+  font-family: var(--font-sans, "Montserrat", sans-serif);
+  font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+  font-weight: 400;
+  color: #77716A;
   line-height: 1.5;
   margin: 0;
   max-width: 540px;
@@ -69,109 +70,59 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .metaChip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #dcfce7;
-  border-radius: 8px;
+  background-color: #FAF5EE;
+  border: 1px solid #EAE0D0;
+  border-radius: 6px;
   padding: 5px 10px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #1e293b;
-  backdrop-filter: blur(4px);
+  color: #55504A;
 }
 
 .metaChip strong {
-  color: #024830;
-  font-weight: 800;
+  color: #A77B3F;
+  font-weight: 700;
 }
 
 .metaChipIcon {
-  color: #16a34a;
+  color: #A77B3F;
   flex-shrink: 0;
 }
 
 /* RIGHT IMAGE COLUMN */
 .imageCol {
-  flex: 1 1 45%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  z-index: 1;
-}
-
-.imageWrapper {
-  width: 100%;
-  max-width: 380px;
-  height: 210px;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px -4px rgba(2, 72, 48, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
-  background-color: #ffffff;
-  border: 2px solid #ffffff;
-  position: relative;
-}
-
-.bannerImage {
-  width: 100%;
   height: 100%;
+  max-width: 40%;
+}
+
+.categoryHeroImg {
+  max-height: 220px;
+  width: auto;
+  border-radius: 12px;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(36, 35, 33, 0.1);
+  border: 1px solid rgba(197, 161, 107, 0.3);
 }
 
-.bannerCard:hover .bannerImage {
-  transform: scale(1.04);
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .bannerCard {
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px;
-    gap: 20px;
-    min-height: auto;
-  }
-
-  .contentCol {
-    width: 100%;
+    padding: 22px;
   }
 
   .imageCol {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .imageWrapper {
-    max-width: 100%;
-    height: 180px;
-  }
-}
-
-@media (max-width: 540px) {
-  .bannerCard {
-    border-radius: 18px;
-    padding: 18px 16px;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
-  .categoryTitle {
-    font-size: 1.45rem;
-  }
-
-  .categoryDescription {
-    font-size: 0.8125rem;
-  }
-
-  .imageWrapper {
-    height: 150px;
-    border-radius: 14px;
+    display: none;
   }
 }

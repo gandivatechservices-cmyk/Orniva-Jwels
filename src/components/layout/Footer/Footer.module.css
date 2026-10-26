@@ -1,10 +1,10 @@
 .footer {
-  background: linear-gradient(180deg, #092017 0%, #06160f 100%);
-  color: #e2e8f0;
+  background: #161311;
+  color: #E9E2D8;
   font-size: 0.875rem;
   width: 100%;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(167, 123, 63, 0.25);
   position: relative;
   overflow: hidden;
 }
@@ -12,7 +12,7 @@
 /* TOP TRUST/VALUE PROPOSITION BANNER */
 .trustBanner {
   padding: 36px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .trustGrid {
@@ -25,25 +25,25 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(167, 123, 63, 0.15);
+  border-radius: 8px;
   padding: 16px 18px;
   transition: all 0.25s ease;
 }
 
 .trustItem:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(52, 211, 153, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(197, 161, 107, 0.4);
   transform: translateY(-2px);
 }
 
 .trustIconWrap {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: rgba(52, 211, 153, 0.12);
-  color: #34d399;
+  border-radius: 6px;
+  background: rgba(167, 123, 63, 0.12);
+  color: #C5A16B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,170 +57,57 @@
 }
 
 .trustTitle {
+  font-family: var(--font-serif, serif);
   font-size: 0.9375rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 600;
+  color: #FAF8F4;
+  letter-spacing: 0.02em;
 }
 
 .trustDesc {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: #A39D94;
   line-height: 1.35;
 }
 
-/* MAIN FOOTER COLUMNS */
-.mainSection {
-  padding: 48px 0 36px;
+/* 2. NEWSLETTER STRIP */
+.newsletterStrip {
+  background: #1F1914;
+  border-bottom: 1px solid rgba(167, 123, 63, 0.18);
+  padding: 24px 0;
 }
 
-.columnsGrid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
-  gap: 40px;
-}
-
-/* BRAND COLUMN */
-.brandCol {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.tagline {
-  color: #94a3b8;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.socialRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 6px;
-}
-
-.socialBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.socialBtn:hover {
-  background: #34d399;
-  border-color: #34d399;
-  color: #06160f;
-  transform: translateY(-2px);
-}
-
-/* LINKS COLUMNS */
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.columnTitle {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.linkList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.link {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 0.875rem;
-  transition: all 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.link:hover {
-  color: #34d399;
-  transform: translateX(3px);
-}
-
-.linkBadge {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  background: rgba(52, 211, 153, 0.15);
-  color: #34d399;
-  padding: 1px 7px;
-  border-radius: 9999px;
-  margin-left: 4px;
-}
-
-/* STORE REGIONS & NEWSLETTER COLUMN */
-.storeInfoText {
-  font-size: 0.8125rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.domainsList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.domainItem {
+.newsletterInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  font-size: 0.8125rem;
-  color: #e2e8f0;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.domainName {
-  font-weight: 600;
-}
-
-.domainCurrency {
-  font-size: 0.75rem;
-  color: #34d399;
-  font-weight: 700;
-  background: rgba(52, 211, 153, 0.1);
-  padding: 1px 6px;
-  border-radius: 4px;
-}
-
-/* NEWSLETTER FORM */
-.newsletterBox {
-  margin-top: 14px;
+.newsletterBrandBadge {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
-.newsletterTitle {
+.newsletterBadgeTag {
+  font-family: var(--font-sans, sans-serif);
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #C5A16B;
+  text-transform: uppercase;
+}
+
+.newsletterBadgeSub {
+  font-size: 0.875rem;
+  color: #BDB4A8;
+}
+
+.newsletterFormWrap {
+  flex: 1;
+  max-width: 460px;
 }
 
 .newsletterForm {
@@ -230,52 +117,194 @@
 
 .newsletterInput {
   flex: 1;
-  height: 38px;
-  padding: 0 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 0.8125rem;
+  height: 42px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(167, 123, 63, 0.3);
+  border-radius: 4px;
+  color: #FAF8F4;
+  font-size: 0.875rem;
   outline: none;
   transition: all 0.2s ease;
 }
 
 .newsletterInput::placeholder {
-  color: #64748b;
+  color: #77716A;
 }
 
 .newsletterInput:focus {
-  border-color: #34d399;
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.15);
+  border-color: #C5A16B;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(167, 123, 63, 0.25);
 }
 
 .newsletterBtn {
-  height: 38px;
-  padding: 0 14px;
-  background: #34d399;
-  color: #06160f;
-  font-weight: 700;
+  height: 42px;
+  padding: 0 24px;
+  background: #A77B3F;
+  color: #ffffff;
+  font-weight: 600;
   font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.15s ease;
   white-space: nowrap;
 }
 
 .newsletterBtn:hover {
-  background: #10b981;
+  background: #C5A16B;
 }
 
 .newsletterSuccess {
-  font-size: 0.75rem;
-  color: #34d399;
-  font-weight: 600;
+  font-size: 0.875rem;
+  color: #C5A16B;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+}
+
+/* MAIN FOOTER COLUMNS */
+.mainSection {
+  padding: 56px 0 40px;
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 48px;
+}
+
+/* BRAND COLUMN */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tagline {
+  color: #BDB4A8;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(167, 123, 63, 0.25);
+  color: #C5A16B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialBtn:hover {
+  background: #A77B3F;
+  border-color: #A77B3F;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* LINKS COLUMNS */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.columnTitle {
+  font-family: var(--font-serif, serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #FAF8F4;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  color: #BDB4A8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link:hover {
+  color: #C5A16B;
+  transform: translateX(3px);
+}
+
+.linkBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background: rgba(167, 123, 63, 0.2);
+  color: #C5A16B;
+  padding: 1px 7px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+/* CONTACT DETAILS */
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.875rem;
+}
+
+.contactLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A77B3F;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contactLink {
+  color: #FAF8F4;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contactLink:hover {
+  color: #C5A16B;
+}
+
+.contactText {
+  color: #BDB4A8;
+  line-height: 1.4;
 }
 
 /* BOTTOM SECTION */
@@ -291,11 +320,29 @@
   flex-wrap: wrap;
   gap: 16px;
   font-size: 0.8125rem;
-  color: #64748b;
+  color: #77716A;
 }
 
 .copyright {
   margin: 0;
+  color: #A39D94;
+}
+
+.paymentMethods {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payBadge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(167, 123, 63, 0.25);
+  color: #E9E2D8;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .legalLinks {
@@ -305,37 +352,17 @@
 }
 
 .legalLink {
-  color: #64748b;
+  color: #A39D94;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .legalLink:hover {
-  color: #cbd5e1;
+  color: #C5A16B;
 }
 
 .legalDivider {
   color: rgba(255, 255, 255, 0.15);
-}
-
-.activeStoreBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4px 12px;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  color: #94a3b8;
-}
-
-.statusIndicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 9999px;
-  background-color: #34d399;
-  box-shadow: 0 0 6px #34d399;
 }
 
 /* RESPONSIVE BREAKPOINTS */

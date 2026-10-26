@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   AtlasLogo,
   SearchIcon,
@@ -21,17 +21,29 @@ export type HeaderProps = {
   onOpenCart?: () => void;
 };
 
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Shop", href: "/products" },
+  { label: "Collections", href: "/categories" },
+  { label: "About", href: "/about" },
+  { label: "Manufacturing", href: "/manufacturing" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
 export function Header({ onOpenCart }: HeaderProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, isAuthenticated, logout } = useAuth();
   const { totalItems, totalPrice } = useCart();
   const { productIds } = useWishlist();
 
   const [showAccountMenu, setShowAccountMenu] = useState(false);
-
+  const [showSearch, setShowSearch] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   const accountRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   const isAdmin = user?.role === "admin" || user?.role === "superadmin";
 
@@ -45,6 +57,9 @@ export function Header({ onOpenCart }: HeaderProps) {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
         setShowAccountMenu(false);
       }
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setShowSearch(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -53,22 +68,66 @@ export function Header({ onOpenCart }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* LEFT: BRAND LOGO */}
+        {/* LEFT: LUXE JWELS LOGO */}
         <div className={styles.leftSection}>
-          <Link href="/" className={styles.logoLink} aria-label="Atlas Grocery Home">
+          <Link href="/" className={styles.logoLink} aria-label="LUXE JWELS Home">
             <AtlasLogo height={32} />
           </Link>
         </div>
 
-        {/* CENTER: LARGE PROMINENT SEARCH */}
-        <div className={styles.searchSection}>
-          <SearchAutocomplete variant="desktop" />
-        </div>
+        {/* CENTER: PRIMARY JEWELRY NAVIGATION */}
+        <nav className={styles.centerNav} aria-label="Main Navigation">
+          {NAV_LINKS.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname === link.href || pathname.startsWith(link.href + "/");
 
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-        {/* RIGHT: ACTION CONTROLS (ACCOUNT, WISHLIST, BASKET) */}
+        {/* RIGHT: ACTION CONTROLS (SEARCH, ACCOUNT, WISHLIST, BASKET) */}
         <div className={styles.actions}>
-          {/* 1. ACCOUNT */}
+          {/* 1. SEARCH TRIGGER & EXPANDABLE DRAWER */}
+          <div className={styles.searchWrapper} ref={searchRef}>
+            <button
+              type="button"
+              onClick={() => setShowSearch(!showSearch)}
+              className={`${styles.iconActionBtn} ${showSearch ? styles.actionBtnActive : ""}`}
+              aria-label="Search jewelry collections"
+              title="Search"
+            >
+              <SearchIcon size={20} className={styles.actionIcon} />
+            </button>
+
+            {showSearch && (
+              <div className={styles.searchDropdown}>
+                <div className={styles.searchDropdownHeader}>
+                  <span className={styles.searchDropdownTitle}>Search LUXE JWELS</span>
+                  <button
+                    type="button"
+                    onClick={() => setShowSearch(false)}
+                    className={styles.closeSearchBtn}
+                    aria-label="Close search"
+                  >
+                    <CloseIcon size={16} />
+                  </button>
+                </div>
+                <SearchAutocomplete variant="desktop" />
+              </div>
+            )}
+          </div>
+
+          {/* 2. ACCOUNT */}
           <div className={styles.accountWrapper} ref={accountRef}>
             {mounted && isAuthenticated ? (
               <button
@@ -79,7 +138,7 @@ export function Header({ onOpenCart }: HeaderProps) {
                 aria-expanded={showAccountMenu}
                 title={user?.name || "Account"}
               >
-                <UserIcon size={21} className={styles.actionIcon} />
+                <UserIcon size={20} className={styles.actionIcon} />
                 <ChevronDownIcon
                   size={12}
                   className={`${styles.accountChevron} ${showAccountMenu ? styles.chevronRotated : ""}`}
@@ -93,7 +152,7 @@ export function Header({ onOpenCart }: HeaderProps) {
                 aria-label="Sign In to Account"
                 title="Sign In"
               >
-                <UserIcon size={21} className={styles.actionIcon} />
+                <UserIcon size={20} className={styles.actionIcon} />
               </Link>
             )}
 
@@ -153,7 +212,7 @@ export function Header({ onOpenCart }: HeaderProps) {
             )}
           </div>
 
-          {/* 2. WISHLIST */}
+          {/* 3. WISHLIST */}
           <Link
             href="/wishlist"
             prefetch={false}
@@ -162,27 +221,31 @@ export function Header({ onOpenCart }: HeaderProps) {
             title="Wishlist"
           >
             <div className={styles.iconBadgeWrapper}>
-              <HeartIcon size={21} className={styles.actionIcon} />
+              <HeartIcon size={20} className={styles.actionIcon} />
               {mounted && productIds.length > 0 && (
                 <span className={styles.wishlistCountBadge}>{productIds.length}</span>
               )}
             </div>
           </Link>
 
-          {/* 3. BASKET (PRIMARY EMPHASIS) */}
+          {/* 4. SHOPPING CART */}
           <button
             type="button"
             onClick={onOpenCart ? onOpenCart : () => router.push("/cart")}
             className={styles.basketBtn}
-            aria-label={`Basket with ${mounted ? totalItems : 0} items, total ${mounted && totalPrice > 0 ? formatMoney(totalPrice) : "£0.00"}`}
+            aria-label={`Cart with ${mounted ? totalItems : 0} items, total ${mounted && totalPrice > 0 ? formatMoney(totalPrice) : "£0.00"}`}
+            title="Shopping Cart"
           >
-            <CartIcon size={21} className={styles.basketCartIcon} />
-            <div className={styles.basketTextGroup}>
-              <span className={styles.basketTitle}>Basket</span>
-              <span className={styles.basketPrice}>
-                {mounted && totalPrice > 0 ? formatMoney(totalPrice) : "£0.00"}
-              </span>
+            <div className={styles.iconBadgeWrapper}>
+              <CartIcon size={20} className={styles.basketCartIcon} />
+              {mounted && totalItems > 0 && (
+                <span className={styles.cartCountPill}>{totalItems}</span>
+              )}
             </div>
+            <span className={styles.basketTitle}>Cart</span>
+            {mounted && totalPrice > 0 && (
+              <span className={styles.basketPrice}>{formatMoney(totalPrice)}</span>
+            )}
           </button>
         </div>
       </div>

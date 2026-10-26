@@ -27,22 +27,25 @@
 
 .profileCard {
   background: #ffffff;
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-lg, 12px);
+  border: 1px solid #E9E2D8;
+  border-radius: 12px;
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 16px;
+  box-shadow: 0 4px 16px -2px rgba(33, 26, 20, 0.03);
 }
 
 .avatar {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: var(--color-primary-soft, #e6f4ea);
-  color: var(--color-primary, #024830);
+  background: rgba(167, 123, 63, 0.12);
+  color: #A77B3F;
+  border: 1.5px solid rgba(167, 123, 63, 0.3);
+  font-family: var(--font-playfair, "Playfair Display", serif);
   font-size: 24px;
   font-weight: 700;
   display: flex;
@@ -51,37 +54,40 @@
 }
 
 .userName {
+  font-family: var(--font-playfair, "Playfair Display", serif);
   font-size: 20px;
   font-weight: 700;
-  color: var(--color-text, #111827);
+  color: #211A14;
   margin: 0;
 }
 
 .userEmail {
   font-size: 14px;
-  color: var(--color-text-secondary, #6b7280);
-  margin: 0;
+  color: #77716A;
+  margin: 4px 0 0;
 }
 
 .roleBadge {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: var(--color-primary-soft, #e6f4ea);
-  color: var(--color-primary, #024830);
-  padding: 4px 10px;
+  background: rgba(167, 123, 63, 0.1);
+  color: #A77B3F;
+  border: 1px solid rgba(167, 123, 63, 0.25);
+  padding: 4px 12px;
   border-radius: 9999px;
 }
 
 .navMenu {
   background: #ffffff;
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-lg, 12px);
+  border: 1px solid #E9E2D8;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 16px -2px rgba(33, 26, 20, 0.03);
 }
 
 .navItem {
@@ -91,10 +97,10 @@
   padding: 16px 20px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--color-text, #111827);
+  color: #242321;
   text-decoration: none;
-  border-bottom: 1px solid var(--color-border, #e5e7eb);
-  transition: background-color 0.15s;
+  border-bottom: 1px solid #FAF8F4;
+  transition: all 0.15s ease;
 }
 
 .navItem:last-child {
@@ -102,7 +108,8 @@
 }
 
 .navItem:hover {
-  background-color: var(--color-bg-subtle, #f9fafb);
+  background-color: #FAF8F4;
+  color: #A77B3F;
 }
 
 .navItemLeft {
@@ -112,8 +119,8 @@
 }
 
 .navBadge {
-  background: var(--color-primary-soft, #e6f4ea);
-  color: var(--color-primary, #024830);
+  background: rgba(167, 123, 63, 0.12);
+  color: #A77B3F;
   font-size: 12px;
   font-weight: 600;
   padding: 2px 8px;
@@ -123,18 +130,20 @@
 .logoutBtn {
   width: 100%;
   padding: 12px;
-  border: 1px solid #fee2e2;
-  border-radius: var(--radius-md, 8px);
-  background: #fff5f5;
-  color: #dc2626;
+  border: 1px solid #E9E2D8;
+  border-radius: 10px;
+  background: #FAF8F4;
+  color: #77716A;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s;
+  transition: all 0.15s ease;
 }
 
 .logoutBtn:hover {
-  background: #fecaca;
+  background: #F0EAE1;
+  color: #211A14;
+  border-color: #C5A16B;
 }
 
 .mainSection {
@@ -145,9 +154,10 @@
 
 .card {
   background: #ffffff;
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-lg, 12px);
+  border: 1px solid #E9E2D8;
+  border-radius: 12px;
   padding: 24px;
+  box-shadow: 0 4px 16px -2px rgba(33, 26, 20, 0.03);
 }
 
 .cardHeader {
@@ -155,23 +165,27 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #FAF8F4;
 }
 
 .cardTitle {
-  font-size: 18px;
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 19px;
   font-weight: 700;
-  color: var(--color-primary, #024830);
+  color: #211A14;
   margin: 0;
 }
 
 .cardLink {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-primary, #024830);
+  color: #A77B3F;
   text-decoration: none;
 }
 
 .cardLink:hover {
+  color: #C5A16B;
   text-decoration: underline;
 }
 
@@ -186,9 +200,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  background: var(--color-bg-subtle, #f9fafb);
-  border: 1px solid var(--color-border, #e5e7eb);
-  border-radius: var(--radius-md, 8px);
+  background: #FAF8F4;
+  border: 1px solid #E9E2D8;
+  border-radius: 10px;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -201,13 +215,13 @@
 
 .orderId {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--color-text, #111827);
+  font-weight: 700;
+  color: #211A14;
 }
 
 .orderDate {
   font-size: 13px;
-  color: var(--color-text-secondary, #6b7280);
+  color: #77716A;
 }
 
 .orderRight {
@@ -219,28 +233,34 @@
 .orderPrice {
   font-size: 15px;
   font-weight: 700;
-  color: var(--color-text, #111827);
+  color: #A77B3F;
 }
 
 .statusBadge {
   font-size: 12px;
   font-weight: 600;
   text-transform: capitalize;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 9999px;
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #ffffff;
+  border: 1px solid #E9E2D8;
+  color: #242321;
 }
 
 .trackLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  background: var(--color-primary-soft, #e6f4ea);
-  color: var(--color-primary, #024830);
+  padding: 6px 14px;
+  background: #A77B3F;
+  color: #ffffff;
   border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.trackLink:hover {
+  background: #936830;
 }

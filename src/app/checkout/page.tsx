@@ -899,7 +899,7 @@ function CheckoutForm() {
                   <span>Delivery Fee</span>
                   <span>
                     {isFreeDelivery ? (
-                      <strong style={{ color: "var(--color-primary, #024830)" }}>FREE</strong>
+                      <strong style={{ color: "var(--color-primary, #A77B3F)" }}>FREE</strong>
                     ) : (
                       formatPrice(deliveryFee, currency)
                     )}
@@ -929,7 +929,7 @@ function CheckoutForm() {
                 </Button>
 
                 <div className={styles.secureCheckoutNote}>
-                  <ShieldCheckIcon size={14} style={{ color: "var(--color-primary, #024830)" }} />
+                  <ShieldCheckIcon size={14} style={{ color: "var(--color-primary, #A77B3F)" }} />
                   <span>256-bit secure SSL checkout guaranteed</span>
                 </div>
               </div>

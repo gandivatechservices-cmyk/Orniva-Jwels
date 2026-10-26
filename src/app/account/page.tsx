@@ -125,10 +125,10 @@ function AccountDashboard() {
                 ) : recentOrders.length === 0 ? (
                   <EmptyState
                     title="No orders yet"
-                    description="You have not placed any grocery orders yet."
+                    description="You have not placed any fine jewelry orders yet."
                     action={
                       <Link href="/products" className={styles.cardLink}>
-                        Browse Products
+                        Browse Collections
                       </Link>
                     }
                   />

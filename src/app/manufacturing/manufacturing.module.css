@@ -1,0 +1,249 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 6vw, 72px);
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+/* HERO BANNER */
+.heroBanner {
+  position: relative;
+  width: 100%;
+  min-height: clamp(340px, 32vw, 440px);
+  background: #18120C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(167, 123, 63, 0.25);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: contrast(1.1);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(26, 20, 14, 0.5) 0%, rgba(20, 15, 10, 0.9) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 32px 20px;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.heroEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #C5A16B;
+}
+
+.heroTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: #FAF8F4;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.heroSubtitle {
+  font-family: var(--font-sans, "Montserrat", sans-serif);
+  font-size: clamp(0.88rem, 1.2vw, 1.05rem);
+  color: #D5CFC7;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.playCircleBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(167, 123, 63, 0.85);
+  border: 2px solid #C5A16B;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(167, 123, 63, 0.4);
+}
+
+.playCircleBtn:hover {
+  background: #C5A16B;
+  color: #1A140E;
+  transform: scale(1.08);
+}
+
+/* 5 PROCESS STEPS */
+.processSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.sectionHeadingGroup {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: #242321;
+  margin: 0;
+}
+
+.sectionSubtitle {
+  font-size: 0.9rem;
+  color: #77716A;
+  margin: 0;
+  max-width: 520px;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid #E9E2D8;
+  border-radius: 14px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(36, 35, 33, 0.03);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+  border-color: #C5A16B;
+  box-shadow: 0 8px 24px rgba(167, 123, 63, 0.12);
+}
+
+.stepNumber {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FAF5EE;
+  color: #A77B3F;
+  border: 1px solid #EAE0D0;
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #242321;
+  margin: 0;
+}
+
+.stepDesc {
+  font-size: 0.78rem;
+  color: #77716A;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* WATCH THE JOURNEY PHOTO GRID */
+.journeyGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.journeyCard {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid #E9E2D8;
+}
+
+.journeyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.journeyCard:hover .journeyImg {
+  transform: scale(1.06);
+}
+
+.journeyOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(26, 20, 14, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+
+.journeyStageName {
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FAF8F4;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .journeyGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .journeyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}

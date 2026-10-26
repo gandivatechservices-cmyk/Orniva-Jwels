@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, useRef, Suspense, useCallback, memo } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
 import { BasketLineItem, BasketLineItemSkeleton } from "../../components/common/BasketLineItem";
@@ -16,6 +17,8 @@ import {
   PriceTagIcon,
   SparklesIcon,
   TruckIcon,
+  ShieldCheckIcon,
+  DiamondIcon,
 } from "../../components/icons";
 import { useAuth, useCart } from "hooks";
 import { offersService, type Coupon } from "../../utility/services/offers";
@@ -49,7 +52,7 @@ const CartLoadingSkeleton = memo(function CartLoadingSkeleton() {
         </div>
         <Skeleton width="100%" height="40px" />
         <Skeleton width="100%" height="40px" />
-        <Skeleton width="100%" height="52px" style={{ borderRadius: "9999px", marginTop: "12px" }} />
+        <Skeleton width="100%" height="52px" style={{ borderRadius: "6px", marginTop: "12px" }} />
       </div>
     </div>
   );
@@ -69,7 +72,7 @@ const CartHeader = memo(function CartHeader({
   return (
     <div className={styles.headingRow}>
       <div className={styles.headingLeft}>
-        <h1 className={styles.title}>Your Basket</h1>
+        <h1 className={styles.title}>Your Cart</h1>
         {hasItems && (
           <span className={styles.itemCountBadge}>
             {totalItems} {totalItems === 1 ? "item" : "items"}
@@ -84,9 +87,9 @@ const CartHeader = memo(function CartHeader({
           leftIcon={<TrashIcon size={14} />}
           onClick={onClear}
           className={styles.clearBasketBtn}
-          title="Remove all items from basket"
+          title="Remove all items from cart"
         >
-          Clear entire basket
+          Clear entire cart
         </Button>
       )}
     </div>
@@ -111,65 +114,66 @@ const CartItemsList = memo(function CartItemsList({
   onRemove,
 }: CartItemsListProps) {
   return (
-    <div className={styles.itemsCard}>
-      <div className={styles.itemsCardHeader}>
-        <span className={styles.itemsCardTitle}>Items in your basket</span>
-        <span className={styles.itemsCardCount}>
-          {totalItems} {totalItems === 1 ? "item" : "items"}
-        </span>
+    <div className={styles.leftColumn}>
+      <div className={styles.itemsCard}>
+        <div className={styles.itemsCardHeader}>
+          <span className={styles.itemsCardTitle}>Items in your cart</span>
+          <span className={styles.itemsCardCount}>
+            {totalItems} {totalItems === 1 ? "item" : "items"}
+          </span>
+        </div>
+
+        <div className={styles.itemsList}>
+          {items.map((item) => (
+            <BasketLineItem
+              key={item.key}
+              keyId={item.key}
+              productId={item.productId}
+              name={item.name}
+              price={item.price}
+              comparePrice={comparePriceByKey.get(item.key)}
+              qty={item.qty}
+              variantLabel={item.variantLabel}
+              image={item.image}
+              currency={currency}
+              onUpdateQty={onUpdateQty}
+              onRemove={onRemove}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className={styles.itemsList}>
-        {items.map((item) => (
-          <BasketLineItem
-            key={item.key}
-            keyId={item.key}
-            productId={item.productId}
-            name={item.name}
-            price={item.price}
-            comparePrice={comparePriceByKey.get(item.key)}
-            qty={item.qty}
-            bonusQty={item.bonusQty}
-            stock={item.stock}
-            variantLabel={item.variantLabel}
-            image={item.image}
-            currency={item.currency || currency}
-            onUpdateQty={onUpdateQty}
-            onRemove={onRemove}
-          />
-        ))}
+      {/* TRUST BENEFITS STRIP BENEATH ITEMS */}
+      <div className={styles.cartTrustRow}>
+        <div className={styles.cartTrustItem}>
+          <TruckIcon size={20} className={styles.cartTrustIcon} />
+          <div>
+            <span className={styles.cartTrustTitle}>Free Shipping</span>
+            <span className={styles.cartTrustSub}>On orders above £2,999</span>
+          </div>
+        </div>
+        <div className={styles.cartTrustItem}>
+          <ShieldCheckIcon size={20} className={styles.cartTrustIcon} />
+          <div>
+            <span className={styles.cartTrustTitle}>Secure Payments</span>
+            <span className={styles.cartTrustSub}>100% Safe &amp; Encrypted</span>
+          </div>
+        </div>
       </div>
-    </div>
-  );
-});
 
-interface CartPriceRowProps {
-  label: React.ReactNode;
-  value: string;
-  isDiscount?: boolean;
-  strikethrough?: boolean;
-  title?: string;
-}
-
-const CartPriceRow = memo(function CartPriceRow({
-  label,
-  value,
-  isDiscount = false,
-  strikethrough = false,
-  title,
-}: CartPriceRowProps) {
-  return (
-    <div className={`${styles.summaryRow} ${isDiscount ? styles.discountRow : ""}`}>
-      <span className={styles.summaryLabel} title={title}>
-        {label}
-      </span>
-      <span
-        className={`${styles.summaryValue} ${
-          strikethrough ? styles.mrpStrikethrough : ""
-        }`}
-      >
-        {value}
-      </span>
+      {/* STILL DECIDING? SAVE CART CARD */}
+      <div className={styles.stillDecidingCard}>
+        <div className={styles.stillDecidingContent}>
+          <span className={styles.stillDecidingEyebrow}>LUXURY GIFTING</span>
+          <h3 className={styles.stillDecidingTitle}>Still Deciding? Save your cart for later</h3>
+          <p className={styles.stillDecidingSub}>
+            Take your time. We hold your bespoke selections so you never lose your dream piece.
+          </p>
+        </div>
+        <div className={styles.stillDecidingAction}>
+          <DiamondIcon size={36} color="#A77B3F" />
+        </div>
+      </div>
     </div>
   );
 });
@@ -187,6 +191,25 @@ interface CartOrderSummaryProps {
   onContinue: () => void;
 }
 
+const CartPriceRow = memo(function CartPriceRow({
+  label,
+  value,
+  isDiscount = false,
+  title,
+}: {
+  label: React.ReactNode;
+  value: string;
+  isDiscount?: boolean;
+  title?: string;
+}) {
+  return (
+    <div className={`${styles.priceBreakdownRow} ${isDiscount ? styles.discountRow : ""}`} title={title}>
+      <span className={styles.priceBreakdownLabel}>{label}</span>
+      <span className={styles.priceBreakdownValue}>{value}</span>
+    </div>
+  );
+});
+
 const CartOrderSummary = memo(function CartOrderSummary({
   totalItems,
   mrpTotal,
@@ -199,50 +222,23 @@ const CartOrderSummary = memo(function CartOrderSummary({
   onProceed,
   onContinue,
 }: CartOrderSummaryProps) {
-  const hasSavings = mrpSavings > 0 || discountAmount > 0;
   const totalSavings = mrpSavings + discountAmount;
+  const hasSavings = totalSavings > 0;
 
   return (
     <div className={styles.summaryCard}>
       <div className={styles.summaryCardHeader}>
-        <h2 className={styles.summaryTitle}>Order Summary</h2>
-        <span className={styles.summaryItemsCount}>
+        <h2 className={styles.summaryCardTitle}>Order Summary</h2>
+        <span className={styles.summaryItemCount}>
           {totalItems} {totalItems === 1 ? "item" : "items"}
         </span>
       </div>
 
-      {/* Free Delivery Threshold Progress (Over £40) */}
-      <div className={styles.deliveryProgressCard}>
-        <div className={styles.deliveryProgressHeader}>
-          <TruckIcon size={16} />
-          <span>
-            {totalPrice >= 40 ? (
-              <strong style={{ color: "#166534" }}>You unlocked FREE Delivery!</strong>
-            ) : (
-              <>
-                Add <strong>{formatPrice(40 - totalPrice, currency)}</strong> more for <strong>FREE Delivery</strong>
-              </>
-            )}
-          </span>
-        </div>
-        <div className={styles.progressBarTrack}>
-          <div
-            className={styles.progressBarFill}
-            style={{ width: `${Math.min(100, Math.round((totalPrice / 40) * 100))}%` }}
-          />
-        </div>
-        <div className={styles.deliveryProgressThreshold}>
-          <span>{formatPrice(totalPrice, currency)}</span>
-          <span>Free over {formatPrice(40, currency)}</span>
-        </div>
-      </div>
-
-      <div className={styles.summaryBreakdown}>
-        {mrpSavings > 0 && (
+      <div className={styles.priceBreakdown}>
+        {mrpTotal > totalPrice && (
           <CartPriceRow
-            label="MRP Total"
+            label="Original Value"
             value={formatPrice(mrpTotal, currency)}
-            strikethrough
           />
         )}
 
@@ -251,11 +247,16 @@ const CartOrderSummary = memo(function CartOrderSummary({
           value={formatPrice(totalPrice, currency)}
         />
 
+        <CartPriceRow
+          label="Shipping"
+          value="FREE"
+        />
+
         {mrpSavings > 0 && (
           <CartPriceRow
             label={
               <>
-                <PriceTagIcon size={13} /> Savings on MRP
+                <PriceTagIcon size={13} /> Promotional Savings
               </>
             }
             value={`-${formatPrice(mrpSavings, currency)}`}
@@ -267,7 +268,7 @@ const CartOrderSummary = memo(function CartOrderSummary({
           <CartPriceRow
             label={
               <>
-                <PriceTagIcon size={13} /> Discount
+                <PriceTagIcon size={13} /> Applied Coupon
               </>
             }
             value={`-${formatPrice(discountAmount, currency)}`}
@@ -283,7 +284,7 @@ const CartOrderSummary = memo(function CartOrderSummary({
 
       {hasSavings && (
         <div className={styles.savingsBanner}>
-          <SparklesIcon size={18} />
+          <SparklesIcon size={16} />
           <span>
             You&apos;re saving <strong>{formatPrice(totalSavings, currency)}</strong> on this order!
           </span>
@@ -292,41 +293,36 @@ const CartOrderSummary = memo(function CartOrderSummary({
 
       <div className={styles.totalRow}>
         <div className={styles.totalLabelGroup}>
-          <span className={styles.totalLabel}>Estimated Total</span>
-          <span className={styles.vatNote}>Taxes & delivery calculated at checkout</span>
+          <span className={styles.totalLabel}>Total</span>
+          <span className={styles.vatNote}>Includes all applicable taxes</span>
         </div>
         <span className={styles.totalPrice}>{formatPrice(grandTotal, currency)}</span>
       </div>
 
       <div className={styles.actionButtons}>
-        <Button
-          variant="primary"
-          size="lg"
-          fullWidth
-          pill
-          rightIcon={<ArrowRightIcon size={18} />}
+        <button
+          type="button"
+          className={styles.proceedCheckoutBtn}
           onClick={onProceed}
           id="cart-proceed-checkout-btn"
         >
-          Proceed to Checkout
-        </Button>
+          <span>Proceed to Checkout</span>
+          <ArrowRightIcon size={16} />
+        </button>
 
-        <Button
-          variant="outline"
-          size="md"
-          fullWidth
-          pill
-          leftIcon={<ArrowLeftIcon size={16} />}
+        <button
+          type="button"
+          className={styles.continueShoppingBtn}
           onClick={onContinue}
           id="cart-continue-shopping-btn"
         >
-          Continue Shopping
-        </Button>
+          <span>Continue Shopping</span>
+        </button>
       </div>
 
       <div className={styles.secureCheckoutNote}>
         <LockIcon size={14} />
-        <span>256-bit secure checkout</span>
+        <span>256-bit SSL encrypted secure checkout</span>
       </div>
     </div>
   );
@@ -342,22 +338,22 @@ const CartEmptyState = memo(function CartEmptyState({
   return (
     <div className={styles.emptyCard}>
       <div className={styles.emptyIconCircle}>
-        <CartIcon size={38} />
+        <DiamondIcon size={38} />
       </div>
-      <h2 className={styles.emptyTitle}>Your basket is empty</h2>
+      <h2 className={styles.emptyTitle}>Your cart is currently empty</h2>
       <p className={styles.emptyDescription}>
-        Looks like you haven&apos;t added any items to your basket yet. Discover our fresh groceries and gourmet foods.
+        Discover our exquisite handcrafted diamond and gold jewellery collections and find your next cherished piece.
       </p>
-      <Button
-        variant="primary"
-        size="lg"
-        pill
-        rightIcon={<ArrowRightIcon size={18} />}
+      <button
+        type="button"
+        className={styles.proceedCheckoutBtn}
+        style={{ width: "auto", padding: "0 32px" }}
         onClick={onStartShopping}
         id="cart-start-shopping-btn"
       >
-        Start Shopping
-      </Button>
+        <span>Explore Collections</span>
+        <ArrowRightIcon size={16} />
+      </button>
     </div>
   );
 });
@@ -388,7 +384,6 @@ function CartContent() {
   const [itemLevelOffers, setItemLevelOffers] = useState<Coupon[]>([]);
   const hasLoadedRef = useRef(false);
 
-  // Stable event handlers with useCallback
   const handleUpdateQty = useCallback(
     (key: string, qty: number) => {
       updateQty(key, qty);
@@ -426,14 +421,12 @@ function CartContent() {
     }
   }, [isAuthenticated, loadCart]);
 
-  // Re-evaluate offers when cart items change
   useEffect(() => {
     if (items.length > 0 && isAuthenticated) {
       void evaluateOffers();
     }
   }, [items, isAuthenticated, evaluateOffers]);
 
-  // Per-product auto-offers (for "was" MRP display)
   const domainIdsKey = useMemo(
     () => [...new Set(items.map((i) => i.domainId))].sort().join(","),
     [items]
@@ -466,10 +459,8 @@ function CartContent() {
   const discountAmount = couponResult?.valid ? couponResult.discountAmount : 0;
   const grandTotal = Math.max(0, totalPrice - discountAmount);
 
-  // Only display full-page skeleton on initial mount when no data is loaded yet
   const isInitialLoading = !mounted || (!hydrated && items.length === 0) || (loading && items.length === 0);
 
-  // Per-item "was" price memoization
   const comparePriceByKey = useMemo(() => {
     const map = new Map<string, number>();
     for (const item of items) {

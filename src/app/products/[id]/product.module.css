@@ -198,20 +198,21 @@
 }
 
 .brandLabel {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #024830;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #A77B3F;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   margin: 0;
 }
 
 .productTitle {
-  font-size: clamp(1.65rem, 2.5vw, 2.25rem);
-  font-weight: 800;
-  color: #111827;
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  color: #242321;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   margin: -4px 0 0 0;
 }
 
@@ -225,38 +226,38 @@
 .ratingScore {
   font-size: 0.8125rem;
   font-weight: 700;
-  color: #111827;
+  color: #242321;
 }
 
 .reviewCount {
   font-size: 0.8125rem;
-  color: #6b7280;
+  color: #77716A;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.15s ease;
 }
 
 .reviewCount:hover {
-  color: #024830;
+  color: #A77B3F;
 }
 
 .noReviewsLabel {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #6b7280;
+  color: #77716A;
 }
 
 .writeFirstReviewLink {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #024830;
+  color: #A77B3F;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.15s ease;
 }
 
 .writeFirstReviewLink:hover {
-  color: #047857;
+  color: #8C6430;
 }
 
 /* PRICE ROW */
@@ -266,14 +267,15 @@
   gap: 12px;
   flex-wrap: wrap;
   padding: 4px 0 16px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #E9E2D8;
 }
 
 .currentPrice {
+  font-family: var(--font-sans, "Montserrat", sans-serif);
   font-size: clamp(1.85rem, 2.8vw, 2.4rem);
-  font-weight: 850;
-  color: #024830;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  color: #A77B3F;
+  letter-spacing: -0.01em;
   line-height: 1;
 }
 
@@ -432,27 +434,31 @@
 
 .addToBasketBtn {
   flex: 1;
-  min-width: 180px;
+  min-width: 170px;
   height: 48px;
-  background-color: #024830;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  font-size: 0.9375rem;
-  font-weight: 700;
+  background-color: #211A14;
+  color: #FAF8F4;
+  border: 1px solid #211A14;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   cursor: pointer;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(2, 72, 48, 0.22);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(33, 26, 20, 0.15);
 }
 
 .addToBasketBtn:hover:not(:disabled) {
-  background-color: #013523;
+  background-color: #A77B3F;
+  border-color: #A77B3F;
+  color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(2, 72, 48, 0.3);
+  box-shadow: 0 6px 18px rgba(167, 123, 63, 0.3);
 }
 
 .addToBasketBtn:active:not(:disabled) {
@@ -465,14 +471,41 @@
   box-shadow: none;
 }
 
+.buyNowBtn {
+  flex: 1;
+  min-width: 140px;
+  height: 48px;
+  background-color: #A77B3F;
+  color: #ffffff;
+  border: 1px solid #C5A16B;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(167, 123, 63, 0.25);
+}
+
+.buyNowBtn:hover {
+  background-color: #C5A16B;
+  color: #1A140E;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(197, 161, 107, 0.4);
+}
+
 .inBasketBtn {
-  background-color: #065f46;
-  border: 1.5px solid #059669;
+  background-color: #A77B3F;
+  border: 1.5px solid #C5A16B;
 }
 
 .inBasketBtn:hover:not(:disabled) {
-  background-color: #047857;
-  border-color: #10b981;
+  background-color: #8C6430;
+  border-color: #A77B3F;
 }
 
 /* TRUST & DELIVERY INFO */
@@ -480,11 +513,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #fafaf9;
-  border: 1px solid #f0f0ee;
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin-top: 4px;
+  background: #FAF8F4;
+  border: 1px solid #E9E2D8;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 6px;
 }
 
 .trustItem {
@@ -492,7 +525,7 @@
   align-items: flex-start;
   gap: 12px;
   font-size: 0.8125rem;
-  color: #4b5563;
+  color: #77716A;
   line-height: 1.4;
 }
 
@@ -503,15 +536,16 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #eaf5ee;
-  color: #024830;
+  background: #FAF5EE;
+  color: #A77B3F;
+  border: 1px solid #EAE0D0;
   flex-shrink: 0;
   margin-top: -1px;
 }
 
 .trustTitle {
   font-weight: 700;
-  color: #111827;
+  color: #242321;
   margin-right: 4px;
 }
 

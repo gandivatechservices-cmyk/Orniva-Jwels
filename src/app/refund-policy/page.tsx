@@ -19,106 +19,92 @@ import styles from "./refund-policy.module.css";
 const FALLBACK_REFUND_POLICY: Policy = {
   _id: "refund-policy-fallback",
   slug: "refund-policy",
-  title: "Refund & Return Policy",
-  subtitle: "Customer satisfaction, returns eligibility, and food-safety hygiene standards",
+  title: "30-Day Luxury Return & Guarantee",
+  subtitle: "Hallmarked purity, certified gemstones, and effortless 30-day returns",
   summary:
-    "At Atlas, we want you to be happy with your purchase. Due to the nature of our food and grocery products, certain items may not be eligible for return.",
+    "At LUXE JWELS, your complete satisfaction with your fine jewelry investment is our highest priority. We offer a transparent 30-day inspection and return policy on eligible collections.",
   sections: [
     {
       id: "returns",
-      heading: "Returns",
+      heading: "30-Day Easy Returns",
       content:
-        "For eligible unopened and non-perishable products, you may request a return within 30 days of receiving your order. Products must be unused, unopened, in their original packaging, and in a resalable condition. Please contact us before sending any item back.",
+        "You may request a return within 30 days of receiving your jewelry order. Items must be unworn, undamaged, in their original presentation box with all security tags, lab certificates (IGI/GIA/BIS Hallmarking), and documentation intact.",
       items: [
-        "Request return within 30 days of receiving your order",
-        "Products must be unused, unopened, and in original packaging",
-        "Must be in a resalable condition",
-        "Please contact us before sending any item back",
+        "30-day return window from the date of confirmed delivery",
+        "Original LUXE JWELS velvet box and packaging included",
+        "Security tamper-evident tag must remain attached",
+        "Authenticity & diamond certification cards must be returned intact",
       ],
     },
     {
-      id: "food-grocery-products",
-      heading: "Food & Grocery Products",
+      id: "custom-engraved-pieces",
+      heading: "Custom & Engraved Creations",
       content:
-        "For food-safety and hygiene reasons, perishable, opened, or temperature-sensitive food and drink products generally cannot be returned. This does not affect your legal rights if an item is faulty, damaged, unsafe, incorrectly supplied, or not as described.",
+        "Bespoke designs, custom-sized rings, and personalized laser-engraved jewellery are crafted exclusively to your specifications and cannot be returned for a standard refund unless there is a verified manufacturing defect. Our master craftsmen will gladly resize or adjust your piece under our lifetime warranty program.",
       items: [
-        "Bakery products",
-        "Food products",
-        "Drinks",
-        "Indian grocery products",
-        "Rice & grains",
-        "Spices",
+        "Personalized laser engravings",
+        "Bespoke custom commissions",
+        "Lifetime complimentary cleaning & prong inspection",
       ],
     },
     {
       id: "damaged-faulty-items",
-      heading: "Damaged, Faulty or Incorrect Items",
+      heading: "Damaged or Transit-Affected Deliveries",
       content:
-        "Please check your order when it arrives. If you receive a damaged, faulty, incorrect, or missing item, please contact us as soon as possible at: returns@atlasone.com. Please provide your order number and photographs where appropriate. We will review the issue and provide an appropriate solution.",
+        "Every shipment from LUXE JWELS is fully insured. In the unlikely event that your jewelry arrives damaged or missing an item, please notify our concierge team within 48 hours at returns@luxejwels.com with photos of the tamper-evident packaging.",
       items: [
-        "Check your order upon delivery",
-        "Email returns@atlasone.com promptly",
-        "Provide order number and clear photographs",
-        "Fast resolution and review",
+        "Inspect your luxury package upon receipt",
+        "Notify returns@luxejwels.com within 48 hours",
+        "Complimentary insured courier collection arranged immediately",
       ],
     },
     {
       id: "cancellations",
-      heading: "Cancellations",
+      heading: "Order Cancellation",
       content:
-        "If you wish to cancel an order, please contact us as soon as possible at returns@atlasone.com. We will try to cancel your order before it is dispatched. Cancellation rights may vary depending on the type of product and applicable UK consumer law.",
+        "Standard collection orders can be cancelled anytime before dispatch. Once dispatched via insured secure transport, the order will be delivered and can then be returned under our 30-Day Return Guarantee.",
       items: [
-        "Contact returns@atlasone.com prior to dispatch",
-        "Cancellation rights adhere to UK consumer laws",
+        "Instant cancellation prior to secure dispatch",
+        "Prompt concierge assistance via chat or email",
       ],
     },
     {
       id: "refunds",
-      heading: "Refunds",
+      heading: "Refund Processing & Method",
       content:
-        "Once an approved return or refund has been processed, the refund will normally be made to your original payment method. Please allow additional time for your bank or payment provider to process the refund.",
+        "Upon receipt at our gemological lab, our quality specialists inspect the returned piece to verify certification and condition. Approved refunds are credited back to your original payment method within 5 to 7 business days.",
       items: [
-        "Returned to original payment method (Visa, Mastercard, Apple Pay, etc.)",
-        "Bank processing time may vary",
+        "Secure lab verification within 48 hours of receipt",
+        "Direct refund to original payment card or UPI/NetBanking",
       ],
     },
     {
       id: "return-costs",
-      heading: "Return Costs",
+      heading: "Complimentary Insured Return Pickup",
       content:
-        "For eligible returns due to a change of mind, you may be responsible for return delivery costs unless otherwise stated. Where an item is faulty, damaged, or incorrectly supplied, return costs will be handled in accordance with applicable law.",
+        "For all certified fine jewelry orders above INR 2,999, LUXE JWELS provides complimentary insured return pickup via dedicated secure courier services. You will receive a tracking link and prepaid digital airway bill.",
       items: [
-        "Change of mind: customer may be responsible for return courier fees",
-        "Faulty or damaged items: return delivery covered by Atlas",
-      ],
-    },
-    {
-      id: "exchanges",
-      heading: "Exchanges",
-      content:
-        "Due to the nature of our products, we generally do not offer direct exchanges. Where appropriate, we may provide a replacement or refund.",
-      items: [
-        "Direct exchanges are not offered due to fresh food turnover",
-        "Replacements or refunds provided where applicable",
+        "Free insured pickup for domestic orders",
+        "Full door-to-door transit insurance coverage",
       ],
     },
     {
       id: "contact-us",
-      heading: "Contact Us",
+      heading: "Concierge Assistance",
       content:
-        "Atlas\nEmail: returns@atlasone.com\nContact Number: 07771142324\nPlease include your order number when contacting us.\nYour statutory rights are not affected by this policy.",
+        "LUXE JWELS Client Care\nEmail: returns@luxejwels.com\nConcierge: +91 98765 43210\nHours: Mon - Sat: 10:00 AM - 7:30 PM\nYour statutory consumer rights are fully preserved.",
       items: [
-        "Company: Atlas",
-        "Email: returns@atlasone.com",
-        "Phone: 07771142324",
+        "Brand: LUXE JWELS",
+        "Email: returns@luxejwels.com",
+        "Phone: +91 98765 43210",
       ],
     },
   ],
   isActive: true,
   lastUpdated: new Date().toISOString(),
   metadata: {
-    email: "returns@atlasone.com",
-    phone: "07771142324",
+    email: "returns@luxejwels.com",
+    phone: "+91 98765 43210",
   },
 };
 

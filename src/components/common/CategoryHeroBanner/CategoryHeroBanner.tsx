@@ -1,6 +1,6 @@
 "use client";
 
-import { LeafIcon, SparklesIcon, TagIcon } from "components/icons";
+import { DiamondIcon, SparklesIcon, TagIcon } from "components/icons";
 import { useState } from "react";
 import styles from "./CategoryHeroBanner.module.css";
 
@@ -20,89 +20,77 @@ export type CategoryHeroBannerProps = {
 export function getCategoryHeroDefaults(categorySlugOrName: string) {
   const norm = (categorySlugOrName || "").toLowerCase().trim();
 
-  if (norm.includes("fresh") || norm.includes("produce") || norm.includes("fruit") || norm.includes("veg")) {
+  if (norm.includes("ring")) {
     return {
-      eyebrow: "FARM FRESH SELECTION",
-      defaultTitle: "Fruits & Vegetables",
-      description: "Crisp vegetables, juicy seasonal fruits, and vibrant leafy greens handpicked daily.",
+      eyebrow: "FINE RINGS COLLECTION",
+      defaultTitle: "Rings",
+      description: "Timeless designs for every occasion. From certified solitaire diamond rings to handcrafted 18K gold eternity bands.",
+      fallbackImage: "/assets/images/jewelry/category-rings.jpg",
     };
   }
-  if (norm.includes("dairy") || norm.includes("egg")) {
+  if (norm.includes("necklace") || norm.includes("choker")) {
     return {
-      eyebrow: "CHILLED ESSENTIALS",
-      defaultTitle: "Dairy, Bread & Eggs",
-      description: "Fresh milk, farm-fresh eggs, butter, artisanal cheeses, and rich creamy yogurts.",
+      eyebrow: "EXQUISITE NECKLACES",
+      defaultTitle: "Necklaces",
+      description: "Breathtaking diamond pendants, bridal chokers, and delicate gold chains crafted for lasting elegance.",
+      fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
     };
   }
-  if (norm.includes("bakery") || norm.includes("bread")) {
+  if (norm.includes("earring") || norm.includes("stud")) {
     return {
-      eyebrow: "FRESHLY BAKED DAILY",
-      defaultTitle: "Bakery & Bread",
-      description: "Artisan sourdough, whole-wheat loaves, warm burger buns, and delicious pastries.",
+      eyebrow: "ARTISANAL EARRINGS",
+      defaultTitle: "Earrings",
+      description: "Dazzling diamond studs, timeless gold hoops, and glamorous drop earrings designed to shine.",
+      fallbackImage: "/assets/images/jewelry/category-earrings.jpg",
     };
   }
-  if (norm.includes("rice") || norm.includes("grain") || norm.includes("atta") || norm.includes("flour")) {
+  if (norm.includes("bracelet")) {
     return {
-      eyebrow: "PANTRY STAPLES",
-      defaultTitle: "Atta, Rice, Oil & Dals",
-      description: "Premium aged basmati rice, nutritious lentils, flour, and healthy cooking oils.",
+      eyebrow: "TIMELESS BRACELETS",
+      defaultTitle: "Bracelets",
+      description: "Shimmering diamond tennis bracelets, contemporary cuffs, and classic chain designs in 18K gold.",
+      fallbackImage: "/assets/images/jewelry/category-bracelets.jpg",
     };
   }
-  if (norm.includes("indian") || norm.includes("asian") || norm.includes("spice") || norm.includes("masala")) {
+  if (norm.includes("bangle") || norm.includes("kada")) {
     return {
-      eyebrow: "AUTHENTIC FLAVOURS",
-      defaultTitle: "Indian & Asian Grocery",
-      description: "Aromatic whole spices, lentils, ghee, seasonings, and authentic heritage brand ingredients.",
+      eyebrow: "HERITAGE BANGLES",
+      defaultTitle: "Bangles",
+      description: "Handcrafted 22K gold filigree bangles, temple motifs, and modern stacking cuffs.",
+      fallbackImage: "/assets/images/jewelry/category-bangles.jpg",
     };
   }
-  if (norm.includes("meat") || norm.includes("fish") || norm.includes("seafood")) {
+  if (norm.includes("pendant")) {
     return {
-      eyebrow: "PREMIUM CUTS",
-      defaultTitle: "Meat, Fish & Seafood",
-      description: "Tender cuts of fresh poultry, succulent seafood, and quality meats sourced with care.",
+      eyebrow: "PRECIOUS PENDANTS",
+      defaultTitle: "Pendants",
+      description: "Captivating solitaire and gemstone pendants set in hallmarked gold and platinum.",
+      fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
     };
   }
-  if (norm.includes("frozen") || norm.includes("ice cream")) {
+  if (norm.includes("men")) {
     return {
-      eyebrow: "QUICK & CONVENIENT",
-      defaultTitle: "Frozen Food",
-      description: "Crisp frozen veggies, ready-to-cook appetisers, frozen parathas, and gourmet desserts.",
+      eyebrow: "MEN'S COLLECTION",
+      defaultTitle: "Men's Jewellery",
+      description: "Bold signet rings, gold chains, and refined diamond cufflinks designed for men.",
+      fallbackImage: "/assets/images/jewelry/category-mens.jpg",
     };
   }
-  if (norm.includes("drink") || norm.includes("beverage") || norm.includes("juice") || norm.includes("tea")) {
+  if (norm.includes("wedding") || norm.includes("bridal") || norm.includes("bride")) {
     return {
-      eyebrow: "REFRESHING SIPS",
-      defaultTitle: "Drinks & Beverages",
-      description: "100% natural fruit juices, specialty teas, roasted coffee blends, and cooling sodas.",
-    };
-  }
-  if (norm.includes("snack") || norm.includes("biscuit") || norm.includes("munchies")) {
-    return {
-      eyebrow: "CRUNCHY & DELICIOUS",
-      defaultTitle: "Snacks & Munchies",
-      description: "Savoury crisps, healthy roasted trail nuts, artisanal biscuits, and sweet confectioneries.",
-    };
-  }
-  if (norm.includes("house") || norm.includes("cleaning")) {
-    return {
-      eyebrow: "HOME CARE ESSENTIALS",
-      defaultTitle: "Household & Cleaning",
-      description: "Eco-friendly home cleaners, detergents, paper rolls, and kitchen maintenance supplies.",
-    };
-  }
-  if (norm.includes("beauty") || norm.includes("personal")) {
-    return {
-      eyebrow: "PERSONAL WELLNESS",
-      defaultTitle: "Beauty & Personal Care",
-      description: "Nourishing skincare, botanical shampoos, soaps, and everyday self-care essentials.",
+      eyebrow: "BRIDAL & WEDDING",
+      defaultTitle: "Wedding Collection",
+      description: "Heirloom bridal sets, engagement rings, and wedding jewellery crafted to celebrate eternal love.",
+      fallbackImage: "/assets/images/jewelry/category-rings.jpg",
     };
   }
 
-  // General Grocery & Kitchen default
+  // General Fine Jewelry default
   return {
-    eyebrow: "SHOP BY CATEGORY",
-    defaultTitle: "Grocery & Kitchen",
-    description: "Everything you need for your everyday kitchen, from farm-fresh produce to pantry staples.",
+    eyebrow: "LUXE JWELS ATELIER",
+    defaultTitle: "Fine Jewellery",
+    description: "Discover handcrafted luxury jewelry designed to celebrate life's most precious milestones.",
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
   };
 }
 
@@ -115,14 +103,13 @@ export function CategoryHeroBanner({
   imageAlt,
   className = "",
 }: CategoryHeroBannerProps) {
-  // The picture comes from the database record only. No bundled photo is used.
   const [imageFailed, setImageFailed] = useState(false);
   const defaults = getCategoryHeroDefaults(categoryName);
 
   const displayEyebrow = eyebrowText || defaults.eyebrow;
   const displayDesc = description || defaults.description;
-  const displayImage = imageSrc && !imageFailed ? imageSrc : "";
-  const displayAlt = imageAlt || `${categoryName} grocery collection`;
+  const displayImage = (!imageFailed && (imageSrc || defaults.fallbackImage)) ? (imageSrc || defaults.fallbackImage) : "";
+  const displayAlt = imageAlt || `${categoryName} fine jewelry collection`;
 
   return (
     <div className={`${styles.bannerCard} ${className}`} role="banner" aria-label={categoryName}>
@@ -130,7 +117,7 @@ export function CategoryHeroBanner({
       <div className={styles.contentCol}>
         {displayEyebrow && (
           <div className={styles.eyebrowBadge}>
-            <LeafIcon size={14} className={styles.eyebrowIcon} aria-hidden="true" />
+            <DiamondIcon size={14} className={styles.eyebrowIcon} aria-hidden="true" />
             <span>{displayEyebrow}</span>
           </div>
         )}
@@ -145,25 +132,28 @@ export function CategoryHeroBanner({
             <div className={styles.metaChip}>
               <TagIcon size={13} className={styles.metaChipIcon} />
               <span>
-                <strong>{productCount}</strong> {productCount === 1 ? "Product" : "Products"} Available
+                <strong>{productCount}</strong> {productCount === 1 ? "Piece" : "Pieces"} Available
               </span>
             </div>
           )}
 
           <div className={styles.metaChip}>
             <SparklesIcon size={13} className={styles.metaChipIcon} />
-            <span>100% Quality Checked</span>
+            <span>100% Certified &amp; Hallmarked</span>
           </div>
         </div>
       </div>
 
-      {/* RIGHT PICTURE COLUMN (only when the record has an image) */}
+      {/* RIGHT PICTURE COLUMN */}
       {displayImage && (
         <div className={styles.imageCol}>
-          <div className={styles.imageWrapper}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={displayImage} alt={displayAlt} className={styles.bannerImage} loading="eager" onError={() => setImageFailed(true)} />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={displayImage}
+            alt={displayAlt}
+            className={styles.categoryHeroImg}
+            onError={() => setImageFailed(true)}
+          />
         </div>
       )}
     </div>

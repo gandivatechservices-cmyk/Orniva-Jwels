@@ -1,17 +1,17 @@
 .bar {
-  background-color: #024830;
-  color: #ffffff;
-  padding: 6px 20px;
+  background-color: #161311;
+  color: #FAF8F4;
+  padding: 8px 20px;
   font-size: 0.75rem;
   font-weight: 500;
   width: 100%;
   position: relative;
   z-index: calc(var(--z-sticky, 100) + 1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(167, 123, 63, 0.2);
 }
 
 .inner {
-  max-width: var(--container-max, 1280px);
+  max-width: var(--container-max, 1320px);
   margin-inline: auto;
   display: flex;
   align-items: center;
@@ -19,28 +19,38 @@
   position: relative;
 }
 
-.content {
+.trustRow {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  letter-spacing: 0.01em;
-  font-size: 0.75rem;
-  font-weight: 600;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.icon {
-  font-size: 0.875rem;
-  line-height: 1;
+.trustItem {
   display: inline-flex;
   align-items: center;
-  color: #86efac;
+  gap: 6px;
+}
+
+.goldIcon {
+  color: #C5A16B;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dot {
+  color: #A77B3F;
+  opacity: 0.6;
+  font-size: 0.625rem;
 }
 
 .text {
   text-align: center;
-  color: #ffffff;
-  letter-spacing: 0.01em;
+  color: #F5EFEB;
+  letter-spacing: 0.02em;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .quickLinks {

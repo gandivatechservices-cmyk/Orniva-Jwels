@@ -35,7 +35,7 @@ export function MobileBottomNav({ onOpenCart, className = "" }: MobileBottomNavP
         <span className={styles.label}>Home</span>
       </Link>
 
-      {/* 2. BASKET */}
+      {/* 2. CART */}
       {onOpenCart ? (
         <button
           type="button"
@@ -46,7 +46,7 @@ export function MobileBottomNav({ onOpenCart, className = "" }: MobileBottomNavP
             <CartIcon size={20} />
             {mounted && totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
           </div>
-          <span className={styles.label}>Basket</span>
+          <span className={styles.label}>Cart</span>
         </button>
       ) : (
         <Link
@@ -58,7 +58,7 @@ export function MobileBottomNav({ onOpenCart, className = "" }: MobileBottomNavP
             <CartIcon size={20} />
             {mounted && totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
           </div>
-          <span className={styles.label}>Basket</span>
+          <span className={styles.label}>Cart</span>
         </Link>
       )}
 

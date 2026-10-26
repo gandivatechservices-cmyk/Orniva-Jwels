@@ -5,15 +5,108 @@ export type CategoryVisual = {
   bgTint: string;
   ctaColor: string;
   isPopular?: boolean;
+  fallbackImage?: string;
 };
 
 /**
  * Category Visual Details Map
  */
-const CATEGORY_META: Record<string, { bgTint: string; ctaColor: string; isPopular?: boolean }> = {
+const CATEGORY_META: Record<string, { bgTint: string; ctaColor: string; isPopular?: boolean; fallbackImage?: string }> = {
+  rings: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
+  },
+  ring: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
+  },
+  necklaces: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
+  },
+  necklace: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
+  },
+  earrings: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-earrings.jpg",
+  },
+  earring: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-earrings.jpg",
+  },
+  bracelets: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-bracelets.jpg",
+  },
+  bracelet: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-bracelets.jpg",
+  },
+  pendants: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
+  },
+  pendant: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-necklaces.jpg",
+  },
+  bangles: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-bangles.jpg",
+  },
+  bangle: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-bangles.jpg",
+  },
+  "mens-collection": {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-mens.jpg",
+  },
+  "wedding-collection": {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
+  },
+  bridal: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
+  },
+  gold: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    fallbackImage: "/assets/images/jewelry/category-bangles.jpg",
+  },
+  diamond: {
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
+    isPopular: true,
+    fallbackImage: "/assets/images/jewelry/category-rings.jpg",
+  },
   bakery: {
     bgTint: "#fef7ec",
-    ctaColor: "#ea580c",
+    ctaColor: "#A77B3F",
   },
   beauty: {
     bgTint: "#fdf2f4",
@@ -128,6 +221,67 @@ export function getCategoryVisual(slug?: string, name?: string): CategoryVisual 
   }
   if (CATEGORY_META[normalizedName]) {
     return CATEGORY_META[normalizedName];
+  }
+
+  // Jewelry Category Keyword Matching
+  if (normalizedSlug.includes("ring") || normalizedName.includes("ring")) {
+    return CATEGORY_META["rings"];
+  }
+  if (
+    normalizedSlug.includes("neck") ||
+    normalizedName.includes("neck") ||
+    normalizedSlug.includes("chain") ||
+    normalizedName.includes("chain") ||
+    normalizedSlug.includes("choker")
+  ) {
+    return CATEGORY_META["necklaces"];
+  }
+  if (
+    normalizedSlug.includes("ear") ||
+    normalizedName.includes("ear") ||
+    normalizedSlug.includes("stud") ||
+    normalizedName.includes("stud") ||
+    normalizedSlug.includes("jhumka")
+  ) {
+    return CATEGORY_META["earrings"];
+  }
+  if (normalizedSlug.includes("brace") || normalizedName.includes("brace")) {
+    return CATEGORY_META["bracelets"];
+  }
+  if (normalizedSlug.includes("pendant") || normalizedName.includes("pendant") || normalizedSlug.includes("locket")) {
+    return CATEGORY_META["pendants"];
+  }
+  if (
+    normalizedSlug.includes("bangle") ||
+    normalizedName.includes("bangle") ||
+    normalizedSlug.includes("kada") ||
+    normalizedName.includes("kada")
+  ) {
+    return CATEGORY_META["bangles"];
+  }
+  if (normalizedSlug.includes("men") || normalizedName.includes("men")) {
+    return CATEGORY_META["mens-collection"];
+  }
+  if (
+    normalizedSlug.includes("wed") ||
+    normalizedName.includes("wed") ||
+    normalizedSlug.includes("bride") ||
+    normalizedName.includes("bride") ||
+    normalizedSlug.includes("bridal")
+  ) {
+    return CATEGORY_META["wedding-collection"];
+  }
+  if (
+    normalizedSlug.includes("jewel") ||
+    normalizedName.includes("jewel") ||
+    normalizedSlug.includes("gold") ||
+    normalizedName.includes("gold") ||
+    normalizedSlug.includes("diamond") ||
+    normalizedName.includes("diamond") ||
+    normalizedSlug.includes("silver") ||
+    normalizedName.includes("platinum")
+  ) {
+    return CATEGORY_META["rings"];
   }
 
   // Keyword matching
@@ -274,7 +428,7 @@ export function getCategoryVisual(slug?: string, name?: string): CategoryVisual 
 
   // Fallback defaults
   return {
-    bgTint: "#edf7ee",
-    ctaColor: "#16a34a",
+    bgTint: "#FAF5EE",
+    ctaColor: "#A77B3F",
   };
 }

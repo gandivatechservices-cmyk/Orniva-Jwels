@@ -1,10 +1,7 @@
-"use client";
-
 import { memo } from "react";
 import Link from "next/link";
 import { Skeleton } from "../../ui/Skeleton";
-import { HeartIcon } from "../../icons";
-import { ShoppingBasketIcon } from "../../icons/category";
+import { HeartIcon, ShoppingBagIcon, StarIcon } from "../../icons";
 import { formatPrice } from "../../../utility/formatMoney";
 import { IMAGES } from "../../../constants/images";
 import { LOW_STOCK_THRESHOLD } from "../../../utility/variantPricing";
@@ -22,6 +19,8 @@ export const ProductCard = memo(function ProductCard({
   unit,
   comparePrice,
   offerLabel,
+  rating,
+  reviewCount,
   stock = 10,
   priceFrom = false,
   selectOptions = false,
@@ -109,7 +108,7 @@ export const ProductCard = memo(function ProductCard({
       <div className={styles.info}>
         <div className={styles.metaRow}>
           <span className={styles.brand}>
-            {brand && brand.trim() !== "" ? brand : "FRESHMART"}
+            {brand && brand.trim() !== "" ? brand : "LUXE JWELS"}
           </span>
           {isOutOfStock ? (
             <span className={styles.stockStatusOut}>
@@ -133,6 +132,17 @@ export const ProductCard = memo(function ProductCard({
         >
           {name}
         </Link>
+
+        {/* Rating Stars */}
+        <div className={styles.ratingRow}>
+          <div className={styles.stars}>
+            {[...Array(5)].map((_, i) => (
+              <StarIcon key={i} size={12} className={styles.starIcon} filled={i < Math.round(rating || 5)} />
+            ))}
+          </div>
+          <span className={styles.ratingValue}>{(rating || 4.9).toFixed(1)}</span>
+          {reviewCount ? <span className={styles.reviewCount}>({reviewCount})</span> : null}
+        </div>
 
         {displayWeight ? (
           <span className={styles.weight}>{displayWeight}</span>
@@ -163,7 +173,7 @@ export const ProductCard = memo(function ProductCard({
         </div>
       </div>
 
-      {/* 3. ACTION / PURCHASE ROW (ADD TO BASKET) */}
+      {/* 3. ACTION / PURCHASE ROW (ADD TO CART) */}
       <div className={styles.actionRow}>
         {isOutOfStock ? (
           <button type="button" className={styles.addBtnDisabled} disabled>
@@ -178,11 +188,11 @@ export const ProductCard = memo(function ProductCard({
             type="button"
             className={styles.addBtn}
             onClick={handleAdd}
-            aria-label={`Add ${name} to basket`}
+            aria-label={`Add ${name} to cart`}
           >
-            <ShoppingBasketIcon size={15} strokeWidth={2} className={styles.addBtnIcon} />
+            <ShoppingBagIcon size={14} className={styles.addBtnIcon} />
             <span className={styles.addBtnText}>
-              {cartQty > 0 ? `In Basket (${cartQty})` : "Add to Basket"}
+              {cartQty > 0 ? `In Cart (${cartQty})` : "Add to Cart"}
             </span>
           </button>
         )}

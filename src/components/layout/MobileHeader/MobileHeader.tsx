@@ -121,19 +121,28 @@ export function MobileHeader({ onOpenCart }: MobileHeaderProps) {
               <span>Home</span>
             </Link>
             <Link href="/products" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
-              <span>All Groceries</span>
+              <span>Shop All Jewellery</span>
             </Link>
-            <Link
-              href="/products?offers=true"
-              prefetch={false}
-              onClick={() => setIsMenuOpen(false)}
-              className={`${styles.navItem} ${styles.offersNavItem}`}
-            >
-              <span>Weekly Offers</span>
-              <span className={styles.offersTag}>Special</span>
+            <Link href="/categories" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Collections</span>
+            </Link>
+            <Link href="/about" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Our Story</span>
+            </Link>
+            <Link href="/manufacturing" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Our Manufacturing</span>
+            </Link>
+            <Link href="/reviews" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Customer Reviews</span>
+            </Link>
+            <Link href="/blog" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Blog & Guides</span>
+            </Link>
+            <Link href="/contact" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Contact Us</span>
             </Link>
             <Link href="/wishlist" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
-              <span>Favourites / Wishlist</span>
+              <span>My Wishlist</span>
               {productIds.length > 0 && (
                 <span className={styles.navBadge}>{productIds.length}</span>
               )}
@@ -142,7 +151,7 @@ export function MobileHeader({ onOpenCart }: MobileHeaderProps) {
               <span>My Orders</span>
             </Link>
             <Link href="/cart" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
-              <span>Basket ({formatMoney(totalPrice)})</span>
+              <span>Cart ({formatMoney(totalPrice)})</span>
               {totalItems > 0 && <span className={styles.navBadge}>{totalItems}</span>}
             </Link>
             {isAdmin && (
