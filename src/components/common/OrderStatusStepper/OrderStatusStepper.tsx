@@ -53,7 +53,7 @@ export function OrderStatusStepper({
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--color-primary)" }}>
           <TruckIcon size={20} />
-          <span style={{ fontSize: "var(--fs-xs)", fontWeight: 600 }}>Atlas Express Delivery</span>
+          <span style={{ fontSize: "var(--fs-xs)", fontWeight: 600 }}>Insured Express Delivery</span>
         </div>
       </div>
 

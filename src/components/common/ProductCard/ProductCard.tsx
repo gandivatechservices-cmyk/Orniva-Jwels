@@ -42,8 +42,11 @@ export const ProductCard = memo(function ProductCard({
   const discountPercent = hasDiscount
     ? Math.round(((comparePrice! - price) / comparePrice!) * 100)
     : 0;
-  const savingsAmount = hasDiscount ? comparePrice! - price : 0;
-  const displayWeight = weight || unit;
+  const isLowStock = !isOutOfStock && stock <= LOW_STOCK_THRESHOLD;
+  const rawWeight = (weight || unit || "").trim();
+  // Bare numbers like "45" are gram weights — show the unit so it reads clearly.
+  const displayWeight = /^\d+(\.\d+)?$/.test(rawWeight) ? `${rawWeight} g` : rawWeight;
+  const hasRating = typeof rating === "number" && rating > 0;
 
   const imgSrc = image && image.trim() !== "" ? image : IMAGES.placeholders.product;
 
@@ -110,15 +113,11 @@ export const ProductCard = memo(function ProductCard({
           <span className={styles.brand}>
             {brand && brand.trim() !== "" ? brand : "LUXE JWELS"}
           </span>
-          {isOutOfStock ? (
-            <span className={styles.stockStatusOut}>
-              <span className={styles.stockDotOut} />
-              Out of Stock
-            </span>
-          ) : (
-            <span className={styles.stockStatus}>
-              <span className={styles.stockDot} />
-              {stock <= LOW_STOCK_THRESHOLD ? `Only ${stock} left` : "In Stock"}
+          {hasRating && (
+            <span className={styles.rating} aria-label={`Rated ${rating!.toFixed(1)} out of 5`}>
+              <StarIcon size={11} filled className={styles.starIcon} />
+              <span className={styles.ratingValue}>{rating!.toFixed(1)}</span>
+              {reviewCount ? <span className={styles.reviewCount}>({reviewCount})</span> : null}
             </span>
           )}
         </div>
@@ -133,40 +132,21 @@ export const ProductCard = memo(function ProductCard({
           {name}
         </Link>
 
-        {/* Rating Stars */}
-        <div className={styles.ratingRow}>
-          <div className={styles.stars}>
-            {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} size={12} className={styles.starIcon} filled={i < Math.round(rating || 5)} />
-            ))}
+        {(displayWeight || isLowStock) && (
+          <div className={styles.detailRow}>
+            {displayWeight && <span className={styles.weight}>{displayWeight}</span>}
+            {isLowStock && <span className={styles.lowStock}>Only {stock} left</span>}
           </div>
-          <span className={styles.ratingValue}>{(rating || 4.9).toFixed(1)}</span>
-          {reviewCount ? <span className={styles.reviewCount}>({reviewCount})</span> : null}
-        </div>
-
-        {displayWeight ? (
-          <span className={styles.weight}>{displayWeight}</span>
-        ) : (
-          <span className={styles.weightSpacer} aria-hidden="true" />
         )}
 
         <div className={styles.priceContainer}>
           <div className={styles.priceRow}>
-            <div className={styles.priceValues}>
-              {priceFrom && <span className={styles.priceFrom}>From</span>}
-              <span className={styles.price}>{formatPrice(price, currency)}</span>
-              {hasDiscount && (
-                <span className={styles.comparePrice}>
-                  {formatPrice(comparePrice!, currency)}
-                </span>
-              )}
-            </div>
-            {hasDiscount && savingsAmount > 0 ? (
-              <span className={styles.savingsTag}>
-                Save {formatPrice(savingsAmount, currency)}
+            {priceFrom && <span className={styles.priceFrom}>From</span>}
+            <span className={styles.price}>{formatPrice(price, currency)}</span>
+            {hasDiscount && (
+              <span className={styles.comparePrice}>
+                {formatPrice(comparePrice!, currency)}
               </span>
-            ) : (
-              <span className={styles.savingsSpacer} aria-hidden="true" />
             )}
           </div>
           {offerLabel && <span className={styles.offerTag}>{offerLabel}</span>}
@@ -204,7 +184,7 @@ export const ProductCard = memo(function ProductCard({
 export function ProductCardSkeleton({ className = "" }: { className?: string }) {
   return (
     <div className={`${styles.skeletonCard} ${className}`} aria-hidden="true">
-      <Skeleton height="180px" variant="rectangular" style={{ borderRadius: "14px" }} />
+      <Skeleton height="180px" variant="rectangular" style={{ borderRadius: "8px" }} />
       <div style={{ marginTop: "12px", display: "flex", justifyContent: "space-between" }}>
         <Skeleton width="45%" height="12px" style={{ borderRadius: "4px" }} />
         <Skeleton width="25%" height="12px" style={{ borderRadius: "4px" }} />
@@ -224,7 +204,7 @@ export function ProductCardSkeleton({ className = "" }: { className?: string }) 
         <Skeleton width="40%" height="16px" style={{ borderRadius: "4px" }} />
       </div>
       <div style={{ marginTop: "14px" }}>
-        <Skeleton width="100%" height="42px" variant="rectangular" style={{ borderRadius: "12px" }} />
+        <Skeleton width="100%" height="40px" variant="rectangular" style={{ borderRadius: "8px" }} />
       </div>
     </div>
   );

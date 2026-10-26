@@ -135,27 +135,27 @@ const CATEGORY_META: Record<string, { bgTint: string; ctaColor: string; isPopula
     ctaColor: "#d97706",
   },
   "fresh-produce": {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   "fruits-vegetables": {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   "fruit-veg": {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   "fresh-food": {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   produce: {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   food: {
-    bgTint: "#edf7ee",
+    bgTint: "#FAF5EE",
     ctaColor: "#16a34a",
   },
   frozen: {

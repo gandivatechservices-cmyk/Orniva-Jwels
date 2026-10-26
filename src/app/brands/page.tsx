@@ -95,7 +95,7 @@ export default function BrandsPage() {
                 )}
               </div>
               <p className={styles.desc}>
-                Explore trusted kitchen, pantry, and grocery brand favorites sourced directly from reputable producers.
+                Explore the jewellery houses and designers in our collection.
               </p>
             </div>
 

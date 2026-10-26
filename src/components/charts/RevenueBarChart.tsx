@@ -27,7 +27,7 @@ function niceMax(max: number): number {
 }
 
 /** Plain SVG bar chart with grid, y-axis ticks and a hover tooltip. */
-export function RevenueBarChart({ data, formatValue, height = 220, color = "#2f8f5b", integer = false }: Props) {
+export function RevenueBarChart({ data, formatValue, height = 220, color = "#A77B3F", integer = false }: Props) {
   const [hover, setHover] = useState<number | null>(null);
   const rawMax = Math.max(...data.map((d) => d.value), 0);
   const max = integer ? Math.max(4, Math.ceil(rawMax / 4) * 4) : niceMax(rawMax);
@@ -43,8 +43,8 @@ export function RevenueBarChart({ data, formatValue, height = 220, color = "#2f8
       <svg viewBox={`0 0 ${W} ${height}`} width="100%" role="img" aria-label="Revenue by day bar chart">
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={PAD.left} x2={W - PAD.right} y1={y(t)} y2={y(t)} stroke="#e5e7eb" strokeWidth={1} />
-            <text x={PAD.left - 8} y={y(t) + 4} textAnchor="end" fontSize={10} fill="#6b7280">
+            <line x1={PAD.left} x2={W - PAD.right} y1={y(t)} y2={y(t)} stroke="#E9E2D8" strokeWidth={1} />
+            <text x={PAD.left - 8} y={y(t) + 4} textAnchor="end" fontSize={10} fill="#77716A">
               {formatValue(t)}
             </text>
           </g>
@@ -60,7 +60,7 @@ export function RevenueBarChart({ data, formatValue, height = 220, color = "#2f8
                 fill={color}
                 opacity={hover === null || hover === i ? 1 : 0.45}
               />
-              <text x={cx} y={height - 8} textAnchor="middle" fontSize={10} fill="#6b7280">
+              <text x={cx} y={height - 8} textAnchor="middle" fontSize={10} fill="#77716A">
                 {d.label}
               </text>
             </g>
@@ -75,7 +75,7 @@ export function RevenueBarChart({ data, formatValue, height = 220, color = "#2f8
             top: 0,
             transform: "translate(-50%, -4px)",
             background: "#fff",
-            border: "1px solid #e5e7eb",
+            border: "1px solid #E9E2D8",
             borderRadius: 8,
             padding: "4px 10px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.12)",

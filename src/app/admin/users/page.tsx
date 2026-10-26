@@ -70,7 +70,7 @@ export default function UsersPage() {
     />
     <AdminStatCards
       items={[
-        { key: "all", title: "Total users", value: users.length, icon: <TeamOutlined />, color: "#14452b" },
+        { key: "all", title: "Total users", value: users.length, icon: <TeamOutlined />, color: "#8E662F" },
         { key: "admins", title: "Admin access", value: adminCount, icon: <SafetyCertificateOutlined />, color: "#1f3f55" },
         { key: "customers", title: "Customers", value: users.length - adminCount, icon: <UserOutlined />, color: "#6b5a3a" },
       ]}

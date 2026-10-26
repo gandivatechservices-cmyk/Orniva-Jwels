@@ -270,7 +270,7 @@ export default function RefundPolicyPage() {
                   </div>
                   <div>
                     <h3 className={styles.contactTitle}>Contact Atlas Customer Care</h3>
-                    <p style={{ margin: "4px 0 0", color: "#64748b", fontSize: "0.875rem" }}>
+                    <p style={{ margin: "4px 0 0", color: "#77716A", fontSize: "0.875rem" }}>
                       Please provide your order reference number and photos of any damaged or incorrect items.
                     </p>
                   </div>

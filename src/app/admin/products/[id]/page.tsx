@@ -244,7 +244,7 @@ function ProductDetail() {
 
       <AdminStatCards
         items={[
-          { key: "price", title: "Base price", value: formatPrice(product.basePrice, currency), icon: <DollarOutlined />, color: "#14452b" },
+          { key: "price", title: "Base price", value: formatPrice(product.basePrice, currency), icon: <DollarOutlined />, color: "#8E662F" },
           { key: "stock", title: "Total stock", value: totalStock, icon: <InboxOutlined />, color: "#6b5a3a" },
           { key: "sold", title: "Units sold", value: sales.units, icon: <ShoppingCartOutlined />, color: "#1f3f55" },
           { key: "rev", title: "Revenue", value: formatPrice(sales.revenue, currency), icon: <DollarOutlined />, color: "#4a4060" },

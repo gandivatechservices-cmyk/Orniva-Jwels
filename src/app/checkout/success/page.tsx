@@ -66,9 +66,9 @@ function SuccessContent() {
               </div>
 
               <div className={styles.headerGroup}>
-                <h1 className={styles.title}>Order confirmed! 🎉</h1>
+                <h1 className={styles.title}>Thank you, your order is confirmed</h1>
                 <p className={styles.subtitle}>
-                  Your grocery basket has been confirmed and sent to our local fulfilment team. We&apos;ll notify you when it&apos;s out for delivery.
+                  Your jewellery is being prepared and carefully packaged by our atelier. We&apos;ll notify you when it&apos;s on its way.
                 </p>
               </div>
             </div>

@@ -24,8 +24,9 @@
 }
 
 .title {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: var(--fs-md);
-  font-weight: var(--fw-bold);
+  font-weight: 400;
   color: var(--color-ink);
   margin-bottom: var(--space-1);
 }

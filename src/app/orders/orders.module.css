@@ -24,14 +24,14 @@
   gap: var(--space-4);
   background: linear-gradient(135deg, #18120C 0%, #251B12 50%, #150F0A 100%);
   border: 1px solid rgba(167, 123, 63, 0.3);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: var(--space-6) var(--space-6);
 }
 
 .title {
   font-family: var(--font-playfair, "Playfair Display", serif);
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 700;
+  font-weight: 400;
   color: #FAF8F4;
   margin: 0;
   letter-spacing: -0.015em;
@@ -45,7 +45,7 @@
 
 .countBadge {
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   color: #211A14;
   background-color: #FAF8F4;
   border: 1px solid #E9E2D8;
@@ -64,7 +64,7 @@
 .skeletonOrderCard {
   background-color: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: var(--space-5);
   display: flex;
   flex-direction: column;
@@ -82,12 +82,12 @@
 .orderCard {
   background-color: var(--color-surface);
   border: 1.5px solid var(--color-line);
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.04);
+  box-shadow: 0 2px 8px rgba(36, 35, 33, 0.04);
 }
 
 .orderCard:hover {
@@ -116,7 +116,7 @@
 
 .orderId {
   font-size: var(--fs-sm);
-  font-weight: 800;
+  font-weight: 600;
   color: var(--color-ink);
   letter-spacing: -0.01em;
 }
@@ -134,14 +134,14 @@
 
 .orderTotal {
   font-size: var(--fs-base);
-  font-weight: 800;
+  font-weight: 600;
   color: var(--color-ink);
 }
 
 /* ── Status Badges ──────────────────────────────────────── */
 .statusBadge {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 4px 10px;
   border-radius: 999px;
   text-transform: capitalize;
@@ -151,7 +151,7 @@
 
 .statusDelivered {
   background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-  color: #065f46;
+  color: #8E662F;
   border: 1px solid #6ee7b7;
 }
 
@@ -168,9 +168,9 @@
 }
 
 .statusPending {
-  background: #f3f4f6;
-  color: #4b5563;
-  border: 1px solid #d1d5db;
+  background: #F3EFE9;
+  color: #6B655E;
+  border: 1px solid #D8CEBF;
 }
 
 .statusCancelled {
@@ -196,7 +196,7 @@
 
 .itemsCount {
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-ink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -254,9 +254,9 @@
   align-items: center;
   gap: var(--space-1-5);
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--color-primary), #1a5c39);
+  background: linear-gradient(135deg, var(--color-primary), #8E662F);
   padding: 7px 14px;
   border-radius: 999px;
   text-decoration: none;
@@ -277,11 +277,11 @@
   justify-content: center;
   height: 36px;
   padding: 0 18px;
-  background: linear-gradient(135deg, var(--color-primary), #1a5c39);
+  background: linear-gradient(135deg, var(--color-primary), #8E662F);
   color: #ffffff;
   border-radius: 999px;
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(18, 67, 42, 0.2);
@@ -311,7 +311,7 @@
   border: 1.5px solid var(--color-primary);
   border-radius: 999px;
   font-size: var(--fs-xs);
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -359,7 +359,7 @@
 @media (max-width: 640px) {
   .headingRow {
     padding: var(--space-4) var(--space-5);
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   .orderHeader,

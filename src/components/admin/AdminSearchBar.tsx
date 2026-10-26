@@ -15,12 +15,12 @@ export function AdminSearchBar({
     <Input
       allowClear
       size="large"
-      prefix={<SearchOutlined style={{ color: "#14452b" }} />}
+      prefix={<SearchOutlined style={{ color: "#8E662F" }} />}
       value={value}
       onChange={(event) => onChange(event.target.value)}
       placeholder={placeholder}
       aria-label={placeholder}
-      style={{ borderColor: "#14452b", boxShadow: "0 2px 8px rgba(20, 69, 43, 0.12)", marginBottom: 12 }}
+      style={{ borderColor: "#8E662F", boxShadow: "0 2px 8px rgba(20, 69, 43, 0.12)", marginBottom: 12 }}
     />
   );
 }

@@ -7,10 +7,10 @@
 .tabList {
   display: flex;
   align-items: flex-end;
-  gap: 6px;
-  border-bottom: 2px solid var(--color-primary, #024830);
+  gap: 32px;
+  border-bottom: 1px solid #E9E2D8;
   width: 100%;
-  padding: 0 4px;
+  padding: 0;
   background-color: transparent;
   overflow-x: auto;
   scrollbar-width: none;
@@ -26,16 +26,16 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: 11px 22px;
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  color: #4b5563;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #77716A;
   cursor: pointer;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-bottom: none;
-  border-radius: 8px 8px 0 0;
-  margin-bottom: -2px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  margin-bottom: -1px;
   white-space: nowrap;
   transition: all 0.15s ease;
   touch-action: manipulation;
@@ -43,9 +43,7 @@
 }
 
 .tabButton:hover:not(:disabled) {
-  color: #111827;
-  background-color: #eef2f6;
-  border-color: #cbd5e1;
+  color: #242321;
 }
 
 .tabButton:focus-visible {
@@ -54,12 +52,9 @@
 }
 
 .activeTab {
-  background-color: var(--color-primary, #024830) !important;
-  color: #ffffff !important;
-  font-weight: var(--fw-bold) !important;
-  border-color: var(--color-primary, #024830) !important;
-  border-bottom: 2px solid var(--color-primary, #024830) !important;
-  box-shadow: 0 -2px 6px rgba(2, 72, 48, 0.18) !important;
+  color: #242321 !important;
+  font-weight: 500 !important;
+  border-bottom: 2px solid var(--color-primary, #A77B3F) !important;
   z-index: 2;
 }
 

@@ -183,7 +183,7 @@ function ReviewsView() {
         return (
           <Tooltip title={user?.email}>
             <Space size={8}>
-              <Avatar size={28} style={{ background: "#12432a" }}>{name.charAt(0).toUpperCase()}</Avatar>
+              <Avatar size={28} style={{ background: "#8E662F" }}>{name.charAt(0).toUpperCase()}</Avatar>
               <Flex vertical>
                 <Typography.Text strong>{name}</Typography.Text>
                 {review.isVerifiedBuyer && (
@@ -272,7 +272,7 @@ function ReviewsView() {
       <AdminPageHeader title="Customer Reviews" subtitle="Moderate what customers say about your products." />
       <AdminStatCards
         items={[
-          { key: "total", title: "Total reviews", value: stats.total, icon: <MessageOutlined />, color: "#14452b" },
+          { key: "total", title: "Total reviews", value: stats.total, icon: <MessageOutlined />, color: "#8E662F" },
           { key: "avg", title: "Average rating", value: stats.average ? stats.average.toFixed(1) : "—", icon: <StarOutlined />, color: "#6b5a3a" },
           { key: "active", title: "Visible", value: stats.active, icon: <CheckCircleOutlined />, color: "#1f3f55" },
           { key: "hidden", title: "Hidden", value: stats.hidden, icon: <EyeInvisibleOutlined />, color: "#4a4060" },

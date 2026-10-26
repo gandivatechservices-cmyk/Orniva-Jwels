@@ -1311,7 +1311,7 @@ export function ProductsView(props: ProductsViewProps) {
               <div
                 style={{
                   height: "200px",
-                  background: "#f1f5f9",
+                  background: "#F3EFE9",
                   borderRadius: "16px",
                   marginBottom: "24px",
                 }}

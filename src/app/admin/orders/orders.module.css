@@ -35,7 +35,7 @@
 
 .statIcon {
   margin-right: 4px;
-  color: #024830;
+  color: #8E662F;
 }
 
 .tableCard {
@@ -113,9 +113,9 @@
   display: inline-block;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
-  font-weight: 700;
-  color: #024830;
-  background: #ecfdf5;
+  font-weight: 600;
+  color: #8E662F;
+  background: #FAF5EE;
   padding: 2px 8px;
   border-radius: 6px;
 }
@@ -135,10 +135,10 @@
 
 .customerAvatar {
   flex-shrink: 0;
-  background: #024830;
+  background: #8E662F;
   color: #fff;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .customerTextCol {
@@ -163,7 +163,7 @@
 }
 
 .totalValue {
-  font-weight: 700;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -184,7 +184,7 @@
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: #024830;
+  color: #8E662F;
   font-weight: 600;
 }
 
@@ -224,7 +224,7 @@
 .packingListWrap {
   max-width: 760px;
   margin: 4px 0;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E9E2D8;
   border-radius: 10px;
   background: #ffffff;
   overflow: hidden;
@@ -280,14 +280,14 @@
 /* Order pricing + applied offer */
 .expandedRow { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
 .expandedRow .packingListWrap { flex: 1 1 520px; }
-.pricing { display: flex; flex-direction: column; gap: 8px; min-width: 260px; max-width: none; padding: 14px 16px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; font-size: 13px; }
-.pricingRow { display: flex; justify-content: space-between; gap: 12px; color: #4b5563; }
-.pricingTotal { padding-top: 8px; border-top: 1px dashed #e5e7eb; font-size: 15px; font-weight: 700; color: #111827; }
-.offerCard { padding: 10px 12px; border: 1px solid #bbf7d0; background: #f0fdf4; border-radius: 8px; color: #14532d; }
-.offerHead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 700; }
+.pricing { display: flex; flex-direction: column; gap: 8px; min-width: 260px; max-width: none; padding: 14px 16px; background: #fff; border: 1px solid #E9E2D8; border-radius: 10px; font-size: 13px; }
+.pricingRow { display: flex; justify-content: space-between; gap: 12px; color: #6B655E; }
+.pricingTotal { padding-top: 8px; border-top: 1px dashed #E9E2D8; font-size: 15px; font-weight: 600; color: #242321; }
+.offerCard { padding: 10px 12px; border: 1px solid #bbf7d0; background: #FAF5EE; border-radius: 8px; color: #6D4D1D; }
+.offerHead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-weight: 600; }
 .offerTitle { word-break: break-all; }
-.offerChip { margin-left: auto; padding: 1px 8px; border-radius: 999px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 700; white-space: nowrap; }
-.offerDesc { margin-top: 4px; font-size: 12px; color: #166534; }
+.offerChip { margin-left: auto; padding: 1px 8px; border-radius: 999px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.offerDesc { margin-top: 4px; font-size: 12px; color: #8E662F; }
 .offerLines { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #bbf7d0; }
 .offerLine { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
 .offerLine span { display: inline-flex; align-items: center; gap: 6px; }

@@ -4,6 +4,7 @@ import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { AuthShell } from "components";
+import { AtlasLogo } from "components/icons";
 import { useAppDispatch, useAppSelector } from "hooks/useAppStore";
 import {
   verifyEmailThunk,
@@ -26,10 +27,10 @@ const RESEND_COOLDOWN_SECONDS = 60;
 function VerifyEmailSkeleton() {
   return (
     <div className={styles.card} style={{ minHeight: 420 }}>
-      <div style={{ height: 32, width: 80, background: "#f3f4f6", borderRadius: 6, marginBottom: 20 }} />
-      <div style={{ height: 60, width: 60, borderRadius: "50%", background: "#ecfdf5", margin: "0 auto 20px" }} />
-      <div style={{ height: 24, background: "#f3f4f6", borderRadius: 6, marginBottom: 12 }} />
-      <div style={{ height: 16, background: "#f3f4f6", borderRadius: 6, width: "80%", margin: "0 auto" }} />
+      <div style={{ height: 32, width: 80, background: "#F3EFE9", borderRadius: 6, marginBottom: 20 }} />
+      <div style={{ height: 60, width: 60, borderRadius: "50%", background: "#FAF5EE", margin: "0 auto 20px" }} />
+      <div style={{ height: 24, background: "#F3EFE9", borderRadius: 6, marginBottom: 12 }} />
+      <div style={{ height: 16, background: "#F3EFE9", borderRadius: 6, width: "80%", margin: "0 auto" }} />
     </div>
   );
 }
@@ -203,10 +204,8 @@ function VerifyEmailContent() {
     <div className={styles.card}>
       {/* Brand header */}
       <div className={styles.brandHeader}>
-        <Link href="/" className={styles.logoLink} aria-label="Atlas Home">
-          <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <text x="0" y="24" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" fontSize="22" fontWeight="800" fill="#024830" letterSpacing="-1">Atlas</text>
-          </svg>
+        <Link href="/" className={styles.logoLink} aria-label="LUXE JWELS Home">
+          <AtlasLogo height={30} />
         </Link>
       </div>
 

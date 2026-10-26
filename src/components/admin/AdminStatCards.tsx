@@ -11,10 +11,10 @@ export function AdminStatCards({ items, loading = false }: { items: AdminStat[];
         <Col key={stat.key} xs={12} lg={24 / items.length}>
           <Card loading={loading} variant="borderless" style={{ borderRadius: 12 }}>
             <Statistic
-              title={<span style={{ color: "#6b7280" }}>{stat.title}</span>}
+              title={<span style={{ color: "#77716A" }}>{stat.title}</span>}
               value={stat.value}
               prefix={<span style={{ color: stat.color }}>{stat.icon}</span>}
-              styles={{ content: { color: "#111827", fontSize: 22, fontWeight: 700 } }}
+              styles={{ content: { color: "#242321", fontSize: 22, fontWeight: 700 } }}
             />
           </Card>
         </Col>

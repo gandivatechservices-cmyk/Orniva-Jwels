@@ -1,7 +1,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.55);
+  background-color: rgba(36, 35, 33, 0.55);
   backdrop-filter: blur(4px);
   z-index: var(--z-drawer, 400);
   animation: fadeIn 0.2s ease-out;

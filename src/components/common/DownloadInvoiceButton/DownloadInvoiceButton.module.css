@@ -13,11 +13,11 @@
   height: 46px;
   padding: 0 24px;
   background-color: transparent;
-  color: var(--color-primary, #024830);
-  border: 1.5px solid var(--color-primary, #024830);
+  color: var(--color-primary, #A77B3F);
+  border: 1.5px solid var(--color-primary, #A77B3F);
   border-radius: 999px;
   font-size: var(--fs-sm, 14px);
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -26,7 +26,7 @@
 }
 
 .button:hover:not(:disabled) {
-  background-color: var(--color-primary, #024830);
+  background-color: var(--color-primary, #A77B3F);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(18, 67, 42, 0.2);
@@ -43,14 +43,14 @@
 
 /* Secondary (solid / filled) variant */
 .buttonFilled {
-  background-color: var(--color-primary, #024830);
+  background-color: var(--color-primary, #A77B3F);
   color: #ffffff;
-  border-color: var(--color-primary, #024830);
+  border-color: var(--color-primary, #A77B3F);
 }
 
 .buttonFilled:hover:not(:disabled) {
-  background-color: var(--color-primary-dark, #013422);
-  border-color: var(--color-primary-dark, #013422);
+  background-color: var(--color-primary-dark, #211A14);
+  border-color: var(--color-primary-dark, #211A14);
 }
 
 /* Compact variant for tables or tight headers */

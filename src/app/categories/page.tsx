@@ -7,8 +7,9 @@ import { Container } from "components/layout/Container";
 import { Breadcrumb } from "components/ui/Breadcrumb";
 import { Button } from "components/ui/Button";
 import { CategoryCard, CategoryCardSkeleton } from "components/category/CategoryCard";
+import { IMAGES } from "constants/images";
 import {
-  LeafIcon,
+  DiamondIcon,
   SparklesIcon,
   TagIcon,
   SearchIcon,
@@ -172,15 +173,17 @@ export default function AllCategoriesPage() {
 
           {/* PAGE HERO HEADER */}
           <header className={styles.headerCard}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={IMAGES.jewelry.categories.necklaces} alt="" className={styles.headerImage} aria-hidden="true" />
+            <div className={styles.headerShade} aria-hidden="true" />
             <div className={styles.headerContent}>
               <div className={styles.eyebrowBadge}>
-                <LeafIcon size={13} className={styles.eyebrowIcon} />
-                <span>EXPLORE THE STORE</span>
+                <DiamondIcon size={13} className={styles.eyebrowIcon} />
+                <span>Our Collections</span>
               </div>
               <h1 className={styles.title}>All Categories</h1>
               <p className={styles.description}>
-                Everything you need, organised by category. From farm-fresh produce to everyday kitchen
-                staples and household essentials.
+                Rings, necklaces, earrings and more, each crafted with certified gold and hand-selected stones.
               </p>
             </div>
 
@@ -289,7 +292,7 @@ export default function AllCategoriesPage() {
                       style={{
                         width: "160px",
                         height: "24px",
-                        background: "#f1f5f9",
+                        background: "#F3EFE9",
                         borderRadius: "6px",
                       }}
                     />

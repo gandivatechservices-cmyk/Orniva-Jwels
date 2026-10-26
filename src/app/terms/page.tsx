@@ -292,7 +292,7 @@ export default function TermsPage() {
                   </div>
                   <div>
                     <h3 className={styles.contactTitle}>Need Clarification on Our Terms?</h3>
-                    <p style={{ margin: "4px 0 0", color: "#64748b", fontSize: "0.875rem" }}>
+                    <p style={{ margin: "4px 0 0", color: "#77716A", fontSize: "0.875rem" }}>
                       Our team is happy to assist with any questions regarding orders, delivery, or terms.
                     </p>
                   </div>

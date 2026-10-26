@@ -11,7 +11,7 @@ type Props = {
 };
 
 /** Ranked horizontal bars: label on the left, bar in the middle, value on the right. */
-export function HorizontalBarChart({ rows, formatValue, color = "#2f7a52" }: Props) {
+export function HorizontalBarChart({ rows, formatValue, color = "#A77B3F" }: Props) {
   const max = Math.max(...rows.map((r) => r.value), 1);
   return (
     <Flex vertical gap={10} role="img" aria-label="Ranked bar chart">
@@ -21,7 +21,7 @@ export function HorizontalBarChart({ rows, formatValue, color = "#2f7a52" }: Pro
             <Typography.Text ellipsis style={{ width: 150, flexShrink: 0 }}>
               {row.label}
             </Typography.Text>
-            <div style={{ flex: 1, background: "#f3f4f6", borderRadius: 6, height: 14, overflow: "hidden" }}>
+            <div style={{ flex: 1, background: "#F3EFE9", borderRadius: 6, height: 14, overflow: "hidden" }}>
               <div
                 style={{
                   width: `${Math.max((row.value / max) * 100, row.value > 0 ? 2 : 0)}%`,

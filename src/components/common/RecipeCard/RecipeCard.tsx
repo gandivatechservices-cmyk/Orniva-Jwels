@@ -34,7 +34,7 @@ export function RecipeCard({
             className={styles.badge}
             style={{
               backgroundColor: badgeBg || "rgba(255, 255, 255, 0.9)",
-              color: badgeColor || "#087443",
+              color: badgeColor || "#8E662F",
             }}
             aria-hidden="true"
           >

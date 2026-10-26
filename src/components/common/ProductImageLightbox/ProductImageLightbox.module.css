@@ -42,7 +42,7 @@
 
 .productTitle {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
@@ -56,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #34d399;
   background-color: rgba(52, 211, 153, 0.15);
   padding: 3px 12px;
@@ -78,7 +78,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #ffffff;
@@ -110,7 +110,7 @@
   padding: 0 8px;
   height: 36px;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
@@ -162,7 +162,7 @@
   max-width: 85vw;
   max-height: calc(100vh - 200px);
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   pointer-events: auto;
   user-select: none;
@@ -237,7 +237,7 @@
 .thumbBtn {
   width: 60px;
   height: 60px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 2px solid transparent;
   background-color: #ffffff;
   overflow: hidden;

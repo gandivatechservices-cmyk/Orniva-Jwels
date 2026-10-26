@@ -30,8 +30,8 @@ const RATING_LABELS: Record<number, string> = {
 };
 
 const AVATAR_COLORS = [
-  "#024830",
-  "#047857",
+  "#A77B3F",
+  "#8E662F",
   "#0369a1",
   "#4338ca",
   "#6d28d9",
@@ -318,7 +318,7 @@ export function ProductReviews({ productId, onReviewsChange }: ProductReviewsPro
                 key={i}
                 style={{
                   fontSize: 20,
-                  color: i < Math.round(averageRating) ? "#f59e0b" : "#e5e7eb",
+                  color: i < Math.round(averageRating) ? "#f59e0b" : "#E9E2D8",
                 }}
               />
             ))}
@@ -513,8 +513,8 @@ export function ProductReviews({ productId, onReviewsChange }: ProductReviewsPro
                 loading={submitting || uploadingPhotos}
                 disabled={uploadingPhotos}
                 style={{
-                  backgroundColor: "#024830",
-                  borderColor: "#024830",
+                  backgroundColor: "#A77B3F",
+                  borderColor: "#A77B3F",
                   borderRadius: 8,
                   fontWeight: 600,
                   height: 38,
@@ -680,7 +680,7 @@ export function ProductReviews({ productId, onReviewsChange }: ProductReviewsPro
                           key={i}
                           style={{
                             fontSize: 16,
-                            color: i < review.rating ? "#f59e0b" : "#e5e7eb",
+                            color: i < review.rating ? "#f59e0b" : "#E9E2D8",
                           }}
                         />
                       ))}
@@ -746,7 +746,7 @@ export function ProductReviews({ productId, onReviewsChange }: ProductReviewsPro
             <div ref={sentinelRef} style={{ height: 1, width: "100%" }} />
 
             {loadingMore && (
-              <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#024830", fontWeight: 600 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#A77B3F", fontWeight: 600 }}>
                 <Spin indicator={<LoadingOutlined style={{ fontSize: 18 }} spin />} />
                 <span>Loading more reviews…</span>
               </div>

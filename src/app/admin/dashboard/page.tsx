@@ -228,7 +228,7 @@ export default function AdminDashboardPage() {
       key: "_id",
       render: (_, row) => (
         <Link href={`/admin/orders/${row._id}`}>
-          <Typography.Text strong style={{ color: "#12432a" }}>#{row._id.slice(-8).toUpperCase()}</Typography.Text>
+          <Typography.Text strong style={{ color: "#8E662F" }}>#{row._id.slice(-8).toUpperCase()}</Typography.Text>
         </Link>
       ),
     },
@@ -333,7 +333,7 @@ export default function AdminDashboardPage() {
       title: "Share",
       key: "share",
       width: 120,
-      render: (_, p) => <Progress percent={Math.round(p.share)} size="small" strokeColor="#2f7a52" />,
+      render: (_, p) => <Progress percent={Math.round(p.share)} size="small" strokeColor="#A77B3F" />,
     },
     {
       title: "Stock",
@@ -379,7 +379,7 @@ export default function AdminDashboardPage() {
   }, [orders]);
 
   const kpis = [
-    { key: "rev", title: "Total revenue", value: formatPrice(totalRevenue, currency), icon: <DollarOutlined />, from: "#14452b", to: "#2f7a52" },
+    { key: "rev", title: "Total revenue", value: formatPrice(totalRevenue, currency), icon: <DollarOutlined />, from: "#8E662F", to: "#A77B3F" },
     { key: "orders", title: "Total orders", value: String(totalOrders), icon: <ShoppingCartOutlined />, from: "#1f3f55", to: "#3f6f8c" },
     { key: "users", title: "Registered users", value: String(totalCustomers), icon: <TeamOutlined />, from: "#4a4060", to: "#7a6c96" },
     { key: "products", title: "Active products", value: String(activeProductsCount), icon: <AppstoreAddOutlined />, from: "#6b5a3a", to: "#a08a57" },
@@ -390,7 +390,7 @@ export default function AdminDashboardPage() {
       <AdminLayout>
         <Flex vertical gap={16}>
           {error && <Alert type="error" showIcon title={error} />}
-          <Card variant="borderless" style={{ background: "#14452b", borderRadius: 14 }} styles={{ body: { padding: 16 } }}>
+          <Card variant="borderless" style={{ background: "#8E662F", borderRadius: 14 }} styles={{ body: { padding: 16 } }}>
             <Flex justify="space-between" align="center" wrap gap={12}>
               <div>
                 <Typography.Title level={4} style={{ color: "#fff", margin: 0 }}>
@@ -443,10 +443,10 @@ export default function AdminDashboardPage() {
               <Col key={k.key} xs={12} lg={6}>
                 <Card loading={loading} variant="borderless" style={{ borderRadius: 12 }}>
                   <Statistic
-                    title={<span style={{ color: "#6b7280" }}>{k.title}</span>}
+                    title={<span style={{ color: "#77716A" }}>{k.title}</span>}
                     value={k.value}
                     prefix={<span style={{ color: k.from }}>{k.icon}</span>}
-                    styles={{ content: { color: "#111827", fontSize: 22, fontWeight: 700 } }}
+                    styles={{ content: { color: "#242321", fontSize: 22, fontWeight: 700 } }}
                   />
                 </Card>
               </Col>
@@ -459,9 +459,9 @@ export default function AdminDashboardPage() {
                 loading={loading}
                 size="small"
                 title="Revenue by day"
-                extra={<Typography.Text strong style={{ color: "#12432a" }}>{formatPrice(totalRevenue, currency)}</Typography.Text>}
+                extra={<Typography.Text strong style={{ color: "#8E662F" }}>{formatPrice(totalRevenue, currency)}</Typography.Text>}
                 style={{ height: "100%" }}
-                styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+                styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
               >
                 <RevenueBarChart data={chartData} formatValue={(v) => formatPrice(v, currency)} />
               </Card>
@@ -472,9 +472,9 @@ export default function AdminDashboardPage() {
                 loading={loading}
                 size="small"
                 title="Orders by day"
-                extra={<Typography.Text strong style={{ color: "#12432a" }}>{orders.length} orders</Typography.Text>}
+                extra={<Typography.Text strong style={{ color: "#8E662F" }}>{orders.length} orders</Typography.Text>}
                 style={{ height: "100%" }}
-                styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+                styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
               >
                 <RevenueBarChart data={ordersByDay} integer color="#1f3f55" formatValue={(v) => String(Math.round(v))} />
               </Card>
@@ -483,7 +483,7 @@ export default function AdminDashboardPage() {
 
           <Row gutter={[16, 16]}>
             <Col xs={24} lg={8}>
-              <Card loading={loading} size="small" title="Orders by status" style={{ height: "100%" }} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+              <Card loading={loading} size="small" title="Orders by status" style={{ height: "100%" }} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
                 <DonutChart data={statusSlices} centerLabel="Orders" />
               </Card>
             </Col>
@@ -499,7 +499,7 @@ export default function AdminDashboardPage() {
                   </Space>
                 }
                 style={{ height: "100%" }}
-                styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+                styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
               >
                 {inventoryAlerts.length === 0 ? (
                   <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="All products have healthy stock" />
@@ -517,7 +517,7 @@ export default function AdminDashboardPage() {
               </Card>
             </Col>
             <Col xs={24} lg={8}>
-              <Card loading={loading} size="small" title="Top selling products" extra={topProducts.length > 0 && <Button type="link" size="small" onClick={() => setPerfOpen(true)}>View all</Button>} style={{ height: "100%" }} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+              <Card loading={loading} size="small" title="Top selling products" extra={topProducts.length > 0 && <Button type="link" size="small" onClick={() => setPerfOpen(true)}>View all</Button>} style={{ height: "100%" }} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
                 {topProducts.length === 0 ? (
                   <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No sales yet" />
                 ) : (
@@ -552,7 +552,7 @@ export default function AdminDashboardPage() {
               {perfSorted.length > 0 && <Button type="link" size="small" onClick={() => setPerfOpen(true)}>View all ({perfSorted.length})</Button>}
               </Space>
             }
-            styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+            styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
           >
             {perfSorted.length === 0 ? (
               <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No sales yet" />
@@ -560,7 +560,7 @@ export default function AdminDashboardPage() {
               <Row gutter={[24, 16]}>
                 <Col xs={24} lg={10}>
                   <HorizontalBarChart
-                    color={perfMetric === "qty" ? "#2f7a52" : "#1f3f55"}
+                    color={perfMetric === "qty" ? "#A77B3F" : "#1f3f55"}
                     rows={perfSorted.slice(0, 5).map((p) => ({
                       key: p.id,
                       label: p.name,
@@ -587,7 +587,7 @@ export default function AdminDashboardPage() {
             size="small"
             title="Recent orders"
             extra={<Link href="/admin/orders">View all</Link>}
-            styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+            styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
           >
             <Table size="small" rowKey="_id" loading={loading} columns={columns} dataSource={orders.slice(0, 10)} pagination={false} locale={{ emptyText: "No customer orders recorded yet." }} />
           </Card>
@@ -604,7 +604,7 @@ export default function AdminDashboardPage() {
             <Input
               allowClear
               size="large"
-              prefix={<SearchOutlined style={{ color: "#14452b" }} />}
+              prefix={<SearchOutlined style={{ color: "#8E662F" }} />}
               placeholder="Search products..."
               value={perfSearch}
               onChange={(e) => setPerfSearch(e.target.value)}
@@ -638,7 +638,7 @@ export default function AdminDashboardPage() {
             <Input
               allowClear
               size="large"
-              prefix={<SearchOutlined style={{ color: "#14452b" }} />}
+              prefix={<SearchOutlined style={{ color: "#8E662F" }} />}
               placeholder="Search product or SKU..."
               value={alertSearch}
               onChange={(e) => setAlertSearch(e.target.value)}

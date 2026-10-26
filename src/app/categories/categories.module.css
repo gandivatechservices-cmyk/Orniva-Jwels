@@ -13,94 +13,137 @@
   margin-bottom: -8px;
 }
 
-/* PAGE HEADER */
+/* PAGE HEADER (dark banner, image fades in from the right) */
 .headerCard {
-  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f8fafc 100%);
-  border: 1px solid #dcfce7;
-  border-radius: 20px;
-  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(170px, 16vw, 220px);
+  background: #1C1611;
+  border-radius: 6px;
+  padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  box-shadow: 0 4px 20px rgba(2, 72, 48, 0.04);
+}
+
+.headerImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headerShade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, #1C1611 0%, rgba(28, 22, 17, 0.55) 35%, rgba(28, 22, 17, 0) 75%);
 }
 
 .headerContent {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 680px;
+  max-width: 560px;
 }
 
 .eyebrowBadge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #dcfce7;
-  color: #024830;
-  font-size: 0.725rem;
-  font-weight: 800;
+  color: #DFCA9E;
+  font-size: 0.68rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 12px;
-  border-radius: 9999px;
+  letter-spacing: 0.16em;
   width: fit-content;
 }
 
 .eyebrowIcon {
-  color: #024830;
+  color: #C5A16B;
 }
 
 .title {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  color: #FAF8F4;
   line-height: 1.15;
   margin: 0;
 }
 
 .description {
-  font-size: 0.95rem;
-  color: #64748b;
+  font-size: clamp(0.82rem, 1.1vw, 0.92rem);
+  font-weight: 300;
+  color: #E9E2D8;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .headerMeta {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   flex-shrink: 0;
+  align-self: flex-end;
 }
 
 .metaChip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 9999px;
-  padding: 8px 16px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #334155;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  background-color: rgba(20, 14, 9, 0.55);
+  border: 1px solid rgba(223, 202, 158, 0.3);
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #E9E2D8;
+}
+
+.metaChip strong {
+  color: #DFCA9E;
+  font-weight: 500;
 }
 
 .metaChipIcon {
-  color: #024830;
+  color: #C5A16B;
 }
 
+@media (max-width: 768px) {
+  .headerCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerImage,
+  .headerShade {
+    width: 100%;
+    opacity: 0.4;
+  }
+
+  .headerMeta {
+    align-self: flex-start;
+    flex-wrap: wrap;
+  }
+}
 /* SEARCH & DEPARTMENT FILTER BAR */
 .controlsBar {
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
+  border: 1px solid #E9E2D8;
+  border-radius: 8px;
   padding: 16px 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
@@ -116,7 +159,7 @@
 .searchIcon {
   position: absolute;
   left: 14px;
-  color: #94a3b8;
+  color: #A39D94;
   pointer-events: none;
 }
 
@@ -124,20 +167,20 @@
   width: 100%;
   height: 42px;
   padding: 0 38px 0 40px;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
+  border: 1px solid #D8CEBF;
+  border-radius: 6px;
   font-size: 0.875rem;
   font-family: inherit;
-  color: #0f172a;
-  background-color: #f8fafc;
+  color: #242321;
+  background-color: #FAF8F4;
   transition: all 0.2s ease;
   outline: none;
 }
 
 .searchInput:focus {
   background-color: #ffffff;
-  border-color: #024830;
-  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+  border-color: #A77B3F;
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.1);
 }
 
 .clearSearchBtn {
@@ -145,7 +188,7 @@
   right: 12px;
   background: none;
   border: none;
-  color: #94a3b8;
+  color: #A39D94;
   font-size: 1.1rem;
   cursor: pointer;
   padding: 4px;
@@ -156,8 +199,8 @@
 }
 
 .clearSearchBtn:hover {
-  color: #0f172a;
-  background-color: #f1f5f9;
+  color: #242321;
+  background-color: #F3EFE9;
 }
 
 .departmentPills {
@@ -176,9 +219,9 @@
   gap: 6px;
   padding: 8px 14px;
   border-radius: 9999px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #475569;
+  border: 1px solid #E9E2D8;
+  background: #FAF8F4;
+  color: #6B655E;
   font-size: 0.8125rem;
   font-weight: 600;
   white-space: nowrap;
@@ -188,21 +231,21 @@
 }
 
 .departmentPill:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-  color: #0f172a;
+  background: #F3EFE9;
+  border-color: #D8CEBF;
+  color: #242321;
 }
 
 .departmentPillActive {
-  background: #024830 !important;
-  border-color: #024830 !important;
+  background: #A77B3F !important;
+  border-color: #A77B3F !important;
   color: #ffffff !important;
-  box-shadow: 0 2px 6px rgba(2, 72, 48, 0.2);
+  box-shadow: 0 2px 6px rgba(167, 123, 63, 0.2);
 }
 
 .pillBadge {
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   opacity: 0.85;
 }
 
@@ -217,7 +260,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border-bottom: 2px solid #f1f5f9;
+  border-bottom: 2px solid #F3EFE9;
   padding-bottom: 12px;
   gap: 16px;
 }
@@ -229,10 +272,10 @@
 }
 
 .groupTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: #242321;
   margin: 0;
   display: flex;
   align-items: center;
@@ -241,17 +284,17 @@
 
 .groupBadge {
   font-size: 0.75rem;
-  font-weight: 700;
-  color: #024830;
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  font-weight: 600;
+  color: #A77B3F;
+  background-color: #FAF5EE;
+  border: 1px solid #EAE0D0;
   padding: 2px 8px;
   border-radius: 9999px;
 }
 
 .groupDesc {
   font-size: 0.875rem;
-  color: #64748b;
+  color: #77716A;
   margin: 0;
   line-height: 1.4;
 }
@@ -261,18 +304,18 @@
   align-items: center;
   gap: 4px;
   font-size: 0.8125rem;
-  font-weight: 700;
-  color: #024830;
+  font-weight: 600;
+  color: #A77B3F;
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 8px;
-  background: #f0fdf4;
+  background: #FAF5EE;
   transition: all 0.18s ease;
   white-space: nowrap;
 }
 
 .viewAllLink:hover {
-  background: #dcfce7;
+  background: #F5EFE3;
   transform: translateX(2px);
 }
 
@@ -287,7 +330,7 @@
 .errorCard {
   background-color: #fef2f2;
   border: 1px solid #fecaca;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 24px;
   text-align: center;
   display: flex;
@@ -299,21 +342,22 @@
 
 .emptyState {
   background-color: #ffffff;
-  border: 1px dashed #cbd5e1;
-  border-radius: 16px;
+  border: 1px dashed #D8CEBF;
+  border-radius: 8px;
   padding: 48px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  color: #64748b;
+  color: #77716A;
 }
 
 .emptyStateTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: 1.1rem;
-  font-weight: 700;
-  color: #0f172a;
+  font-weight: 400;
+  color: #242321;
   margin: 0;
 }
 
@@ -362,7 +406,7 @@
 
   .headerCard {
     padding: 20px 16px;
-    border-radius: 16px;
+    border-radius: 8px;
   }
 
   .title {

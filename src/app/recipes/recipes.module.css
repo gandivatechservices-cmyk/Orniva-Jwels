@@ -9,7 +9,7 @@
 .header {
   margin-bottom: 32px;
   background: #ffffff;
-  border: 1px solid var(--color-border, #e5e7eb);
+  border: 1px solid var(--color-border, #E9E2D8);
   border-radius: var(--radius-lg, 12px);
   padding: 32px 28px;
   display: flex;
@@ -31,16 +31,16 @@
 }
 
 .title {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: 28px;
-  font-weight: 700;
-  color: var(--color-primary, #024830);
-  margin: 0;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--color-primary, #A77B3F);
+  margin: 0;
 }
 
 .countBadge {
-  background: var(--color-primary-soft, #e6f4ea);
-  color: var(--color-primary, #024830);
+  background: var(--color-primary-soft, #FAF5EE);
+  color: var(--color-primary, #A77B3F);
   font-size: 13px;
   font-weight: 600;
   padding: 4px 10px;
@@ -49,7 +49,7 @@
 
 .desc {
   font-size: 15px;
-  color: var(--color-text-secondary, #6b7280);
+  color: var(--color-text-secondary, #77716A);
   margin: 0;
   max-width: 680px;
   line-height: 1.5;
@@ -64,18 +64,18 @@
 .searchInput {
   width: 100%;
   padding: 10px 14px 10px 38px;
-  border: 1px solid var(--color-border, #e5e7eb);
+  border: 1px solid var(--color-border, #E9E2D8);
   border-radius: var(--radius-md, 8px);
   font-size: 14px;
   outline: none;
   background: #ffffff;
-  color: var(--color-text, #111827);
+  color: var(--color-text, #242321);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .searchInput:focus {
-  border-color: var(--color-primary, #024830);
-  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+  border-color: var(--color-primary, #A77B3F);
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.1);
 }
 
 .searchIcon {
@@ -83,7 +83,7 @@
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--color-text-muted, #9ca3af);
+  color: var(--color-text-muted, #A39D94);
   pointer-events: none;
 }
 

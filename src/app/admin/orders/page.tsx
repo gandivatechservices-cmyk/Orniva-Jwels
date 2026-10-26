@@ -386,7 +386,7 @@ function OrdersView() {
       render: (_, order) => (
         <Flex vertical gap={2}>
           <Link href={`/admin/orders/${order._id}`}>
-            <Typography.Text strong style={{ color: "#12432a" }}>
+            <Typography.Text strong style={{ color: "#8E662F" }}>
               #{order._id.slice(-8).toUpperCase()}
             </Typography.Text>
           </Link>
@@ -405,7 +405,7 @@ function OrdersView() {
           order.userId
         ) : (
           <Tooltip title={order.userId.email}><Space size={8}>
-            <Avatar size={26} style={{ background: "#12432a" }}>{initials(order.userId.name)}</Avatar>
+            <Avatar size={26} style={{ background: "#8E662F" }}>{initials(order.userId.name)}</Avatar>
             <Typography.Text strong>{order.userId.name}</Typography.Text>
           </Space></Tooltip>
         ),
@@ -461,7 +461,7 @@ function OrdersView() {
                     {item.freeQty ? <Tag color="gold" style={{ margin: 0, width: "fit-content" }}>+ {item.freeQty} free</Tag> : null}
                   </Flex>
                   <Flex vertical align="flex-end">
-                    <Typography.Text strong style={{ fontSize: 18, color: "#12432a" }}>× {item.quantity}</Typography.Text>
+                    <Typography.Text strong style={{ fontSize: 18, color: "#8E662F" }}>× {item.quantity}</Typography.Text>
                     <Typography.Text type="secondary" style={{ fontSize: 11 }}>
                       {formatPrice(item.price, order.currency || "GBP")} each
                     </Typography.Text>
@@ -687,7 +687,7 @@ function OrdersView() {
       <AdminPageHeader title="Orders" subtitle="Track, pack, ship and refund customer orders." />
       <AdminStatCards
         items={[
-          { key: "total", title: "Total Orders", value: stats.total, icon: <ShoppingCartOutlined />, color: "#14452b" },
+          { key: "total", title: "Total Orders", value: stats.total, icon: <ShoppingCartOutlined />, color: "#8E662F" },
           { key: "pending", title: "Pending", value: stats.pending, icon: <ClockCircleOutlined />, color: "#6b5a3a" },
           { key: "revenue", title: "Revenue (excl. cancelled)", value: formatPrice(stats.revenue, stats.currency), icon: <WalletOutlined />, color: "#1f3f55" },
           { key: "refunded", title: "Refunded", value: formatPrice(stats.refunded, stats.currency), icon: <UndoOutlined />, color: "#7a3030" },
@@ -751,7 +751,7 @@ function OrdersView() {
             expandedRowRender: (order) => (
               <Row gutter={[12, 12]} style={{ maxWidth: 1250 }}>
                 <Col xs={24} xl={11}>
-                  <Card size="small" title={<span style={{ fontSize: 13 }}>Items</span>} style={{ height: "100%" }} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+                  <Card size="small" title={<span style={{ fontSize: 13 }}>Items</span>} style={{ height: "100%" }} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
                     <List
                       size="small"
                       dataSource={order.items}
@@ -810,7 +810,7 @@ function OrdersView() {
                       />
                     }
                     style={{ height: "100%" }}
-                    styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}
+                    styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}
                   >
                     <Flex vertical gap={2}>
                       <Typography.Text strong>

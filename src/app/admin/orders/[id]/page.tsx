@@ -140,7 +140,7 @@ function OrderDetailView() {
 
       <Row gutter={[16, 16]} style={{ marginBottom: 16 }}>
         {[
-          { key: "total", title: "Order total", value: formatPrice(order.total, currency), icon: <DollarOutlined />, from: "#14452b", to: "#2f7a52" },
+          { key: "total", title: "Order total", value: formatPrice(order.total, currency), icon: <DollarOutlined />, from: "#8E662F", to: "#A77B3F" },
           { key: "items", title: "Items", value: `${order.items.reduce((n, i) => n + i.quantity, 0)} units`, icon: <ShoppingOutlined />, from: "#1f3f55", to: "#3f6f8c" },
           {
             key: "pay",
@@ -165,10 +165,10 @@ function OrderDetailView() {
               style={{ borderRadius: 12 }}
             >
               <Statistic
-                title={<span style={{ color: "#6b7280" }}>{stat.title}</span>}
+                title={<span style={{ color: "#77716A" }}>{stat.title}</span>}
                 value={stat.value}
                 prefix={<span style={{ color: stat.from }}>{stat.icon}</span>}
-                styles={{ content: { color: "#111827", fontSize: 22, fontWeight: 700 } }}
+                styles={{ content: { color: "#242321", fontSize: 22, fontWeight: 700 } }}
               />
             </Card>
           </Col>
@@ -177,7 +177,7 @@ function OrderDetailView() {
 
       <Row gutter={16}>
         <Col xs={24} lg={16}>
-          <Card title={<><ShoppingOutlined /> Items</>} bordered={false} className={styles.tableCard} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+          <Card title={<><ShoppingOutlined /> Items</>} bordered={false} className={styles.tableCard} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
             <div className={detailStyles.itemsList}>
               {order.items.map((item, index) => (
                 <div key={`${item.productId}-${item.variantId}-${index}`} className={detailStyles.itemRow}>
@@ -210,7 +210,7 @@ function OrderDetailView() {
 
             <Row gutter={[24, 16]} className={detailStyles.totalsBlock}>
               <Col xs={24} md={12}>
-                <Card size="small" title="Order info" styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+                <Card size="small" title="Order info" styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
                 <Descriptions
                   size="small"
                   column={1}
@@ -239,7 +239,7 @@ function OrderDetailView() {
             </Row>
           </Card>
 
-          <Card title={<><ClockCircleOutlined /> Timeline</>} bordered={false} className={detailStyles.timelineCard} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+          <Card title={<><ClockCircleOutlined /> Timeline</>} bordered={false} className={detailStyles.timelineCard} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
             {sortedHistory.length === 0 ? (
               <Empty description="No history recorded yet" image={Empty.PRESENTED_IMAGE_SIMPLE} />
             ) : (
@@ -289,7 +289,7 @@ function OrderDetailView() {
         </Col>
 
         <Col xs={24} lg={8}>
-          <Card title={<><UserOutlined /> Customer</>} bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+          <Card title={<><UserOutlined /> Customer</>} bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
             <Descriptions column={1} size="small">
               <Descriptions.Item label="Name">{customerName}</Descriptions.Item>
               {customerEmail && <Descriptions.Item label="Email">{customerEmail}</Descriptions.Item>}
@@ -305,7 +305,7 @@ function OrderDetailView() {
             </Descriptions>
           </Card>
 
-          <Card title={<><EnvironmentOutlined /> Shipping address</>} bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+          <Card title={<><EnvironmentOutlined /> Shipping address</>} bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
             <Typography.Paragraph
               className={detailStyles.addressBlock}
               copyable={{
@@ -335,7 +335,7 @@ function OrderDetailView() {
           </Card>
 
           {(order.trackingNumber || order.carrierName) && (
-            <Card title="Shipment" bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+            <Card title="Shipment" bordered={false} className={detailStyles.sideCard} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
               <Descriptions column={1} size="small">
                 <Descriptions.Item label={<><CarOutlined /> Carrier</>}>{order.carrierName || "—"}</Descriptions.Item>
                 <Descriptions.Item label="Tracking #">{order.trackingNumber || "—"}</Descriptions.Item>

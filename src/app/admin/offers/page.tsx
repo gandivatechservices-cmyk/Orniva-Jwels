@@ -419,7 +419,7 @@ export default function OffersPage() {
         />
         <AdminStatCards
           items={[
-            { key: "all", title: "Total offers", value: coupons.length, icon: <TagsOutlined />, color: "#14452b" },
+            { key: "all", title: "Total offers", value: coupons.length, icon: <TagsOutlined />, color: "#8E662F" },
             { key: "active", title: "Active", value: coupons.length - inactiveCount, icon: <CheckCircleOutlined />, color: "#1f3f55" },
             { key: "inactive", title: "Inactive", value: inactiveCount, icon: <StopOutlined />, color: "#6b5a3a" },
           ]}

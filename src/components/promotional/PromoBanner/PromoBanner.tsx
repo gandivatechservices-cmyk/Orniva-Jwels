@@ -114,7 +114,7 @@ export function PromoBanner({
 
         {cornerBadge && (
           <div className={styles.cornerBadge}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#087443" stroke="#087443" strokeWidth="1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#8E662F" stroke="#8E662F" strokeWidth="1.5">
               <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
             </svg>
             <div className={styles.cornerBadgeContent}>

@@ -625,10 +625,10 @@ export default function CatalogPage() {
         return (
           <span
             style={{
-              color: isRoot ? "#1d4ed8" : "#047857",
+              color: isRoot ? "#1d4ed8" : "#8E662F",
               fontWeight: 500,
               fontSize: "12px",
-              background: isRoot ? "#eff6ff" : "#ecfdf5",
+              background: isRoot ? "#eff6ff" : "#FAF5EE",
               border: `1px solid ${isRoot ? "#dbeafe" : "#a7f3d0"}`,
               padding: "2px 8px",
               borderRadius: "4px",
@@ -723,7 +723,7 @@ export default function CatalogPage() {
           />
           <Flex vertical gap={2}>
             <Link href={`/admin/products/${item._id}`}>
-              <Typography.Text strong style={{ color: "#14452b" }}>{name}</Typography.Text>
+              <Typography.Text strong style={{ color: "#8E662F" }}>{name}</Typography.Text>
             </Link>
             <Space size={4}>
               {((typeof item.brandId === "object" && item.brandId?.name) || item.brand) && (
@@ -750,10 +750,10 @@ export default function CatalogPage() {
           <Flex vertical gap={2}>
             {rows.map(([label, value]) => (
               <Flex key={label} gap={8} align="baseline">
-                <Typography.Text style={{ width: 62, flexShrink: 0, fontSize: 12, color: "#4b5563", fontWeight: 600 }}>
+                <Typography.Text style={{ width: 62, flexShrink: 0, fontSize: 12, color: "#6B655E", fontWeight: 600 }}>
                   {label}
                 </Typography.Text>
-                <Typography.Text style={{ color: "#111827" }}>{value}</Typography.Text>
+                <Typography.Text style={{ color: "#242321" }}>{value}</Typography.Text>
               </Flex>
             ))}
           </Flex>
@@ -996,7 +996,7 @@ export default function CatalogPage() {
                   style={{
                     borderRadius: 12,
                     cursor: "pointer",
-                    background: selected ? "#14452b" : "#ffffff",
+                    background: selected ? "#8E662F" : "#ffffff",
                     transition: "background 0.2s",
                   }}
                   styles={{ body: { padding: 14 } }}
@@ -1012,16 +1012,16 @@ export default function CatalogPage() {
                         justifyContent: "center",
                         fontSize: 18,
                         background: selected ? "rgba(255,255,255,0.16)" : "#eef3f0",
-                        color: selected ? "#ffffff" : "#14452b",
+                        color: selected ? "#ffffff" : "#8E662F",
                       }}
                     >
                       {tab.icon}
                     </span>
                     <Flex vertical>
-                      <Typography.Text style={{ color: selected ? "rgba(255,255,255,0.8)" : "#6b7280", fontSize: 12 }}>
+                      <Typography.Text style={{ color: selected ? "rgba(255,255,255,0.8)" : "#77716A", fontSize: 12 }}>
                         {tab.label}
                       </Typography.Text>
-                      <Typography.Text strong style={{ color: selected ? "#ffffff" : "#111827", fontSize: 20, lineHeight: 1.2 }}>
+                      <Typography.Text strong style={{ color: selected ? "#ffffff" : "#242321", fontSize: 20, lineHeight: 1.2 }}>
                         {tab.count}
                       </Typography.Text>
                     </Flex>

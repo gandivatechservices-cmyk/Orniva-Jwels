@@ -1,7 +1,7 @@
 .card {
   background-color: #ffffff;
   border: 1px solid #e2e8e5;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #cbd5e1;
+  border-color: #D8CEBF;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
 }
 
@@ -23,7 +23,7 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   position: relative;
-  background-color: #f1f5f9;
+  background-color: #F3EFE9;
 }
 
 .image {
@@ -63,8 +63,8 @@
 .title {
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 800;
-  color: #102a2a;
+  font-weight: 600;
+  color: #211A14;
   margin: 0;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -72,8 +72,8 @@
 
 .viewRecipe {
   font-size: 0.8125rem;
-  font-weight: 700;
-  color: #087443;
+  font-weight: 600;
+  color: #8E662F;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -85,7 +85,7 @@
 }
 
 .card:hover .viewRecipe {
-  color: #065e36;
+  color: #8E662F;
 }
 
 .card:hover .viewArrow {
@@ -95,7 +95,7 @@
 /* SKELETON */
 .skeletonCard {
   border: 1px solid #e2e8e5;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: #ffffff;
 }

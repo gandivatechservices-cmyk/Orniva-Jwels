@@ -142,7 +142,7 @@ export function ProductDetailClientView({
       label: "Description & Details",
       content: (
         <div className={styles.tabContent}>
-          <p>{product.description || "Fresh and premium quality grocery item, locally sourced."}</p>
+          <p>{product.description || "Handcrafted fine jewellery, made with certified materials."}</p>
           {product.attributes && Object.keys(product.attributes).length > 0 && (
             <table className={styles.attributesTable}>
               <tbody>
@@ -360,13 +360,13 @@ export function ProductDetailClientView({
                 <div className={styles.deliveryFeature}>
                   <CheckIcon size={16} style={{ color: "var(--color-primary)" }} />
                   <span>
-                    <strong>In Stock:</strong> Ready for express local grocery packing
+                    <strong>In Stock:</strong> Ready to ship in secure, elegant packaging
                   </span>
                 </div>
                 <div className={styles.deliveryFeature}>
                   <TruckIcon size={16} style={{ color: "var(--color-primary)" }} />
                   <span>
-                    <strong>Next-Day Delivery:</strong> Free on grocery orders over £30
+                    <strong>Next-Day Delivery:</strong> Free on orders over £30
                   </span>
                 </div>
                 <div className={styles.deliveryFeature}>

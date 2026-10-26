@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Catalogs",
-  description: "Browse every Atlas Groceries catalog and shop the full range.",
+  description: "Browse every LUXE JWELS catalogue and shop the full range.",
   alternates: { canonical: "/catalogs" },
 };
 

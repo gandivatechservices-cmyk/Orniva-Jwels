@@ -1,7 +1,7 @@
 .mobileHeader {
   display: none;
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #E9E2D8;
   padding: 10px 16px 12px;
   position: sticky;
   top: 0;
@@ -32,16 +32,16 @@
   width: 40px;
   height: 40px;
   padding: 8px;
-  color: #0f172a;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  color: #242321;
+  background: #FAF8F4;
+  border: 1px solid #E9E2D8;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .menuIconBtn:active {
-  background-color: #f1f5f9;
+  background-color: #F3EFE9;
 }
 
 .logoLink {
@@ -57,15 +57,15 @@
   width: 40px;
   height: 40px;
   padding: 8px;
-  background-color: #211A14;
-  border: 1px solid #A77B3F;
-  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .cartIconBtn:active {
-  background-color: #150F0A;
+  background-color: #F5EFE3;
 }
 
 .cartWrap {
@@ -77,7 +77,7 @@
 }
 
 .cartIcon {
-  color: #FAF8F4;
+  color: #242321;
 }
 
 .cartBadge {
@@ -87,7 +87,7 @@
   background-color: #A77B3F;
   color: #ffffff;
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   min-width: 17px;
   height: 17px;
   border-radius: 9999px;
@@ -109,7 +109,7 @@
 .searchIcon {
   position: absolute;
   left: 12px;
-  color: #024830;
+  color: #A77B3F;
   pointer-events: none;
 }
 
@@ -118,12 +118,12 @@
   height: 40px;
   padding-left: 38px;
   padding-right: 40px;
-  background-color: #f8fafc;
-  border: 1.5px solid #e2e8f0;
+  background-color: #FAF8F4;
+  border: 1.5px solid #E9E2D8;
   border-radius: 9999px;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #0f172a;
+  color: #242321;
   outline: none;
   transition: all 0.15s ease;
 }
@@ -138,12 +138,12 @@
 
 .searchInput:focus {
   background-color: #ffffff;
-  border-color: #024830;
-  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.1);
+  border-color: #A77B3F;
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.1);
 }
 
 .searchInput::placeholder {
-  color: #94a3b8;
+  color: #A39D94;
   font-size: 0.8125rem;
 }
 
@@ -152,12 +152,12 @@
   right: 10px;
   width: 22px;
   height: 22px;
-  background-color: #e2e8f0;
+  background-color: #E9E2D8;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #475569;
+  color: #6B655E;
   cursor: pointer;
   padding: 0;
   border-radius: 50%;
@@ -166,7 +166,7 @@
 }
 
 .clearBtn:active {
-  background-color: #cbd5e1;
+  background-color: #D8CEBF;
 }
 
 /* DRAWER CONTENT */
@@ -179,7 +179,7 @@
 
 .drawerUserSection {
   padding-bottom: 16px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #E9E2D8;
   margin-bottom: 16px;
 }
 
@@ -207,14 +207,14 @@
 }
 
 .userName {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
-  color: #0f172a;
+  color: #242321;
 }
 
 .userEmail {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #77716A;
 }
 
 .authButtons {
@@ -226,11 +226,11 @@
   flex: 1;
   text-align: center;
   padding: 10px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #D8CEBF;
   border-radius: 8px;
   font-size: 0.8125rem;
-  font-weight: 700;
-  color: #0f172a;
+  font-weight: 600;
+  color: #242321;
   text-decoration: none;
 }
 
@@ -241,7 +241,7 @@
   background-color: #A77B3F;
   border-radius: 8px;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
   transition: background-color 0.15s ease;
@@ -265,15 +265,15 @@
   padding: 10px 12px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #334155;
+  color: #4A4641;
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.15s ease;
 }
 
 .navItem:active {
-  background-color: #f0fdf4;
-  color: #024830;
+  background-color: #FAF5EE;
+  color: #A77B3F;
 }
 
 .offersNavItem {
@@ -284,7 +284,7 @@
   background-color: #fef2f2;
   color: #dc2626;
   font-size: 0.6875rem;
-  font-weight: 800;
+  font-weight: 600;
   padding: 2px 8px;
   border-radius: 9999px;
   border: 1px solid #fee2e2;
@@ -292,15 +292,15 @@
 }
 
 .adminNav {
-  color: #024830;
-  font-weight: 700;
+  color: #A77B3F;
+  font-weight: 600;
 }
 
 .navBadge {
-  background-color: #f0fdf4;
-  color: #024830;
+  background-color: #FAF5EE;
+  color: #A77B3F;
   font-size: 0.6875rem;
-  font-weight: 800;
+  font-weight: 600;
   padding: 2px 8px;
   border-radius: 9999px;
   border: 1px solid #dcfce7;
@@ -308,7 +308,7 @@
 
 .drawerFooter {
   padding-top: 16px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #E9E2D8;
 }
 
 .logoutBtn {
@@ -316,7 +316,7 @@
   padding: 10px;
   color: #dc2626;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   background: transparent;
   border: 1px solid #fecaca;
   border-radius: 8px;

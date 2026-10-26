@@ -303,7 +303,7 @@ function CheckoutForm() {
                       <span className={styles.cardSubtitle}>Where should we send your groceries?</span>
                     </div>
                   </div>
-                  <MapPinIcon size={20} style={{ color: "var(--color-primary, #024830)" }} />
+                  <MapPinIcon size={20} style={{ color: "var(--color-primary, #A77B3F)" }} />
                 </div>
 
                 {/* Saved addresses selector */}
@@ -525,7 +525,7 @@ function CheckoutForm() {
                       <span className={styles.cardSubtitle}>Fresh, direct delivery to your door</span>
                     </div>
                   </div>
-                  <TruckIcon size={20} style={{ color: "var(--color-primary, #024830)" }} />
+                  <TruckIcon size={20} style={{ color: "var(--color-primary, #A77B3F)" }} />
                 </div>
 
                 <div className={styles.deliveryBox}>
@@ -583,14 +583,14 @@ function CheckoutForm() {
                       <span className={styles.cardSubtitle}>All orders are processed via secure online checkout</span>
                     </div>
                   </div>
-                  <LockIcon size={18} style={{ color: "var(--color-primary, #024830)" }} />
+                  <LockIcon size={18} style={{ color: "var(--color-primary, #A77B3F)" }} />
                 </div>
 
                 <div className={styles.onlinePaymentBox}>
                   <div className={styles.onlinePaymentHeader}>
                     <div className={styles.onlinePaymentTitleGroup}>
                       <div className={styles.onlinePaymentBadge}>
-                        <ShieldCheckIcon size={18} style={{ color: "var(--color-primary, #024830)" }} />
+                        <ShieldCheckIcon size={18} style={{ color: "var(--color-primary, #A77B3F)" }} />
                         <span>Online Card & Digital Wallet</span>
                       </div>
                       <span className={styles.onlinePaymentSubtitle}>
@@ -859,7 +859,7 @@ function CheckoutForm() {
 
                 <div className={styles.summaryRow}>
                   <span>Subtotal</span>
-                  <span style={{ color: "#0f172a", fontWeight: 600 }}>
+                  <span style={{ color: "#242321", fontWeight: 600 }}>
                     {formatPrice(totalPrice, currency)}
                   </span>
                 </div>

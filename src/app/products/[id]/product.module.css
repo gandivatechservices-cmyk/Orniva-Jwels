@@ -38,7 +38,7 @@
   aspect-ratio: 1 / 1;
   max-height: 520px;
   background-color: #fafaf9;
-  border-radius: 20px;
+  border-radius: 8px;
   border: 1px solid #f0f0ee;
   display: block;
   overflow: hidden;
@@ -55,13 +55,13 @@
   height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #E9E2D8;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #1e293b;
+  color: #242321;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
   backdrop-filter: blur(6px);
@@ -70,8 +70,8 @@
 .floatingExpandBtn:hover {
   transform: scale(1.1);
   background: #ffffff;
-  color: #024830;
-  border-color: #cbd5e1;
+  color: #A77B3F;
+  border-color: #D8CEBF;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
 }
 
@@ -100,13 +100,13 @@
   height: 42px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E9E2D8;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #64748b;
+  color: #77716A;
   transition: all 0.2s ease;
   z-index: 2;
 }
@@ -133,7 +133,7 @@
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   z-index: 2;
@@ -156,8 +156,8 @@
   position: relative;
   width: 76px;
   height: 76px;
-  border-radius: 12px;
-  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  border: 2px solid #E9E2D8;
   background: #fafaf9;
   cursor: pointer;
   padding: 0 !important;
@@ -168,12 +168,12 @@
 }
 
 .thumbnailBtn:hover {
-  border-color: #9ca3af;
+  border-color: #A39D94;
 }
 
 .thumbnailBtn.active {
-  border-color: #024830;
-  box-shadow: 0 0 0 2px rgba(2, 72, 48, 0.25);
+  border-color: #A77B3F;
+  box-shadow: 0 0 0 2px rgba(167, 123, 63, 0.25);
 }
 
 .thumbnailImg {
@@ -198,9 +198,9 @@
 }
 
 .brandLabel {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #A77B3F;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #A39D94;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
@@ -208,11 +208,10 @@
 
 .productTitle {
   font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
-  font-weight: 700;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 400;
   color: #242321;
   line-height: 1.2;
-  letter-spacing: -0.01em;
   margin: -4px 0 0 0;
 }
 
@@ -225,7 +224,7 @@
 
 .ratingScore {
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #242321;
 }
 
@@ -272,35 +271,35 @@
 
 .currentPrice {
   font-family: var(--font-sans, "Montserrat", sans-serif);
-  font-size: clamp(1.85rem, 2.8vw, 2.4rem);
-  font-weight: 800;
-  color: #A77B3F;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 500;
+  color: #242321;
   letter-spacing: -0.01em;
   line-height: 1;
 }
 
 .comparePrice {
-  font-size: 1.125rem;
-  color: #9ca3af;
+  font-size: 0.95rem;
+  color: #A39D94;
   text-decoration: line-through;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .saveBadge {
   display: inline-flex;
   align-items: center;
   padding: 3px 8px;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #059669;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #A77B3F;
 }
 
 .taxNote {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #A39D94;
   font-weight: 500;
 }
 
@@ -318,17 +317,15 @@
 }
 
 .variantTitle {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: #374151;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #242321;
 }
 
 .selectedVariantText {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #024830;
+  color: #A77B3F;
 }
 
 .variantOptions {
@@ -338,33 +335,32 @@
 }
 
 .variantPill {
-  padding: 9px 18px;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 8px;
+  padding: 8px 18px;
+  border: 1px solid #E9E2D8;
+  border-radius: 3px;
   background: #ffffff;
-  font-size: 0.8438rem;
-  font-weight: 600;
-  color: #374151;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #4A4641;
   cursor: pointer;
   transition: all 0.18s ease;
   user-select: none;
 }
 
 .variantPill:hover:not(:disabled) {
-  border-color: #024830;
-  color: #024830;
+  border-color: #A77B3F;
+  color: #A77B3F;
 }
 
 .variantPill.active {
-  border-color: #024830;
-  background-color: #f0f7f3;
-  color: #024830;
-  font-weight: 700;
-  box-shadow: 0 1px 4px rgba(2, 72, 48, 0.12);
+  border-color: #A77B3F;
+  background-color: #FAF5EE;
+  color: #A77B3F;
+  font-weight: 500;
 }
 
 .variantPillPrice {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 11px;
   background: rgba(0, 0, 0, 0.05);
   padding: 1px 6px;
@@ -391,10 +387,10 @@
 .stepperContainer {
   display: inline-flex;
   align-items: center;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 10px;
+  border: 1px solid #E9E2D8;
+  border-radius: 3px;
   background-color: #ffffff;
-  height: 48px;
+  height: 46px;
   padding: 0 4px;
 }
 
@@ -404,9 +400,9 @@
   border-radius: 6px;
   border: none;
   background: transparent;
-  color: #374151;
+  color: #4A4641;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -415,8 +411,8 @@
 }
 
 .stepperBtn:hover:not(:disabled) {
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: #F3EFE9;
+  color: #242321;
 }
 
 .stepperBtn:disabled {
@@ -428,37 +424,33 @@
   min-width: 36px;
   text-align: center;
   font-size: 0.9375rem;
-  font-weight: 700;
-  color: #111827;
+  font-weight: 600;
+  color: #242321;
 }
 
 .addToBasketBtn {
   flex: 1;
   min-width: 170px;
-  height: 48px;
-  background-color: #211A14;
-  color: #FAF8F4;
-  border: 1px solid #211A14;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  height: 46px;
+  background-color: #A77B3F;
+  color: #ffffff;
+  border: 1px solid #A77B3F;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(33, 26, 20, 0.15);
 }
 
 .addToBasketBtn:hover:not(:disabled) {
-  background-color: #A77B3F;
-  border-color: #A77B3F;
+  background-color: #8E662F;
+  border-color: #8E662F;
   color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(167, 123, 63, 0.3);
 }
 
 .addToBasketBtn:active:not(:disabled) {
@@ -474,33 +466,29 @@
 .buyNowBtn {
   flex: 1;
   min-width: 140px;
-  height: 48px;
-  background-color: #A77B3F;
-  color: #ffffff;
-  border: 1px solid #C5A16B;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  height: 46px;
+  background-color: #211A14;
+  color: #FAF8F4;
+  border: 1px solid #211A14;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.22s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(167, 123, 63, 0.25);
 }
 
 .buyNowBtn:hover {
-  background-color: #C5A16B;
-  color: #1A140E;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(197, 161, 107, 0.4);
+  background-color: #3A2F25;
+  border-color: #3A2F25;
 }
 
 .inBasketBtn {
-  background-color: #A77B3F;
-  border: 1.5px solid #C5A16B;
+  background-color: #8E662F;
+  border: 1px solid #8E662F;
 }
 
 .inBasketBtn:hover:not(:disabled) {
@@ -513,10 +501,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #FAF8F4;
-  border: 1px solid #E9E2D8;
-  border-radius: 12px;
-  padding: 18px 20px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid #EFE9E0;
+  border-radius: 0;
+  padding: 18px 0 0;
   margin-top: 6px;
 }
 
@@ -536,15 +525,15 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #FAF5EE;
+  background: transparent;
   color: #A77B3F;
-  border: 1px solid #EAE0D0;
+  border: none;
   flex-shrink: 0;
   margin-top: -1px;
 }
 
 .trustTitle {
-  font-weight: 700;
+  font-weight: 500;
   color: #242321;
   margin-right: 4px;
 }
@@ -558,7 +547,7 @@
 
 .tabContent {
   padding: 24px 0;
-  color: #4b5563;
+  color: #6B655E;
   font-size: 0.9375rem;
   line-height: 1.65;
 }
@@ -566,7 +555,7 @@
 .tabDescriptionText {
   margin: 0 0 20px 0;
   max-width: 800px;
-  color: #374151;
+  color: #4A4641;
 }
 
 .attributesGrid {
@@ -583,24 +572,24 @@
   padding: 12px 16px;
   background-color: #fafaf9;
   border: 1px solid #f0f0ee;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 0.8125rem;
 }
 
 .attributeKey {
-  color: #6b7280;
+  color: #77716A;
   font-weight: 500;
 }
 
 .attributeVal {
-  color: #111827;
-  font-weight: 700;
+  color: #242321;
+  font-weight: 600;
 }
 
 .structuredInfoBox {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
+  border: 1px solid #E9E2D8;
+  border-radius: 8px;
   padding: 24px 28px;
   width: 100%;
   box-sizing: border-box;
@@ -609,8 +598,8 @@
 
 .structuredTitle {
   font-size: 1.0625rem;
-  font-weight: 700;
-  color: #111827;
+  font-weight: 600;
+  color: #242321;
   margin: 0 0 16px 0;
 }
 
@@ -621,7 +610,7 @@
   background: #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E9E2D8;
 }
 
 .nutritionTable th,
@@ -631,10 +620,10 @@
 }
 
 .nutritionTable th {
-  color: #4b5563;
-  font-weight: 700;
+  color: #6B655E;
+  font-weight: 600;
   font-size: 0.8125rem;
-  background-color: #f8fafc;
+  background-color: #FAF8F4;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -649,12 +638,12 @@
 .nutritionTable td:last-child {
   width: 50%;
   text-align: right;
-  font-weight: 700;
-  color: #111827;
+  font-weight: 600;
+  color: #242321;
 }
 
 .nutritionTable td {
-  color: #374151;
+  color: #4A4641;
   font-size: 0.875rem;
 }
 
@@ -667,7 +656,7 @@
 }
 
 .nutritionTable tbody tr:hover td {
-  background-color: #f1f5f9;
+  background-color: #F3EFE9;
 }
 
 /* RELATED PRODUCTS SECTION (STATIC 4-COLUMN GRID) */
@@ -693,16 +682,16 @@
 }
 
 .relatedTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 800;
-  color: #111827;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: #242321;
   margin: 0;
 }
 
 .relatedSubtitle {
   font-size: 0.8438rem;
-  color: #6b7280;
+  color: #77716A;
   margin: 0;
 }
 
@@ -711,8 +700,8 @@
   align-items: center;
   gap: 6px;
   font-size: 0.875rem;
-  font-weight: 700;
-  color: #024830;
+  font-weight: 600;
+  color: #A77B3F;
   text-decoration: none;
   transition: all 0.18s ease;
   padding: 6px 14px;
@@ -721,8 +710,8 @@
 }
 
 .viewAllBtn:hover {
-  color: #013523;
-  background-color: #e2f0e7;
+  color: #211A14;
+  background-color: #FAF5EE;
   transform: translateX(2px);
 }
 
@@ -778,7 +767,7 @@
   .mainImageCard {
     max-height: 340px;
     padding: 0;
-    border-radius: 16px;
+    border-radius: 8px;
   }
 
   .thumbnailBtn {
@@ -815,12 +804,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #ecfdf5;
+  background-color: #FAF5EE;
   border: 1px solid #a7f3d0;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 8px 14px;
   font-size: 0.8125rem;
-  color: #065f46;
+  color: #8E662F;
   font-weight: 500;
   margin-top: 6px;
   width: 100%;
@@ -828,8 +817,8 @@
 }
 
 .viewBasketLink {
-  color: #024830;
-  font-weight: 700;
+  color: #A77B3F;
+  font-weight: 600;
   margin-left: auto;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -864,17 +853,17 @@
   background: var(--color-danger-soft);
   color: var(--color-danger);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Grouped variant selector — one row per attribute */
 .variantGroups { display: flex; flex-direction: column; gap: 14px; }
 .variantGroup { display: flex; flex-direction: column; gap: 8px; }
-.variantGroupTitle { font-size: 0.8125rem; font-weight: 600; color: #4b5563; }
-.variantGroupTitle strong { color: #024830; }
+.variantGroupTitle { font-size: 0.8125rem; font-weight: 600; color: #6B655E; }
+.variantGroupTitle strong { color: #A77B3F; }
 .variantPill.variantUnavailable { opacity: 0.55; border-style: dashed; }
 .variantGroup .variantPill { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
 
 .variantSwatch { display: inline-block; width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.18); }
 .variantGroup .variantPill:has(.variantSwatch) { padding: 6px 10px; }
-.lowStockHint { margin: 4px 0 0; font-size: 0.8125rem; font-weight: 700; color: #b45309; }
+.lowStockHint { margin: 4px 0 0; font-size: 0.8125rem; font-weight: 600; color: #b45309; }

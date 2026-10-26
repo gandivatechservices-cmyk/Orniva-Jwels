@@ -15,7 +15,7 @@
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .card:focus-visible {
@@ -37,7 +37,7 @@
   background-color: #A77B3F;
   color: #ffffff;
   font-size: 0.6rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 2px 6px;
@@ -46,26 +46,24 @@
 }
 
 .imageContainer {
-  width: 110px;
-  height: 110px;
+  width: 104px;
+  height: 104px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 50%;
-  background: #FAF8F4;
-  border: 2px solid #EAE4DC;
+  background: #F5EFE3;
+  border: 1px solid #EFE6D8;
   position: relative;
-  box-shadow: 0 4px 12px rgba(36, 35, 33, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 3px;
+  padding: 0;
 }
 
 .card:hover .imageContainer {
-  border-color: #A77B3F;
-  box-shadow: 0 8px 22px rgba(167, 123, 63, 0.22);
-  transform: scale(1.05);
+  border-color: #C5A16B;
+  box-shadow: 0 8px 20px rgba(167, 123, 63, 0.16);
 }
 
 .image {
@@ -102,9 +100,9 @@
 }
 
 .name {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: var(--font-sans, "Montserrat", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 400;
   color: #242321;
   line-height: 1.25;
   margin: 0;

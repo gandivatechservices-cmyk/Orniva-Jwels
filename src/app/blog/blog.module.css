@@ -9,13 +9,13 @@
 .heroBanner {
   position: relative;
   width: 100%;
-  min-height: clamp(280px, 26vw, 360px);
   background: #18120C;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   border-bottom: 1px solid rgba(167, 123, 63, 0.25);
+  min-height: clamp(220px, 20vw, 300px);
+  justify-content: flex-start;
 }
 
 .heroBg {
@@ -24,26 +24,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.45;
+  opacity: 0.85;
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(26, 20, 14, 0.4) 0%, rgba(20, 15, 10, 0.88) 100%);
+  background: linear-gradient(90deg, rgba(20, 14, 9, 0.94) 0%, rgba(26, 19, 12, 0.7) 40%, rgba(26, 19, 12, 0.15) 100%);
 }
 
 .heroContent {
   position: relative;
   z-index: 2;
-  text-align: center;
-  padding: 32px 20px;
-  max-width: 640px;
+  text-align: left;
+  align-items: flex-start;
+  width: 100%;
+  max-width: var(--container-max, 1320px);
+  margin-inline: auto;
+  padding: clamp(32px, 4vw, 48px) 24px;
 }
 
 .heroEyebrow {
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.12em;
   color: #C5A16B;
   text-transform: uppercase;
@@ -53,11 +56,11 @@
 
 .heroTitle {
   font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(2rem, 3.8vw, 3rem);
-  font-weight: 700;
+  font-weight: 400;
   color: #FAF8F4;
   margin: 0;
   line-height: 1.2;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
 }
 
 /* BLOG ARTICLES GRID */
@@ -70,7 +73,7 @@
 .articleCard {
   background: #ffffff;
   border: 1px solid #E9E2D8;
-  border-radius: 14px;
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -110,7 +113,7 @@
   background: #211A14;
   color: #FAF8F4;
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   padding: 3px 10px;
   border-radius: 4px;
@@ -136,7 +139,7 @@
 .articleTitle {
   font-family: var(--font-serif, "Playfair Display", serif);
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #242321;
   line-height: 1.35;
   margin: 0;
@@ -161,7 +164,7 @@
   align-items: center;
   gap: 6px;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #A77B3F;

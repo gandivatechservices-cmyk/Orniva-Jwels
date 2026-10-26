@@ -14,7 +14,7 @@ export function OrderPricing({ order, currency }: { order: Order; currency: stri
   const delivery = order.deliveryFee ?? 0;
 
   return (
-    <Card size="small" title={<span style={{ fontSize: 13 }}>Payment summary</span>} style={{ height: "100%" }} styles={{ header: { background: "#f4f7f5", color: "#14452b" } }}>
+    <Card size="small" title={<span style={{ fontSize: 13 }}>Payment summary</span>} style={{ height: "100%" }} styles={{ header: { background: "#FAF8F4", color: "#8E662F" } }}>
       <Descriptions
         column={1}
         size="small"

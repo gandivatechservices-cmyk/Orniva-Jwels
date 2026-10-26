@@ -21,14 +21,7 @@ import {
 } from "../utility/services";
 import { useWishlist, useCartQuantity } from "hooks";
 import { IMAGES, getGroceryProductImage } from "../constants/images";
-import {
-  ArrowRightIcon,
-  DiamondIcon,
-  ShieldCheckIcon,
-  StarIcon,
-  RefreshCwIcon,
-  TruckIcon,
-} from "../components/icons";
+import { ArrowRightIcon, StarIcon } from "../components/icons";
 import { findBestDisplayOffer, getComparePrice, getMrpComparePrice, getProductOfferLabel } from "../utility/activeOffers";
 import styles from "./home.module.css";
 import { variantCardProps } from "utility/variantPricing";
@@ -148,7 +141,7 @@ export default function HomePage() {
   const featuredDisplayProducts = (filteredProducts.length > 0 ? filteredProducts : products).slice(0, 8);
 
   const categoryTabs = [
-    { id: "all", label: "All Collections" },
+    { id: "all", label: "All" },
     { id: "ring", label: "Rings" },
     { id: "necklace", label: "Necklaces" },
     { id: "earring", label: "Earrings" },
@@ -162,17 +155,16 @@ export default function HomePage() {
     <StoreLayout>
       {/* 1. HERO BANNER */}
       <HeroBanner
-        eyebrowText="FINE JEWELLERY • HANDCRAFTED EXCELLENCE"
         title={
           <>
-            <span style={{ color: "#FAF8F4" }}>Timeless Elegance,</span>
-            <span style={{ color: "#C5A16B", fontStyle: "italic" }}>Crafted for You</span>
+            <span>Timeless Elegance,</span>
+            <span>Crafted for You</span>
           </>
         }
-        subtitle="Discover exquisite jewelry designed to celebrate every moment. Where exceptional craftsmanship meets enduring beauty."
+        subtitle="Premium jewellery for every moment. Tradition. Craftsmanship. Forever."
         primaryCtaText="Shop Now"
         primaryCtaHref="/products"
-        secondaryCtaText="Discover Our Craftsmanship"
+        secondaryCtaText="Watch Video"
         secondaryCtaHref="/manufacturing"
         imageSrc={IMAGES.jewelry.heroModel}
         imageAlt="Model wearing luxury emerald and diamond necklace"
@@ -205,18 +197,20 @@ export default function HomePage() {
             />
             <div className={styles.manufacturingOverlay} />
             <div className={styles.manufacturingContent}>
-              <div className={styles.manufacturingEyebrow}>ARTISTRY & HERITAGE</div>
               <h2 className={styles.manufacturingTitle}>Explore Our Manufacturing</h2>
-              <p className={styles.manufacturingSubtitle}>
-                From raw precious metals to polished masterpieces, discover the meticulous artistry behind every single piece.
-              </p>
+              <p className={styles.manufacturingSubtitle}>From Raw Material to Masterpiece</p>
               <Link href="/manufacturing" className={styles.manufacturingBtn}>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="5 3 19 12 5 21 5 3" />
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" />
                 </svg>
-                <span>Discover Our Process</span>
+                <span>Watch Video</span>
               </Link>
             </div>
+            <Link href="/manufacturing" className={styles.manufacturingPlay} aria-label="Watch our manufacturing video">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <polygon points="7 4 20 12 7 20 7 4" />
+              </svg>
+            </Link>
           </section>
 
           {/* 5. FEATURED COLLECTIONS PRODUCT SHOWCASE */}
@@ -309,9 +303,9 @@ export default function HomePage() {
               />
               <div className={styles.editorialCardOverlay} />
               <div className={styles.editorialCardBody}>
-                <span className={styles.editorialLabel}>NEW ARRIVALS</span>
-                <h3 className={styles.editorialCardTitle}>Designer Jewellery<br />For Every Occasion</h3>
-                <span className={styles.editorialCardCta}>Shop Now &rarr;</span>
+                <h3 className={styles.editorialCardTitle}>Designer Jewellery</h3>
+                <p className={styles.editorialCardText}>For Every Occasion</p>
+                <span className={styles.editorialCardCta}>Shop Now</span>
               </div>
             </Link>
 
@@ -324,9 +318,9 @@ export default function HomePage() {
               />
               <div className={styles.editorialCardOverlay} />
               <div className={styles.editorialCardBody}>
-                <span className={styles.editorialLabel}>BESPOKE ATELIER</span>
-                <h3 className={styles.editorialCardTitle}>Custom Jewellery<br />Bring Your Dream to Life</h3>
-                <span className={styles.editorialCardCta}>Get Started &rarr;</span>
+                <h3 className={styles.editorialCardTitle}>Custom Jewellery</h3>
+                <p className={styles.editorialCardText}>Bring Your Dream to Life</p>
+                <span className={styles.editorialCardCta}>Get Started</span>
               </div>
             </Link>
           </section>
@@ -347,14 +341,14 @@ export default function HomePage() {
             <div className={styles.testimonialsGrid}>
               {TESTIMONIALS.map((t, idx) => (
                 <div key={idx} className={styles.testimonialCard}>
-                  <div className={styles.starsRow}>
-                    {Array.from({ length: t.rating }).map((_, sIdx) => (
-                      <StarIcon key={sIdx} size={15} filled />
-                    ))}
-                  </div>
-                  <p className={styles.testimonialQuote}>&ldquo;{t.text}&rdquo;</p>
-                  <div className={styles.testimonialAuthor}>
-                    <div className={styles.authorAvatar}>{t.name.charAt(0)}</div>
+                  <div className={styles.authorAvatar} aria-hidden="true">{t.name.charAt(0)}</div>
+                  <div className={styles.testimonialBody}>
+                    <p className={styles.testimonialQuote}>&ldquo;{t.text}&rdquo;</p>
+                    <div className={styles.starsRow} aria-label={`${t.rating} out of 5 stars`}>
+                      {Array.from({ length: t.rating }).map((_, sIdx) => (
+                        <StarIcon key={sIdx} size={13} filled />
+                      ))}
+                    </div>
                     <div className={styles.authorDetails}>
                       <span className={styles.authorName}>{t.name}</span>
                       <span className={styles.authorLocation}>{t.city}</span>
@@ -370,11 +364,8 @@ export default function HomePage() {
             <div className={styles.luxuryTrustHero}>
               <div className={styles.luxuryTrustText}>
                 <h2 className={styles.luxuryTrustTitle}>Luxury. Trust. Forever.</h2>
-                <p style={{ color: "#D5CFC7", margin: 0, fontSize: "0.95rem", lineHeight: 1.5, maxWidth: "420px" }}>
-                  Every gemstone hand-selected. Every setting cast with 100% certified metals and hallmarked authenticity.
-                </p>
                 <Link href="/products" className={styles.luxuryTrustCta}>
-                  Shop Collection &rarr;
+                  Shop Collection
                 </Link>
               </div>
 
@@ -385,40 +376,6 @@ export default function HomePage() {
                   alt="Fine diamond solitaire ring on luxury slate"
                   className={styles.luxuryTrustImg}
                 />
-              </div>
-            </div>
-
-            <div className={styles.luxuryTrustStrip}>
-              <div className={styles.luxuryTrustItem}>
-                <div className={styles.luxuryTrustIcon}><DiamondIcon size={18} /></div>
-                <div className={styles.luxuryTrustInfo}>
-                  <span className={styles.luxuryTrustHead}>100% Authentic</span>
-                  <span className={styles.luxuryTrustSub}>Certified Jewellery</span>
-                </div>
-              </div>
-
-              <div className={styles.luxuryTrustItem}>
-                <div className={styles.luxuryTrustIcon}><ShieldCheckIcon size={18} /></div>
-                <div className={styles.luxuryTrustInfo}>
-                  <span className={styles.luxuryTrustHead}>Secure Packaging</span>
-                  <span className={styles.luxuryTrustSub}>Safe &amp; Elegant</span>
-                </div>
-              </div>
-
-              <div className={styles.luxuryTrustItem}>
-                <div className={styles.luxuryTrustIcon}><RefreshCwIcon size={18} /></div>
-                <div className={styles.luxuryTrustInfo}>
-                  <span className={styles.luxuryTrustHead}>Easy Return</span>
-                  <span className={styles.luxuryTrustSub}>30 Days Hassle-Free</span>
-                </div>
-              </div>
-
-              <div className={styles.luxuryTrustItem}>
-                <div className={styles.luxuryTrustIcon}><TruckIcon size={18} /></div>
-                <div className={styles.luxuryTrustInfo}>
-                  <span className={styles.luxuryTrustHead}>Dedicated Support</span>
-                  <span className={styles.luxuryTrustSub}>We&apos;re here for you</span>
-                </div>
               </div>
             </div>
           </section>

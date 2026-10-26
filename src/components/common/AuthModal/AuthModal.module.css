@@ -1,5 +1,5 @@
 .modal :global(.ant-modal-content) {
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 32px 28px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
@@ -10,22 +10,23 @@
 }
 
 .brandTitle {
+  font-family: var(--font-serif, "Playfair Display", serif);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: 1.5px;
-  color: var(--color-primary, #12432a);
+  color: var(--color-primary, #8E662F);
   margin-bottom: 6px;
 }
 
 .modalSubtitle {
   font-size: 13px;
-  color: #6b7280;
+  color: #77716A;
   line-height: 1.4;
 }
 
 .alertBanner {
   margin-bottom: 18px;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 13px;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .inputIcon {
-  color: #9ca3af;
+  color: #A39D94;
   margin-right: 6px;
 }
 
@@ -43,10 +44,10 @@
   height: 46px;
   font-size: 15px;
   font-weight: 600;
-  border-radius: 10px;
-  background-color: var(--color-primary, #12432a);
+  border-radius: 6px;
+  background-color: var(--color-primary, #8E662F);
 }
 
 .submitBtn:hover {
-  background-color: #0b2d1c !important;
+  background-color: #211A14 !important;
 }

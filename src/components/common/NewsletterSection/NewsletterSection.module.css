@@ -1,7 +1,7 @@
 .banner {
   background: linear-gradient(135deg, #FAF8F4 0%, #F5F0E6 100%);
   border: 1px solid #E9E2D8;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: clamp(20px, 3.5vw, 32px) clamp(18px, 4vw, 36px);
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 .leafIconWrap {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -45,7 +45,7 @@
 .title {
   font-family: var(--font-playfair, "Playfair Display", serif);
   font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  font-weight: 700;
+  font-weight: 400;
   color: #211A14;
   margin: 0;
   line-height: 1.25;
@@ -98,7 +98,7 @@
 }
 
 .input::placeholder {
-  color: #9CA3AF;
+  color: #A39D94;
 }
 
 .submitBtn {
@@ -124,7 +124,7 @@
   background: rgba(167, 123, 63, 0.08);
   border: 1px solid rgba(167, 123, 63, 0.3);
   padding: 12px 18px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .successIconCircle {

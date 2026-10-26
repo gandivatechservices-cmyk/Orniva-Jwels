@@ -43,7 +43,7 @@ export function CategoryCard({
         ) : (
           <div
             className={styles.iconSlot}
-            style={{ background: bgTint || "#edf7ee", fontSize: 40, fontWeight: 800, color: "#14452b", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
+            style={{ background: bgTint || "#FAF5EE", fontSize: 40, fontWeight: 800, color: "#8E662F", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
             aria-hidden="true"
           >
             {name.trim().charAt(0).toUpperCase()}
@@ -92,7 +92,7 @@ export function CategoryCard({
 export function CategoryCardSkeleton({ className = "" }: { className?: string }) {
   return (
     <div className={`${styles.skeletonCard} ${className}`} aria-hidden="true">
-      <Skeleton width="100%" height="130px" variant="rectangular" style={{ borderRadius: "12px" }} />
+      <Skeleton width="104px" height="104px" variant="circular" style={{ borderRadius: "50%" }} />
       <Skeleton width="70%" height="16px" style={{ marginTop: "12px" }} />
       <Skeleton width="45%" height="12px" style={{ marginTop: "6px" }} />
     </div>

@@ -301,7 +301,7 @@ export default function ProductDetailPage({
         <div className={styles.tabContent}>
           <p className={styles.tabDescriptionText}>
             {product?.description ||
-              "Enjoy premium quality, expertly sourced grocery essentials. Hand-selected for maximum freshness and exceptional culinary flavor, perfect for your daily pantry and recipes."}
+              "A handcrafted piece made with certified materials and finished by our master artisans, designed to be treasured for a lifetime."}
           </p>
 
           <div className={styles.attributesGrid}>
@@ -422,7 +422,7 @@ export default function ProductDetailPage({
           <div style={{ padding: "80px 0" }}>
             <EmptyState
               title="Product not found"
-              description={error || "The requested product does not exist or has been removed from the grocery catalog."}
+              description={error || "The requested product does not exist or has been removed from our collection."}
               action={
                 <Link href="/products" className={styles.addToBasketBtn} style={{ textDecoration: "none" }}>
                   Return to Shop All

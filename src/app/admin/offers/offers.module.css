@@ -1,5 +1,5 @@
 .heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-5); flex-wrap: wrap; }
-.kicker { display: block; color: #2563eb; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--space-2); }
+.kicker { display: block; color: #2563eb; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: var(--space-2); }
 .title { margin: 0 !important; font-weight: 600 !important; }
 .subtitle { margin: var(--space-1) 0 0 !important; max-width: 650px; }
 
@@ -13,9 +13,9 @@
 
 .chipRow { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-2) 0 var(--space-4); }
 .chip { display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #1d4ed8; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 500; }
-.chipRemove { cursor: pointer; font-weight: 700; }
+.chipRemove { cursor: pointer; font-weight: 600; }
 
-.reviewCard { background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: var(--space-5); }
+.reviewCard { background: #FAF8F4; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: var(--space-5); }
 .reviewRow { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 14px; }
 .reviewRow:last-child { border-bottom: none; }
 

@@ -47,7 +47,7 @@
 }
 
 .hasBgImage .subtitle {
-  color: #f3f4f6;
+  color: #F3EFE9;
   opacity: 0.95;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -76,7 +76,7 @@
 }
 
 .variant_dark {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #242321 0%, #242321 100%);
   color: #ffffff;
 }
 

@@ -28,7 +28,7 @@
   position: relative;
   width: 80px;
   height: 80px;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: #FAF8F4;
   border: 1px solid #E9E2D8;
   display: flex;
@@ -47,7 +47,7 @@
   background: #A77B3F;
   color: #ffffff;
   font-size: 0.6rem;
-  font-weight: 700;
+  font-weight: 600;
   padding: 2px 6px;
   border-radius: 0 0 6px 0;
   letter-spacing: 0.04em;
@@ -74,7 +74,7 @@
 .name {
   font-family: var(--font-serif, "Playfair Display", serif);
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #242321;
   line-height: 1.35;
   text-decoration: none;
@@ -92,7 +92,7 @@
   display: inline-block;
   width: fit-content;
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #A77B3F;
   background-color: #FAF5EE;
   padding: 2px 8px;
@@ -141,7 +141,7 @@
 .subtotal {
   font-family: var(--font-sans, "Montserrat", sans-serif);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #242321;
   letter-spacing: -0.01em;
 }

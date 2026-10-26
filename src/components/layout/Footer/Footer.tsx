@@ -103,8 +103,8 @@ export function Footer({ className = "" }: { className?: string }) {
         <Container>
           <div className={styles.newsletterInner}>
             <div className={styles.newsletterBrandBadge}>
-              <span className={styles.newsletterBadgeTag}>100% AUTHENTIC</span>
-              <span className={styles.newsletterBadgeSub}>Join our fine jewellery circle for private sales</span>
+              <span className={styles.newsletterBadgeTag}>100% Authentic</span>
+              <span className={styles.newsletterBadgeSub}>Join our fine jewellery circle for offers and private sales</span>
             </div>
 
             <div className={styles.newsletterFormWrap}>

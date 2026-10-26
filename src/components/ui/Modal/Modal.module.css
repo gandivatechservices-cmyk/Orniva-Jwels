@@ -1,7 +1,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.55);
+  background-color: rgba(36, 35, 33, 0.55);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;

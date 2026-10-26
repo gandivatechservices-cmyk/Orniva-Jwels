@@ -1,17 +1,16 @@
 .header {
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #EFE9E0;
   position: sticky;
   top: 0;
   z-index: var(--z-sticky, 100);
   width: 100%;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
 .container {
   max-width: var(--container-max, 1280px);
   margin-inline: auto;
-  padding: 10px 20px;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,19 +42,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 34px;
   flex: 1;
 }
 
 .navLink {
   font-family: var(--font-sans, 'Montserrat', sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: #242321;
   text-decoration: none;
-  padding: 8px 0;
+  padding: 6px 0;
   position: relative;
   transition: color 0.2s ease;
 }
@@ -66,7 +64,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 2px;
+  height: 1px;
   background-color: #A77B3F;
   transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -82,7 +80,7 @@
 
 .navLinkActive {
   color: #A77B3F;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* SEARCH WRAPPER & DROPDOWN */
@@ -98,8 +96,8 @@
   max-width: 90vw;
   background-color: #ffffff;
   border: 1px solid #E9E2D8;
-  border-radius: 12px;
-  box-shadow: 0 16px 36px rgba(33, 26, 20, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(33, 26, 20, 0.14);
   padding: 16px;
   z-index: var(--z-dropdown, 1000);
   animation: slideDownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -115,7 +113,7 @@
 .searchDropdownTitle {
   font-family: var(--font-serif, serif);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #242321;
   letter-spacing: 0.02em;
 }
@@ -138,11 +136,11 @@
   background-color: #F5EFE3;
 }
 
-/* RIGHT ACTION BUTTONS (ACCOUNT, WISHLIST, BASKET) */
+/* RIGHT ACTION ICONS (SEARCH, ACCOUNT, WISHLIST, CART) */
 .actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
   flex-shrink: 0;
 }
 
@@ -150,58 +148,47 @@
   position: relative;
 }
 
-.iconActionBtn {
+.iconActionBtn,
+.basketBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  width: 38px;
+  min-width: 38px;
   height: 38px;
   padding: 8px;
   color: #242321;
-  background-color: #FAF8F4;
-  border: 1px solid #E9E2D8;
+  background-color: transparent;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.2s ease;
   outline: none;
   position: relative;
 }
 
-.iconActionBtn:hover,
-.actionBtnActive {
-  background-color: #F5EFE3;
-  border-color: #A77B3F;
-  color: #A77B3F;
-  transform: translateY(-1px);
-}
-
-.actionIcon {
+.actionIcon,
+.basketCartIcon {
   color: #242321;
   flex-shrink: 0;
   transition: color 0.15s ease;
 }
 
 .iconActionBtn:hover .actionIcon,
-.actionBtnActive .actionIcon {
+.actionBtnActive .actionIcon,
+.basketBtn:hover .basketCartIcon {
   color: #A77B3F;
 }
 
-.actionIcon {
-  color: #0f172a;
-  flex-shrink: 0;
-  transition: color 0.15s ease;
-}
-
-.iconActionBtn:hover .actionIcon {
-  color: #024830;
-}
-
 .accountChevron {
-  color: #64748b;
+  color: #77716A;
   margin-left: -2px;
   transition: transform 0.2s ease;
+}
+
+.chevronRotated {
+  transform: rotate(180deg);
 }
 
 .iconBadgeWrapper {
@@ -211,42 +198,34 @@
   justify-content: center;
 }
 
-.wishlistCountBadge {
+.wishlistCountBadge,
+.cartCountPill {
   position: absolute;
-  top: -8px;
+  top: -7px;
   right: -8px;
   background-color: #A77B3F;
   color: #ffffff;
   font-size: 0.625rem;
-  font-weight: 700;
-  min-width: 17px;
-  height: 17px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 4px;
   border: 1.5px solid #ffffff;
-  box-shadow: 0 1px 3px rgba(36, 35, 33, 0.15);
 }
 
-.cartCountPill {
+/* Cart label and total stay available to screen readers only */
+.basketTitle,
+.basketPrice {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: #A77B3F;
-  color: #ffffff;
-  font-size: 0.625rem;
-  font-weight: 700;
-  min-width: 17px;
-  height: 17px;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4px;
-  border: 1.5px solid #211A14;
-  box-shadow: 0 1px 3px rgba(36, 35, 33, 0.2);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* ACCOUNT DROPDOWN MENU */
@@ -257,7 +236,7 @@
   width: 220px;
   background-color: #ffffff;
   border: 1px solid #E9E2D8;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 12px 30px rgba(33, 26, 20, 0.12);
   padding: 8px;
   z-index: var(--z-dropdown, 1000);
@@ -270,7 +249,7 @@
 .accountHeader {
   padding: 8px 12px;
   background-color: #FAF8F4;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -279,7 +258,7 @@
 
 .userName {
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #242321;
 }
 
@@ -299,7 +278,7 @@
   font-size: 0.8125rem;
   font-weight: 500;
   color: #242321;
-  border-radius: 6px;
+  border-radius: 4px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -327,60 +306,10 @@
   color: #C0392B;
 }
 
-/* LUXURY SHOPPING CART BUTTON */
-.basketBtn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background-color: #211A14;
-  border: 1px solid #A77B3F;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #FAF8F4;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(33, 26, 20, 0.15);
-  white-space: nowrap;
-}
-
-.basketBtn:hover {
-  background-color: #31271F;
-  border-color: #C5A16B;
-  box-shadow: 0 4px 12px rgba(167, 123, 63, 0.25);
-  transform: translateY(-1px);
-}
-
-.basketBtn:active {
-  transform: translateY(0);
-}
-
-.basketCartIcon {
-  color: #C5A16B;
-  flex-shrink: 0;
-}
-
-.basketTitle {
-  font-family: var(--font-sans, sans-serif);
-  font-size: 0.75rem;
-  color: #FAF8F4;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.basketPrice {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: #C5A16B;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
 /* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .centerNav {
-    gap: 16px;
+    gap: 20px;
   }
 }
 

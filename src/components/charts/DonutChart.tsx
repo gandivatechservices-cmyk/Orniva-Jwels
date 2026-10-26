@@ -28,7 +28,7 @@ export function DonutChart({ data, centerLabel = "Total", size = 150 }: Props) {
   return (
     <Flex align="center" gap={20} wrap justify="center">
       <svg width={size} height={size} viewBox="0 0 150 150" role="img" aria-label="Orders by status donut chart">
-        <circle cx={75} cy={75} r={r} fill="none" stroke="#f3f4f6" strokeWidth={stroke} />
+        <circle cx={75} cy={75} r={r} fill="none" stroke="#F3EFE9" strokeWidth={stroke} />
         {arcs.map((a) => (
           <circle
             key={a.key}
@@ -46,10 +46,10 @@ export function DonutChart({ data, centerLabel = "Total", size = 150 }: Props) {
             onMouseLeave={() => setHover(null)}
           />
         ))}
-        <text x={75} y={72} textAnchor="middle" fontSize={22} fontWeight={700} fill="#111827">
+        <text x={75} y={72} textAnchor="middle" fontSize={22} fontWeight={700} fill="#242321">
           {active ? active.value : total}
         </text>
-        <text x={75} y={90} textAnchor="middle" fontSize={10} fill="#6b7280">
+        <text x={75} y={90} textAnchor="middle" fontSize={10} fill="#77716A">
           {active ? active.label : centerLabel}
         </text>
       </svg>

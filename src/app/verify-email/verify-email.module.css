@@ -8,8 +8,8 @@
   max-width: 440px;
   padding: 40px 36px;
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
+  border: 1px solid #E9E2D8;
+  border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
   box-sizing: border-box;
 }
@@ -42,9 +42,9 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  background: linear-gradient(135deg, #FAF5EE 0%, #d1fae5 100%);
   border: 2px solid #a7f3d0;
-  color: #024830;
+  color: #A77B3F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,22 +63,22 @@
 }
 
 .heading h2 {
+  font-family: var(--font-serif, "Playfair Display", serif);
   margin: 0 0 8px;
   font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #111827;
+  font-weight: 400;
+  color: #242321;
 }
 
 .heading p {
   margin: 0;
-  color: #6b7280;
+  color: #77716A;
   line-height: 1.55;
   font-size: 0.875rem;
 }
 
 .heading p strong {
-  color: #374151;
+  color: #4A4641;
   font-weight: 600;
 }
 
@@ -103,7 +103,7 @@
   display: block;
   font-size: 0.8438rem;
   font-weight: 600;
-  color: #374151;
+  color: #4A4641;
   margin-bottom: 12px;
   text-align: center;
 }
@@ -118,12 +118,12 @@
 .otpInput {
   width: 52px;
   height: 60px;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 12px;
+  border: 1.5px solid #E9E2D8;
+  border-radius: 8px;
   background-color: #f9fafb;
-  color: #111827;
+  color: #242321;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
@@ -139,13 +139,13 @@
 }
 
 .otpInput:hover:not(:disabled) {
-  border-color: #cbd5e1;
+  border-color: #D8CEBF;
   background-color: #ffffff;
 }
 
 .otpInput:focus {
-  border-color: #024830;
-  box-shadow: 0 0 0 3px rgba(2, 72, 48, 0.12);
+  border-color: #A77B3F;
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.12);
   background-color: #ffffff;
 }
 
@@ -188,8 +188,8 @@
   font-size: 0.8438rem;
   line-height: 1.4;
   border: 1px solid #a7f3d0;
-  color: #065f46;
-  background-color: #ecfdf5;
+  color: #8E662F;
+  background-color: #FAF5EE;
 }
 
 /* ---- Submit button ---- */
@@ -198,25 +198,25 @@
   height: 48px;
   margin-top: 4px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   color: #ffffff;
-  background-color: #024830;
+  background-color: #A77B3F;
   font: inherit;
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(2, 72, 48, 0.2);
+  box-shadow: 0 4px 12px rgba(167, 123, 63, 0.2);
 }
 
 .submit:hover:not(:disabled) {
-  background-color: #013523;
+  background-color: #211A14;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(2, 72, 48, 0.28);
+  box-shadow: 0 6px 16px rgba(167, 123, 63, 0.28);
 }
 
 .submit:active:not(:disabled) {
@@ -249,10 +249,10 @@
 .footer {
   margin-top: 24px;
   padding-top: 20px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid #F3EFE9;
   text-align: center;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #77716A;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -264,11 +264,11 @@
 
 .cooldownText {
   font-size: 0.8438rem;
-  color: #9ca3af;
+  color: #A39D94;
 }
 
 .cooldownText strong {
-  color: #374151;
+  color: #4A4641;
   font-variant-numeric: tabular-nums;
 }
 
@@ -280,14 +280,14 @@
   font: inherit;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #024830;
+  color: #A77B3F;
   cursor: pointer;
   text-decoration: underline;
   transition: color 0.15s ease;
 }
 
 .resendBtn:hover:not(:disabled) {
-  color: #013523;
+  color: #211A14;
 }
 
 .resendBtn:disabled {
@@ -302,13 +302,13 @@
   gap: 4px;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #024830;
+  color: #A77B3F;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .backLink a:hover {
-  color: #013523;
+  color: #211A14;
   text-decoration: underline;
 }
 
@@ -322,7 +322,7 @@
     width: 44px;
     height: 52px;
     font-size: 1.25rem;
-    border-radius: 10px;
+    border-radius: 6px;
   }
 
   .otpInputs {
