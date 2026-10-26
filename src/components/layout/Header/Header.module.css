@@ -8,13 +8,13 @@
 }
 
 .container {
-  max-width: var(--container-max, 1280px);
+  max-width: var(--container-max, 1320px);
   margin-inline: auto;
-  padding: 14px 24px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 28px;
 }
 
 /* LEFT SECTION (LOGO) */
@@ -37,23 +37,45 @@
   opacity: 0.9;
 }
 
-/* CENTER JEWELRY NAVIGATION */
+/* CENTER: PROMINENT SEARCH BAR */
+.searchSection {
+  flex: 1;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* BOTTOM NAVIGATION ROW (TABS) */
+.navRow {
+  border-top: 1px solid #F3EFE9;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.navContainer {
+  max-width: var(--container-max, 1320px);
+  margin-inline: auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .centerNav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 34px;
-  flex: 1;
+  gap: 36px;
 }
 
 .navLink {
   font-family: var(--font-sans, 'Montserrat', sans-serif);
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.01em;
   color: #242321;
   text-decoration: none;
-  padding: 6px 0;
+  padding: 10px 0;
   position: relative;
   transition: color 0.2s ease;
 }
@@ -64,7 +86,7 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1px;
+  height: 2px;
   background-color: #A77B3F;
   transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -80,63 +102,10 @@
 
 .navLinkActive {
   color: #A77B3F;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* SEARCH WRAPPER & DROPDOWN */
-.searchWrapper {
-  position: relative;
-}
-
-.searchDropdown {
-  position: absolute;
-  top: calc(100% + 12px);
-  right: -60px;
-  width: 440px;
-  max-width: 90vw;
-  background-color: #ffffff;
-  border: 1px solid #E9E2D8;
-  border-radius: 8px;
-  box-shadow: 0 16px 36px rgba(33, 26, 20, 0.14);
-  padding: 16px;
-  z-index: var(--z-dropdown, 1000);
-  animation: slideDownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.searchDropdownHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.searchDropdownTitle {
-  font-family: var(--font-serif, serif);
-  font-size: 0.9375rem;
-  font-weight: 400;
-  color: #242321;
-  letter-spacing: 0.02em;
-}
-
-.closeSearchBtn {
-  background: transparent;
-  border: none;
-  color: #77716A;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.15s ease;
-}
-
-.closeSearchBtn:hover {
-  color: #242321;
-  background-color: #F5EFE3;
-}
-
-/* RIGHT ACTION ICONS (SEARCH, ACCOUNT, WISHLIST, CART) */
+/* RIGHT ACTION ICONS (ACCOUNT, WISHLIST, BASKET) */
 .actions {
   display: flex;
   align-items: center;
@@ -308,8 +277,12 @@
 
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1100px) {
+  .searchSection {
+    max-width: 440px;
+  }
+
   .centerNav {
-    gap: 20px;
+    gap: 24px;
   }
 }
 

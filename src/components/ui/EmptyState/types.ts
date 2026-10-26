@@ -5,5 +5,8 @@ export type EmptyStateProps = {
   description?: ReactNode;
   icon?: ReactNode;
   action?: ReactNode;
+  actionLabel?: string;
+  actionHref?: string;
+  onAction?: () => void;
   className?: string;
 };

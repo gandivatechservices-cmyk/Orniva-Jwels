@@ -8,6 +8,7 @@
   position: relative;
   z-index: calc(var(--z-sticky, 100) + 1);
   border-bottom: 1px solid rgba(167, 123, 63, 0.2);
+  overflow: hidden;
 }
 
 .inner {
@@ -17,32 +18,49 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  min-height: 20px;
 }
 
-.trustRow {
+/* DESKTOP TRUST ROW */
+.desktopTrustRow {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.desktopTrustRow > .itemWrapper:last-child .dot {
+  display: none;
+}
+
+.itemWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
 .trustItem {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .goldIcon {
   color: #C5A16B;
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .dot {
   color: #A77B3F;
   opacity: 0.6;
   font-size: 0.625rem;
+  flex-shrink: 0;
 }
 
 .text {
@@ -51,8 +69,10 @@
   letter-spacing: 0.02em;
   font-size: 0.75rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
+/* RIGHT QUICK LINKS */
 .quickLinks {
   position: absolute;
   right: 0;
@@ -62,6 +82,7 @@
   font-size: 0.7rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
 }
 
 .quickLink {
@@ -101,9 +122,59 @@
   color: #ffffff;
 }
 
-@media (max-width: 860px) {
-  .quickLinks {
-    display: none;
+/* MOBILE / RESPONSIVE SINGLE LINE LIVE TICKER MARQUEE */
+.mobileMarquee {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+.mobileMarquee:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 16px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: liveTicker 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes liveTicker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .bar {
+    padding: 7px 0;
+  }
+
+  .desktopTrustRow {
+    display: none;
+  }
+
+  .quickLinks {
+    display: none;
+  }
+
+  .mobileMarquee {
+    display: flex;
+  }
+}

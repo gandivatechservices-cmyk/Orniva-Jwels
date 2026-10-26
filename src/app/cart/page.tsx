@@ -6,8 +6,11 @@ import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
 import { BasketLineItem, BasketLineItemSkeleton } from "../../components/common/BasketLineItem";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { Button } from "../../components/ui/Button";
+import { EmptyState } from "../../components/ui/EmptyState";
 import { Skeleton } from "../../components/ui/Skeleton";
+import { IMAGES } from "../../constants/images";
 import {
   ArrowRightIcon,
   ArrowLeftIcon,
@@ -58,43 +61,6 @@ const CartLoadingSkeleton = memo(function CartLoadingSkeleton() {
   );
 });
 
-interface CartHeaderProps {
-  totalItems: number;
-  hasItems: boolean;
-  onClear: () => void;
-}
-
-const CartHeader = memo(function CartHeader({
-  totalItems,
-  hasItems,
-  onClear,
-}: CartHeaderProps) {
-  return (
-    <div className={styles.headingRow}>
-      <div className={styles.headingLeft}>
-        <h1 className={styles.title}>Your Cart</h1>
-        {hasItems && (
-          <span className={styles.itemCountBadge}>
-            {totalItems} {totalItems === 1 ? "item" : "items"}
-          </span>
-        )}
-      </div>
-      {hasItems && (
-        <Button
-          variant="ghost"
-          size="sm"
-          pill
-          leftIcon={<TrashIcon size={14} />}
-          onClick={onClear}
-          className={styles.clearBasketBtn}
-          title="Remove all items from cart"
-        >
-          Clear entire cart
-        </Button>
-      )}
-    </div>
-  );
-});
 
 interface CartItemsListProps {
   items: CartItem[];
@@ -328,35 +294,6 @@ const CartOrderSummary = memo(function CartOrderSummary({
   );
 });
 
-interface CartEmptyStateProps {
-  onStartShopping: () => void;
-}
-
-const CartEmptyState = memo(function CartEmptyState({
-  onStartShopping,
-}: CartEmptyStateProps) {
-  return (
-    <div className={styles.emptyCard}>
-      <div className={styles.emptyIconCircle}>
-        <DiamondIcon size={38} />
-      </div>
-      <h2 className={styles.emptyTitle}>Your cart is currently empty</h2>
-      <p className={styles.emptyDescription}>
-        Discover our exquisite handcrafted diamond and gold jewellery collections and find your next cherished piece.
-      </p>
-      <button
-        type="button"
-        className={styles.proceedCheckoutBtn}
-        style={{ width: "auto", padding: "0 32px" }}
-        onClick={onStartShopping}
-        id="cart-start-shopping-btn"
-      >
-        <span>Explore Collections</span>
-        <ArrowRightIcon size={16} />
-      </button>
-    </div>
-  );
-});
 
 /* -------------------------------------------------------------------------- */
 /* Main Cart Content Component                                                */
@@ -500,18 +437,52 @@ function CartContent() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.container}>
-          <CartHeader
-            totalItems={totalItems}
-            hasItems={!isInitialLoading && items.length > 0}
-            onClear={handleClear}
-          />
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="SHOPPING BAG"
+          title="Your Shopping Cart"
+          subtitle="Review your selected handcrafted jewelry before proceeding to checkout."
+          image={IMAGES.jewelry.luxuryTrust}
+          imageAlt="Luxury jewelry shopping cart"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Cart" },
+          ]}
+          badge={
+            !isInitialLoading && items.length > 0 ? (
+              <span className={styles.countBadge}>
+                {totalItems} {totalItems === 1 ? "item" : "items"}
+              </span>
+            ) : undefined
+          }
+          actions={
+            !isInitialLoading && items.length > 0 ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                pill
+                leftIcon={<TrashIcon size={14} />}
+                onClick={handleClear}
+                className={styles.clearBasketBtn}
+                title="Remove all items from cart"
+              >
+                Clear entire cart
+              </Button>
+            ) : undefined
+          }
+          ariaLabel="Your Shopping Cart"
+        />
 
+        <Container>
           {isInitialLoading ? (
             <CartLoadingSkeleton />
           ) : items.length === 0 ? (
-            <CartEmptyState onStartShopping={handleContinue} />
+            <EmptyState
+              title="Your jewelry cart is empty"
+              description="Explore our certified fine jewelry catalog and add your favourite pieces to your cart."
+              actionLabel="Explore Collections"
+              actionHref="/products"
+            />
           ) : (
             <div className={styles.layout}>
               <CartItemsList
@@ -537,8 +508,8 @@ function CartContent() {
               />
             </div>
           )}
-        </div>
-      </Container>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

@@ -2,6 +2,7 @@
 
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { DiamondIcon, ShieldCheckIcon, SparklesIcon, HeartIcon } from "../../components/icons";
 import { IMAGES } from "../../constants/images";
 import styles from "./about.module.css";
@@ -40,20 +41,18 @@ export default function AboutPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner} aria-label="Our Story">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.jewelry.heroModel}
-            alt="Luxe Jewels craft tradition"
-            className={styles.heroBg}
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Our Story</h1>
-            <p className={styles.heroSubtitle}>Crafting Dreams Since 1995</p>
-          </div>
-        </section>
+        <TopContentCard
+          eyebrow="OUR HERITAGE"
+          title="Our Story"
+          subtitle="Crafting Dreams Since 1995"
+          image={IMAGES.jewelry.heroModel}
+          imageAlt="Luxe Jewels craft tradition"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "About" },
+          ]}
+          ariaLabel="Our Story"
+        />
 
         <Container>
           {/* BRAND STORY INTRO */}

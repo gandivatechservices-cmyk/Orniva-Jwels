@@ -1,9 +1,42 @@
-.container {
-  padding: 24px 0 60px;
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 4vw, 56px);
+  padding-bottom: 80px;
+  width: 100%;
 }
 
-.breadcrumbRow {
-  margin-bottom: 24px;
+.headerRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #DFC08A;
+  background-color: rgba(167, 123, 63, 0.2);
+  border: 1px solid rgba(167, 123, 63, 0.4);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.headerLogoutBtn {
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #ff9e9e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.headerLogoutBtn:hover {
+  background: rgba(220, 38, 38, 0.35);
+  color: #ffffff;
+  border-color: rgba(220, 38, 38, 0.7);
 }
 
 .layout {

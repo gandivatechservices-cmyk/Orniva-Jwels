@@ -5,53 +5,30 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-4) 0 0;
+  gap: clamp(36px, 4vw, 56px);
+  padding-bottom: 80px;
+  width: 100%;
 }
 
-.breadcrumbRow {
+.mainWrapper {
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.orderCountBadge {
+  display: inline-flex;
   align-items: center;
-  margin-bottom: var(--space-1);
-}
-
-/* ── Page Header ────────────────────────────────────────── */
-.headingRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  background: linear-gradient(135deg, #18120C 0%, #251B12 50%, #150F0A 100%);
-  border: 1px solid rgba(167, 123, 63, 0.3);
-  border-radius: 8px;
-  padding: var(--space-6) var(--space-6);
-}
-
-.title {
-  font-family: var(--font-playfair, "Playfair Display", serif);
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 400;
-  color: #FAF8F4;
-  margin: 0;
-  letter-spacing: -0.015em;
-}
-
-.subtitle {
-  font-size: var(--fs-xs);
-  color: rgba(250, 248, 244, 0.75);
-  margin: 4px 0 0;
-}
-
-.countBadge {
-  font-size: var(--fs-xs);
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #211A14;
-  background-color: #FAF8F4;
-  border: 1px solid #E9E2D8;
-  padding: 5px 14px;
-  border-radius: 999px;
-  white-space: nowrap;
+  color: #DFC08A;
+  background-color: rgba(167, 123, 63, 0.2);
+  border: 1px solid rgba(167, 123, 63, 0.4);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ── Loading Skeletons ──────────────────────────────────── */

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ProtectedRoute } from "../../guards";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
-import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { Button } from "../../components/ui/Button";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { Skeleton } from "../../components/ui/Skeleton";
@@ -13,6 +13,7 @@ import { TruckIcon, ArrowRightIcon } from "../../components/icons";
 import { DownloadInvoiceButton } from "../../components/common";
 import { ordersService, type Order } from "../../utility/services";
 import { formatPrice } from "../../utility/formatMoney";
+import { IMAGES } from "../../constants/images";
 import styles from "./orders.module.css";
 
 function OrdersView() {
@@ -69,32 +70,30 @@ function OrdersView() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.pageContainer}>
-          {/* Breadcrumb Navigation */}
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "My Account" },
-                { label: "Order History" },
-              ]}
-            />
-          </div>
-
-          <div className={styles.headingRow}>
-            <div>
-              <h1 className={styles.title}>My Jewelry Orders</h1>
-              <p className={styles.subtitle}>
-                Track your insured fine jewelry shipments and order history.
-              </p>
-            </div>
-            {!loading && orders.length > 0 && (
-              <span className={styles.countBadge}>
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="CLIENT CARE & ACQUISITIONS"
+          title="My Jewelry Orders"
+          subtitle="Track your insured fine jewelry shipments, certificate documentation, and order history."
+          image={IMAGES.jewelry.luxuryTrust}
+          imageAlt="My Jewelry Orders"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "My Account", href: "/account" },
+            { label: "Order History" },
+          ]}
+          badge={
+            !loading && orders.length > 0 ? (
+              <span className={styles.orderCountBadge}>
                 {orders.length} {orders.length === 1 ? "order" : "orders"} placed
               </span>
-            )}
-          </div>
+            ) : undefined
+          }
+          ariaLabel="My Jewelry Orders"
+        />
+
+        <Container>
+          <div className={styles.mainWrapper}>
 
           {loading ? (
             <div className={styles.loadingGrid}>
@@ -225,8 +224,9 @@ function OrdersView() {
               })}
             </div>
           )}
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

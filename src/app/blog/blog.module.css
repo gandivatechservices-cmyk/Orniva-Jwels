@@ -6,62 +6,7 @@
   width: 100%;
 }
 
-.heroBanner {
-  position: relative;
-  width: 100%;
-  background: #18120C;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(167, 123, 63, 0.25);
-  min-height: clamp(220px, 20vw, 300px);
-  justify-content: flex-start;
-}
 
-.heroBg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.85;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(20, 14, 9, 0.94) 0%, rgba(26, 19, 12, 0.7) 40%, rgba(26, 19, 12, 0.15) 100%);
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  text-align: left;
-  align-items: flex-start;
-  width: 100%;
-  max-width: var(--container-max, 1320px);
-  margin-inline: auto;
-  padding: clamp(32px, 4vw, 48px) 24px;
-}
-
-.heroEyebrow {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: #C5A16B;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.heroTitle {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-weight: 400;
-  color: #FAF8F4;
-  margin: 0;
-  line-height: 1.2;
-  font-size: clamp(2rem, 3.4vw, 2.8rem);
-}
 
 /* BLOG ARTICLES GRID */
 .articlesGrid {

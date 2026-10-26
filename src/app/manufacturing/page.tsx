@@ -2,6 +2,7 @@
 
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { IMAGES } from "../../constants/images";
 import styles from "./manufacturing.module.css";
 
@@ -45,26 +46,19 @@ export default function ManufacturingPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner} aria-label="Our Manufacturing">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.jewelry.manufacturingCraftsman}
-            alt="Jewelry manufacturing process"
-            className={styles.heroBg}
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <span className={styles.heroEyebrow}>ARTISANAL EXCELLENCE</span>
-            <h1 className={styles.heroTitle}>Our Manufacturing</h1>
-            <p className={styles.heroSubtitle}>Tradition &bull; Craftsmanship &bull; Perfection</p>
-            <div className={styles.playCircleBtn} title="Watch Craftsmanship Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3" />
-              </svg>
-            </div>
-          </div>
-        </section>
+        <TopContentCard
+          eyebrow="ARTISANAL EXCELLENCE"
+          title="Our Manufacturing"
+          subtitle="Tradition • Craftsmanship • Perfection"
+          image={IMAGES.jewelry.manufacturingCraftsman}
+          imageAlt="Jewelry manufacturing process"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Manufacturing" },
+          ]}
+          ariaLabel="Our Manufacturing"
+        >
+        </TopContentCard>
 
         <Container>
           {/* 5 PROCESS STEPS */}

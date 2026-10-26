@@ -27,3 +27,4 @@ export * from "../category";
 export * from "../promotional";
 
 export * from "./BrandHeroBanner";
+export * from "./TopContentCard";

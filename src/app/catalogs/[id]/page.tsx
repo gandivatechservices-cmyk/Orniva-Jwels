@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import { StoreLayout } from "../../../components/StoreLayout";
 import { Container } from "../../../components/layout/Container";
-import { Breadcrumb } from "../../../components/ui/Breadcrumb";
+import { TopContentCard } from "../../../components/common/TopContentCard";
 import { ProductCard, ProductCardSkeleton } from "../../../components/common";
+import { IMAGES } from "../../../constants/images";
 import {
   catalogService,
   offersService,
@@ -56,21 +57,44 @@ export default function CatalogDetailPage() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.pageStack}>
-          <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Catalogs", href: "/catalogs" },
-              { label: catalog?.name || "Catalog" },
-            ]}
-          />
-          <div className={styles.sectionHeader}>
-            <div className={styles.sectionTitleGroup}>
-              <h1 className={styles.sectionTitle}>{catalog?.name || (loading ? "Loading..." : "Catalog")}</h1>
-              {catalog?.description && <p className={styles.sectionSubtitle}>{catalog.description}</p>}
-            </div>
-          </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "clamp(36px, 4vw, 56px)", paddingBottom: "80px", width: "100%" }}>
+        <TopContentCard
+          eyebrow="FINE JEWELLERY CATALOGUE"
+          title={catalog?.name || (loading ? "Loading Collection..." : "Curated Collection")}
+          subtitle={catalog?.description || "Explore handcrafted artisanal masterpieces in this curated jewellery collection."}
+          image={IMAGES.jewelry.designerPromo}
+          imageAlt={catalog?.name || "Jewellery Collection"}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Catalogs", href: "/catalogs" },
+            { label: catalog?.name || "Catalog" },
+          ]}
+          badge={
+            !loading && products.length > 0 ? (
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  color: "#DFC08A",
+                  backgroundColor: "rgba(167, 123, 63, 0.2)",
+                  border: "1px solid rgba(167, 123, 63, 0.4)",
+                  padding: "4px 14px",
+                  borderRadius: "9999px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                {products.length} {products.length === 1 ? "Piece" : "Pieces"} Available
+              </span>
+            ) : undefined
+          }
+          ariaLabel={catalog?.name || "Catalog Details"}
+        />
+
+        <Container>
+          <div className={styles.pageStack}>
 
           {error && <p role="alert">{error}</p>}
 
@@ -107,6 +131,7 @@ export default function CatalogDetailPage() {
           </div>
         </div>
       </Container>
+      </div>
     </StoreLayout>
   );
 }

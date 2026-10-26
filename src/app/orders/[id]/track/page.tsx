@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { StoreLayout } from "../../../../components/StoreLayout";
 import { Container } from "../../../../components/layout/Container";
+import { TopContentCard } from "../../../../components/common/TopContentCard";
 import { OrderStatusStepper, DownloadInvoiceButton } from "../../../../components/common";
 import { PendingSection } from "../../../../components/ui/PendingSection";
 import { EmptyState } from "../../../../components/ui/EmptyState";
@@ -12,6 +13,7 @@ import { Skeleton } from "../../../../components/ui/Skeleton";
 import { MapPinIcon, TruckIcon, UserIcon } from "../../../../components/icons";
 import { ordersService, type Order } from "../../../../utility/services";
 import { formatPrice } from "../../../../utility/formatMoney";
+import { IMAGES } from "../../../../constants/images";
 import styles from "./track.module.css";
 
 export default function TrackOrderPage() {
@@ -89,26 +91,38 @@ export default function TrackOrderPage() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.container}>
-          <div className={styles.headingRow}>
-            <div>
-              <h1 className={styles.title}>Track Your Grocery Order</h1>
-              <span className={styles.orderRef}>
-                Order ID: #{order._id.slice(-8).toUpperCase()} • Placed on{" "}
-                {new Date(order.createdAt).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </span>
-            </div>
-            {order.status !== "pending" && (
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="INSURED TRANSIT & DISPATCH"
+          title="Track Order Status"
+          subtitle={`Order #${order._id.slice(-8).toUpperCase()} • Placed on ${new Date(order.createdAt).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}`}
+          image={IMAGES.jewelry.luxuryTrust}
+          imageAlt="Order Tracking"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "My Orders", href: "/orders" },
+            { label: `Order #${order._id.slice(-8).toUpperCase()}` },
+          ]}
+          badge={
+            <span className={styles.statusBadge}>
+              {order.status.toUpperCase()}
+            </span>
+          }
+          actions={
+            order.status !== "pending" ? (
               <DownloadInvoiceButton orderId={order._id} />
-            )}
-          </div>
+            ) : undefined
+          }
+          ariaLabel="Track Order Status"
+        />
 
-          <div className={styles.layout}>
+        <Container>
+          <div className={styles.mainWrapper}>
+            <div className={styles.layout}>
             {/* 1. LIVE ORDER STATUS STEPPER */}
             <OrderStatusStepper currentStatus={order.status} />
 
@@ -191,8 +205,9 @@ export default function TrackOrderPage() {
               </div>
             </div>
           </div>
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

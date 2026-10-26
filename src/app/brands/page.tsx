@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
-import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { Skeleton } from "../../components/ui/Skeleton";
 import { Button } from "../../components/ui/Button";
 import { BrandCard } from "../../components/common/BrandCard";
 import { SearchIcon } from "../../components/icons";
+import { IMAGES } from "../../constants/images";
 import { catalogService, type Brand, type Product } from "../../utility/services";
 import styles from "./brands.module.css";
 
@@ -73,44 +74,40 @@ export default function BrandsPage() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.container}>
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Brands" },
-              ]}
-            />
-          </div>
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="CURATED DESIGNER ATELIERS"
+          title="Our Brands & Designers"
+          subtitle="Explore celebrated jewellery houses, artisanal craft studios, and luxury designers in our collection."
+          image={IMAGES.jewelry.designerPromo}
+          imageAlt="Fine Jewelry Brands & Designers"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Brands" },
+          ]}
+          badge={
+            !loading ? (
+              <span className={styles.brandCountBadge}>
+                {filteredBrands.length} {filteredBrands.length === 1 ? "Brand" : "Brands"}
+              </span>
+            ) : undefined
+          }
+          ariaLabel="Jewelry Brands & Designers"
+        />
 
-          <div className={styles.header}>
-            <div className={styles.headerContent}>
-              <div className={styles.titleRow}>
-                <h1 className={styles.title}>Grocery Brands</h1>
-                {!loading && (
-                  <span className={styles.countBadge}>
-                    {filteredBrands.length} {filteredBrands.length === 1 ? "Brand" : "Brands"}
-                  </span>
-                )}
-              </div>
-              <p className={styles.desc}>
-                Explore the jewellery houses and designers in our collection.
-              </p>
-            </div>
-
+        <Container>
+          <div className={styles.mainWrapper}>
             <div className={styles.searchWrap}>
               <SearchIcon size={18} className={styles.searchIcon} />
               <input
                 type="text"
                 className={styles.searchInput}
-                placeholder="Search brands (e.g. Tilda, Haldiram's, Shan)..."
+                placeholder="Search jewellery designers and brands..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 aria-label="Search brands"
               />
             </div>
-          </div>
 
           {loading ? (
             <div className={styles.grid}>
@@ -145,8 +142,9 @@ export default function BrandsPage() {
               ))}
             </div>
           )}
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

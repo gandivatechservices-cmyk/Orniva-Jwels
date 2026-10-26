@@ -41,3 +41,25 @@
 .actionSlot {
   margin-top: var(--space-4);
 }
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 20px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.actionBtn:hover {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+}

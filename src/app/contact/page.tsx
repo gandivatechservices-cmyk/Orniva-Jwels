@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { MapPinIcon, ShieldCheckIcon } from "../../components/icons";
 import { IMAGES } from "../../constants/images";
 import styles from "./contact.module.css";
@@ -24,20 +25,17 @@ export default function ContactPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner} aria-label="Get In Touch">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.jewelry.customPromo}
-            alt="Jeweler crafting bespoke piece"
-            className={styles.heroBg}
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Get in Touch</h1>
-            <p className={styles.heroSubtitle}>We&apos;re here to help you find your dream jewellery piece</p>
-          </div>
-        </section>
+        <TopContentCard
+          title="Get in Touch"
+          subtitle="We're here to help you find your dream jewellery piece"
+          image={IMAGES.jewelry.customPromo}
+          imageAlt="Jeweler crafting bespoke piece"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Contact" },
+          ]}
+          ariaLabel="Get In Touch"
+        />
 
         <Container>
           <div className={styles.contactGrid}>

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
-import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { Button } from "../../components/ui/Button";
 import { RecipeCard } from "../../components/common/RecipeCard";
@@ -59,30 +59,27 @@ export default function RecipesPage() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.container}>
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Recipes" },
-              ]}
-            />
-          </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "clamp(36px, 4vw, 56px)", paddingBottom: "80px", width: "100%" }}>
+        <TopContentCard
+          eyebrow="CULINARY & LIFESTYLE"
+          title="Recipes & Pairing Guides"
+          subtitle="Discover chef-tested recipes and lifestyle pairing ideas. Explore handcrafted inspirations for your table and home."
+          image={IMAGES.recipes.healthyLunch}
+          imageAlt="Recipes and Pairings"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Recipes" },
+          ]}
+          badge={
+            <span className={styles.countBadge}>
+              {filteredRecipes.length} {filteredRecipes.length === 1 ? "Guide" : "Guides"}
+            </span>
+          }
+          ariaLabel="Recipes and Pairing Guides"
+        />
 
-          <div className={styles.header}>
-            <div className={styles.headerContent}>
-              <div className={styles.titleRow}>
-                <h1 className={styles.title}>Recipes & Meal Ideas</h1>
-                <span className={styles.countBadge}>
-                  {filteredRecipes.length} {filteredRecipes.length === 1 ? "Recipe" : "Recipes"}
-                </span>
-              </div>
-              <p className={styles.desc}>
-                Discover chef-tested recipes made with fresh ingredients. Click any recipe to shop the exact grocery ingredients directly.
-              </p>
-            </div>
-
+        <Container>
+          <div className={styles.container}>
             <div className={styles.searchWrap}>
               <SearchIcon size={18} className={styles.searchIcon} />
               <input
@@ -94,7 +91,6 @@ export default function RecipesPage() {
                 aria-label="Search recipes"
               />
             </div>
-          </div>
 
           {filteredRecipes.length === 0 ? (
             <EmptyState
@@ -119,6 +115,7 @@ export default function RecipesPage() {
           )}
         </div>
       </Container>
+      </div>
     </StoreLayout>
   );
 }

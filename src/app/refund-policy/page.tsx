@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
+import { IMAGES } from "../../constants/images";
 import { policiesService, type Policy } from "../../utility/services/policies";
 import {
   ShieldCheckIcon,
@@ -150,45 +152,27 @@ export default function RefundPolicyPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO SECTION */}
-        <section className={styles.heroSection}>
-          <Container>
-            <div className={styles.heroContent}>
-              <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-                <Link href="/" className={styles.breadcrumbLink}>
-                  Home
-                </Link>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <span className={styles.breadcrumbCurrent}>Refund & Return Policy</span>
-              </nav>
-
-              <div className={styles.heroBadge}>
-                <ShieldCheckIcon size={14} />
-                <span>Atlas Store Policy</span>
-              </div>
-
-              <h1 className={styles.heroTitle}>{policy.title}</h1>
-              <p className={styles.heroSubtitle}>
-                {policy.subtitle ||
-                  "Clear guidelines on returns, refunds, cancellations, and food-safety hygiene standards."}
-              </p>
-
-              <div className={styles.heroMeta}>
-                <div className={styles.metaItem}>
-                  <RefreshCwIcon size={15} />
-                  <span>30-Day Return Window (Unopened Goods)</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <TruckIcon size={15} />
-                  <span>UK Consumer Protection Aligned</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span>Last Updated: {formattedDate}</span>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
+        {/* TOP CONTENT HERO CARD */}
+        <TopContentCard
+          eyebrow="CLIENT CARE & GUARANTEE"
+          title={policy.title}
+          subtitle={
+            policy.subtitle ||
+            "Hallmarked purity, certified gemstones, and effortless 30-day inspection and returns."
+          }
+          image={IMAGES.jewelry.luxuryTrust}
+          imageAlt="LUXE JWELS 30-Day Luxury Return Policy"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Refund & Return Policy" },
+          ]}
+          badge={
+            <span className={styles.policyBadge}>
+              Last Updated: {formattedDate}
+            </span>
+          }
+          ariaLabel="Refund and Return Policy"
+        />
 
         {/* MAIN BODY GRID */}
         <Container>
@@ -212,12 +196,12 @@ export default function RefundPolicyPage() {
               </ul>
 
               <div className={styles.sidebarHelpBox}>
-                <div className={styles.sidebarHelpH1}>Need help with an item?</div>
+                <div className={styles.sidebarHelpH1}>Need help with a return?</div>
                 <p className={styles.sidebarHelpP}>
-                  Our UK customer support team is on standby to help resolve any damaged or missing items.
+                  Our concierge team is on standby to assist with certificates, packaging, or insured courier collections.
                 </p>
-                <a href="mailto:returns@atlasone.com" className={styles.sidebarHelpLink}>
-                  <span>returns@atlasone.com</span>
+                <a href="mailto:returns@luxejwels.com" className={styles.sidebarHelpLink}>
+                  <span>returns@luxejwels.com</span>
                   <ArrowRightIcon size={13} />
                 </a>
               </div>
@@ -269,37 +253,37 @@ export default function RefundPolicyPage() {
                     <ShieldCheckIcon size={24} />
                   </div>
                   <div>
-                    <h3 className={styles.contactTitle}>Contact Atlas Customer Care</h3>
+                    <h3 className={styles.contactTitle}>Contact LUXE JWELS Concierge</h3>
                     <p style={{ margin: "4px 0 0", color: "#77716A", fontSize: "0.875rem" }}>
-                      Please provide your order reference number and photos of any damaged or incorrect items.
+                      Please provide your order reference number and inspection details for your fine jewelry piece.
                     </p>
                   </div>
                 </div>
 
                 <div className={styles.contactGrid}>
-                  <a href="mailto:returns@atlasone.com" className={styles.contactMethod}>
+                  <a href="mailto:returns@luxejwels.com" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       ✉
                     </div>
                     <div className={styles.contactInfoText}>
                       <span className={styles.contactLabel}>Email Us Directly</span>
-                      <span className={styles.contactValue}>returns@atlasone.com</span>
+                      <span className={styles.contactValue}>returns@luxejwels.com</span>
                     </div>
                   </a>
 
-                  <a href="tel:07771142324" className={styles.contactMethod}>
+                  <a href="tel:+919876543210" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       📞
                     </div>
                     <div className={styles.contactInfoText}>
-                      <span className={styles.contactLabel}>Customer Helpline</span>
-                      <span className={styles.contactValue}>07771142324</span>
+                      <span className={styles.contactLabel}>Client Helpline</span>
+                      <span className={styles.contactValue}>+91 98765 43210</span>
                     </div>
                   </a>
                 </div>
 
                 <div className={styles.statutoryNote}>
-                  Your statutory legal rights under the UK Consumer Rights Act 2015 are not affected by this policy.
+                  Your statutory legal rights and diamond authenticity certifications are fully preserved.
                 </div>
               </section>
             </main>

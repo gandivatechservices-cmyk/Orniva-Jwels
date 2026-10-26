@@ -1,111 +1,24 @@
 .pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 4vw, 56px);
   background-color: #FAF8F4;
   min-height: 100vh;
   padding-bottom: 80px;
 }
 
-/* HERO SECTION */
-.heroSection {
-  background: linear-gradient(135deg, #18120C 0%, #251B12 60%, #150F0A 100%);
-  color: #FAF8F4;
-  padding: 56px 0 48px;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(167, 123, 63, 0.25);
-}
-
-.heroSection::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(197, 161, 107, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 1;
-  max-width: 860px;
-}
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 16px;
-}
-
-.breadcrumbLink {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.breadcrumbLink:hover {
-  color: #C5A16B;
-}
-
-.breadcrumbSeparator {
-  opacity: 0.5;
-}
-
-.breadcrumbCurrent {
-  color: #C5A16B;
-  font-weight: 600;
-}
-
-.heroBadge {
+.termsBadge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(197, 161, 107, 0.15);
-  border: 1px solid rgba(197, 161, 107, 0.35);
-  border-radius: 9999px;
-  padding: 5px 14px;
   font-size: 0.75rem;
   font-weight: 600;
+  color: #DFC08A;
+  background-color: rgba(167, 123, 63, 0.2);
+  border: 1px solid rgba(167, 123, 63, 0.4);
+  padding: 4px 14px;
+  border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #C5A16B;
-  margin-bottom: 14px;
-}
-
-.heroTitle {
-  font-family: var(--font-playfair, "Playfair Display", serif);
-  font-size: 2.25rem;
-  font-weight: 400;
-  color: #FAF8F4;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
-  margin: 0 0 14px;
-}
-
-.heroSubtitle {
-  font-size: 1.0625rem;
-  color: rgba(250, 248, 244, 0.85);
-  line-height: 1.6;
-  margin: 0 0 20px;
-}
-
-.heroMeta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 0.8125rem;
-  color: rgba(250, 248, 244, 0.75);
-  flex-wrap: wrap;
-}
-
-.metaItem {
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 /* MAIN CONTENT GRID */
@@ -113,7 +26,6 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 36px;
-  margin-top: 40px;
   align-items: flex-start;
 }
 

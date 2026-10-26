@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
+import { IMAGES } from "../../constants/images";
 import { policiesService, type Policy } from "../../utility/services/policies";
 import {
   ShieldCheckIcon,
@@ -183,45 +185,27 @@ export default function TermsPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO SECTION */}
-        <section className={styles.heroSection}>
-          <Container>
-            <div className={styles.heroContent}>
-              <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-                <Link href="/" className={styles.breadcrumbLink}>
-                  Home
-                </Link>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <span className={styles.breadcrumbCurrent}>Terms & Conditions</span>
-              </nav>
-
-              <div className={styles.heroBadge}>
-                <ShieldCheckIcon size={14} />
-                <span>Customer Agreement</span>
-              </div>
-
-              <h1 className={styles.heroTitle}>{policy.title}</h1>
-              <p className={styles.heroSubtitle}>
-                {policy.subtitle ||
-                  "Terms of service, delivery policies, ordering conditions, and customer agreements."}
-              </p>
-
-              <div className={styles.heroMeta}>
-                <div className={styles.metaItem}>
-                  <TruckIcon size={15} />
-                  <span>Free Delivery Over £40 | £4 Under £40</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <RefreshCwIcon size={15} />
-                  <span>30-Day Returns Policy</span>
-                </div>
-                <div className={styles.metaItem}>
-                  <span>Last Updated: {formattedDate}</span>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
+        {/* TOP CONTENT HERO CARD */}
+        <TopContentCard
+          eyebrow="CLIENT CARE & AGREEMENT"
+          title={policy.title}
+          subtitle={
+            policy.subtitle ||
+            "Terms of service, delivery policies, ordering conditions, and customer agreements."
+          }
+          image={IMAGES.jewelry.luxuryTrust}
+          imageAlt="LUXE JWELS Terms and Conditions"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Terms & Conditions" },
+          ]}
+          badge={
+            <span className={styles.termsBadge}>
+              Last Updated: {formattedDate}
+            </span>
+          }
+          ariaLabel="Terms and Conditions"
+        />
 
         {/* MAIN BODY GRID */}
         <Container>
@@ -293,35 +277,35 @@ export default function TermsPage() {
                   <div>
                     <h3 className={styles.contactTitle}>Need Clarification on Our Terms?</h3>
                     <p style={{ margin: "4px 0 0", color: "#77716A", fontSize: "0.875rem" }}>
-                      Our team is happy to assist with any questions regarding orders, delivery, or terms.
+                      Our concierge team is happy to assist with any questions regarding orders, delivery, or terms.
                     </p>
                   </div>
                 </div>
 
                 <div className={styles.contactGrid}>
-                  <a href="mailto:returns@atlasone.com" className={styles.contactMethod}>
+                  <a href="mailto:returns@luxejwels.com" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       ✉
                     </div>
                     <div className={styles.contactInfoText}>
                       <span className={styles.contactLabel}>Email Customer Care</span>
-                      <span className={styles.contactValue}>returns@atlasone.com</span>
+                      <span className={styles.contactValue}>returns@luxejwels.com</span>
                     </div>
                   </a>
 
-                  <a href="tel:07771142324" className={styles.contactMethod}>
+                  <a href="tel:+919876543210" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       📞
                     </div>
                     <div className={styles.contactInfoText}>
-                      <span className={styles.contactLabel}>Helpline</span>
-                      <span className={styles.contactValue}>07771142324</span>
+                      <span className={styles.contactLabel}>Client Helpline</span>
+                      <span className={styles.contactValue}>+91 98765 43210</span>
                     </div>
                   </a>
                 </div>
 
                 <div className={styles.statutoryNote}>
-                  Your statutory legal rights under the UK Consumer Rights Act 2015 are fully respected.
+                  Your statutory legal rights and diamond authenticity certifications are fully respected.
                 </div>
               </section>
             </main>

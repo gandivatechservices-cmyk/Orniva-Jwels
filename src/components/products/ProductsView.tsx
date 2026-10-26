@@ -11,7 +11,6 @@ import React, {
 import { useRouter, useSearchParams, useParams, usePathname } from "next/navigation";
 import { StoreLayout } from "../StoreLayout";
 import { Container } from "../layout/Container";
-import { Breadcrumb } from "../ui/Breadcrumb";
 import { Button } from "../ui/Button";
 import { Drawer } from "../ui/Drawer";
 import { EmptyState } from "../ui/EmptyState";
@@ -19,11 +18,10 @@ import {
   ProductCard,
   ProductCardSkeleton,
   ProductFilterSidebar,
-  ShopAllHeroBanner,
-  CategoryHeroBanner,
-  BrandHeroBanner,
   SortSelect,
 } from "../common";
+import { TopContentCard } from "../common/TopContentCard";
+import { getCategoryHeroDefaults } from "../common/CategoryHeroBanner/CategoryHeroBanner";
 import { CloseIcon, FilterIcon, SortIcon } from "../icons";
 import {
   catalogService,
@@ -38,7 +36,7 @@ import {
 import { findBestDisplayOffer, getComparePrice, getProductOfferLabel, getVisibleOffers, isProductOnOffer } from "../../utility/activeOffers";
 import { OffersSection } from "../promotional/OffersSection/OffersSection";
 import { useAuth, useWishlist, useInfiniteScroll, useCartQuantity } from "hooks";
-import { getGroceryProductImage } from "../../constants/images";
+import { IMAGES, getGroceryProductImage } from "../../constants/images";
 import styles from "../../app/products/products.module.css";
 import { variantCardProps } from "utility/variantPricing";
 
@@ -768,8 +766,67 @@ function ProductsViewContent({ initialCategorySlug }: ProductsViewProps) {
     } else if (searchQuery) {
       items.push({ label: `Search: "${searchQuery}"`, href: "" });
     }
-    return items;
+    const lastIdx = items.length - 1;
+    return items.map((it, idx) => (idx === lastIdx ? { label: it.label } : it));
   }, [isCategoryRoute, activeCategory, appliedOffers, searchQuery]);
+
+  // Curated dynamic hero presentation data
+  const heroData = useMemo(() => {
+    if (isCategoryRoute && activeCategory) {
+      const defaults = getCategoryHeroDefaults(activeCategory.name || activeCategory.slug);
+      return {
+        eyebrow: defaults.eyebrow,
+        title: activeCategory.name,
+        subtitle:
+          activeCategory.description || defaults.description,
+        image: activeCategory.imageUrl || defaults.fallbackImage || IMAGES.jewelry.heroModel,
+        ariaLabel: `${activeCategory.name} Category`,
+      };
+    }
+
+    if (brandParam) {
+      const brandName = brandInfo?.name || brandParam;
+      return {
+        eyebrow: "EXCLUSIVE BRAND ATELIER",
+        title: `${brandName} Collection`,
+        subtitle:
+          brandInfo?.description ||
+          `Explore handcrafted artisanal masterpieces and certified fine jewelry from ${brandName}.`,
+        image: brandInfo?.bannerUrl || IMAGES.jewelry.heroModel,
+        ariaLabel: `${brandName} Collection`,
+      };
+    }
+
+    if (appliedOffers) {
+      return {
+        eyebrow: "EXCLUSIVE PRIVILEGES",
+        title: "Special Offers & Privileges",
+        subtitle:
+          "Discover exceptional privileges and seasonal offerings on certified fine diamonds, gold, and bespoke designs.",
+        image: IMAGES.jewelry.designerPromo,
+        ariaLabel: "Special Offers",
+      };
+    }
+
+    if (searchQuery) {
+      return {
+        eyebrow: "CURATED CATALOGUE",
+        title: `Search: "${searchQuery}"`,
+        subtitle: `Displaying fine jewelry pieces matching your search inquiry.`,
+        image: IMAGES.jewelry.heroModel,
+        ariaLabel: `Search results for ${searchQuery}`,
+      };
+    }
+
+    return {
+      eyebrow: "HAUTE JOAILLERIE & BESPOKE CREATIONS",
+      title: "All Fine Jewellery",
+      subtitle:
+        "Explore certified diamond rings, hallmarked 18K and 22K gold, artisanal necklaces, and bespoke fine collections.",
+      image: IMAGES.jewelry.heroModel,
+      ariaLabel: "All Products Collection",
+    };
+  }, [isCategoryRoute, activeCategory, brandParam, brandInfo, appliedOffers, searchQuery]);
 
   useEffect(() => {
     if (!brandParam) return;
@@ -789,37 +846,25 @@ function ProductsViewContent({ initialCategorySlug }: ProductsViewProps) {
 
   return (
     <StoreLayout>
-      <Container size="wide">
-        <div className={styles.pageContainer}>
-          {/* 1. DYNAMIC HERO BANNER */}
-          {isCategoryRoute && activeCategory ? (
-            <CategoryHeroBanner
-              categoryName={activeCategory.name}
-              productCount={totalProducts}
-              imageSrc={activeCategory.imageUrl}
-              description={
-                activeCategory.description ||
-                `Explore our fresh selection of ${activeCategory.name.toLowerCase()} products.`
-              }
-            />
-          ) : brandParam ? (
-            <BrandHeroBanner
-              name={brandInfo?.name || brandParam}
-              description={brandInfo?.description}
-              productCount={totalProducts}
-              bannerUrl={brandInfo?.bannerUrl}
-              logoUrl={brandInfo?.logoUrl}
-            />
-          ) : (
-            <ShopAllHeroBanner />
-          )}
+      <div className={styles.pageContainer}>
+        {/* Dynamic Reusable Top Content Card */}
+        <TopContentCard
+          eyebrow={heroData.eyebrow}
+          title={heroData.title}
+          subtitle={heroData.subtitle}
+          image={heroData.image}
+          breadcrumbs={breadcrumbItems}
+          badge={
+            <span className={styles.headerCountBadge}>
+              {totalProducts} {totalProducts === 1 ? "Piece" : "Pieces"} Available
+            </span>
+          }
+          ariaLabel={heroData.ariaLabel}
+        />
 
-          {/* Breadcrumb Navigation */}
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb items={breadcrumbItems} />
-          </div>
-
-          <div className={styles.layout}>
+        <Container size="wide">
+          <div className={styles.contentWrapper}>
+            <div className={styles.layout}>
             {/* Desktop Filters Sidebar (Constant & Internally Scrollable) */}
             <aside className={styles.sidebar} aria-label="Product filters">
               <ProductFilterSidebar
@@ -1297,7 +1342,8 @@ function ProductsViewContent({ initialCategorySlug }: ProductsViewProps) {
           </div>
         </div>
       </Container>
-    </StoreLayout>
+    </div>
+  </StoreLayout>
   );
 }
 

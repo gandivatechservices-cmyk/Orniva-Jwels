@@ -4,18 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { StoreLayout } from "components/StoreLayout";
 import { Container } from "components/layout/Container";
-import { Breadcrumb } from "components/ui/Breadcrumb";
+import { TopContentCard } from "components/common/TopContentCard";
 import { Button } from "components/ui/Button";
 import { CategoryCard, CategoryCardSkeleton } from "components/category/CategoryCard";
-import { IMAGES } from "constants/images";
-import {
-  DiamondIcon,
-  SparklesIcon,
-  TagIcon,
-  SearchIcon,
-  ArrowRightIcon,
-} from "components/icons";
+import { SearchIcon, ArrowRightIcon } from "components/icons";
 import { catalogService, type Category } from "utility/services";
+import { IMAGES } from "constants/images";
 import styles from "./categories.module.css";
 
 interface DynamicCategoryGroup {
@@ -159,50 +153,29 @@ export default function AllCategoriesPage() {
 
   return (
     <StoreLayout>
-      <Container>
-        <main className={styles.pageContainer}>
-          {/* BREADCRUMB NAVIGATION */}
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "All Categories" },
-              ]}
-            />
-          </div>
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="FINE JEWELLERY COLLECTIONS"
+          title="All Categories"
+          subtitle="Discover certified diamond rings, bridal necklaces, handcrafted bangles, and bespoke fine jewelry collections."
+          image={IMAGES.jewelry.designerPromo}
+          imageAlt="All Fine Jewelry Categories"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "All Categories" },
+          ]}
+          badge={
+            !loading && categories.length > 0 ? (
+              <span className={styles.countBadge}>
+                {categories.length} Categories in {rootCategories.length} Departments
+              </span>
+            ) : undefined
+          }
+          ariaLabel="All Categories"
+        />
 
-          {/* PAGE HERO HEADER */}
-          <header className={styles.headerCard}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={IMAGES.jewelry.categories.necklaces} alt="" className={styles.headerImage} aria-hidden="true" />
-            <div className={styles.headerShade} aria-hidden="true" />
-            <div className={styles.headerContent}>
-              <div className={styles.eyebrowBadge}>
-                <DiamondIcon size={13} className={styles.eyebrowIcon} />
-                <span>Our Collections</span>
-              </div>
-              <h1 className={styles.title}>All Categories</h1>
-              <p className={styles.description}>
-                Rings, necklaces, earrings and more, each crafted with certified gold and hand-selected stones.
-              </p>
-            </div>
-
-            <div className={styles.headerMeta}>
-              {!loading && categories.length > 0 && (
-                <div className={styles.metaChip}>
-                  <TagIcon size={14} className={styles.metaChipIcon} />
-                  <span>
-                    <strong>{categories.length}</strong> Categories in{" "}
-                    <strong>{rootCategories.length}</strong> Departments
-                  </span>
-                </div>
-              )}
-              <div className={styles.metaChip}>
-                <SparklesIcon size={14} className={styles.metaChipIcon} />
-                <span>100% Quality Checked</span>
-              </div>
-            </div>
-          </header>
+        <Container>
+          <main className={styles.mainWrapper}>
 
           {/* ERROR ALERT IF OCCURRED */}
           {error && (
@@ -373,8 +346,9 @@ export default function AllCategoriesPage() {
               </section>
             ))
           )}
-        </main>
-      </Container>
+          </main>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

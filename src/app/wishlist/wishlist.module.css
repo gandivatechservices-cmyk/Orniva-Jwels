@@ -1,53 +1,21 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-4) 0 0;
-}
-
-.breadcrumbRow {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--space-1);
-}
-
-.headingRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #E9E2D8;
-  border-radius: 0;
-  padding: 0 0 var(--space-4);
-}
-
-.title {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
-  font-weight: 400;
-  color: #242321;
-  margin: 0;
-}
-
-.subtitle {
-  font-size: 0.875rem;
-  color: #77716A;
-  margin: 4px 0 0;
+  gap: clamp(36px, 4vw, 56px);
+  padding-bottom: 80px;
+  width: 100%;
 }
 
 .countBadge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #A77B3F;
-  background-color: rgba(167, 123, 63, 0.1);
-  border: 1px solid rgba(167, 123, 63, 0.25);
-  padding: 4px 12px;
+  color: #DFC08A;
+  background-color: rgba(167, 123, 63, 0.2);
+  border: 1px solid rgba(167, 123, 63, 0.4);
+  padding: 4px 14px;
   border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .grid {

@@ -64,6 +64,17 @@ type NavigableItem =
   | { type: "product"; product: SearchSuggestionProduct }
   | { type: "see_all"; query: string };
 
+const DEFAULT_POPULAR_SEARCHES = [
+  "Diamond Rings",
+  "Gold Necklaces",
+  "Solitaire Pendants",
+  "Bridal Sets",
+  "Platinum Bands",
+  "Bangles",
+  "Cocktail Rings",
+  "Tennis Bracelets",
+];
+
 function SearchAutocompleteContent({
   variant = "desktop",
   placeholder = "Search fine jewelry, diamonds, rings & more...",
@@ -76,7 +87,7 @@ function SearchAutocompleteContent({
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<SearchSuggestionsResult | null>(null);
-  const [popularTags, setPopularTags] = useState<string[]>([]);
+  const [popularTags, setPopularTags] = useState<string[]>(DEFAULT_POPULAR_SEARCHES);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const { recentSearches, addSearch, removeSearch, clearAll } = useRecentSearches();
@@ -475,7 +486,7 @@ function SearchAutocompleteContent({
                   <div className={styles.sectionHeader}>
                     <div className={styles.sectionTitle}>
                       <SparklesIcon size={14} className={styles.sectionIcon} />
-                      <span>Trending Designs</span>
+                      <span>Popular Searches</span>
                     </div>
                   </div>
 

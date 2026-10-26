@@ -17,8 +17,8 @@
 
 .searchIcon {
   position: absolute;
-  left: 14px;
-  color: #A77B3F;
+  left: 16px;
+  color: #242321;
   pointer-events: none;
   z-index: 2;
 }
@@ -26,10 +26,10 @@
 .input {
   width: 100%;
   height: 44px;
-  padding-left: 44px;
-  padding-right: 120px;
-  background-color: #FAF8F4;
-  border: 1.5px solid #E9E2D8;
+  padding-left: 46px;
+  padding-right: 125px;
+  background-color: #ffffff;
+  border: 1.5px solid #242321;
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -41,6 +41,7 @@
 .mobileContainer .input {
   padding-right: 48px;
   height: 42px;
+  border-color: #D8CEBF;
 }
 
 .input::-webkit-search-decoration,
@@ -53,13 +54,13 @@
 
 .input:hover {
   background-color: #ffffff;
-  border-color: #D8CEBF;
+  border-color: #161311;
 }
 
 .input:focus {
   background-color: #ffffff;
   border-color: #A77B3F;
-  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.12);
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.15);
 }
 
 .input::placeholder {
@@ -126,22 +127,23 @@
 
 .submitBtn {
   position: absolute;
-  right: 4px;
-  background-color: #A77B3F;
+  right: 5px;
+  background-color: #161311;
   color: #ffffff;
   border: none;
   border-radius: 9999px;
-  padding: 7px 18px;
+  padding: 8px 20px;
   font-size: 0.8125rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.15s ease;
   z-index: 3;
 }
 
 .submitBtn:hover {
-  background-color: #8E662F;
-  box-shadow: 0 2px 8px rgba(167, 123, 63, 0.25);
+  background-color: #A77B3F;
+  box-shadow: 0 2px 8px rgba(167, 123, 63, 0.3);
 }
 
 /* DROPDOWN */
@@ -152,8 +154,8 @@
   right: 0;
   background: #ffffff;
   border: 1px solid #E9E2D8;
-  border-radius: 8px;
-  box-shadow: 0 16px 36px rgba(36, 35, 33, 0.12), 0 4px 12px rgba(36, 35, 33, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   z-index: 1000;
   max-height: 520px;

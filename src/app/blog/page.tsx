@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { ArrowRightIcon } from "../../components/icons";
 import { IMAGES } from "../../constants/images";
 import styles from "./blog.module.css";
@@ -68,23 +69,18 @@ export default function BlogPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner} aria-label="Blog & Guides">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.jewelry.designerPromo}
-            alt="Jewelry styling and editorial guide"
-            className={styles.heroBg}
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <span className={styles.heroEyebrow}>EDITORIAL &amp; INSIGHTS</span>
-            <h1 className={styles.heroTitle}>Blog &amp; Guides</h1>
-            <p style={{ color: "#D5CFC7", margin: "6px 0 0 0", fontSize: "0.95rem" }}>
-              Jewellery Tips, Trends &amp; Stories
-            </p>
-          </div>
-        </section>
+        <TopContentCard
+          eyebrow="EDITORIAL & INSIGHTS"
+          title="Blog & Guides"
+          subtitle="Jewellery Tips, Trends & Stories"
+          image={IMAGES.jewelry.designerPromo}
+          imageAlt="Jewelry styling and editorial guide"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Blog" },
+          ]}
+          ariaLabel="Blog & Guides"
+        />
 
         <Container>
           <div className={styles.articlesGrid}>

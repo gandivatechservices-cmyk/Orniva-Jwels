@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ProtectedRoute } from "../../guards";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
-import { Breadcrumb } from "../../components/ui/Breadcrumb";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { Skeleton } from "../../components/ui/Skeleton";
 import {
@@ -17,6 +17,7 @@ import {
 import { useAuth, useWishlist } from "hooks";
 import { ordersService, type Order } from "../../utility/services";
 import { formatPrice } from "../../utility/formatMoney";
+import { IMAGES } from "../../constants/images";
 import styles from "./account.module.css";
 
 function AccountDashboard() {
@@ -58,17 +59,36 @@ function AccountDashboard() {
 
   return (
     <StoreLayout>
-      <Container>
-        <div className={styles.container}>
-          <div className={styles.breadcrumbRow}>
-            <Breadcrumb
-              items={[
-                { label: "Home", href: "/" },
-                { label: "My Account" },
-              ]}
-            />
-          </div>
+      <div className={styles.pageContainer}>
+        <TopContentCard
+          eyebrow="PATRON ATELIER"
+          title={user?.name ? `Welcome, ${user.name}` : "My Account"}
+          subtitle="Manage your fine jewelry acquisitions, personal wishlist, and account preferences."
+          image={IMAGES.jewelry.heroModel}
+          imageAlt="Client Account Dashboard"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "My Account" },
+          ]}
+          badge={
+            <span className={styles.headerRoleBadge}>
+              {user?.role?.toUpperCase() || "PATRON"}
+            </span>
+          }
+          actions={
+            <button
+              type="button"
+              className={styles.headerLogoutBtn}
+              onClick={handleLogout}
+              title="Sign Out"
+            >
+              Sign Out
+            </button>
+          }
+          ariaLabel="Client Account Dashboard"
+        />
 
+        <Container>
           <div className={styles.layout}>
             {/* Sidebar Profile & Nav */}
             <aside className={styles.sidebar}>
@@ -168,8 +188,8 @@ function AccountDashboard() {
               </div>
             </main>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </StoreLayout>
   );
 }

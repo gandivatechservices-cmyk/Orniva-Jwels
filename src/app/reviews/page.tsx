@@ -2,6 +2,7 @@
 
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
+import { TopContentCard } from "../../components/common/TopContentCard";
 import { StarIcon, CheckIcon } from "../../components/icons";
 import { IMAGES } from "../../constants/images";
 import styles from "./reviews.module.css";
@@ -52,20 +53,18 @@ export default function ReviewsPage() {
   return (
     <StoreLayout>
       <div className={styles.pageContainer}>
-        {/* HERO BANNER */}
-        <section className={styles.heroBanner} aria-label="Customer Reviews">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={IMAGES.jewelry.heroModel}
-            alt="Happy customer wearing luxury jewelry"
-            className={styles.heroBg}
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Happy Customers</h1>
-            <p className={styles.heroSubtitle}>Real Stories &bull; Genuine Reviews &bull; Lasting Trust</p>
-          </div>
-        </section>
+        <TopContentCard
+          eyebrow="CLIENT EXPERIENCES"
+          title="Happy Customers"
+          subtitle="Real Stories • Genuine Reviews • Lasting Trust"
+          image={IMAGES.jewelry.heroModel}
+          imageAlt="Happy customer wearing luxury jewelry"
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Reviews" },
+          ]}
+          ariaLabel="Customer Reviews"
+        />
 
         <Container>
           <div className={styles.reviewsLayout}>

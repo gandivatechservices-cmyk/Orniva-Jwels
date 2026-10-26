@@ -23,8 +23,8 @@ export type HeaderProps = {
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "/products" },
   { label: "Collections", href: "/categories" },
+  { label: "Shop", href: "/products" },
   { label: "About", href: "/about" },
   { label: "Manufacturing", href: "/manufacturing" },
   { label: "Blog", href: "/blog" },
@@ -39,11 +39,9 @@ export function Header({ onOpenCart }: HeaderProps) {
   const { productIds } = useWishlist();
 
   const [showAccountMenu, setShowAccountMenu] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   const accountRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLDivElement>(null);
 
   const isAdmin = user?.role === "admin" || user?.role === "superadmin";
 
@@ -57,9 +55,6 @@ export function Header({ onOpenCart }: HeaderProps) {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
         setShowAccountMenu(false);
       }
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setShowSearch(false);
-      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -67,6 +62,7 @@ export function Header({ onOpenCart }: HeaderProps) {
 
   return (
     <header className={styles.header}>
+      {/* 1. TOP MAIN ROW: LOGO, CENTER SEARCH BAR, ACTIONS */}
       <div className={styles.container}>
         {/* LEFT: LUXE JWELS LOGO */}
         <div className={styles.leftSection}>
@@ -75,57 +71,13 @@ export function Header({ onOpenCart }: HeaderProps) {
           </Link>
         </div>
 
-        {/* CENTER: PRIMARY JEWELRY NAVIGATION */}
-        <nav className={styles.centerNav} aria-label="Main Navigation">
-          {NAV_LINKS.map((link) => {
-            const isActive =
-              link.href === "/"
-                ? pathname === "/"
-                : pathname === link.href || pathname.startsWith(link.href + "/");
+        {/* CENTER: LARGE PROMINENT SEARCH BAR */}
+        <div className={styles.searchSection}>
+          <SearchAutocomplete variant="desktop" />
+        </div>
 
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* RIGHT: ACTION CONTROLS (SEARCH, ACCOUNT, WISHLIST, BASKET) */}
+        {/* RIGHT: ACTION CONTROLS (ACCOUNT, WISHLIST, BASKET) */}
         <div className={styles.actions}>
-          {/* 1. SEARCH TRIGGER & EXPANDABLE DRAWER */}
-          <div className={styles.searchWrapper} ref={searchRef}>
-            <button
-              type="button"
-              onClick={() => setShowSearch(!showSearch)}
-              className={`${styles.iconActionBtn} ${showSearch ? styles.actionBtnActive : ""}`}
-              aria-label="Search jewelry collections"
-              title="Search"
-            >
-              <SearchIcon size={20} className={styles.actionIcon} />
-            </button>
-
-            {showSearch && (
-              <div className={styles.searchDropdown}>
-                <div className={styles.searchDropdownHeader}>
-                  <span className={styles.searchDropdownTitle}>Search LUXE JWELS</span>
-                  <button
-                    type="button"
-                    onClick={() => setShowSearch(false)}
-                    className={styles.closeSearchBtn}
-                    aria-label="Close search"
-                  >
-                    <CloseIcon size={16} />
-                  </button>
-                </div>
-                <SearchAutocomplete variant="desktop" />
-              </div>
-            )}
-          </div>
 
           {/* 2. ACCOUNT */}
           <div className={styles.accountWrapper} ref={accountRef}>
@@ -247,6 +199,30 @@ export function Header({ onOpenCart }: HeaderProps) {
               <span className={styles.basketPrice}>{formatMoney(totalPrice)}</span>
             )}
           </button>
+        </div>
+      </div>
+
+      {/* 2. NAVIGATION ROW: ALL TABS (Home, Collections, Shop, About, Manufacturing, Blog, Contact) */}
+      <div className={styles.navRow}>
+        <div className={styles.navContainer}>
+          <nav className={styles.centerNav} aria-label="Main Navigation">
+            {NAV_LINKS.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href + "/");
+
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
       </div>
     </header>
