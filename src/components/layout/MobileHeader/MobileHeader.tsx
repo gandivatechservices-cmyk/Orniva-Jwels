@@ -126,6 +126,9 @@ export function MobileHeader({ onOpenCart }: MobileHeaderProps) {
             <Link href="/categories" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
               <span>Collections</span>
             </Link>
+            <Link href="/custom-jewellery" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
+              <span>Custom Jewellery</span>
+            </Link>
             <Link href="/about" prefetch={false} onClick={() => setIsMenuOpen(false)} className={styles.navItem}>
               <span>Our Story</span>
             </Link>

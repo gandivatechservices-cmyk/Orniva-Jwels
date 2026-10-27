@@ -215,6 +215,11 @@ export function Footer({ className = "" }: { className?: string }) {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/custom-jewellery" prefetch={false} className={styles.link}>
+                    Custom Jewellery
+                  </Link>
+                </li>
+                <li>
                   <Link href="/contact" prefetch={false} className={styles.link}>
                     Contact Us
                   </Link>

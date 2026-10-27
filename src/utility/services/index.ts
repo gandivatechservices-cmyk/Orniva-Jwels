@@ -12,3 +12,4 @@ export * from "utility/services/offers";
 export * from "utility/services/ukAddressService";
 export * from "utility/services/policies";
 export * from "utility/services/settings";
+export * from "utility/services/customJewellery";

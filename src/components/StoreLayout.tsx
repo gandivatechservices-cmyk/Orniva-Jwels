@@ -9,6 +9,7 @@ import {
   MobileBottomNav,
 } from "./layout";
 import { AuthModal } from "./common/AuthModal";
+import { BackToTop } from "./common/BackToTop";
 import styles from "./StoreLayout.module.css";
 
 export function StoreLayout({ children }: { children: ReactNode }) {
@@ -22,6 +23,7 @@ export function StoreLayout({ children }: { children: ReactNode }) {
       <main className={styles.main}>{children}</main>
       <Footer />
       <MobileBottomNav />
+      <BackToTop />
       <AuthModal />
     </div>
   );

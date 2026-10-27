@@ -217,5 +217,12 @@ export const API_ENDPOINTS = {
     DELIVERY: "/settings/delivery",
     STORE: "/settings/store",
   },
+
+  // ---------------------------------------------------------------------------
+  // CUSTOM JEWELLERY BESPOKE REQUESTS
+  // ---------------------------------------------------------------------------
+  CUSTOM_JEWELLERY: {
+    REQUESTS: "/custom-jewellery",
+  },
 } as const;
 

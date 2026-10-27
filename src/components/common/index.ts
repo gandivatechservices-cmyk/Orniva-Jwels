@@ -28,3 +28,5 @@ export * from "../promotional";
 
 export * from "./BrandHeroBanner";
 export * from "./TopContentCard";
+export * from "./BackToTop";
+

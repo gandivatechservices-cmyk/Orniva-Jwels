@@ -309,7 +309,7 @@ export default function HomePage() {
               </div>
             </Link>
 
-            <Link href="/contact" className={styles.editorialCard}>
+            <Link href="/custom-jewellery" className={styles.editorialCard}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={IMAGES.jewelry.customPromo}
