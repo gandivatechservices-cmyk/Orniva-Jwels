@@ -1,9 +1,9 @@
-/* ALL CATEGORIES PAGE STYLES */
+/* ALL CATEGORIES & COLLECTIONS DIRECTORY STYLES */
 
 .pageContainer {
   display: flex;
   flex-direction: column;
-  gap: clamp(36px, 4vw, 56px);
+  gap: clamp(32px, 4vw, 48px);
   padding-bottom: 80px;
   width: 100%;
 }
@@ -11,7 +11,7 @@
 .mainWrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8, 32px);
+  gap: 28px;
   width: 100%;
 }
 
@@ -26,22 +26,23 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 /* SEARCH & DEPARTMENT FILTER BAR */
 .controlsBar {
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: #ffffff;
-  border: 1px solid #E9E2D8;
-  border-radius: 8px;
-  padding: 16px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid #EAE2D5;
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .searchWrap {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   display: flex;
   align-items: center;
 }
@@ -55,10 +56,10 @@
 
 .searchInput {
   width: 100%;
-  height: 42px;
-  padding: 0 38px 0 40px;
+  height: 44px;
+  padding: 0 38px 0 42px;
   border: 1px solid #D8CEBF;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.875rem;
   font-family: inherit;
   color: #242321;
@@ -70,7 +71,7 @@
 .searchInput:focus {
   background-color: #ffffff;
   border-color: #A77B3F;
-  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.1);
+  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.12);
 }
 
 .clearSearchBtn {
@@ -79,13 +80,14 @@
   background: none;
   border: none;
   color: #A39D94;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .clearSearchBtn:hover {
@@ -107,17 +109,18 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 9999px;
-  border: 1px solid #E9E2D8;
+  border: 1px solid #EAE0D0;
   background: #FAF8F4;
   color: #6B655E;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s ease;
   user-select: none;
+  text-transform: capitalize;
 }
 
 .departmentPill:hover {
@@ -130,97 +133,42 @@
   background: #A77B3F !important;
   border-color: #A77B3F !important;
   color: #ffffff !important;
-  box-shadow: 0 2px 6px rgba(167, 123, 63, 0.2);
+  box-shadow: 0 2px 8px rgba(167, 123, 63, 0.25);
 }
 
 .pillBadge {
   font-size: 0.6875rem;
   font-weight: 600;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-/* CATEGORY GROUPS */
-.groupSection {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.groupHeader {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  border-bottom: 2px solid #F3EFE9;
-  padding-bottom: 12px;
-  gap: 16px;
-}
-
-.groupTitleArea {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.groupTitle {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 400;
-  color: #242321;
-  margin: 0;
+.summaryRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  padding: 0 4px;
 }
 
-.groupBadge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #A77B3F;
-  background-color: #FAF5EE;
-  border: 1px solid #EAE0D0;
-  padding: 2px 8px;
-  border-radius: 9999px;
-}
-
-.groupDesc {
-  font-size: 0.875rem;
+.summaryCount {
+  font-family: var(--font-sans, "Montserrat", sans-serif);
+  font-size: 0.84rem;
   color: #77716A;
   margin: 0;
-  line-height: 1.4;
 }
 
-.viewAllLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #A77B3F;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background: #FAF5EE;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-}
-
-.viewAllLink:hover {
-  background: #F5EFE3;
-  transform: translateX(2px);
-}
-
-/* RESPONSIVE CATEGORY GRID */
+/* RESPONSIVE CARD GRID */
 .categoryGrid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  width: 100%;
 }
 
 /* EMPTY / ERROR STATES */
 .errorCard {
   background-color: #fef2f2;
   border: 1px solid #fecaca;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 24px;
   text-align: center;
   display: flex;
@@ -233,8 +181,8 @@
 .emptyState {
   background-color: #ffffff;
   border: 1px dashed #D8CEBF;
-  border-radius: 8px;
-  padding: 48px 24px;
+  border-radius: 12px;
+  padding: 56px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -245,7 +193,7 @@
 
 .emptyStateTitle {
   font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #242321;
   margin: 0;
@@ -253,73 +201,31 @@
 
 .emptyStateDesc {
   font-size: 0.875rem;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0;
+  line-height: 1.5;
 }
 
 /* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1200px) {
-  .categoryGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
-
-@media (max-width: 900px) {
-  .categoryGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .headerCard {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 20px;
-  }
-
-  .headerMeta {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .categoryGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .categoryGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .pageContainer {
-    gap: 20px;
-    padding: 12px 0 48px;
-  }
-
-  .headerCard {
-    padding: 20px 16px;
-    border-radius: 8px;
-  }
-
-  .title {
-    font-size: 1.5rem;
+    gap: 24px;
+    padding-bottom: 56px;
   }
 
   .controlsBar {
-    padding: 12px 14px;
-  }
-
-  .groupHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .viewAllLink {
-    align-self: flex-start;
-  }
-}
-
-@media (max-width: 360px) {
-  .categoryGrid {
-    grid-template-columns: 1fr;
+    padding: 14px 16px;
   }
 }

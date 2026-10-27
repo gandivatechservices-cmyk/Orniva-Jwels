@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 
-.item + .item {
+.item+.item {
   border-left: 1px solid #EFE9E0;
 }
 
@@ -69,7 +69,7 @@
     justify-content: flex-start;
   }
 
-  .item + .item {
+  .item+.item {
     border-left: none;
   }
 }

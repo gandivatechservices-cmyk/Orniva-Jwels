@@ -87,7 +87,7 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .categoryGrid > * {
+  .categoryGrid>* {
     flex: 0 0 92px;
   }
 }
