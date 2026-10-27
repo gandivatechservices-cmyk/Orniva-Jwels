@@ -1,8 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import { Philosopher } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { JsonLd } from "components/seo";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, organizationJsonLd } from "lib/seo";
+
+const philosopher = Philosopher({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-philosopher",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,8 +47,16 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+    <html lang="en" className={philosopher.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={philosopher.className} suppressHydrationWarning>
         <JsonLd data={organizationJsonLd()} />
         <Providers>{children}</Providers>
       </body>

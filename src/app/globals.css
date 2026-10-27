@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* =========================================================
@@ -128,11 +128,13 @@
   --container-narrow: 960px;
 
   /* =========================================================
-     FLUID TYPOGRAPHY SCALE (Serif display + Clean sans)
+     FLUID TYPOGRAPHY SCALE (Philosopher font system)
      ========================================================= */
-  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-serif);
+  --font-philosopher: 'Philosopher', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-philosopher), 'Philosopher', Georgia, serif;
+  --font-sans: var(--font-philosopher), 'Philosopher', sans-serif;
+  --font-display: var(--font-philosopher), 'Philosopher', serif;
+  --font-playfair: var(--font-philosopher), 'Philosopher', serif;
 
   --fs-2xs: 0.6875rem;
   /* 11px */
@@ -212,18 +214,27 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  font-family: var(--font-philosopher), 'Philosopher', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
   min-height: 100%;
   color: var(--color-ink);
   background-color: var(--color-bg);
-  font-family: var(--font-sans);
+  font-family: var(--font-philosopher), 'Philosopher', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: var(--fs-sm);
   line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+}
+
+/* Ensure 100% text coverage across all HTML tags */
+h1, h2, h3, h4, h5, h6,
+p, span, a, label, li, td, th,
+input, button, textarea, select, optgroup,
+b, strong, em, i, small, sub, sup, caption, figcaption {
+  font-family: var(--font-philosopher), 'Philosopher', sans-serif;
 }
 
 img,
@@ -240,6 +251,7 @@ button,
 textarea,
 select {
   font: inherit;
+  font-family: var(--font-philosopher), 'Philosopher', sans-serif;
   color: inherit;
 }
 
@@ -396,4 +408,34 @@ ol {
   background-color: var(--color-bg, #f8faf8);
   padding: var(--space-6, 24px);
   box-sizing: border-box;
+}
+
+/* =========================================================
+   ANT DESIGN 100% PHILOSOPHER FONT ENFORCEMENT
+   ========================================================= */
+.ant-typography,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-table,
+.ant-menu,
+.ant-modal,
+.ant-drawer,
+.ant-card,
+.ant-tabs,
+.ant-dropdown,
+.ant-form,
+.ant-badge,
+.ant-tag,
+.ant-pagination,
+.ant-breadcrumb,
+.ant-notification,
+.ant-message,
+.ant-popover,
+.ant-tooltip,
+.ant-picker,
+.ant-segmented,
+.ant-radio,
+.ant-checkbox {
+  font-family: var(--font-philosopher), 'Philosopher', sans-serif !important;
 }

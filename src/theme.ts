@@ -17,7 +17,7 @@ export const shopperTheme: ThemeConfig = {
     colorLink: "#A77B3F",
     borderRadius: 4,
     controlHeight: 44,
-    fontFamily: "'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontFamily: "var(--font-philosopher, 'Philosopher', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif)",
     fontSize: 14,
     boxShadowTertiary: "0 4px 16px rgba(36, 35, 33, .06)",
   },

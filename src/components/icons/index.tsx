@@ -87,7 +87,7 @@ export function AtlasLogo({
         <span
           style={{
             color: textColor,
-            fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+            fontFamily: "var(--font-philosopher, 'Philosopher', sans-serif)",
             fontWeight: 700,
             fontSize: "1.25rem",
             letterSpacing: "0.08em",
@@ -99,7 +99,7 @@ export function AtlasLogo({
         <span
           style={{
             color: subColor,
-            fontFamily: "var(--font-sans, 'Montserrat', sans-serif)",
+            fontFamily: "var(--font-philosopher, 'Philosopher', sans-serif)",
             fontWeight: 500,
             fontSize: "0.5625rem",
             letterSpacing: "0.22em",
