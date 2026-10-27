@@ -37,25 +37,43 @@ import styles from "./cart.module.css";
 const CartLoadingSkeleton = memo(function CartLoadingSkeleton() {
   return (
     <div className={styles.loadingWrapper}>
-      <div className={styles.itemsCard}>
-        <div className={styles.itemsCardHeader}>
-          <Skeleton width="180px" height="20px" />
-          <Skeleton width="70px" height="24px" style={{ borderRadius: "9999px" }} />
-        </div>
-        <div className={styles.itemsList}>
-          <BasketLineItemSkeleton />
-          <BasketLineItemSkeleton />
-          <BasketLineItemSkeleton />
+      <div className={styles.leftColumn}>
+        <div className={styles.itemsCard}>
+          <div className={styles.itemsCardHeader}>
+            <Skeleton width="130px" height="20px" style={{ borderRadius: "4px" }} />
+            <Skeleton width="55px" height="22px" style={{ borderRadius: "9999px" }} />
+          </div>
+          <div className={styles.itemsList}>
+            <BasketLineItemSkeleton />
+            <BasketLineItemSkeleton />
+          </div>
         </div>
       </div>
       <div className={styles.summaryCard}>
         <div className={styles.summaryCardHeader}>
-          <Skeleton width="140px" height="24px" />
-          <Skeleton width="60px" height="24px" style={{ borderRadius: "9999px" }} />
+          <Skeleton width="130px" height="22px" style={{ borderRadius: "4px" }} />
+          <Skeleton width="50px" height="20px" style={{ borderRadius: "9999px" }} />
         </div>
-        <Skeleton width="100%" height="40px" />
-        <Skeleton width="100%" height="40px" />
-        <Skeleton width="100%" height="52px" style={{ borderRadius: "6px", marginTop: "12px" }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Skeleton width="70px" height="16px" style={{ borderRadius: "4px" }} />
+            <Skeleton width="60px" height="16px" style={{ borderRadius: "4px" }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Skeleton width="60px" height="16px" style={{ borderRadius: "4px" }} />
+            <Skeleton width="45px" height="16px" style={{ borderRadius: "4px" }} />
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Skeleton width="85px" height="16px" style={{ borderRadius: "4px" }} />
+            <Skeleton width="65px" height="16px" style={{ borderRadius: "4px" }} />
+          </div>
+        </div>
+        <div style={{ borderTop: "1.5px solid #E9E2D8", paddingTop: "14px", display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+          <Skeleton width="60px" height="20px" style={{ borderRadius: "4px" }} />
+          <Skeleton width="90px" height="26px" style={{ borderRadius: "4px" }} />
+        </div>
+        <Skeleton width="100%" height="46px" style={{ borderRadius: "6px", marginTop: "8px" }} />
+        <Skeleton width="100%" height="42px" style={{ borderRadius: "6px" }} />
       </div>
     </div>
   );

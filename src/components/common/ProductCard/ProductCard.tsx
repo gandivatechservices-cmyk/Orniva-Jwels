@@ -184,27 +184,26 @@ export const ProductCard = memo(function ProductCard({
 export function ProductCardSkeleton({ className = "" }: { className?: string }) {
   return (
     <div className={`${styles.skeletonCard} ${className}`} aria-hidden="true">
-      <Skeleton height="180px" variant="rectangular" style={{ borderRadius: "8px" }} />
-      <div style={{ marginTop: "12px", display: "flex", justifyContent: "space-between" }}>
-        <Skeleton width="45%" height="12px" style={{ borderRadius: "4px" }} />
-        <Skeleton width="25%" height="12px" style={{ borderRadius: "4px" }} />
+      <div className={styles.skeletonImageWrapper}>
+        <Skeleton height="100%" variant="rectangular" style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: "8px" }} />
       </div>
-      <div style={{ marginTop: "8px", display: "flex", flexDirection: "column", gap: "6px" }}>
-        <Skeleton width="90%" height="16px" style={{ borderRadius: "4px" }} />
-        <Skeleton width="65%" height="16px" style={{ borderRadius: "4px" }} />
+      <div style={{ marginTop: "10px", display: "flex", justifyContent: "space-between" }}>
+        <Skeleton width="45%" height="10px" style={{ borderRadius: "4px" }} />
+        <Skeleton width="25%" height="10px" style={{ borderRadius: "4px" }} />
       </div>
-      <div style={{ marginTop: "6px" }}>
-        <Skeleton width="35%" height="12px" style={{ borderRadius: "4px" }} />
+      <div style={{ marginTop: "6px", display: "flex", flexDirection: "column", gap: "5px" }}>
+        <Skeleton width="90%" height="14px" style={{ borderRadius: "4px" }} />
+        <Skeleton width="65%" height="14px" style={{ borderRadius: "4px" }} />
       </div>
-      <div style={{ marginTop: "10px", display: "flex", gap: "8px", alignItems: "baseline" }}>
-        <Skeleton width="68px" height="22px" style={{ borderRadius: "6px" }} />
-        <Skeleton width="48px" height="14px" style={{ borderRadius: "4px" }} />
+      <div style={{ marginTop: "5px" }}>
+        <Skeleton width="35%" height="10px" style={{ borderRadius: "4px" }} />
       </div>
-      <div style={{ marginTop: "6px" }}>
-        <Skeleton width="40%" height="16px" style={{ borderRadius: "4px" }} />
+      <div style={{ marginTop: "8px", display: "flex", gap: "6px", alignItems: "baseline" }}>
+        <Skeleton width="60px" height="18px" style={{ borderRadius: "4px" }} />
+        <Skeleton width="40px" height="12px" style={{ borderRadius: "4px" }} />
       </div>
-      <div style={{ marginTop: "14px" }}>
-        <Skeleton width="100%" height="40px" variant="rectangular" style={{ borderRadius: "8px" }} />
+      <div style={{ marginTop: "10px" }}>
+        <Skeleton width="100%" height="36px" variant="rectangular" style={{ borderRadius: "6px" }} />
       </div>
     </div>
   );

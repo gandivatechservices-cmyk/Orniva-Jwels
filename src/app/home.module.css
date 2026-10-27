@@ -478,3 +478,9 @@
     object-position: 70% 100%;
   }
 }
+
+@media (max-width: 360px) {
+  .productGrid {
+    gap: 8px;
+  }
+}

@@ -38,33 +38,33 @@
 
 .discountBadge {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 8px;
   z-index: 2;
   background: #ffffff;
   color: #8A6430;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 4px 8px;
+  padding: 3px 7px;
   border-radius: 999px;
   line-height: 1.2;
   user-select: none;
-  box-shadow: 0 1px 4px rgba(33, 26, 20, 0.08);
+  box-shadow: 0 1px 4px rgba(33, 26, 20, 0.1);
 }
 
 .wishlistBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   z-index: 2;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,13 +75,13 @@
 }
 
 .wishlistBtn:hover {
-  color: #A77B3F;
+  color: #c92a2a;
   background: #ffffff;
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .wishlistBtn.wishlisted {
-  color: #A77B3F;
+  color: #c92a2a;
   background: #ffffff;
 }
 
@@ -139,7 +139,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 12px 4px 0;
+  padding: 10px 2px 0;
   min-width: 0;
 }
 
@@ -148,7 +148,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
+  min-width: 0;
 }
 
 .brand {
@@ -156,7 +157,7 @@
   font-weight: 600;
   color: #A39D94;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -168,7 +169,7 @@
   align-items: center;
   gap: 3px;
   flex-shrink: 0;
-  font-size: 0.7rem;
+  font-size: 0.6875rem;
   line-height: 1;
 }
 
@@ -184,21 +185,24 @@
 
 .reviewCount {
   color: #A39D94;
+  font-size: 0.65rem;
 }
 
 .title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1rem;
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 0.9375rem;
   font-weight: 500;
   color: #242321;
-  line-height: 1.3;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
   text-decoration: none;
   text-transform: capitalize;
   margin: 0 0 4px;
+  min-height: 2.7em;
   transition: color 0.2s ease;
 }
 
@@ -209,36 +213,40 @@
 .detailRow {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 2px;
+  gap: 6px;
+  margin-bottom: 4px;
   font-size: 0.72rem;
   line-height: 1.3;
 }
 
 .weight {
   color: #77716A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lowStock {
   color: #B45309;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .weight + .lowStock::before {
   content: "·";
-  margin-right: 8px;
+  margin-right: 6px;
   color: #C9C2B8;
   font-weight: 400;
 }
 
 .priceContainer {
-  margin: 10px 0 14px;
+  margin: 6px 0 10px;
 }
 
 .priceRow {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -246,33 +254,34 @@
   font-size: 0.6875rem;
   font-weight: 500;
   color: #77716A;
-  margin-right: -4px;
+  margin-right: -2px;
 }
 
 .price {
   font-family: var(--font-sans, "Montserrat", sans-serif);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #242321;
   letter-spacing: -0.01em;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .comparePrice {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #A39B92;
   text-decoration: line-through;
 }
 
 .offerTag {
   display: inline-block;
-  margin-top: 8px;
-  padding: 2px 8px;
-  border-radius: var(--radius-pill, 999px);
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
+  margin-top: 6px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #FFF1E6;
+  color: #B45309;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border: 1px solid #FFE0C2;
 }
 
 /* 3. ACTION / PURCHASE ROW */
@@ -287,22 +296,22 @@
 
 .addBtn {
   width: 100%;
-  height: 40px;
+  height: 38px;
   background: #211A14;
   color: #FAF8F4;
   border: 1px solid #211A14;
   border-radius: 8px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   cursor: pointer;
-  transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.15s ease;
+  transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
   user-select: none;
-  padding: 0 12px;
+  padding: 0 10px;
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -315,6 +324,7 @@ a.addBtn {
   background: #A77B3F;
   border-color: #A77B3F;
   color: #ffffff;
+  box-shadow: 0 4px 12px rgba(167, 123, 63, 0.25);
 }
 
 .addBtn:active {
@@ -333,12 +343,12 @@ a.addBtn {
 
 .addBtnDisabled {
   width: 100%;
-  height: 40px;
+  height: 38px;
   background-color: #F5F3EF;
   color: #A8A29E;
   border: 1px solid #E7E5E4;
   border-radius: 8px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   cursor: not-allowed;
   display: flex;
@@ -358,101 +368,100 @@ a.addBtn {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-/* RESPONSIVE: compact horizontal card on phones */
+.skeletonImageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* RESPONSIVE: Clean vertical card styling on phones */
 @media (max-width: 580px) {
   .card {
-    display: grid;
-    grid-template-columns: 108px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "image info"
-      "image actions";
-    column-gap: 12px;
-    row-gap: 6px;
-    padding: 10px;
+    padding: 7px;
     border-radius: 10px;
-    align-items: start;
-    min-height: 118px;
-    height: auto;
-  }
-
-  .card:hover {
-    transform: none;
   }
 
   .imageWrapper {
-    grid-area: image;
-    width: 108px;
-    height: 108px;
-    border-radius: 8px;
-    align-self: center;
+    border-radius: 6px;
   }
 
   .wishlistBtn {
-    top: 5px;
-    right: 5px;
-    width: 26px;
-    height: 26px;
+    top: 6px;
+    right: 6px;
+    width: 27px;
+    height: 27px;
   }
 
   .discountBadge {
-    top: 5px;
-    left: 5px;
+    top: 6px;
+    left: 6px;
     font-size: 0.625rem;
     padding: 2px 6px;
   }
 
   .info {
-    grid-area: info;
-    padding: 0;
+    padding: 8px 1px 0;
   }
 
   .metaRow {
     margin-bottom: 3px;
+    gap: 4px;
+  }
+
+  .brand {
+    font-size: 0.58rem;
+  }
+
+  .rating {
+    font-size: 0.64rem;
   }
 
   .title {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     line-height: 1.25;
     margin-bottom: 2px;
+    min-height: 2.5em;
   }
 
   .detailRow {
-    font-size: 0.6875rem;
+    font-size: 0.66rem;
+    margin-bottom: 2px;
   }
 
   .priceContainer {
-    margin: 6px 0 0;
+    margin: 4px 0 8px;
   }
 
   .price {
-    font-size: 1rem;
+    font-size: 0.94rem;
   }
 
   .comparePrice {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .actionRow {
-    grid-area: actions;
-    margin-top: 2px;
+    margin-top: auto;
+    padding-top: 2px;
   }
 
   .addBtn,
   .addBtnDisabled {
-    height: 36px;
-    font-size: 0.78rem;
-    padding: 0 8px;
+    height: 34px;
+    font-size: 0.72rem;
+    padding: 0 6px;
+    gap: 5px;
+    border-radius: 6px;
   }
 
-  .skeletonCard {
-    display: grid;
-    grid-template-columns: 108px minmax(0, 1fr);
-    column-gap: 12px;
-    padding: 10px;
-    border-radius: 10px;
-    min-height: 118px;
+  .addBtnIcon {
+    width: 12px;
+    height: 12px;
   }
 }
+

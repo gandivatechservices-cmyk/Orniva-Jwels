@@ -39,10 +39,11 @@
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   gap: 32px;
   align-items: flex-start;
   width: 100%;
+  min-width: 0;
 }
 
 .leftColumn {
@@ -50,6 +51,7 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  min-width: 0;
 }
 
 /* LEFT SIDE: ITEMS CARD */
@@ -62,6 +64,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
   box-sizing: border-box;
 }
 
@@ -106,6 +109,9 @@
   background: #FAF8F4;
   border: 1px solid #E9E2D8;
   border-radius: 8px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .cartTrustItem {
@@ -360,18 +366,70 @@
 
 .loadingWrapper {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   gap: 32px;
   width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 960px) {
   .layout,
   .loadingWrapper {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .summaryCard {
     position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageContainer,
+  .container {
+    gap: 24px;
+    padding-bottom: 60px;
+  }
+
+  .itemsCardHeader {
+    padding: 12px 16px;
+  }
+
+  .cartTrustRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .stillDecidingCard {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .stillDecidingTitle {
+    font-size: 0.95rem;
+  }
+
+  .stillDecidingSub {
+    font-size: 0.74rem;
+  }
+
+  .summaryCard {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .summaryCardTitle {
+    font-size: 1.15rem;
+  }
+
+  .proceedCheckoutBtn {
+    height: 44px;
+    font-size: 0.8rem;
+  }
+
+  .continueShoppingBtn {
+    height: 40px;
+    font-size: 0.78rem;
   }
 }

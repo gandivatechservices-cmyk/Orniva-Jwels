@@ -61,16 +61,15 @@ export const BasketLineItem = memo(function BasketLineItem({
           {bonusQty > 0 && (
             <span className={styles.bonusBadge}>+{bonusQty} FREE (Buy {qty}, Get {bonusQty})</span>
           )}
-          <span className={styles.unitPrice}>
-            {formatPrice(price, currency)} each
+          <div className={styles.priceRow}>
+            <span className={styles.unitPrice}>{formatPrice(price, currency)} each</span>
             {hasDiscount && (
-              <>
-                {" "}
+              <span className={styles.discountGroup}>
                 <span className={styles.comparePrice}>{formatPrice(comparePrice!, currency)}</span>
                 <span className={styles.saveTag}>Save {discountPercent}%</span>
-              </>
+              </span>
             )}
-          </span>
+          </div>
         </div>
       </div>
 
@@ -80,6 +79,7 @@ export const BasketLineItem = memo(function BasketLineItem({
           min={1}
           max={stock}
           size="md"
+          className={styles.stepper}
           onChange={(newQty) => onUpdateQty?.(keyId, newQty)}
         />
 
@@ -104,17 +104,18 @@ export const BasketLineItem = memo(function BasketLineItem({
 export function BasketLineItemSkeleton({ className = "" }: { className?: string }) {
   return (
     <div className={`${styles.skeletonItem} ${className}`}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
-        <Skeleton width="56px" height="56px" variant="rectangular" />
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: 1 }}>
-          <Skeleton width="60%" height="16px" />
-          <Skeleton width="30%" height="12px" />
+      <div className={styles.skeletonLeft}>
+        <Skeleton width="72px" height="72px" variant="rectangular" style={{ borderRadius: "6px", flexShrink: 0 }} />
+        <div className={styles.skeletonDetails}>
+          <Skeleton width="80%" height="16px" style={{ borderRadius: "4px" }} />
+          <Skeleton width="45%" height="12px" style={{ borderRadius: "4px" }} />
+          <Skeleton width="60%" height="14px" style={{ borderRadius: "4px" }} />
         </div>
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <Skeleton width="80px" height="32px" variant="rectangular" />
-        <Skeleton width="50px" height="16px" />
-        <Skeleton width="32px" height="32px" variant="rectangular" />
+      <div className={styles.skeletonRight}>
+        <Skeleton width="96px" height="34px" variant="rectangular" style={{ borderRadius: "4px" }} />
+        <Skeleton width="80px" height="20px" style={{ borderRadius: "4px" }} />
+        <Skeleton width="28px" height="28px" variant="rectangular" style={{ borderRadius: "4px" }} />
       </div>
     </div>
   );

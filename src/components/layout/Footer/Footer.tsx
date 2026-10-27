@@ -57,7 +57,7 @@ export function Footer({ className = "" }: { className?: string }) {
           <div className={styles.trustGrid}>
             <div className={styles.trustItem}>
               <div className={styles.trustIconWrap}>
-                <ShieldCheckIcon size={22} />
+                <ShieldCheckIcon size={20} />
               </div>
               <div className={styles.trustText}>
                 <span className={styles.trustTitle}>100% Authentic</span>
@@ -67,17 +67,17 @@ export function Footer({ className = "" }: { className?: string }) {
 
             <div className={styles.trustItem}>
               <div className={styles.trustIconWrap}>
-                <TruckIcon size={22} />
+                <TruckIcon size={20} />
               </div>
               <div className={styles.trustText}>
                 <span className={styles.trustTitle}>Secure Packaging</span>
-                <span className={styles.trustDesc}>Safe & Elegant Presentation</span>
+                <span className={styles.trustDesc}>Safe &amp; Elegant Presentation</span>
               </div>
             </div>
 
             <div className={styles.trustItem}>
               <div className={styles.trustIconWrap}>
-                <TagIcon size={22} />
+                <TagIcon size={20} />
               </div>
               <div className={styles.trustText}>
                 <span className={styles.trustTitle}>30-Day Easy Return</span>
@@ -87,7 +87,7 @@ export function Footer({ className = "" }: { className?: string }) {
 
             <div className={styles.trustItem}>
               <div className={styles.trustIconWrap}>
-                <LeafIcon size={22} />
+                <LeafIcon size={20} />
               </div>
               <div className={styles.trustText}>
                 <span className={styles.trustTitle}>Dedicated Support</span>
@@ -103,8 +103,11 @@ export function Footer({ className = "" }: { className?: string }) {
         <Container>
           <div className={styles.newsletterInner}>
             <div className={styles.newsletterBrandBadge}>
-              <span className={styles.newsletterBadgeTag}>100% Authentic</span>
-              <span className={styles.newsletterBadgeSub}>Join our fine jewellery circle for offers and private sales</span>
+              <span className={styles.newsletterEyebrow}>EXCLUSIVE PRIVILEGES</span>
+              <h3 className={styles.newsletterTitle}>Join the LUXE JWELS Circle</h3>
+              <p className={styles.newsletterSub}>
+                Receive private invitations, curated collection previews &amp; bespoke privileges.
+              </p>
             </div>
 
             <div className={styles.newsletterFormWrap}>
@@ -124,7 +127,7 @@ export function Footer({ className = "" }: { className?: string }) {
                     aria-label="Email address for jewelry updates"
                   />
                   <button type="submit" className={styles.newsletterBtn}>
-                    Subscribe
+                    <span>Subscribe</span>
                   </button>
                 </form>
               )}

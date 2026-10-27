@@ -455,7 +455,7 @@
   }
 }
 
-/* Mobile Screen: 1 Card per row for clear, un-cut presentation */
+/* Mobile Screen: 2 Cards per row for luxury presentation */
 @media (max-width: 580px) {
   .topBar {
     padding: 10px 12px;
@@ -463,8 +463,8 @@
 
   .grid,
   .infiniteLoaderRow {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     width: 100%;
   }
 }

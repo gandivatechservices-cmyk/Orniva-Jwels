@@ -58,11 +58,11 @@
   }
 }
 
-/* Mobile Screen: 1 Card per row for clear, un-cut presentation matching /products */
+/* Mobile Screen: 2 Cards per row for luxury presentation matching /products */
 @media (max-width: 580px) {
   .grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     width: 100%;
   }
 }
