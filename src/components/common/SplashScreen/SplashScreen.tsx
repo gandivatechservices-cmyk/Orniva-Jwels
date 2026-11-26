@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { catalogService } from "utility/services";
+import { loadHomeData } from "utility/homeData";
 import styles from "./SplashScreen.module.css";
 
 const SEEN_KEY = "orniva-splash";
@@ -11,12 +11,8 @@ const EXIT_MS = 1100;
 
 type Phase = "show" | "leaving" | "gone";
 
-/** Data the storefront needs on first paint. The catalog service caches these, so pages reuse them instantly. */
-const REQUIRED_DATA: Array<() => Promise<unknown>> = [
-  () => catalogService.listDomains(),
-  () => catalogService.listRootCategories(),
-  () => catalogService.listProducts(),
-];
+/** Data the storefront needs on first paint. It is stored in memory, so the home page shows it with no extra request. */
+const REQUIRED_DATA: Array<() => Promise<unknown>> = [() => loadHomeData()];
 
 const facets = [
   "M30 10 L42 38", "M60 10 L42 38", "M60 10 L78 38", "M90 10 L78 38",

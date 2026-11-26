@@ -17,8 +17,8 @@
 
 .searchIcon {
   position: absolute;
-  left: 16px;
-  color: #242321;
+  left: 18px;
+  color: #A77B3F;
   pointer-events: none;
   z-index: 2;
 }
@@ -29,8 +29,9 @@
   padding-left: 46px;
   padding-right: 125px;
   background-color: #ffffff;
-  border: 1.5px solid #242321;
+  border: 1.5px solid #D8CEBF;
   border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(33, 26, 20, 0.05);
   font-size: 0.875rem;
   font-weight: 500;
   color: #242321;
@@ -54,13 +55,13 @@
 
 .input:hover {
   background-color: #ffffff;
-  border-color: #161311;
+  border-color: #C5A16B;
 }
 
 .input:focus {
   background-color: #ffffff;
   border-color: #A77B3F;
-  box-shadow: 0 0 0 3px rgba(167, 123, 63, 0.15);
+  box-shadow: 0 0 0 4px rgba(167, 123, 63, 0.16);
 }
 
 .input::placeholder {
@@ -128,22 +129,34 @@
 .submitBtn {
   position: absolute;
   right: 5px;
-  background-color: #161311;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 22px;
+  background: linear-gradient(135deg, #C5A16B 0%, #A77B3F 55%, #8E662F 100%);
   color: #ffffff;
   border: none;
   border-radius: 9999px;
-  padding: 8px 20px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.15s ease;
+  box-shadow: 0 3px 10px rgba(167, 123, 63, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
   z-index: 3;
 }
 
 .submitBtn:hover {
-  background-color: #A77B3F;
-  box-shadow: 0 2px 8px rgba(167, 123, 63, 0.3);
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(167, 123, 63, 0.45);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
 }
 
 /* DROPDOWN */

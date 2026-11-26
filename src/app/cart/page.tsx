@@ -495,12 +495,7 @@ function CartContent() {
           {isInitialLoading ? (
             <CartLoadingSkeleton />
           ) : items.length === 0 ? (
-            <EmptyState
-              title="Your jewelry cart is empty"
-              description="Explore our certified fine jewelry catalog and add your favourite pieces to your cart."
-              actionLabel="Explore Collections"
-              actionHref="/products"
-            />
+            <EmptyState preset="cart" />
           ) : (
             <div className={styles.layout}>
               <CartItemsList

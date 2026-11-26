@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { StoreLayout } from "../components/StoreLayout";
 import { Container } from "../components/layout/Container";
@@ -12,14 +12,8 @@ import {
   ServiceBenefits,
 } from "../components/common";
 import { CollectionShowcase } from "../components/category";
-import {
-  catalogService,
-  offersService,
-  type Category,
-  type Coupon,
-  type Domain,
-  type Product,
-} from "../utility/services";
+import { type Category } from "../utility/services";
+import { getCachedHomeData, isHomeDataFresh, loadHomeData, type HomeData } from "../utility/homeData";
 import { useWishlist, useCartQuantity } from "hooks";
 import { IMAGES, getGroceryProductImage } from "../constants/images";
 import { ArrowRightIcon, StarIcon } from "../components/icons";
@@ -49,74 +43,42 @@ const TESTIMONIALS = [
 ];
 
 export default function HomePage() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [domains, setDomains] = useState<Domain[]>([]);
-  const [activeOffers, setActiveOffers] = useState<Coupon[]>([]);
-  const [selectedCategoryTab, setSelectedCategoryTab] = useState<string>("all");
-  const [loading, setLoading] = useState(true);
+  // Home data is kept in memory (see utility/homeData.ts): coming back to this page shows it instantly
+  // with no request, and it is only refreshed in the background when it has gone stale.
+  const [data, setData] = useState<HomeData | null>(getCachedHomeData);
   const [error, setError] = useState<string | null>(null);
+  const [selectedCategoryTab, setSelectedCategoryTab] = useState<string>("all");
 
   const { productIds: wishlistedIds, toggle: toggleWishlist } = useWishlist();
 
-  const hasLoadedRef = useRef(false);
-
   useEffect(() => {
-    if (hasLoadedRef.current) return;
-    hasLoadedRef.current = true;
-
-    async function loadHomeData() {
-      try {
-        setLoading(true);
-        const [catsRes, prodsRes, domainsRes] = await Promise.all([
-          catalogService.listRootCategories(),
-          catalogService.listProducts(),
-          catalogService.listDomains(),
-        ]);
-
-        // Prioritize jewelry categories
-        const priorityKeywords = [
-          "ring",
-          "necklace",
-          "earring",
-          "bracelet",
-          "pendant",
-          "bangle",
-          "men",
-          "wedding",
-          "bridal",
-          "gold",
-          "diamond",
-          "jewel",
-        ];
-
-        const allCats = catsRes || [];
-        const getCategoryScore = (cat: Category) => {
-          const text = `${cat.slug} ${cat.name}`.toLowerCase();
-          const index = priorityKeywords.findIndex((k) => text.includes(k));
-          return index === -1 ? 999 : index;
-        };
-
-        const sortedCats = [...allCats].sort((a, b) => getCategoryScore(a) - getCategoryScore(b));
-        setCategories(sortedCats);
-
-        const activeProducts = prodsRes?.items?.filter((p) => p.isActive) || [];
-        setProducts(activeProducts);
-        setDomains(domainsRes || []);
-
-        const domainIds = [...new Set((domainsRes || []).map((d) => d._id))];
-        const offersByDomain = await Promise.all(
-          domainIds.map((domainId) => offersService.listActive(domainId).catch(() => []))
-        );
-        setActiveOffers(offersByDomain.flat());
-      } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : "Failed to load storefront data.");
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadHomeData();
+    if (isHomeDataFresh()) return;
+    let alive = true;
+    loadHomeData()
+      .then((result) => alive && setData(result))
+      .catch((err: unknown) => {
+        if (alive && !getCachedHomeData()) setError(err instanceof Error ? err.message : "Failed to load storefront data.");
+      });
+    return () => {
+      alive = false;
+    };
   }, []);
+
+  const loading = !data && !error;
+
+  // Prioritize jewelry categories
+  const categories = useMemo(() => {
+    const priorityKeywords = ["ring", "necklace", "earring", "bracelet", "pendant", "bangle", "men", "wedding", "bridal", "gold", "diamond", "jewel"];
+    const score = (cat: Category) => {
+      const text = `${cat.slug} ${cat.name}`.toLowerCase();
+      const index = priorityKeywords.findIndex((k) => text.includes(k));
+      return index === -1 ? 999 : index;
+    };
+    return [...(data?.categories || [])].sort((a, b) => score(a) - score(b));
+  }, [data]);
+  const products = useMemo(() => (data?.products || []).filter((p) => p.isActive), [data]);
+  const domains = useMemo(() => data?.domains || [], [data]);
+  const activeOffers = useMemo(() => data?.offers || [], [data]);
 
   const domainCurrencyMap = useMemo(
     () => Object.fromEntries(domains.map((d) => [d._id, d.currency])),

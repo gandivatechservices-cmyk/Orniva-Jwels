@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
-import { Button } from "../../components/ui/Button";
 import { EmptyState } from "../../components/ui/EmptyState";
 import { ProductCard, ProductCardSkeleton, TopContentCard } from "../../components/common";
 import { useAuth, useWishlist, useCartQuantity } from "hooks";
@@ -60,24 +58,15 @@ export default function WishlistPage() {
         <Container>
           {/* State Views / Grid */}
           {!isAuthenticated ? (
-            <div style={{ padding: "60px 0" }}>
-              <EmptyState
-                title="Sign in to view your wishlist"
-                description="Sign in to your account to access your saved fine jewelry pieces across any device."
-                action={
-                  <Button
-                    onClick={() =>
-                      showAuthModal({
-                        tab: "login",
-                        message: "Sign in to access your saved wishlist items.",
-                      })
-                    }
-                  >
-                    Sign In
-                  </Button>
-                }
-              />
-            </div>
+            <EmptyState
+              preset="wishlistSignIn"
+              onAction={() =>
+                showAuthModal({
+                  tab: "login",
+                  message: "Sign in to access your saved wishlist items.",
+                })
+              }
+            />
           ) : loading ? (
             <div className={styles.grid}>
               {Array.from({ length: 4 }).map((_, i) => (
@@ -85,20 +74,9 @@ export default function WishlistPage() {
               ))}
             </div>
           ) : error ? (
-            <EmptyState
-              title="Unable to load wishlist"
-              description={error}
-              action={
-                <Button onClick={() => loadWishlist()}>Try Again</Button>
-              }
-            />
+            <EmptyState preset="error" title="Unable to load wishlist" description={error} onAction={() => loadWishlist()} />
           ) : wishlistedProducts.length === 0 ? (
-            <EmptyState
-              title="Your jewelry wishlist is empty"
-              description="Explore our certified fine jewelry catalog and tap the heart icon on any piece to save it here."
-              actionLabel="Explore Collections"
-              actionHref="/products"
-            />
+            <EmptyState preset="wishlist" />
           ) : (
             <div className={styles.grid}>
               {wishlistedProducts.map((p) => {

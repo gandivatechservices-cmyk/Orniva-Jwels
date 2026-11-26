@@ -197,6 +197,11 @@ const productInFlight = new Map<string, Promise<PaginatedProducts>>();
 const suggestionsCache = new Map<string, { data: SearchSuggestionsResult; expiresAt: number }>();
 const suggestionsInFlight = new Map<string, Promise<SearchSuggestionsResult>>();
 
+// Popular searches rarely change: one request is shared by every search box and cached for 10 minutes.
+const POPULAR_SEARCHES_TTL_MS = 10 * 60 * 1000;
+const popularSearchesCache = new Map<string, { data: string[]; expiresAt: number }>();
+const popularSearchesInFlight = new Map<string, Promise<string[]>>();
+
 
 export const catalogService = {
   // -------------------------------------------------------------------------
@@ -459,21 +464,28 @@ export const catalogService = {
     return promise;
   },
 
-  getPopularSearches: async (domainId?: string): Promise<string[]> => {
-    try {
-      const res = await unwrap(
-        apiClient.get<ApiResponse<SearchSuggestionsResult>>(
-          API_ENDPOINTS.PRODUCTS.POPULAR_SEARCHES({ domainId })
-        )
-      );
-      return res.popularTags || [];
-    } catch {
-      return [];
-    }
+  getPopularSearches: (domainId?: string): Promise<string[]> => {
+    const key = domainId || "all";
+    const cached = popularSearchesCache.get(key);
+    if (cached && Date.now() < cached.expiresAt) return Promise.resolve(cached.data);
+
+    const inFlight = popularSearchesInFlight.get(key);
+    if (inFlight) return inFlight;
+
+    const promise = unwrap(
+      apiClient.get<ApiResponse<SearchSuggestionsResult>>(API_ENDPOINTS.PRODUCTS.POPULAR_SEARCHES({ domainId }))
+    )
+      .then((res) => {
+        const tags = res.popularTags || [];
+        popularSearchesCache.set(key, { data: tags, expiresAt: Date.now() + POPULAR_SEARCHES_TTL_MS });
+        return tags;
+      })
+      .catch(() => [] as string[])
+      .finally(() => popularSearchesInFlight.delete(key));
+
+    popularSearchesInFlight.set(key, promise);
+    return promise;
   },
-
-
-
 
   getProduct: (id: string) =>
     unwrap(apiClient.get<ApiResponse<Product>>(API_ENDPOINTS.PRODUCTS.BY_ID(id))),

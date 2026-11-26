@@ -97,8 +97,9 @@ function SearchAutocompleteContent({
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const latestRequestIdRef = useRef(0);
 
-  // Load popular tags 100% dynamically from backend database
+  // Popular tags come from the backend, but only when the dropdown is first opened (and are shared/cached by the service)
   useEffect(() => {
+    if (!isOpen) return;
     let isMounted = true;
     catalogService
       .getPopularSearches()
@@ -112,7 +113,7 @@ function SearchAutocompleteContent({
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isOpen]);
 
   // Sync input value when URL search param changes or clears
   // Runs only when the URL value changes, never while the user is typing.

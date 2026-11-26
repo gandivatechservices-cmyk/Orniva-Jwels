@@ -10,6 +10,7 @@ import {
   HeartIcon,
   CartIcon,
   ChevronDownIcon,
+  ArrowRightIcon,
   CloseIcon,
 } from "components/icons";
 import { SearchAutocomplete } from "components/common/SearchAutocomplete";
@@ -20,6 +21,9 @@ import styles from "./Header.module.css";
 export type HeaderProps = {
   onOpenCart?: () => void;
 };
+
+/** Text on the menu dropdown trigger next to the logo. */
+const MENU_LABEL = "Discover";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -40,8 +44,14 @@ export function Header({ onOpenCart }: HeaderProps) {
 
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const accountRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const isLinkActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+  const activeLink = NAV_LINKS.find((link) => isLinkActive(link.href));
 
   const isAdmin = user?.role === "admin" || user?.role === "superadmin";
 
@@ -55,9 +65,22 @@ export function Header({ onOpenCart }: HeaderProps) {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
         setShowAccountMenu(false);
       }
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setShowMenu(false);
+      }
+    }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setShowMenu(false);
+        setShowAccountMenu(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, []);
 
   return (
@@ -69,6 +92,42 @@ export function Header({ onOpenCart }: HeaderProps) {
           <Link href="/" className={styles.logoLink} aria-label="ORNIVA JEWELS Home">
             <AtlasLogo height={32} />
           </Link>
+
+          {/* MENU: text dropdown next to the logo */}
+          <div className={styles.menuWrapper} ref={menuRef}>
+            <button
+              type="button"
+              className={`${styles.menuTrigger} ${showMenu ? styles.menuTriggerOpen : ""}`}
+              onClick={() => setShowMenu((open) => !open)}
+              aria-haspopup="true"
+              aria-expanded={showMenu}
+              aria-controls="header-menu-panel"
+            >
+              <span>{MENU_LABEL}</span>
+              <ChevronDownIcon size={14} className={styles.menuChevron} />
+            </button>
+
+            {showMenu && (
+              <nav id="header-menu-panel" className={styles.menuPanel} aria-label="Main Navigation">
+                {NAV_LINKS.map((link, i) => {
+                  const isActive = link === activeLink;
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={`${styles.menuLink} ${isActive ? styles.menuLinkActive : ""}`}
+                      style={{ animationDelay: `${0.03 + i * 0.04}s` }}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={() => setShowMenu(false)}
+                    >
+                      <span>{link.label}</span>
+                      <ArrowRightIcon size={13} className={styles.menuLinkArrow} aria-hidden="true" />
+                    </Link>
+                  );
+                })}
+              </nav>
+            )}
+          </div>
         </div>
 
         {/* CENTER: LARGE PROMINENT SEARCH BAR */}
@@ -199,30 +258,6 @@ export function Header({ onOpenCart }: HeaderProps) {
               <span className={styles.basketPrice}>{formatMoney(totalPrice)}</span>
             )}
           </button>
-        </div>
-      </div>
-
-      {/* 2. NAVIGATION ROW: ALL TABS (Home, Collections, Shop, About, Manufacturing, Blog, Contact) */}
-      <div className={styles.navRow}>
-        <div className={styles.navContainer}>
-          <nav className={styles.centerNav} aria-label="Main Navigation">
-            {NAV_LINKS.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname === link.href || pathname.startsWith(link.href + "/");
-
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
         </div>
       </div>
     </header>

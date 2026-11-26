@@ -6,8 +6,8 @@ import { ProtectedRoute } from "../../guards";
 import { StoreLayout } from "../../components/StoreLayout";
 import { Container } from "../../components/layout/Container";
 import { TopContentCard } from "../../components/common/TopContentCard";
-import { Button } from "../../components/ui/Button";
 import { EmptyState } from "../../components/ui/EmptyState";
+import { Button } from "../../components/ui/Button";
 import { Skeleton } from "../../components/ui/Skeleton";
 import { TruckIcon, ArrowRightIcon } from "../../components/icons";
 import { DownloadInvoiceButton } from "../../components/common";
@@ -106,23 +106,9 @@ function OrdersView() {
               ))}
             </div>
           ) : error ? (
-            <EmptyState
-              title="Unable to load orders"
-              description={error}
-              action={
-                <Button onClick={() => window.location.reload()}>Try Again</Button>
-              }
-            />
+            <EmptyState preset="error" title="Unable to load orders" description={error} onAction={() => window.location.reload()} />
           ) : orders.length === 0 ? (
-            <EmptyState
-              title="No jewelry orders found"
-              description="You haven't placed any fine jewelry orders yet. Explore our handcrafted collections today."
-              action={
-                <Link href="/products" className={styles.primaryBtn}>
-                  Explore Collections
-                </Link>
-              }
-            />
+            <EmptyState preset="orders" />
           ) : (
             <div className={styles.ordersList}>
               {orders.map((order) => {
