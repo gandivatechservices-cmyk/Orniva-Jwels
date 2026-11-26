@@ -57,6 +57,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className={philosopher.className} suppressHydrationWarning>
+        {/* Skip the splash screen on repeat visits in the same session (avoids a flash before hydration) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{if(sessionStorage.getItem(\"orniva-splash\"))document.documentElement.setAttribute(\"data-splash\",\"seen\")}catch(e){}",
+          }}
+        />
         <JsonLd data={organizationJsonLd()} />
         <Providers>{children}</Providers>
       </body>

@@ -439,3 +439,7 @@ ol {
 .ant-checkbox {
   font-family: var(--font-philosopher), 'Philosopher', sans-serif !important;
 }
+/* Splash screen is skipped once it has been shown in this session */
+html[data-splash="seen"] .orniva-splash {
+  display: none !important;
+}

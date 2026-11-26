@@ -1,0 +1,195 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #FAF8F4;
+}
+
+/* Two halves that slide away to reveal the site */
+.curtain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background: radial-gradient(ellipse at center, #2B231C 0%, #161311 85%);
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.curtainTop { top: 0; }
+.curtainBottom { bottom: 0; }
+
+.leaving .curtainTop { transform: translateY(-101%); }
+.leaving .curtainBottom { transform: translateY(101%); }
+
+.glow {
+  position: absolute;
+  width: min(80vw, 640px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 161, 107, 0.28) 0%, rgba(197, 161, 107, 0) 65%);
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+.dust {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #DFCA9E;
+  opacity: 0;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.leaving .center {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.gemWrap {
+  position: relative;
+  width: clamp(110px, 22vw, 170px);
+  animation: float 4s ease-in-out infinite;
+}
+
+.gem {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 10px 30px rgba(197, 161, 107, 0.35));
+}
+
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1s ease forwards;
+}
+
+.gemFill {
+  opacity: 0;
+  animation: fillIn 1.2s ease 1.5s forwards;
+}
+
+.shine {
+  opacity: 0.55;
+  transform: skewX(-20deg);
+  animation: shineSweep 2.6s ease-in-out 2.2s infinite;
+}
+
+.spark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0;
+  animation: sparkle 2.4s ease-in-out infinite;
+}
+
+.spark1 { top: 6%; left: 10%; animation-delay: 1.8s; }
+.spark2 { top: 30%; right: -2%; width: 10px; height: 10px; animation-delay: 2.5s; }
+.spark3 { bottom: 8%; left: 34%; width: 8px; height: 8px; animation-delay: 3.1s; }
+
+.brand {
+  display: flex;
+  margin: clamp(20px, 4vw, 32px) 0 0;
+  font-family: var(--font-serif, serif);
+  font-size: clamp(1.4rem, 5.5vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  color: #FAF8F4;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: letterIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tagline {
+  margin: 10px 0 0;
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #C5A16B;
+  opacity: 0;
+  animation: fadeIn 1s ease 2.2s forwards;
+}
+
+.bar {
+  width: clamp(140px, 36vw, 220px);
+  height: 2px;
+  margin-top: clamp(24px, 5vw, 36px);
+  background: rgba(250, 248, 244, 0.15);
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1.2s forwards;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #8E662F, #DFCA9E);
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { opacity: 0.9; } }
+@keyframes shineSweep {
+  0% { transform: translateX(0) skewX(-20deg); }
+  60%, 100% { transform: translateX(210px) skewX(-20deg); }
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(90deg); }
+}
+@keyframes letterIn { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(0.92); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 0.9; transform: scale(1.4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gemWrap,
+  .glow,
+  .dust,
+  .shine,
+  .spark {
+    animation: none;
+  }
+  .draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .gemFill { animation: none; opacity: 0.9; }
+  .letter { animation: none; opacity: 1; transform: none; }
+  .tagline,
+  .bar { animation: none; opacity: 1; }
+  .curtain { transition-duration: 0.3s; }
+}
