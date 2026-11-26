@@ -1,5 +1,5 @@
 /**
- * ATLAS Image & Asset Registry
+ * ORNIVA Image & Asset Registry
  * All components must import image paths from this barrel. Never hardcode paths inline.
  */
 

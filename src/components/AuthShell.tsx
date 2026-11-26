@@ -15,7 +15,7 @@ export function AuthShell({ children }: { children: ReactNode }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/images/jewelry/hero-model.jpg"
-            alt="LUXE JWELS Fine Jewellery"
+            alt="ORNIVA JEWELS Fine Jewellery"
             className={styles.visualImage}
           />
           <div className={styles.visualOverlay} />

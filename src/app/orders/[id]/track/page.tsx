@@ -138,7 +138,7 @@ export default function TrackOrderPage() {
                     <UserIcon size={20} />
                   </div>
                   <div>
-                    <div className={styles.driverName}>Atlas Express Courier</div>
+                    <div className={styles.driverName}>Orniva Express Courier</div>
                     <div className={styles.driverVehicle}>Eco Electric Van • Local Depot</div>
                   </div>
                 </div>

@@ -300,7 +300,7 @@ function CheckoutForm() {
                     <div className={styles.stepNumber}>1</div>
                     <div>
                       <h2 className={styles.cardTitle}>Delivery Address</h2>
-                      <span className={styles.cardSubtitle}>Where should we send your groceries?</span>
+                      <span className={styles.cardSubtitle}>Where should we send your jewellery?</span>
                     </div>
                   </div>
                   <MapPinIcon size={20} style={{ color: "var(--color-primary, #A77B3F)" }} />

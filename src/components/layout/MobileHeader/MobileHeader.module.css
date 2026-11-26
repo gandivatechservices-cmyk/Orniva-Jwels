@@ -8,6 +8,7 @@
   z-index: var(--z-sticky, 100);
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 @media (max-width: 900px) {
@@ -328,3 +329,23 @@
   background-color: #fef2f2;
 }
 
+
+/* TRANSPARENT MODE (home page, over the hero) */
+:global([data-header-mode="transparent"]) .mobileHeader {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, rgba(14, 10, 6, 0.55) 0%, rgba(14, 10, 6, 0) 100%);
+  border-bottom-color: transparent;
+  box-shadow: none;
+  --color-ink: #ffffff;
+}
+
+:global([data-header-mode="transparent"]) .menuIconBtn {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+:global([data-header-mode="transparent"]) .cartIcon {
+  color: #ffffff;
+}

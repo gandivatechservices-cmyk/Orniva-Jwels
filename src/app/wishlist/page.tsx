@@ -39,7 +39,7 @@ export default function WishlistPage() {
         <TopContentCard
           eyebrow="CURATED COLLECTION"
           title="My Saved Jewelry"
-          subtitle="Handcrafted pieces you’ve saved to your private LUXE JWELS collection."
+          subtitle="Handcrafted pieces you’ve saved to your private ORNIVA JEWELS collection."
           image={IMAGES.jewelry.categories.rings}
           imageAlt="Private Saved Jewelry Collection"
           breadcrumbs={[

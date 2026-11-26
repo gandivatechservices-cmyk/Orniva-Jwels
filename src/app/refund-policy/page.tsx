@@ -24,7 +24,7 @@ const FALLBACK_REFUND_POLICY: Policy = {
   title: "30-Day Luxury Return & Guarantee",
   subtitle: "Hallmarked purity, certified gemstones, and effortless 30-day returns",
   summary:
-    "At LUXE JWELS, your complete satisfaction with your fine jewelry investment is our highest priority. We offer a transparent 30-day inspection and return policy on eligible collections.",
+    "At ORNIVA JEWELS, your complete satisfaction with your fine jewelry investment is our highest priority. We offer a transparent 30-day inspection and return policy on eligible collections.",
   sections: [
     {
       id: "returns",
@@ -33,7 +33,7 @@ const FALLBACK_REFUND_POLICY: Policy = {
         "You may request a return within 30 days of receiving your jewelry order. Items must be unworn, undamaged, in their original presentation box with all security tags, lab certificates (IGI/GIA/BIS Hallmarking), and documentation intact.",
       items: [
         "30-day return window from the date of confirmed delivery",
-        "Original LUXE JWELS velvet box and packaging included",
+        "Original ORNIVA JEWELS velvet box and packaging included",
         "Security tamper-evident tag must remain attached",
         "Authenticity & diamond certification cards must be returned intact",
       ],
@@ -53,10 +53,10 @@ const FALLBACK_REFUND_POLICY: Policy = {
       id: "damaged-faulty-items",
       heading: "Damaged or Transit-Affected Deliveries",
       content:
-        "Every shipment from LUXE JWELS is fully insured. In the unlikely event that your jewelry arrives damaged or missing an item, please notify our concierge team within 48 hours at returns@luxejwels.com with photos of the tamper-evident packaging.",
+        "Every shipment from ORNIVA JEWELS is fully insured. In the unlikely event that your jewelry arrives damaged or missing an item, please notify our concierge team within 48 hours at returns@ornivajewels.com with photos of the tamper-evident packaging.",
       items: [
         "Inspect your luxury package upon receipt",
-        "Notify returns@luxejwels.com within 48 hours",
+        "Notify returns@ornivajewels.com within 48 hours",
         "Complimentary insured courier collection arranged immediately",
       ],
     },
@@ -84,7 +84,7 @@ const FALLBACK_REFUND_POLICY: Policy = {
       id: "return-costs",
       heading: "Complimentary Insured Return Pickup",
       content:
-        "For all certified fine jewelry orders above INR 2,999, LUXE JWELS provides complimentary insured return pickup via dedicated secure courier services. You will receive a tracking link and prepaid digital airway bill.",
+        "For all certified fine jewelry orders above INR 2,999, ORNIVA JEWELS provides complimentary insured return pickup via dedicated secure courier services. You will receive a tracking link and prepaid digital airway bill.",
       items: [
         "Free insured pickup for domestic orders",
         "Full door-to-door transit insurance coverage",
@@ -94,10 +94,10 @@ const FALLBACK_REFUND_POLICY: Policy = {
       id: "contact-us",
       heading: "Concierge Assistance",
       content:
-        "LUXE JWELS Client Care\nEmail: returns@luxejwels.com\nConcierge: +91 98765 43210\nHours: Mon - Sat: 10:00 AM - 7:30 PM\nYour statutory consumer rights are fully preserved.",
+        "ORNIVA JEWELS Client Care\nEmail: returns@ornivajewels.com\nConcierge: +91 98765 43210\nHours: Mon - Sat: 10:00 AM - 7:30 PM\nYour statutory consumer rights are fully preserved.",
       items: [
-        "Brand: LUXE JWELS",
-        "Email: returns@luxejwels.com",
+        "Brand: ORNIVA JEWELS",
+        "Email: returns@ornivajewels.com",
         "Phone: +91 98765 43210",
       ],
     },
@@ -105,7 +105,7 @@ const FALLBACK_REFUND_POLICY: Policy = {
   isActive: true,
   lastUpdated: new Date().toISOString(),
   metadata: {
-    email: "returns@luxejwels.com",
+    email: "returns@ornivajewels.com",
     phone: "+91 98765 43210",
   },
 };
@@ -161,7 +161,7 @@ export default function RefundPolicyPage() {
             "Hallmarked purity, certified gemstones, and effortless 30-day inspection and returns."
           }
           image={IMAGES.jewelry.luxuryTrust}
-          imageAlt="LUXE JWELS 30-Day Luxury Return Policy"
+          imageAlt="ORNIVA JEWELS 30-Day Luxury Return Policy"
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "Refund & Return Policy" },
@@ -200,8 +200,8 @@ export default function RefundPolicyPage() {
                 <p className={styles.sidebarHelpP}>
                   Our concierge team is on standby to assist with certificates, packaging, or insured courier collections.
                 </p>
-                <a href="mailto:returns@luxejwels.com" className={styles.sidebarHelpLink}>
-                  <span>returns@luxejwels.com</span>
+                <a href="mailto:returns@ornivajewels.com" className={styles.sidebarHelpLink}>
+                  <span>returns@ornivajewels.com</span>
                   <ArrowRightIcon size={13} />
                 </a>
               </div>
@@ -253,7 +253,7 @@ export default function RefundPolicyPage() {
                     <ShieldCheckIcon size={24} />
                   </div>
                   <div>
-                    <h3 className={styles.contactTitle}>Contact LUXE JWELS Concierge</h3>
+                    <h3 className={styles.contactTitle}>Contact ORNIVA JEWELS Concierge</h3>
                     <p style={{ margin: "4px 0 0", color: "#77716A", fontSize: "0.875rem" }}>
                       Please provide your order reference number and inspection details for your fine jewelry piece.
                     </p>
@@ -261,13 +261,13 @@ export default function RefundPolicyPage() {
                 </div>
 
                 <div className={styles.contactGrid}>
-                  <a href="mailto:returns@luxejwels.com" className={styles.contactMethod}>
+                  <a href="mailto:returns@ornivajewels.com" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       ✉
                     </div>
                     <div className={styles.contactInfoText}>
                       <span className={styles.contactLabel}>Email Us Directly</span>
-                      <span className={styles.contactValue}>returns@luxejwels.com</span>
+                      <span className={styles.contactValue}>returns@ornivajewels.com</span>
                     </div>
                   </a>
 

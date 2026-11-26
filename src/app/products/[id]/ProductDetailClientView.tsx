@@ -240,7 +240,7 @@ export function ProductDetailClientView({
 
             {/* Info Section */}
             <div className={styles.infoSection}>
-              <span className={styles.brand}>{product.brand || "Atlas Fresh"}</span>
+              <span className={styles.brand}>{product.brand || "Orniva Jewels"}</span>
               <h1 className={styles.title}>{product.name}</h1>
 
               <div className={styles.ratingRow}>

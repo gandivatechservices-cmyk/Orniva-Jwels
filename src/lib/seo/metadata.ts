@@ -17,7 +17,7 @@ export function productMetadata(product: Product): Metadata {
   const title = product.brand ? `${product.name} by ${product.brand}` : product.name;
   const description =
     toSnippet(product.description) ||
-    `Buy ${product.name} online at ${SITE_NAME}. Fresh groceries delivered across the UK.`;
+    `Buy ${product.name} online at ${SITE_NAME}. Certified fine jewellery with insured delivery.`;
   const image = product.images?.[0];
   const path = `/products/${encodeURIComponent(product._id)}`;
 
@@ -44,7 +44,7 @@ export function productMetadata(product: Product): Metadata {
 export function categoryMetadata(category: Category): Metadata {
   const description =
     toSnippet(category.description) ||
-    `Shop ${category.name} online at ${SITE_NAME}. Quality groceries delivered across the UK.`;
+    `Shop ${category.name} online at ${SITE_NAME}. Certified fine jewellery with insured delivery.`;
   const path = `/category/${encodeURIComponent(category.slug)}`;
 
   return {

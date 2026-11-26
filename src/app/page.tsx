@@ -276,7 +276,7 @@ export default function HomePage() {
                       offerLabel={getProductOfferLabel(activeOffers, p, domainCurrencyMap[p.domainId])}
                       currency={domainCurrencyMap[p.domainId] || "GBP"}
                       image={imageSrc}
-                      brand={p.brand || "LUXE JWELS"}
+                      brand={p.brand || "ORNIVA JEWELS"}
                       weight={specs}
                       rating={4.9}
                       reviewCount={p.variants?.length ? p.variants.length * 12 + 18 : 24}

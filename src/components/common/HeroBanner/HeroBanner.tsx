@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
 import { IMAGES } from "constants/images";
 import styles from "./HeroBanner.module.css";
@@ -30,11 +30,42 @@ export function HeroBanner({
   imageAlt = "Model wearing luxury diamond necklace and earrings",
   className = "",
 }: HeroBannerProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Subtle parallax: the image drifts slower than the page while the hero scrolls away.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = Math.min(window.scrollY, el.offsetHeight);
+      el.style.setProperty("--hero-shift", `${y * 0.25}px`);
+      el.style.setProperty("--hero-fade", String(Math.max(0, 1 - y / (el.offsetHeight * 0.7))));
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section className={`${styles.heroSection} ${className}`} aria-label="Luxury Jewelry Hero">
+    <section
+      ref={sectionRef}
+      data-hero
+      className={`${styles.heroSection} ${className}`}
+      aria-label="Luxury Jewelry Hero"
+    >
       {/* FULL-BLEED BACKGROUND IMAGE */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={imageSrc} alt={imageAlt} className={styles.heroImage} loading="eager" />
+      <div className={styles.heroMedia}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={imageSrc} alt={imageAlt} className={styles.heroImage} loading="eager" />
+      </div>
       <div className={styles.heroOverlay} aria-hidden="true" />
 
       <div className={styles.container}>
@@ -71,6 +102,10 @@ export function HeroBanner({
             )}
           </div>
         </div>
+      </div>
+      <div className={styles.scrollCue} aria-hidden="true">
+        <span className={styles.scrollLabel}>Scroll</span>
+        <span className={styles.scrollLine} />
       </div>
     </section>
   );

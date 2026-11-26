@@ -23,15 +23,15 @@ const FALLBACK_TERMS_POLICY: Policy = {
   title: "Terms & Conditions",
   subtitle: "Terms of service, delivery policies, ordering conditions, and customer agreements",
   summary:
-    "Welcome to LUXE JWELS. These Terms & Conditions govern your access to and purchase of our fine jewelry collections, certified diamond pieces, and bespoke atelier items.",
+    "Welcome to ORNIVA JEWELS. These Terms & Conditions govern your access to and purchase of our fine jewelry collections, certified diamond pieces, and bespoke atelier items.",
   sections: [
     {
       id: "introduction",
       heading: "1. Introduction & About Us",
       content:
-        "These Terms and Conditions govern your use of the LUXE JWELS online boutique and the purchase of any handcrafted jewellery pieces from us. By placing an order with LUXE JWELS, you agree to be bound by these terms. LUXE JWELS is dedicated to creating exquisite, hallmarked gold and certified diamond jewellery crafted to perfection.",
+        "These Terms and Conditions govern your use of the ORNIVA JEWELS online boutique and the purchase of any handcrafted jewellery pieces from us. By placing an order with ORNIVA JEWELS, you agree to be bound by these terms. ORNIVA JEWELS is dedicated to creating exquisite, hallmarked gold and certified diamond jewellery crafted to perfection.",
       items: [
-        "Applies to all visitors, registered patrons, and customers of LUXE JWELS",
+        "Applies to all visitors, registered patrons, and customers of ORNIVA JEWELS",
         "Operated with highest standards of transparency and integrity",
       ],
     },
@@ -39,7 +39,7 @@ const FALLBACK_TERMS_POLICY: Policy = {
       id: "account-eligibility",
       heading: "2. Eligibility & Customer Accounts",
       content:
-        "To place an order with LUXE JWELS, you must possess a valid payment method acceptable to us. You are responsible for maintaining the confidentiality of your account credentials and ensuring that all details (including delivery address, postcode, and contact phone number) are accurate for secure courier transit.",
+        "To place an order with ORNIVA JEWELS, you must possess a valid payment method acceptable to us. You are responsible for maintaining the confidentiality of your account credentials and ensuring that all details (including delivery address, postcode, and contact phone number) are accurate for secure courier transit.",
       items: [
         "Customers must be 18 years of age or older",
         "Accurate delivery address and contact telephone number required for high-value dispatch",
@@ -125,10 +125,10 @@ const FALLBACK_TERMS_POLICY: Policy = {
       id: "contact-atlas",
       heading: "10. Contact Information",
       content:
-        "If you have questions regarding these terms, orders, or support:\nAtlas\nEmail: returns@atlasone.com\nTelephone: 07771142324\nPlease quote your order number for expedited support.",
+        "If you have questions regarding these terms, orders, or support:\nOrniva Jewels\nEmail: returns@ornivajewels.com\nTelephone: 07771142324\nPlease quote your order number for expedited support.",
       items: [
-        "Atlas Groceries Customer Care",
-        "Email: returns@atlasone.com",
+        "Orniva Jewels Customer Care",
+        "Email: returns@ornivajewels.com",
         "Telephone: 07771142324",
       ],
     },
@@ -138,7 +138,7 @@ const FALLBACK_TERMS_POLICY: Policy = {
   metadata: {
     freeDeliveryThreshold: 40,
     standardDeliveryFee: 4,
-    email: "returns@atlasone.com",
+    email: "returns@ornivajewels.com",
     phone: "07771142324",
   },
 };
@@ -194,7 +194,7 @@ export default function TermsPage() {
             "Terms of service, delivery policies, ordering conditions, and customer agreements."
           }
           image={IMAGES.jewelry.luxuryTrust}
-          imageAlt="LUXE JWELS Terms and Conditions"
+          imageAlt="ORNIVA JEWELS Terms and Conditions"
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "Terms & Conditions" },
@@ -283,13 +283,13 @@ export default function TermsPage() {
                 </div>
 
                 <div className={styles.contactGrid}>
-                  <a href="mailto:returns@luxejwels.com" className={styles.contactMethod}>
+                  <a href="mailto:returns@ornivajewels.com" className={styles.contactMethod}>
                     <div className={styles.contactIconCircle}>
                       ✉
                     </div>
                     <div className={styles.contactInfoText}>
                       <span className={styles.contactLabel}>Email Customer Care</span>
-                      <span className={styles.contactValue}>returns@luxejwels.com</span>
+                      <span className={styles.contactValue}>returns@ornivajewels.com</span>
                     </div>
                   </a>
 

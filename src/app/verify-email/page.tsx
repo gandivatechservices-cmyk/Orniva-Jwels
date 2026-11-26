@@ -204,7 +204,7 @@ function VerifyEmailContent() {
     <div className={styles.card}>
       {/* Brand header */}
       <div className={styles.brandHeader}>
-        <Link href="/" className={styles.logoLink} aria-label="LUXE JWELS Home">
+        <Link href="/" className={styles.logoLink} aria-label="ORNIVA JEWELS Home">
           <AtlasLogo height={30} />
         </Link>
       </div>

@@ -16,6 +16,8 @@ import {
   CheckIcon,
 } from "../../icons";
 import { useAuth } from "hooks";
+import { RING_SIZE_ROUTE } from "constants/ringSize";
+import { NECKLACE_LENGTH_ROUTE } from "constants/necklaceLength";
 import { catalogService, type Category } from "../../../utility/services/catalog";
 import styles from "./Footer.module.css";
 
@@ -104,7 +106,7 @@ export function Footer({ className = "" }: { className?: string }) {
           <div className={styles.newsletterInner}>
             <div className={styles.newsletterBrandBadge}>
               <span className={styles.newsletterEyebrow}>EXCLUSIVE PRIVILEGES</span>
-              <h3 className={styles.newsletterTitle}>Join the LUXE JWELS Circle</h3>
+              <h3 className={styles.newsletterTitle}>Join the ORNIVA JEWELS Circle</h3>
               <p className={styles.newsletterSub}>
                 Receive private invitations, curated collection previews &amp; bespoke privileges.
               </p>
@@ -113,7 +115,7 @@ export function Footer({ className = "" }: { className?: string }) {
             <div className={styles.newsletterFormWrap}>
               {newsletterSubscribed ? (
                 <div className={styles.newsletterSuccess}>
-                  <CheckIcon size={16} /> Thank you for subscribing to LUXE JWELS updates.
+                  <CheckIcon size={16} /> Thank you for subscribing to ORNIVA JEWELS updates.
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
@@ -154,7 +156,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow LUXE JWELS on Facebook"
+                  aria-label="Follow ORNIVA JEWELS on Facebook"
                 >
                   <FacebookIcon size={16} />
                 </a>
@@ -163,7 +165,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow LUXE JWELS on Instagram"
+                  aria-label="Follow ORNIVA JEWELS on Instagram"
                 >
                   <InstagramIcon size={16} />
                 </a>
@@ -172,7 +174,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow LUXE JWELS on YouTube"
+                  aria-label="Follow ORNIVA JEWELS on YouTube"
                 >
                   <YoutubeIcon size={16} />
                 </a>
@@ -181,7 +183,7 @@ export function Footer({ className = "" }: { className?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
-                  aria-label="Follow LUXE JWELS on X"
+                  aria-label="Follow ORNIVA JEWELS on X"
                 >
                   <TwitterIcon size={16} />
                 </a>
@@ -245,6 +247,16 @@ export function Footer({ className = "" }: { className?: string }) {
                   </Link>
                 </li>
                 <li>
+                  <Link href={RING_SIZE_ROUTE} prefetch={false} className={styles.link}>
+                    Ring Size Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link href={NECKLACE_LENGTH_ROUTE} prefetch={false} className={styles.link}>
+                    Necklace Length Guide
+                  </Link>
+                </li>
+                <li>
                   <Link href="/reviews" prefetch={false} className={styles.link}>
                     Customer Reviews
                   </Link>
@@ -286,8 +298,8 @@ export function Footer({ className = "" }: { className?: string }) {
                 </div>
                 <div className={styles.contactItem}>
                   <span className={styles.contactLabel}>Email:</span>
-                  <a href="mailto:support@luxejewels.com" className={styles.contactLink}>
-                    Support@luxejewels.com
+                  <a href="mailto:support@ornivajewels.com" className={styles.contactLink}>
+                    Support@ornivajewels.com
                   </a>
                 </div>
                 <div className={styles.contactItem}>
@@ -309,7 +321,7 @@ export function Footer({ className = "" }: { className?: string }) {
         <Container>
           <div className={styles.bottomContent}>
             <p className={styles.copyright}>
-              &copy; 2025 LUXE JWELS. All Rights Reserved.
+              &copy; 2025 ORNIVA JEWELS. All Rights Reserved.
             </p>
 
             <div className={styles.paymentMethods}>

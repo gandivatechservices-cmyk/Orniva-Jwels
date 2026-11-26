@@ -1,8 +1,12 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import type { Variant } from "utility/services";
 import { formatUnit } from "utility/variantLabels";
-import styles from "./product.module.css";
+import { SizeSelector } from "components/common/SizeSelector";
+import { isGuideKey, type SizeGuide } from "constants/sizeGuides";
+import { getOptionVisual, type OptionVisual } from "./variantVisuals";
+import styles from "./VariantSelector.module.css";
 
 /** A variant's value for an attribute; "" when it doesn't have that attribute at all. */
 const valueOf = (variant: Variant, key: string): string => variant.attributes?.[key]?.trim() ?? "";
@@ -42,12 +46,12 @@ type Props = {
   variants: Variant[];
   selected: Variant | null;
   onSelect: (variant: Variant) => void;
-  /** Formats a price for display; when given, each option shows the price it would switch to. */
-  formatPrice?: (price: number) => string;
+  /** Products with a size guide (rings, necklaces...) show their size attribute as a dropdown with a help modal. */
+  sizeGuide?: SizeGuide | null;
 };
 
 /** One row of choices per varying attribute (like Amazon / Flipkart). Picking a value jumps to the closest in-stock variant. */
-export function VariantSelector({ variants, selected, onSelect, formatPrice }: Props) {
+export function VariantSelector({ variants, selected, onSelect, sizeGuide = null }: Props) {
   const keys = getVaryingKeys(variants);
   const current = (key: string) => (selected ? valueOf(selected, key) : "");
 
@@ -65,16 +69,42 @@ export function VariantSelector({ variants, selected, onSelect, formatPrice }: P
   };
 
   return (
-    <div className={styles.variantGroups}>
+    <div className={styles.groups}>
       {keys.map((key) => {
         const values = Array.from(new Set(variants.map((v) => valueOf(v, key))));
+
+        if (sizeGuide && isGuideKey(sizeGuide, key)) {
+          return (
+            <div key={key} className={styles.group}>
+              <SizeSelector
+                guide={sizeGuide}
+                value={selected ? current(key) : ""}
+                onChange={(value) => pick(key, value)}
+                options={values.map((value) => {
+                  const withValue = variants.filter((v) => valueOf(v, key) === value);
+                  const anyInStock = withValue.some((v) => v.stock > 0);
+                  const comboInStock = withValue.some(
+                    (v) => v.stock > 0 && keys.every((k) => k === key || valueOf(v, k) === current(k))
+                  );
+                  return {
+                    value,
+                    label: valueLabel(key, value),
+                    disabled: !anyInStock,
+                    unavailable: anyInStock && !comboInStock,
+                  };
+                })}
+              />
+            </div>
+          );
+        }
+
         return (
-          <div key={key} className={styles.variantGroup}>
-            <span className={styles.variantGroupTitle}>
+          <div key={key} className={styles.group}>
+            <span className={styles.groupTitle}>
               {keyTitle(key)}: <strong>{selected ? valueLabel(key, current(key)) : ""}</strong>
             </span>
-            <div className={styles.variantOptions} role="radiogroup" aria-label={keyTitle(key)}>
-              {values.map((value) => {
+            <div className={styles.options} role="radiogroup" aria-label={keyTitle(key)}>
+              {values.map((value, index) => {
                 const withValue = variants.filter((v) => valueOf(v, key) === value);
                 const anyInStock = withValue.some((v) => v.stock > 0);
                 // Is this exact combination (with the other current choices) available?
@@ -82,25 +112,42 @@ export function VariantSelector({ variants, selected, onSelect, formatPrice }: P
                   (v) => v.stock > 0 && keys.every((k) => k === key || valueOf(v, k) === current(k))
                 );
                 const isSelected = current(key) === value;
-                const target = bestFor(key, value);
+                const label = valueLabel(key, value);
                 const color = swatchColor(key, value);
+                const visual: OptionVisual = color ? { kind: "swatch", background: color } : getOptionVisual(key, value);
+                const caption = visual.kind === "shape" || (visual.kind === "swatch" && !visual.text) ? label : null;
                 return (
                   <button
                     key={value || "__blank"}
                     type="button"
                     role="radio"
                     aria-checked={isSelected}
+                    aria-label={label}
                     disabled={!anyInStock}
-                    title={!anyInStock ? "Out of stock" : !comboInStock ? "Not available with your other choices" : undefined}
-                    className={`${styles.variantPill} ${isSelected ? styles.active : ""} ${!anyInStock ? styles.outOfStock : ""} ${anyInStock && !comboInStock ? styles.variantUnavailable : ""}`}
+                    title={!anyInStock ? "Out of stock" : !comboInStock ? "Not available with your other choices" : label}
+                    style={{ "--i": index } as CSSProperties}
+                    className={[
+                      styles.opt,
+                      isSelected ? styles.active : "",
+                      visual.kind === "text" ? styles.textOnly : "",
+                      !anyInStock ? styles.outOfStock : "",
+                      anyInStock && !comboInStock ? styles.unavailable : "",
+                    ].join(" ")}
                     onClick={() => pick(key, value)}
                   >
-                    {color ? (
-                      <span className={styles.variantSwatch} style={{ background: color }} aria-label={value} />
+                    {visual.kind === "swatch" ? (
+                      <span
+                        className={`${styles.visual} ${styles.swatch} ${visual.dark ? styles.swatchDark : ""}`}
+                        style={{ background: visual.background }}
+                      >
+                        {visual.text}
+                      </span>
+                    ) : visual.kind === "shape" ? (
+                      <span className={styles.visual}>{visual.icon}</span>
                     ) : (
-                      <span>{valueLabel(key, value)}</span>
+                      <span className={`${styles.visual} ${styles.textChip}`}>{label}</span>
                     )}
-                    {formatPrice && target && anyInStock && <span className={styles.variantPillPrice}>{formatPrice(target.price)}</span>}
+                    {caption && <span className={styles.caption}>{caption}</span>}
                   </button>
                 );
               })}

@@ -72,7 +72,7 @@ export default function LoginPage() {
     <AuthShell>
       <AuthForm
         title="Welcome back"
-        description="Sign in to continue shopping with LUXE JWELS."
+        description="Sign in to continue shopping with ORNIVA JEWELS."
         onSubmit={handleSubmit}
         submitLabel="Sign In"
         loading={loading}

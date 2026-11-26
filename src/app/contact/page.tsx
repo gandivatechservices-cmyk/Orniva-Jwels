@@ -63,7 +63,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <h3 className={styles.infoTitle}>Email Concierge</h3>
-                  <span className={styles.infoValue}>support@luxejewels.com</span>
+                  <span className={styles.infoValue}>support@ornivajewels.com</span>
                   <span className={styles.infoSub}>Online response within 4 hours</span>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
               <div style={{ textAlign: "center", padding: 20 }}>
                 <MapPinIcon size={32} style={{ color: "#A77B3F", margin: "0 auto 8px" }} />
                 <h4 style={{ fontFamily: "var(--font-serif)", fontSize: "1.1rem", color: "#242321", margin: 0 }}>
-                  LUXE JWELS Flagship Atelier
+                  ORNIVA JEWELS Flagship Atelier
                 </h4>
                 <p style={{ color: "#77716A", fontSize: "0.85rem", margin: "4px 0 0" }}>
                   Ahmedabad, Gujarat &bull; Private Viewings by Appointment

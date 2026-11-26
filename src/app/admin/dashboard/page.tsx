@@ -397,7 +397,7 @@ export default function AdminDashboardPage() {
                   Welcome back, {user?.name || "Administrator"}
                 </Typography.Title>
                 <Typography.Text style={{ color: "rgba(255,255,255,0.75)" }}>
-                  Real-time overview of your Atlas grocery store.
+                  Real-time overview of your Orniva Jewels store.
                 </Typography.Text>
               </div>
               <Space>

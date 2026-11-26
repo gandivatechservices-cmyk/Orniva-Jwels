@@ -50,7 +50,7 @@ export function MobileHeader({ onOpenCart }: MobileHeaderProps) {
           <MenuIcon size={24} />
         </button>
 
-        <Link href="/" className={styles.logoLink} aria-label="Atlas Home">
+        <Link href="/" className={styles.logoLink} aria-label="Orniva Jewels Home">
           <AtlasLogo height={26} />
         </Link>
 

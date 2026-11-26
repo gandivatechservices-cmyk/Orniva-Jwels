@@ -1,10 +1,10 @@
-export const SITE_NAME = "LUXE JWELS";
+export const SITE_NAME = "ORNIVA JEWELS";
 
 export const SITE_DESCRIPTION =
-  "Timeless elegance, crafted for you. Discover exquisite fine jewelry, diamond rings, necklaces, earrings, and bespoke craftsmanship at LUXE JWELS.";
+  "Timeless elegance, crafted for you. Discover exquisite fine jewelry, diamond rings, necklaces, earrings, and bespoke craftsmanship at ORNIVA JEWELS.";
 
-/** Public site URL. Set NEXT_PUBLIC_SITE_URL in production (e.g. https://shop.atlassone.com). */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://shop.atlassone.com").replace(/\/+$/, "");
+/** Public site URL. Set NEXT_PUBLIC_SITE_URL in production (e.g. https://ornivajewels.com). */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://ornivajewels.com").replace(/\/+$/, "");
 
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;

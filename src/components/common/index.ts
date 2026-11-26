@@ -19,6 +19,7 @@ export * from "./ShopAllHeroBanner";
 export * from "./AuthModal";
 export * from "./ProductFilterSidebar";
 export * from "./ProductImageLightbox";
+export * from "./ProductGallery";
 export * from "./CouponInput";
 export * from "./UkAddressAutocomplete";
 export * from "./DownloadInvoiceButton";
@@ -30,3 +31,6 @@ export * from "./BrandHeroBanner";
 export * from "./TopContentCard";
 export * from "./BackToTop";
 
+export * from "./SizeSelector";
+export * from "./SizeHelpModal";
+export * from "./Reveal";

@@ -64,9 +64,9 @@ export function Header({ onOpenCart }: HeaderProps) {
     <header className={styles.header}>
       {/* 1. TOP MAIN ROW: LOGO, CENTER SEARCH BAR, ACTIONS */}
       <div className={styles.container}>
-        {/* LEFT: LUXE JWELS LOGO */}
+        {/* LEFT: ORNIVA JEWELS LOGO */}
         <div className={styles.leftSection}>
-          <Link href="/" className={styles.logoLink} aria-label="LUXE JWELS Home">
+          <Link href="/" className={styles.logoLink} aria-label="ORNIVA JEWELS Home">
             <AtlasLogo height={32} />
           </Link>
         </div>

@@ -46,10 +46,10 @@ export const settingsService = {
       return res.data;
     } catch {
       return {
-        name: "Atlas",
-        email: "returns@atlasone.com",
+        name: "Orniva Jewels",
+        email: "returns@ornivajewels.com",
         phone: "07771142324",
-        supportEmail: "returns@atlasone.com",
+        supportEmail: "returns@ornivajewels.com",
         address: "United Kingdom",
       };
     }
@@ -70,10 +70,10 @@ export const settingsService = {
           estimatedDays: "2–3 business days",
         },
         storeInfo: {
-          name: "Atlas",
-          email: "returns@atlasone.com",
+          name: "Orniva Jewels",
+          email: "returns@ornivajewels.com",
           phone: "07771142324",
-          supportEmail: "returns@atlasone.com",
+          supportEmail: "returns@ornivajewels.com",
           address: "United Kingdom",
         },
       };

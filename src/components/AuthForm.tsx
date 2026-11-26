@@ -30,7 +30,7 @@ export function AuthForm({
   return (
     <div className={styles.card}>
       <div className={styles.brandHeader}>
-        <Link href="/" className={styles.logoLink} aria-label="LUXE JWELS Home">
+        <Link href="/" className={styles.logoLink} aria-label="ORNIVA JEWELS Home">
           <AtlasLogo height={32} />
         </Link>
       </div>
@@ -153,7 +153,7 @@ export function AuthSuccessCard({
   return (
     <div className={styles.card}>
       <div className={styles.brandHeader}>
-        <Link href="/" className={styles.logoLink} aria-label="Atlas Home">
+        <Link href="/" className={styles.logoLink} aria-label="Orniva Jewels Home">
           <AtlasLogo height={32} />
         </Link>
       </div>

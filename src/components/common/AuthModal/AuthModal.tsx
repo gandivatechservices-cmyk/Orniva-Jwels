@@ -108,7 +108,7 @@ export function AuthModal() {
       className={styles.modal}
     >
       <div className={styles.modalHeader}>
-        <div className={styles.brandTitle}>ATLAS GROCERY</div>
+        <div className={styles.brandTitle}>ORNIVA JEWELS</div>
         <div className={styles.modalSubtitle}>
           {activeTab === "login"
             ? "Sign in to access your cart, wishlist, and orders"

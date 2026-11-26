@@ -111,7 +111,7 @@ export const ProductCard = memo(function ProductCard({
       <div className={styles.info}>
         <div className={styles.metaRow}>
           <span className={styles.brand}>
-            {brand && brand.trim() !== "" ? brand : "LUXE JWELS"}
+            {brand && brand.trim() !== "" ? brand : "ORNIVA JEWELS"}
           </span>
           {hasRating && (
             <span className={styles.rating} aria-label={`Rated ${rating!.toFixed(1)} out of 5`}>

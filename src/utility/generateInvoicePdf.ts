@@ -245,7 +245,7 @@ function buildInvoiceHtml(invoice: InvoiceData, appName: string): string {
  * native print dialog (allowing saving as PDF with high fidelity).
  * Falls back to a popup window if iframe print is restricted.
  */
-export function downloadInvoicePdf(invoice: InvoiceData, appName = "Atlassone"): void {
+export function downloadInvoicePdf(invoice: InvoiceData, appName = "Orniva Jewels"): void {
   const html = buildInvoiceHtml(invoice, appName);
   const iframe = document.createElement("iframe");
 

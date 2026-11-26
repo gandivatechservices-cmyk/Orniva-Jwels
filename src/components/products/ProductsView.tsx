@@ -780,6 +780,7 @@ function ProductsViewContent({ initialCategorySlug }: ProductsViewProps) {
         subtitle:
           activeCategory.description || defaults.description,
         image: activeCategory.imageUrl || defaults.fallbackImage || IMAGES.jewelry.heroModel,
+        hasOwnImage: Boolean(activeCategory.imageUrl),
         ariaLabel: `${activeCategory.name} Category`,
       };
     }
@@ -793,6 +794,7 @@ function ProductsViewContent({ initialCategorySlug }: ProductsViewProps) {
           brandInfo?.description ||
           `Explore handcrafted artisanal masterpieces and certified fine jewelry from ${brandName}.`,
         image: brandInfo?.bannerUrl || IMAGES.jewelry.heroModel,
+        hasOwnImage: Boolean(brandInfo?.bannerUrl),
         ariaLabel: `${brandName} Collection`,
       };
     }

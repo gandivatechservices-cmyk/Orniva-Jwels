@@ -24,7 +24,7 @@ export function NewsletterSection({ className = "" }: { className?: string }) {
           <DiamondIcon size={20} className={styles.leafIcon} />
         </div>
         <div className={styles.textGroup}>
-          <h3 className={styles.title}>Join The LUXE JWELS Circle</h3>
+          <h3 className={styles.title}>Join The ORNIVA JEWELS Circle</h3>
           <p className={styles.subtitle}>
             Receive privileged previews of fine jewelry launches, private salon events &amp; bespoke creations.
           </p>

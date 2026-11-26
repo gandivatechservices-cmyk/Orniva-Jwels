@@ -5,6 +5,7 @@
   top: 0;
   z-index: var(--z-sticky, 100);
   width: 100%;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .container {
@@ -50,6 +51,7 @@
   border-top: 1px solid #F3EFE9;
   width: 100%;
   background-color: #ffffff;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 .navContainer {
@@ -302,4 +304,59 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* TRANSPARENT MODE (home page, over the hero) */
+:global([data-header-mode="transparent"]) .header,
+:global([data-header-mode="transparent"]) .navRow {
+  background-color: transparent;
+  border-color: transparent;
+  --color-ink: #ffffff;
+}
+
+:global([data-header-mode="transparent"]) .header {
+  background-image: linear-gradient(180deg, rgba(14, 10, 6, 0.55) 0%, rgba(14, 10, 6, 0) 100%);
+}
+
+:global([data-header-mode="transparent"]) .navRow {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+:global([data-header-mode="transparent"]) .navLink,
+:global([data-header-mode="transparent"]) .actionIcon,
+:global([data-header-mode="transparent"]) .basketCartIcon,
+:global([data-header-mode="transparent"]) .accountChevron {
+  color: #ffffff;
+}
+
+:global([data-header-mode="transparent"]) .navLink:hover,
+:global([data-header-mode="transparent"]) .navLinkActive,
+:global([data-header-mode="transparent"]) .iconActionBtn:hover .actionIcon,
+:global([data-header-mode="transparent"]) .basketBtn:hover .basketCartIcon {
+  color: #DFCA9E;
+}
+
+:global([data-header-mode="transparent"]) .navLink::after {
+  background-color: #DFCA9E;
+}
+
+/* Nav links slide in on load */
+.navLink {
+  animation: navReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.navLink:nth-child(1) { animation-delay: 0.05s; }
+.navLink:nth-child(2) { animation-delay: 0.10s; }
+.navLink:nth-child(3) { animation-delay: 0.15s; }
+.navLink:nth-child(4) { animation-delay: 0.20s; }
+.navLink:nth-child(5) { animation-delay: 0.25s; }
+.navLink:nth-child(6) { animation-delay: 0.30s; }
+.navLink:nth-child(7) { animation-delay: 0.35s; }
+
+@keyframes navReveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink { animation: none; }
 }

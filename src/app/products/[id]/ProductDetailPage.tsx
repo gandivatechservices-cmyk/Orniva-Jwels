@@ -8,7 +8,7 @@ import { Container } from "../../../components/layout/Container";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 import { Rating } from "../../../components/ui/Rating";
 import { Tabs } from "../../../components/ui/Tabs";
-import { ProductCard, ProductImageLightbox } from "../../../components/common";
+import { ProductCard, ProductImageLightbox, ProductGallery } from "../../../components/common";
 import { Skeleton } from "../../../components/ui/Skeleton";
 import { EmptyState } from "../../../components/ui/EmptyState";
 import { Button } from "../../../components/ui/Button";
@@ -63,6 +63,8 @@ function getProductWeight(p: Product): string {
 
 import { formatUnit, uniqueVariantLabels } from "utility/variantLabels";
 import { VariantSelector, canGroupVariants } from "./VariantSelector";
+import { SizeSelector } from "components/common/SizeSelector";
+import { detectSizeGuide, isGuideKey } from "constants/sizeGuides";
 import { LOW_STOCK_THRESHOLD, variantCardProps } from "utility/variantPricing";
 
 function formatVariantOptionLabel(v: Variant, index: number): string {
@@ -189,6 +191,8 @@ export default function ProductDetailPage({
   // Variants calculation
   const variants = useMemo(() => product?.variants || [], [product]);
   const variantLabels = useMemo(() => uniqueVariantLabels(variants, formatVariantOptionLabel), [variants]);
+  // Frontend-only size / length (ring size, necklace length). Not part of the cart/order payload yet.
+  const [pickedGuideSize, setPickedGuideSize] = useState("");
   const optionKeys = useMemo(
     () => Array.from(new Set(variants.flatMap((v) => Object.keys(v.attributes || {})))),
     [variants]
@@ -370,7 +374,7 @@ export default function ProductDetailPage({
           <div className={styles.structuredInfoBox}>
             <h4 className={styles.structuredTitle}>Complimentary Insured Delivery</h4>
             <p style={{ margin: "0 0 12px 0", color: "#55504A", lineHeight: 1.6 }}>
-              Every LUXE JWELS piece is packaged in a tamper-evident luxury gift box and dispatched via fully insured courier service.
+              Every ORNIVA JEWELS piece is packaged in a tamper-evident luxury gift box and dispatched via fully insured courier service.
             </p>
             <ul style={{ margin: 0, paddingLeft: "20px", color: "#55504A", lineHeight: 1.6 }}>
               <li>Dispatched within 24-48 hours with door-to-door GPS tracking.</li>
@@ -457,87 +461,54 @@ export default function ProductDetailPage({
           <section className={styles.heroLayout} aria-label="Product Overview">
             {/* LEFT: Product image / gallery */}
             <div className={styles.gallerySection}>
-              <div
-                className={styles.mainImageCard}
-                onClick={() => setIsLightboxOpen(true)}
-                role="button"
-                tabIndex={0}
-                aria-label="Click to enlarge image"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    setIsLightboxOpen(true);
-                  }
-                }}
+              <ProductGallery
+                images={galleryImages}
+                alt={product.name}
+                selectedIndex={selectedImageIndex}
+                onSelect={setSelectedImageIndex}
+                onOpen={() => setIsLightboxOpen(true)}
               >
-                {hasDiscount && (
-                  <div className={styles.floatingDiscountBadge}>
-                    -{discountPercent}% OFF
-                  </div>
-                )}
-
-                <button
-                  type="button"
-                  className={`${styles.floatingWishlistBtn} ${isWishlisted ? styles.wishlisted : ""}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (!isAuthenticated) {
-                      router.push("/login");
-                      return;
-                    }
-                    toggleWishlist(product._id);
-                  }}
-                  aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
-                >
-                  <HeartIcon size={20} filled={isWishlisted} />
-                </button>
-
-                <button
-                  type="button"
-                  className={styles.floatingExpandBtn}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsLightboxOpen(true);
-                  }}
-                  aria-label="Expand image"
-                  title="Click to view full preview"
-                >
-                  <ExpandIcon size={18} />
-                </button>
-
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={activeImage}
-                  alt={product.name}
-                  className={styles.mainImage}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = IMAGES.placeholders.product;
-                  }}
-                />
-              </div>
-
-              {galleryImages.length > 1 && (
-                <div className={styles.thumbnailRow} aria-label="Product thumbnails">
-                  {galleryImages.map((img, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      className={`${styles.thumbnailBtn} ${idx === selectedImageIndex ? styles.active : ""
-                        }`}
-                      onClick={() => setSelectedImageIndex(idx)}
-                      aria-label={`View photo ${idx + 1}`}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={img} alt="" className={styles.thumbnailImg} />
-                    </button>
-                  ))}
+              {hasDiscount && (
+                <div className={styles.floatingDiscountBadge}>
+                  -{discountPercent}% OFF
                 </div>
               )}
+
+              <button
+                type="button"
+                className={`${styles.floatingWishlistBtn} ${isWishlisted ? styles.wishlisted : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (!isAuthenticated) {
+                    router.push("/login");
+                    return;
+                  }
+                  toggleWishlist(product._id);
+                }}
+                aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+              >
+                <HeartIcon size={20} filled={isWishlisted} />
+              </button>
+
+              <button
+                type="button"
+                className={styles.floatingExpandBtn}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsLightboxOpen(true);
+                }}
+                aria-label="Expand image"
+                title="Click to view full preview"
+              >
+                <ExpandIcon size={18} />
+              </button>
+              </ProductGallery>
             </div>
 
             {/* RIGHT: Product information and purchase controls */}
             <div className={styles.infoSection}>
               <div className={styles.brandLabel}>
-                {product.brand || "LUXE JWELS"}
+                {product.brand || "ORNIVA JEWELS"}
               </div>
 
               <h1 className={styles.productTitle}>{productTitle}</h1>
@@ -628,7 +599,7 @@ export default function ProductDetailPage({
                     <VariantSelector
                       variants={variants}
                       selected={variant}
-                      formatPrice={(amount) => formatPrice(amount, currency)}
+                      sizeGuide={detectSizeGuide(product.name, category?.name)}
                       onSelect={(v) => {
                         if (v._id) setManualVariantId(v._id);
                         if (v.attributes) setSelections(v.attributes);
@@ -672,6 +643,22 @@ export default function ProductDetailPage({
               {stock > 0 && stock <= LOW_STOCK_THRESHOLD && (
                 <p className={styles.lowStockHint}>Only {stock} left in stock — order soon</p>
               )}
+
+              {/* SIZE / LENGTH PICKER: ring & necklace listings with no size variant */}
+              {(() => {
+                const guide = detectSizeGuide(product.name, category?.name);
+                if (!guide || optionKeys.some((key) => isGuideKey(guide, key))) return null;
+                return (
+                  <div className={styles.variantBlock}>
+                    <SizeSelector
+                      guide={guide}
+                      value={pickedGuideSize}
+                      onChange={setPickedGuideSize}
+                      options={guide.pickerValues.map((size) => ({ value: size, label: size }))}
+                    />
+                  </div>
+                );
+              })()}
 
               {/* QUANTITY & ADD TO CART & BUY NOW */}
               <div className={styles.purchaseActionRow}>

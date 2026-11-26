@@ -20,9 +20,59 @@ export const TopContentCard = memo(function TopContentCard({
   children,
   align = "center",
   size = "md",
+  variant = "split",
 }: TopContentCardProps) {
   const computedAriaLabel =
     ariaLabel || (typeof title === "string" ? title : "Hero Banner");
+
+  const renderBreadcrumbs = () =>
+    breadcrumbs && breadcrumbs.length > 0 ? (
+      <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+        {breadcrumbs.map((b, idx) => (
+          <span key={idx} className={styles.breadcrumbItem}>
+            {b.href ? (
+              <Link href={b.href} className={styles.breadcrumbLink}>
+                {b.label}
+              </Link>
+            ) : (
+              <span className={styles.breadcrumbCurrent}>{b.label}</span>
+            )}
+            {idx < breadcrumbs.length - 1 && <span className={styles.breadcrumbSeparator}>/</span>}
+          </span>
+        ))}
+      </nav>
+    ) : null;
+
+  if (variant === "split") {
+    return (
+      <section className={`${styles.heroSplit} ${className}`} aria-label={computedAriaLabel}>
+        <div className={styles.splitContent}>
+          <div className={styles.splitTop}>{renderBreadcrumbs()}</div>
+          <div className={styles.splitBody}>
+            {eyebrow && <span className={styles.splitEyebrow}>{eyebrow}</span>}
+            <h1 className={styles.splitTitle}>{title}</h1>
+            {subtitle && <p className={styles.splitSubtitle}>{subtitle}</p>}
+            {(badge || actions) && (
+              <div className={styles.splitMeta}>
+                {badge}
+                {actions}
+              </div>
+            )}
+            {children}
+          </div>
+        </div>
+        <div className={styles.splitMedia}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt={imageAlt || (typeof title === "string" ? title : "Hero Image")}
+            className={styles.splitImage}
+            loading="eager"
+          />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

@@ -94,7 +94,7 @@ export function AtlasLogo({
             textTransform: "uppercase",
           }}
         >
-          LUXE JWELS
+          ORNIVA JEWELS
         </span>
         <span
           style={{
@@ -118,7 +118,7 @@ export function AtlasAdminLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`luxe-admin-logo ${className}`} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: 700, fontSize: "1.1rem", color: "#ffffff" }}>
       <DiamondIcon size={20} color="#A77B3F" />
-      <span style={{ color: "#ffffff", fontWeight: 700, letterSpacing: "0.05em", fontFamily: "var(--font-serif, serif)" }}>LUXE JWELS</span>
+      <span style={{ color: "#ffffff", fontWeight: 700, letterSpacing: "0.05em", fontFamily: "var(--font-serif, serif)" }}>ORNIVA JEWELS</span>
       <span style={{ color: "#C5A16B", fontSize: "0.75rem", fontWeight: 600, marginLeft: "2px", letterSpacing: "0.1em" }}>ADMIN</span>
     </div>
   );

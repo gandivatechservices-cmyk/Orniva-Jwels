@@ -87,7 +87,7 @@ export function getCategoryHeroDefaults(categorySlugOrName: string) {
 
   // General Fine Jewelry default
   return {
-    eyebrow: "LUXE JWELS ATELIER",
+    eyebrow: "ORNIVA JEWELS ATELIER",
     defaultTitle: "Fine Jewellery",
     description: "Discover handcrafted luxury jewelry designed to celebrate life's most precious milestones.",
     fallbackImage: "/assets/images/jewelry/category-rings.jpg",

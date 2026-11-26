@@ -105,7 +105,7 @@ export default function RegisterPage() {
     <AuthShell>
       <AuthForm
         title="Create your account"
-        description="Join LUXE JWELS to save favourites and track your orders."
+        description="Join ORNIVA JEWELS to save favourites and track your orders."
         onSubmit={handleSubmit}
         submitLabel="Create Account"
         loading={loading}

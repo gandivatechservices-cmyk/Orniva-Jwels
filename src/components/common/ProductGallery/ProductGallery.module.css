@@ -1,0 +1,168 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 560px;
+  background: var(--color-bg-subtle, #F3EFE9);
+  border: 1px solid var(--color-line, #E9E2D8);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  cursor: zoom-in;
+  overflow: hidden;
+  outline: none;
+}
+
+.slide:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--color-primary, #A77B3F);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  transform: scale(1.06);
+  opacity: 0.85;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+
+/* The slide you land on settles in with a gentle zoom-out and fade-in */
+.slideActive .image {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-line, #E9E2D8);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-ink, #242321);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.arrowPrev {
+  left: 14px;
+  transform: translateX(-6px);
+}
+
+.arrowNext {
+  right: 14px;
+  transform: translateX(6px);
+}
+
+.frame:hover .arrow,
+.arrow:focus-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.arrow:hover {
+  background: var(--color-primary, #A77B3F);
+  border-color: var(--color-primary, #A77B3F);
+  color: #fff;
+}
+
+/* DOTS */
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
+  background: var(--color-line-dark, #D8CEBF);
+  cursor: pointer;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.dot:hover {
+  background: var(--color-subtle, #A39D94);
+}
+
+.dotActive,
+.dotActive:hover {
+  width: 26px;
+  background: var(--color-primary, #A77B3F);
+}
+
+/* Touch devices: arrows would cover the image, swiping + dots are enough */
+@media (hover: none), (max-width: 640px) {
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .frame {
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .frame {
+    max-height: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+  .track {
+    scroll-behavior: auto;
+  }
+}

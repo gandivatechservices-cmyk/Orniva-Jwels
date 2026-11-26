@@ -30,6 +30,11 @@ export interface TopContentCardProps {
   children?: ReactNode;
   /** Content alignment: 'center' (default) or 'left' */
   align?: "center" | "left";
+  /**
+   * Layout variant. "split" (default): content on the left, image on the right.
+   * "overlay": dark banner with the image behind centered text.
+   */
+  variant?: "overlay" | "split";
   /** Height size variant */
   size?: "sm" | "md" | "lg";
 }

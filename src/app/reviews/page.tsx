@@ -164,10 +164,10 @@ export default function ReviewsPage() {
             </div>
           </div>
 
-          {/* #LUXEJEWELS GALLERY */}
-          <section className={styles.gallerySection} style={{ marginTop: 60 }} aria-label="#LuxeJewels Gallery">
+          {/* #ORNIVAJEWELS GALLERY */}
+          <section className={styles.gallerySection} style={{ marginTop: 60 }} aria-label="#OrnivaJewels Gallery">
             <div className={styles.galleryHeader}>
-              <h3 className={styles.galleryTitle}>#LuxeJewels on Instagram</h3>
+              <h3 className={styles.galleryTitle}>#OrnivaJewels on Instagram</h3>
               <p style={{ color: "#77716A", margin: 0, fontSize: "0.9rem" }}>Tag us in your moments of timeless elegance</p>
             </div>
 
@@ -175,7 +175,7 @@ export default function ReviewsPage() {
               {GALLERY_PHOTOS.map((img, i) => (
                 <div key={i} className={styles.galleryCard}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img} alt="Customer wearing Luxe Jewels" className={styles.galleryImg} />
+                  <img src={img} alt="Customer wearing Orniva Jewels" className={styles.galleryImg} />
                 </div>
               ))}
             </div>

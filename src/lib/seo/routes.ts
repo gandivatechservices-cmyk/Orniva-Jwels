@@ -1,3 +1,5 @@
+import { RING_SIZE_PAGE, RING_SIZE_ROUTE } from "constants/ringSize";
+import { NECKLACE_LENGTH_PAGE, NECKLACE_LENGTH_ROUTE } from "constants/necklaceLength";
 /** Private or transactional routes that must never be indexed. Used by robots.ts and next.config.ts. */
 export const NOINDEX_ROUTES = [
   "admin",
@@ -15,7 +17,7 @@ export const NOINDEX_ROUTES = [
   "search",
 ];
 
-export type StaticPageKey = "products" | "categories" | "catalogs" | "brands" | "recipes" | "terms" | "refund-policy";
+export type StaticPageKey = "products" | "categories" | "catalogs" | "brands" | "recipes" | "terms" | "refund-policy" | "ring-size-guide" | "necklace-length-guide";
 
 type StaticPage = {
   title: string;
@@ -30,7 +32,7 @@ export const STATIC_PAGES: Record<StaticPageKey, StaticPage> = {
   products: {
     title: "All Products",
     description:
-      "Shop the full Atlas Groceries range: fresh produce, pantry staples, spices, snacks and drinks, delivered across the UK.",
+      "Shop the full Orniva Jewels range: certified diamond rings, gold necklaces, earrings, bracelets and bespoke fine jewellery.",
     path: "/products",
     changeFrequency: "daily",
     priority: 0.9,
@@ -38,14 +40,14 @@ export const STATIC_PAGES: Record<StaticPageKey, StaticPage> = {
   categories: {
     title: "Shop by Category",
     description:
-      "Browse all grocery categories at Atlas Groceries: fresh produce, pantry staples, spices, snacks and more, delivered across the UK.",
+      "Browse all jewellery collections at Orniva Jewels: rings, necklaces, earrings, bracelets, bangles and pendants.",
     path: "/categories",
     changeFrequency: "weekly",
     priority: 0.8,
   },
   catalogs: {
     title: "Catalogs",
-    description: "Browse every Atlas Groceries catalog and shop the full range.",
+    description: "Browse every Orniva Jewels catalog and shop the full range.",
     path: "/catalogs",
     changeFrequency: "weekly",
     priority: 0.7,
@@ -53,15 +55,15 @@ export const STATIC_PAGES: Record<StaticPageKey, StaticPage> = {
   brands: {
     title: "Shop by Brand",
     description:
-      "Explore trusted grocery brands at Atlas Groceries, including Tilda, Haldiram's, Shan, MDH and Amul, with UK delivery.",
+      "Explore the jewellery brands and ateliers available at Orniva Jewels.",
     path: "/brands",
     changeFrequency: "weekly",
     priority: 0.6,
   },
   recipes: {
-    title: "Recipes & Cooking Ideas",
+    title: "Care & Styling Ideas",
     description:
-      "Easy recipes and cooking ideas, with the ingredients you need available to order from Atlas Groceries.",
+      "Jewellery care tips and styling ideas from Orniva Jewels.",
     path: "/recipes",
     changeFrequency: "weekly",
     priority: 0.5,
@@ -69,7 +71,7 @@ export const STATIC_PAGES: Record<StaticPageKey, StaticPage> = {
   terms: {
     title: "Terms & Conditions",
     description:
-      "Read the Atlas Groceries terms and conditions covering ordering, delivery and customer accounts.",
+      "Read the Orniva Jewels terms and conditions covering ordering, delivery and customer accounts.",
     path: "/terms",
     changeFrequency: "yearly",
     priority: 0.2,
@@ -77,9 +79,23 @@ export const STATIC_PAGES: Record<StaticPageKey, StaticPage> = {
   "refund-policy": {
     title: "Refund & Return Policy",
     description:
-      "Learn how returns and refunds work at Atlas Groceries, including eligibility, timeframes and food-safety rules.",
+      "Learn how returns and refunds work at Orniva Jewels, including eligibility, timeframes and inspection of your jewellery.",
     path: "/refund-policy",
     changeFrequency: "yearly",
     priority: 0.2,
+  },
+  "ring-size-guide": {
+    title: RING_SIZE_PAGE.seo.title,
+    description: RING_SIZE_PAGE.seo.description,
+    path: RING_SIZE_ROUTE,
+    changeFrequency: "yearly",
+    priority: 0.4,
+  },
+  "necklace-length-guide": {
+    title: NECKLACE_LENGTH_PAGE.seo.title,
+    description: NECKLACE_LENGTH_PAGE.seo.description,
+    path: NECKLACE_LENGTH_ROUTE,
+    changeFrequency: "yearly",
+    priority: 0.4,
   },
 };

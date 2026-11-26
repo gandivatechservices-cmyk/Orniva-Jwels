@@ -46,7 +46,7 @@ export default function AboutPage() {
           title="Our Story"
           subtitle="Crafting Dreams Since 1995"
           image={IMAGES.jewelry.heroModel}
-          imageAlt="Luxe Jewels craft tradition"
+          imageAlt="Orniva Jewels craft tradition"
           breadcrumbs={[
             { label: "Home", href: "/" },
             { label: "About" },
@@ -57,10 +57,10 @@ export default function AboutPage() {
         <Container>
           {/* BRAND STORY INTRO */}
           <section className={styles.storyIntro} aria-label="Brand Introduction">
-            <span className={styles.brandNameLead}>WE ARE LUXE JWELS</span>
+            <span className={styles.brandNameLead}>WE ARE ORNIVA JEWELS</span>
             <h2 className={styles.storyTitle}>A Legacy of Timeless Elegance &amp; Devoted Craftsmanship</h2>
             <p className={styles.storyParagraph}>
-              For over two and a half decades, LUXE JWELS has stood as a beacon of artisanal luxury. From delicate
+              For over two and a half decades, ORNIVA JEWELS has stood as a beacon of artisanal luxury. From delicate
               daily wear solitaire diamond rings to grand royal bridal necklaces, each creation begins with an artistic vision
               and culminates in an enduring celebration of life&apos;s most meaningful milestones.
             </p>
