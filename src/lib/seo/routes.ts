@@ -1,5 +1,5 @@
-import { RING_SIZE_PAGE, RING_SIZE_ROUTE } from "constants/ringSize";
-import { NECKLACE_LENGTH_PAGE, NECKLACE_LENGTH_ROUTE } from "constants/necklaceLength";
+import { RING_SIZE_PAGE, RING_SIZE_ROUTE } from "../../constants/ringSize";
+import { NECKLACE_LENGTH_PAGE, NECKLACE_LENGTH_ROUTE } from "../../constants/necklaceLength";
 /** Private or transactional routes that must never be indexed. Used by robots.ts and next.config.ts. */
 export const NOINDEX_ROUTES = [
   "admin",
