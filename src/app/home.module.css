@@ -111,104 +111,6 @@
   width: 100%;
 }
 
-/* MANUFACTURING EDITORIAL BANNER */
-.manufacturingBanner {
-  position: relative;
-  width: 100%;
-  border-radius: 6px;
-  overflow: hidden;
-  background-color: #1A140E;
-  display: flex;
-  align-items: center;
-  min-height: clamp(200px, 20vw, 260px);
-}
-
-.manufacturingBg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.manufacturingOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(20, 14, 9, 0.94) 0%, rgba(26, 19, 12, 0.75) 38%, rgba(26, 19, 12, 0.2) 75%, rgba(26, 19, 12, 0.1) 100%);
-}
-
-.manufacturingContent {
-  position: relative;
-  z-index: 2;
-  padding: clamp(28px, 4vw, 48px);
-  max-width: 520px;
-}
-
-.manufacturingTitle {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-  font-weight: 400;
-  color: #FAF8F4;
-  line-height: 1.2;
-  margin: 0 0 6px 0;
-}
-
-.manufacturingSubtitle {
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: 1rem;
-  color: #E9E2D8;
-  line-height: 1.5;
-  margin: 0 0 22px 0;
-}
-
-.manufacturingBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 38px;
-  padding: 0 22px;
-  color: #FAF8F4;
-  background: transparent;
-  border: 1px solid rgba(250, 248, 244, 0.75);
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.manufacturingBtn:hover {
-  background: #FAF8F4;
-  border-color: #FAF8F4;
-  color: #242321;
-}
-
-.manufacturingPlay {
-  position: absolute;
-  z-index: 2;
-  left: 62%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(250, 248, 244, 0.9);
-  background: rgba(20, 14, 9, 0.25);
-  backdrop-filter: blur(2px);
-  color: #FAF8F4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 3px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.manufacturingPlay:hover {
-  background: rgba(167, 123, 63, 0.7);
-  transform: translate(-50%, -50%) scale(1.06);
-}
-
 /* DUAL EDITORIAL PROMOTIONAL CARDS */
 .editorialPromoGrid {
   display: grid;
@@ -459,10 +361,6 @@
   .productGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-  }
-
-  .manufacturingPlay {
-    display: none;
   }
 
   .editorialCardBody {

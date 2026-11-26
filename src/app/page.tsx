@@ -6,11 +6,12 @@ import { StoreLayout } from "../components/StoreLayout";
 import { Container } from "../components/layout/Container";
 import {
   HeroBanner,
+  VideoBanner,
   ProductCard,
   ProductCardSkeleton,
   ServiceBenefits,
 } from "../components/common";
-import { ShopByCategory } from "../components/category";
+import { CollectionShowcase } from "../components/category";
 import {
   catalogService,
   offersService,
@@ -175,43 +176,28 @@ export default function HomePage() {
           {/* 2. SERVICE BENEFITS TRUST STRIP */}
           <ServiceBenefits />
 
-          {/* 3. SHOP BY CATEGORY (CIRCULAR VIGNETTES) */}
-          <ShopByCategory
-            title="Shop By Category"
-            subtitle="Discover our exquisite collections"
-            viewAllText="View All"
+          {/* 3. EXPLORE THE COLLECTION (BENTO GRID) */}
+          <CollectionShowcase
+            title="Explore the collection"
+            viewAllText="View all collections"
             viewAllHref="/categories"
             categories={categories}
-            limit={8}
+            limit={6}
             loading={loading}
             error={error}
           />
 
           {/* 4. MANUFACTURING & CRAFTSMANSHIP EDITORIAL BANNER */}
-          <section className={styles.manufacturingBanner} aria-label="Explore Our Manufacturing">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={IMAGES.jewelry.manufacturingCraftsman}
-              alt="Jeweler setting diamonds by hand"
-              className={styles.manufacturingBg}
-            />
-            <div className={styles.manufacturingOverlay} />
-            <div className={styles.manufacturingContent}>
-              <h2 className={styles.manufacturingTitle}>Explore Our Manufacturing</h2>
-              <p className={styles.manufacturingSubtitle}>From Raw Material to Masterpiece</p>
-              <Link href="/manufacturing" className={styles.manufacturingBtn}>
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <polygon points="6 4 20 12 6 20 6 4" />
-                </svg>
-                <span>Watch Video</span>
-              </Link>
-            </div>
-            <Link href="/manufacturing" className={styles.manufacturingPlay} aria-label="Watch our manufacturing video">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <polygon points="7 4 20 12 7 20 7 4" />
-              </svg>
-            </Link>
-          </section>
+          <VideoBanner
+            eyebrow="Our Craft"
+            title="Explore Our Manufacturing"
+            subtitle="From Raw Material to Masterpiece"
+            imageSrc={IMAGES.jewelry.manufacturingCraftsman}
+            imageAlt="Jeweler setting diamonds by hand"
+            ctaText="Discover Our Craft"
+            ctaHref="/manufacturing"
+            steps={["Design", "Casting", "Stone Setting", "Polishing", "Certification"]}
+          />
 
           {/* 5. FEATURED COLLECTIONS PRODUCT SHOWCASE */}
           <section aria-label="Featured Collections">

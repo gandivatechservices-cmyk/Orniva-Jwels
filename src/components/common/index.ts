@@ -34,3 +34,4 @@ export * from "./BackToTop";
 export * from "./SizeSelector";
 export * from "./SizeHelpModal";
 export * from "./Reveal";
+export * from "./VideoBanner";
